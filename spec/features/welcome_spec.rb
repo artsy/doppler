@@ -25,10 +25,6 @@ describe 'Welcome' do
       expect(page.body).to include 'Welcome'
       expect(page.body).to include 'joe@example.com'
     end
-    it 'signs out' do
-      visit '/sign_out'
-      expect(page.body).to include 'Welcome'
-      expect(page.body).to_not include 'joe@example.com'
-    end
+    pending 'signs out'
   end
 end
