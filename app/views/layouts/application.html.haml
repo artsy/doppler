@@ -1,0 +1,13 @@
+!!!
+%html
+  %head
+    %title Doppler
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+  %body
+    = nav_bar static: :top, brand: 'The art world in your API.', responsive: true do
+      = menu_group do
+        = menu_item "Home", root_path
+    = bootstrap_flash
+    = yield
