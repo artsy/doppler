@@ -8,6 +8,8 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'twitter-bootstrap-rails'
 gem 'haml-rails'
+gem 'omniauth-artsy'
+gem 'warden'
 
 group :development do
   gem 'spring'

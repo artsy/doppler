@@ -1,5 +1,8 @@
 class ApplicationController < ActionController::Base
-  # Prevent CSRF attacks by raising an exception.
-  # For APIs, you may want to use :null_session instead.
+  include WardenHelper
   protect_from_forgery with: :exception
+
+  def authenticate!
+    redirect_to '/auth/artsy' unless authenticated?
+  end
 end
