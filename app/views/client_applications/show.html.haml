@@ -1,0 +1,21 @@
+%h1 Application
+
+%table.table.table-bordered.table-striped
+  %tbody
+    %tr
+      %td Name
+      %td= @client_application.attributes.name
+    %tr
+      %td Client Id
+      %td= @client_application.attributes.client_id
+    %tr
+      %td Client Secret
+      %td= @client_application.attributes.client_secret
+    %tr
+      %td Created
+      %td= DateTime.parse(@client_application.attributes.created_at).strftime("%B %d, %Y")
+    %tr
+      %td Updated
+      %td= DateTime.parse(@client_application.attributes.updated_at).strftime("%B %d, %Y")
+
+= link_to "Back", client_applications_path, class: 'btn'

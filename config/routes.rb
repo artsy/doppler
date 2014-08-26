@@ -3,4 +3,5 @@ Rails.application.routes.draw do
   get '/auth/:provider/callback', to: 'session#create'
   get '/sign_in', to: 'session#new'
   get '/sign_out', to: 'session#destroy'
+  resources :client_applications
 end

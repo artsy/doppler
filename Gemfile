@@ -7,9 +7,12 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'twitter-bootstrap-rails'
+gem 'twitter-bootstrap-rails-confirm'
 gem 'haml-rails'
 gem 'omniauth-artsy'
 gem 'warden'
+gem 'bootstrap_form'
+gem 'hyperclient'
 
 group :development do
   gem 'spring'
