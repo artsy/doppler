@@ -4,6 +4,10 @@
 
 I am Doppler, the Artsy developer website.
 
+### Contributing
+
+We welcome contributions. See [CONTRIBUTING](CONTRIBUTING.md).
+
 ### Copyright & License
 
 MIT License, see [LICENSE](LICENSE) for details.
