@@ -1,8 +1,8 @@
 require 'spec_helper'
 
 describe 'Client Applications' do
-  it "requires authentication" do
-    visit "/client_applications"
+  it 'requires authentication' do
+    visit '/client_applications'
     expect(current_path).to eq '/'
   end
   context 'logged in' do
