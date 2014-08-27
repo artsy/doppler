@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   get '/sign_out', to: 'session#destroy'
   resources :client_applications
   get '/playground', to: 'api_swagger#index'
+  get '/terms', to: 'pages#show', id: 'terms'
 end

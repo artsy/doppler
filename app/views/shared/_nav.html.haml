@@ -5,6 +5,7 @@
       = menu_item "My Apps", client_applications_path
       = menu_item "Playground", playground_path
   = menu_group pull: :right do
+    = menu_item "Terms", terms_path
     -if authenticated?
       = menu_item "Sign Out", sign_out_path
     -else

@@ -14,6 +14,7 @@ gem 'warden'
 gem 'bootstrap_form'
 gem 'hyperclient'
 gem 'swagger-ui_rails'
+gem 'redcarpet'
 
 group :development do
   gem 'spring'
