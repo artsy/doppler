@@ -1,6 +1,11 @@
 class SessionController < ApplicationController
   def new
-    authenticate!
+    if authenticated?
+      redirect_to '/'
+    else
+      session[:redirect_uri] = params[:redirect_uri]
+      authenticate!
+    end
   end
 
   def create
@@ -11,7 +16,11 @@ class SessionController < ApplicationController
       access_token: auth_hash.try(:credentials).try(:token)
     )
     warden.set_user user
-    redirect_to '/'
+
+    redirect_uri = session[:redirect_uri]
+    session[:redirect_uri] = nil if redirect_uri
+
+    redirect_to redirect_uri || '/'
   end
 
   def destroy

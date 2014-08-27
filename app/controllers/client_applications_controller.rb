@@ -10,10 +10,12 @@ class ClientApplicationsController < ApplicationController
   end
 
   def create
-    artsy_client.links.applications.post(params[:client_application])
+    redirect_uri = params[:client_application].delete(:redirect_uri)
+    response = artsy_client.links.applications.post(params[:client_application])
     flash.now[:error] = nil
     flash.now[:notice] = 'Application created!'
-    redirect_to client_applications_path
+    redirect_uri += "?id=#{response.body['id']}" if response && redirect_uri
+    redirect_to redirect_uri || client_applications_path
   end
 
   def update

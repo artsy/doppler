@@ -1,13 +1,19 @@
 .jumbotron
   %h1 The Art World in Your App
-  The Artsy API currently provides open access to public domain works on
-  =link_to 'artsy.net', 'http://artsy.net', target: '_blank'
-  for educational and other non-commercial purposes. Please
-  =link_to 'contact us', 'mailto:support@artsy.net'
-  for all commercial inquiries. By using this API you agree to the
-  = succeed '.' do
-    =link_to 'API Terms of Use', terms_path
+  .p
+    The Artsy API currently provides open access to public domain works on
+    =link_to 'artsy.net', 'http://artsy.net', target: '_blank'
+    for educational and other non-commercial purposes. Please
+    =link_to 'contact us', 'mailto:support@artsy.net'
+    for all commercial inquiries. By using this API you agree to the
+    = succeed '.' do
+      =link_to 'API Terms of Use', terms_path
+  .p
+    = link_to "Ready? Start Here", start_path, class: 'btn btn-primary btn-lg'
 
 .alert.alert-warning
-  Please note that the API is in early beta.
+  Please note that the API is in super early beta. We would love to get some
+  = succeed '.' do
+    =link_to 'feedback', 'mailto:engineering@artsy.net'
+  from you.
 

@@ -5,7 +5,12 @@
 
 .navbar-brand {
   background-image: url(/assets/logo.png);
+  background-size: 40px;
   background-repeat: no-repeat;
+  background-position: left center;
   padding-left: 70px;
 }
 
+pre {
+  margin: 10px 0px;
+}
