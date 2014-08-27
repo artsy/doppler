@@ -9,5 +9,13 @@
     = nav_bar static: :top, brand: 'The art world in your API.', responsive: true do
       = menu_group do
         = menu_item "Home", root_path
+        -if authenticated?
+          = menu_item "Applications", client_applications_path
+      = menu_group pull: :right do
+        -if authenticated?
+          = menu_item "Sign Out", sign_out_path
+        -else
+          = menu_item "Sign In", sign_in_path
     = bootstrap_flash
-    = yield
+    .container
+      = yield

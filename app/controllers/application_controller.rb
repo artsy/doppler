@@ -5,4 +5,8 @@ class ApplicationController < ActionController::Base
   def authenticate!
     redirect_to '/auth/artsy' unless authenticated?
   end
+
+  def artsy_client
+    @client ||= ArtsyAPI.client(current_user.try(:access_token))
+  end
 end

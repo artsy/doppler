@@ -12,4 +12,8 @@ class User
       access_token: access_token
     }
   end
+
+  def persisted?
+    !id.nil?
+  end
 end
