@@ -8,13 +8,16 @@ jQuery ->
     supportHeaderParams: true
     supportedSubmitMethods: ['get', 'post', 'put', 'delete']
     onFailure: (data) ->
-      console.log "Unable to Load SwaggerUI"
-      console.log data
+      $('#message-bar.swagger-ui-wrap')
+        .addClass('alert')
+        .addClass('alert-danger')
     onComplete: (swaggerApi, swaggerUi) ->
+      $('#message-bar.swagger-ui-wrap').remove()
+      $('#swagger-ui-container .info').remove()
       $('pre code').each((i, e) ->
         hljs.highlightBlock(e)
       )
-    docExpansion: "none"
+    docExpansion: "list"
 
   window.swaggerUi.load()
 
