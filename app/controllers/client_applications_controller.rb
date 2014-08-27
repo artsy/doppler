@@ -1,4 +1,5 @@
 class ClientApplicationsController < ApplicationController
+  before_action :authenticate!
   before_action :fetch_client_application, only: [:show, :edit, :destroy, :update]
 
   def new

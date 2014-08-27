@@ -1,0 +1,12 @@
+= javascript_include_tag "api_swagger"
+
+.swagger{ "data-swagger-options" => @options.to_json }
+
+.container
+  .jumbotron
+    %h1 Playground
+    Try out some APIs.
+
+#message-bar.swagger-ui-wrap
+
+#swagger-ui-container.swagger-ui-wrap
