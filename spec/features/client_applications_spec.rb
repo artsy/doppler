@@ -27,9 +27,15 @@ describe 'Client Applications' do
     end
     context 'with an application' do
       let(:application) do
-        Hashie::Mash.new(attributes: {
-                           id: '1', name: 'One', client_id: 'client_id', client_secret: 'client_secret', created_at: Time.now.utc.to_s, updated_at: Time.now.utc.to_s
-                         })
+        Hashie::Mash.new(
+          attributes: {
+            id: '1',
+            name: 'One',
+            client_id: 'client_id',
+            client_secret: 'client_secret',
+            created_at: Time.now.utc.to_s,
+            updated_at: Time.now.utc.to_s
+          })
       end
       before do
         allow(ArtsyAPI).to receive_message_chain(:client, :links, :applications, :embedded, :applications).and_return([application])
