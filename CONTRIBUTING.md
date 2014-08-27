@@ -8,7 +8,7 @@ Doppler is work of [many people](https://github.com/artsy/doppler/graphs/contrib
 Fork the [project on Github](https://github.com/artsy/doppler) and check out your copy.
 
 ```
-git clone https://github.com/contributor/doppler.git
+git clone https://github.com/artsy/doppler.git
 cd doppler
 git remote add upstream https://github.com/artsy/doppler.git
 ```
@@ -46,7 +46,7 @@ Navigate to http://localhost:3000.
 
 #### Write Tests
 
-Try to write a test that reproduces the problem you're trying to fix or describes a feature that you want to build. Add to [spec/doppler](spec/doppler).
+Try to write a test that reproduces the problem you're trying to fix or describes a feature that you want to build. Add to [spec/features](spec/features).
 
 We definitely appreciate pull requests that highlight or reproduce a problem, even without a fix.
 
@@ -82,7 +82,7 @@ git push origin my-feature-branch
 
 #### Make a Pull Request
 
-Go to https://github.com/contributor/doppler and select your feature branch. Click the 'Pull Request' button and fill out the form. Pull requests are usually reviewed within a few days.
+Go to https://github.com/artsy/doppler and select your feature branch. Click the 'Pull Request' button and fill out the form. Pull requests are usually reviewed within a few days.
 
 #### Rebase
 
