@@ -6,11 +6,11 @@
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
   %body
-    = nav_bar static: :top, brand: 'The art world in your API.', responsive: true do
+    = nav_bar static: :top, brand: 'The art world in your app.', responsive: true do
       = menu_group do
         = menu_item "Home", root_path
         -if authenticated?
-          = menu_item "Applications", client_applications_path
+          = menu_item "My Apps", client_applications_path
       = menu_group pull: :right do
         -if authenticated?
           = menu_item "Sign Out", sign_out_path

@@ -1,21 +1,28 @@
-%h1 Applications
-= link_to "Create New", new_client_application_path
+%h1 My Apps
 
-%table.table.table-bordered.table-striped
-  %thead
-    %tr
-      %th Name
-      %th Client ID
-      %th Created
-      %th &nbsp;
+- if @client_applications.any?
+  = link_to "Create a New App", new_client_application_path, class: 'btn'
 
-  %tbody
-    - @client_applications.each do |client_application|
+  %table.table.table-bordered.table-striped
+    %thead
       %tr
-        %td= client_application.attributes.name
-        %td= client_application.attributes.client_id
-        %td= DateTime.parse(client_application.attributes.created_at).strftime("%B %d, %Y")
-        %td
-          = link_to 'show', client_application_path(client_application.attributes.id), class: 'btn'
-          = link_to 'edit', edit_client_application_path(client_application.attributes.id), class: 'btn btn-primary'
-          = link_to 'destroy', client_application_path(client_application.attributes.id), method: :delete, confirm: "Are you sure?", class: 'btn btn-danger'
+        %th Name
+        %th Client ID
+        %th Created
+        %th &nbsp;
+
+    %tbody
+      - @client_applications.each do |client_application|
+        %tr
+          %td= link_to client_application.attributes.name, client_application_path(client_application.attributes.id)
+          %td= client_application.attributes.client_id
+          %td= DateTime.parse(client_application.attributes.created_at).strftime("%B %d, %Y")
+          %td
+            = link_to 'edit', edit_client_application_path(client_application.attributes.id), class: 'btn btn-primary'
+            = link_to 'destroy', client_application_path(client_application.attributes.id), method: :delete, confirm: "Are you sure?", class: 'btn btn-danger'
+- else
+
+  .alert.alert-success
+    In order to get started with the Artsy API, you must create a new app. Each app has a unique client ID and secret.
+
+  = link_to "Create a New App", new_client_application_path, class: 'btn btn-primary btn-lg'

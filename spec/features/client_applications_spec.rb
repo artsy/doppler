@@ -7,12 +7,12 @@ describe 'Client Applications' do
     end
     it 'renders a list of apps' do
       visit '/client_applications'
-      expect(page.body).to include 'Applications'
+      expect(page.body).to include 'My Apps'
     end
     it 'creates an app' do
       expect(ArtsyAPI).to receive_message_chain(:client, :links, :applications, :post).with(name: 'Name')
       visit '/client_applications'
-      click_link 'Create New'
+      click_link 'Create a New App'
       fill_in 'Name', with: 'Name'
       click_button 'Save'
     end
@@ -33,8 +33,7 @@ describe 'Client Applications' do
       expect(page.body).to include 'client_id'
     end
     it 'displays the app' do
-      visit '/client_applications'
-      click_link 'show'
+      visit '/client_applications/123'
       expect(page.body).to include 'One'
       expect(page.body).to include 'client_id'
       expect(page.body).to include 'client_secret'

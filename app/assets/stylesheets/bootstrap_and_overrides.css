@@ -2,3 +2,8 @@
   =require twitter-bootstrap-static/bootstrap
   =require twitter-bootstrap-static/fontawesome
   */
+
+/* vertically align all TDs */
+.table tbody > tr > td {
+    vertical-align: middle;
+}
