@@ -3,7 +3,7 @@ require 'spec_helper'
 describe 'Welcome' do
   it 'renders a welcome page' do
     visit '/'
-    expect(page.body).to include 'More Art in Your App'
+    expect(page.body).to include 'The Art World in Your App'
     expect(page.body).to include 'Sign In'
   end
   context 'sign in' do
@@ -23,7 +23,7 @@ describe 'Welcome' do
     end
     it 'displays the user email' do
       visit '/sign_in'
-      expect(page.body).to include 'More Art in Your App'
+      expect(page.body).to include 'The Art World in Your App'
       expect(page.body).to include 'Sign Out'
     end
     pending 'signs out'

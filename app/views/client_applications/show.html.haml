@@ -1,21 +1,24 @@
-%h1 Application
+%h1 App
+
+= link_to "Back to Apps", client_applications_path, class: 'btn'
 
 %table.table.table-bordered.table-striped
   %tbody
     %tr
-      %td Name
+      %th.text-right Name
       %td= @client_application.attributes.name
     %tr
-      %td Client Id
+      %th.text-right Client Id
       %td= @client_application.attributes.client_id
     %tr
-      %td Client Secret
+      %th.text-right Client Secret
       %td= @client_application.attributes.client_secret
     %tr
-      %td Created
-      %td= DateTime.parse(@client_application.attributes.created_at).strftime("%B %d, %Y")
+      %th.text-right Created
+      %td= DateTime.parse(@client_application.attributes.created_at).strftime("%B %d, %Y %H:%M")
     %tr
-      %td Updated
-      %td= DateTime.parse(@client_application.attributes.updated_at).strftime("%B %d, %Y")
+      %th.text-right Updated
+      %td= DateTime.parse(@client_application.attributes.updated_at).strftime("%B %d, %Y %H:%M")
 
-= link_to "Back", client_applications_path, class: 'btn'
+= link_to 'Edit', edit_client_application_path(@client_application.attributes.id), class: 'btn btn-default'
+= link_to 'Destroy', client_application_path(@client_application.attributes.id), method: :delete, confirm: "Are you sure?", class: 'btn btn-danger'

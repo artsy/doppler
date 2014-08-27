@@ -1,0 +1,8 @@
+/*
+ *= require swagger-ui
+ */
+
+.swagger-ui-wrap {
+  max-width: none;
+  font-family: arial, sans-serif;
+}

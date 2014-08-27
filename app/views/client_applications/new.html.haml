@@ -1,4 +1,5 @@
-%h1 New Application
+%h1 New App
 = bootstrap_form_for @client_application do |f|
-  = f.text_field :name, required: true
+  = f.text_field :name, required: true, placeholder: 'This can be any name that you would recognize.'
   = f.primary 'Save'
+  = link_to 'Cancel', 'javascript:history.back()', class: 'btn btn-default'

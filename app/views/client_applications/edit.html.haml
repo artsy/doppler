@@ -1,20 +1,24 @@
+%h1 Edit App
+
+= link_to "Back to Apps", client_applications_path, class: 'btn'
+
 = bootstrap_form_for ClientApplication.new(@client_application.attributes), method: 'PUT' do |f|
   %table.table.table-bordered.table-striped
     %tbody
       %tr
-        %td{ colspan: 2 }= f.text_field :name, required: true, value: @client_application.attributes.name
+        %td{ colspan: 2 }= f.text_field :name, required: true, value: @client_application.attributes.name, placeholder: 'This can be any name that you would recognize.'
       %tr
-        %td Client Id
+        %th.text-right Client Id
         %td= @client_application.attributes.client_id
       %tr
-        %td Client Secret
+        %th.text-right Client Secret
         %td= @client_application.attributes.client_secret
       %tr
-        %td Created
-        %td= DateTime.parse(@client_application.attributes.created_at).strftime("%B %d, %Y")
+        %th.text-right Created
+        %td= DateTime.parse(@client_application.attributes.created_at).strftime("%B %d, %Y %H:%M")
       %tr
-        %td Updated
-        %td= DateTime.parse(@client_application.attributes.updated_at).strftime("%B %d, %Y")
+        %th.text-right Updated
+        %td= DateTime.parse(@client_application.attributes.updated_at).strftime("%B %d, %Y %H:%M")
 
   = f.primary 'Save'
-  = link_to "Cancel", client_applications_path, class: 'btn'
+  = link_to "Cancel", "javascript:history.back()", class: 'btn btn-default'
