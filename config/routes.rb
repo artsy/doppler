@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   get '/playground', to: 'api_swagger#index'
   get '/terms', to: 'pages#show', id: 'terms'
   get '/start', to: 'start#show'
+  get '/help', to: 'help#show'
 end
