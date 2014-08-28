@@ -4,6 +4,7 @@
     -if authenticated?
       = menu_item "My Apps", client_applications_path
       = menu_item "Playground", playground_path
+      = menu_item "Blog", 'http://artsy.github.io'
   = menu_group pull: :right do
     = drop_down "Learn" do
       = menu_item "Getting Started", start_path

@@ -55,6 +55,7 @@ GEM
       faraday (>= 0.7.4, < 0.10)
     ffi (1.9.3)
     futuroscope (0.1.11)
+    google-analytics-rails (0.0.6)
     haml (4.0.5)
       tilt
     haml-rails (0.5.3)
@@ -207,6 +208,7 @@ DEPENDENCIES
   bootstrap_form
   capybara
   coffee-rails (~> 4.0.0)
+  google-analytics-rails
   haml-rails
   hyperclient
   jquery-rails

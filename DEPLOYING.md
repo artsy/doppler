@@ -34,6 +34,14 @@ heroku config:add RAILS_ENV=staging SECRET_KEY_BASE=eeaa792c0329... --app=dopple
 
 You can use a key from a demo app created on [developers-staging.artsy.net](https://developers-staging.artsy.net). Note that staging is rebuilt nightly with production data, and your application will be deleted. If you need a persistent application, create it on [developers.artsy.net](http://developers.artsy.net) - it will be available on staging within 24 hours.
 
+#### Google Analytics
+
+Configure Google Analytics.
+
+```
+heroku config:add GOOGLE_ANALYTICS_UA=UA-xxxxxx-x --app=doppler-staging
+```
+
 #### SSL Endpoint
 
 ```
