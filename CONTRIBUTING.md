@@ -46,7 +46,7 @@ Navigate to http://localhost:3000.
 
 #### Write Tests
 
-Try to write a test that reproduces the problem you're trying to fix or describes a feature that you want to build. Add to [spec/doppler](spec/doppler).
+Try to write a test that reproduces the problem you're trying to fix or describes a feature that you want to build. Add to [spec/features](spec/features).
 
 We definitely appreciate pull requests that highlight or reproduce a problem, even without a fix.
 
