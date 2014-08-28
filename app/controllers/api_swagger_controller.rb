@@ -7,6 +7,6 @@ class ApiSwaggerController < ApplicationController
       api_docs_url: ArtsyAPI.artsy_api_docs_url
     }
 
-    render layout: 'top'
+    render layout: 'playground'
   end
 end
