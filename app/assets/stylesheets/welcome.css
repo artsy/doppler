@@ -1,3 +1,7 @@
 .jumbotron .p {
   margin: 30px 0px 0px 0px;
 }
+
+.jumbotron a {
+  margin-top: 10px;
+}
