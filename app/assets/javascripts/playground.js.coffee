@@ -1,3 +1,5 @@
+//= require swagger-ui
+
 $ ->
   options = $('.swagger').data('swagger-options')
   window.swaggerUi = new SwaggerUi

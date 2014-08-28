@@ -1,4 +1,4 @@
-class ApiSwaggerController < ApplicationController
+class PlaygroundController < ApplicationController
   before_action :authenticate!
 
   def index
