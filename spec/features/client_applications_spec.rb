@@ -63,6 +63,7 @@ describe 'Client Applications' do
         expect(application).to receive(:delete)
         visit '/client_applications'
         click_link 'destroy'
+        click_link 'OK'
       end
     end
   end
