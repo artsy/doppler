@@ -1,5 +1,5 @@
 Contributing to Doppler
-=====================
+=======================
 
 Doppler is work of [many people](https://github.com/artsy/doppler/graphs/contributors). You're encouraged to submit [pull requests](https://github.com/artsy/doppler/pulls), [propose features and discuss issues](https://github.com/artsy/doppler/issues).
 
