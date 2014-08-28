@@ -1,3 +1,5 @@
+//= require swagger-ui
+
 $ ->
   options = $('.swagger').data('swagger-options')
   window.swaggerUi = new SwaggerUi
@@ -12,6 +14,7 @@ $ ->
     onComplete: (swaggerApi, swaggerUi) ->
       $('#message-bar.swagger-ui-wrap').remove()
       $('#swagger-ui-container .info').remove()
+      $('#swagger-ui-container .footer').remove()
       $('pre code').each((i, e) ->
         hljs.highlightBlock(e)
       )

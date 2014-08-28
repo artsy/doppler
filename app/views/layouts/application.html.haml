@@ -2,7 +2,9 @@
 %html
   = render 'shared/header'
   %body
-    = render 'shared/nav'
-    .container
-      = yield
-    = javascript_include_tag 'application'
+    #holder
+      = render 'shared/nav'
+      .container
+        = yield
+      = render 'shared/footer'
+  = javascript_include_tag 'application'

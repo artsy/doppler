@@ -1,4 +1,4 @@
-class ApiSwaggerController < ApplicationController
+class PlaygroundController < ApplicationController
   before_action :authenticate!
 
   def index
@@ -6,7 +6,5 @@ class ApiSwaggerController < ApplicationController
       access_token: current_user.access_token,
       api_docs_url: ArtsyAPI.artsy_api_docs_url
     }
-
-    render layout: 'playground'
   end
 end

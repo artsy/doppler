@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get '/sign_in', to: 'session#new'
   get '/sign_out', to: 'session#destroy'
   resources :client_applications
-  get '/playground', to: 'api_swagger#index'
+  get '/playground', to: 'playground#index'
   get '/terms', to: 'pages#show', id: 'terms'
   get '/start', to: 'start#show'
   get '/help', to: 'help#show'

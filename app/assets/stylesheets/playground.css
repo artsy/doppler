@@ -6,3 +6,7 @@
   max-width: none;
   font-family: arial, sans-serif;
 }
+
+.swagger-ui-wrap .container {
+  padding-bottom: 50px;
+}
