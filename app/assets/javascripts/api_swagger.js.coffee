@@ -1,6 +1,4 @@
-//= require swagger-ui
-
-jQuery ->
+$ ->
   options = $('.swagger').data('swagger-options')
   window.swaggerUi = new SwaggerUi
     url: options.api_docs_url
