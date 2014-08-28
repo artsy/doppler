@@ -17,3 +17,26 @@ pre {
 h4 {
   padding-top: 20px;
 }
+
+html, body {
+  height: 100%;
+}
+
+#holder {
+  min-height: 100%;
+  position:relative;
+}
+
+#body {
+  padding-bottom: 100px;
+}
+
+#holder footer {
+  height: 30px;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  text-align: center;
+  font-size: 12px;
+}
