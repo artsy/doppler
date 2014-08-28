@@ -1,0 +1,4 @@
+- if Rails.env.development?
+  = analytics_init local: true
+- else
+  = analytics_init
