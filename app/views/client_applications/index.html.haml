@@ -19,7 +19,7 @@
           %td= DateTime.parse(client_application.attributes.created_at).strftime("%B %d, %Y")
           %td
             = link_to 'edit', edit_client_application_path(client_application.attributes.id), class: 'btn btn-primary'
-            = link_to 'destroy', client_application_path(client_application.attributes.id), method: :delete, confirm: "Are you sure?", class: 'btn btn-danger'
+            = link_to 'destroy', client_application_path(client_application.attributes.id), method: :delete, data: { confirm: "Are you sure?" }, class: 'btn btn-danger'
 - else
 
   .alert.alert-success
