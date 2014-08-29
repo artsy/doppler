@@ -18,6 +18,11 @@ gem 'google-analytics-rails'
 
 group :development do
   gem 'spring'
+  gem 'guard'
+  gem 'guard-bundler'
+  gem 'guard-rspec'
+  gem 'guard-coffeescript'
+  gem 'guard-rubocop'
 end
 
 group :development, :test do
