@@ -1,3 +1,5 @@
+[Documentation](/docs) &gt;
+
 ## Authentication
 
 An authentication token is required to make API calls. A user account is not required, unless you want to perform actions on behalf of the user.
