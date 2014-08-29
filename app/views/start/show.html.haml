@@ -9,8 +9,7 @@ Let's make a few API calls to obtain the information for Andy Warhol.
     %h4 1. You Already Have an Artsy Account
 
     You have already signed up to Artsy. If you wish, you may create a separate developer account at
-    = succeed '.' do
-      =link_to 'artsy.net/sign_up', "https://artsy.net/sign_up?redirect_uri=#{CGI.escape(request.url)}", target: '_blank'
+    <a href='https://artsy.net/sign_up?redirect_uri=#{CGI.escape(request.url)}' target='_blank'>artsy.net/sign_up</a>.
 
     %h4 2. Signed In
 
@@ -20,14 +19,12 @@ Let's make a few API calls to obtain the information for Andy Warhol.
   %h4 1. Create an Artsy Account
 
   Sign up for Artsy at
-  = succeed '.' do
-    =link_to 'artsy.net/sign_up', "https://artsy.net/sign_up?redirect_uri=#{CGI.escape(request.url)}", target: '_blank'
+  <a href='https://artsy.net/sign_up?redirect_uri=#{CGI.escape(request.url)}' target='_blank'>artsy.net/sign_up</a>.
 
   %h4 2. Sign In
 
   Sign in to the developer website
-  = succeed '.' do
-    =link_to 'here', "/sign_in?redirect_uri=#{CGI.escape(request.path)}"
+  <a href='/sign_in?redirect_uri=#{CGI.escape(request.path)}'>here</a>.
 
 //// app selection
 
@@ -35,9 +32,7 @@ Let's make a few API calls to obtain the information for Andy Warhol.
 
   %h4 3. Select One of Your Apps
 
-  You have
-  = succeed '.' do
-    = pluralize(@client_applications.count, 'app')
+  You have #{pluralize(@client_applications.count, 'app')}.
 
   Choose one from the list:
 
@@ -49,9 +44,7 @@ Let's make a few API calls to obtain the information for Andy Warhol.
 
   %h4 3. Create an App
 
-  Create an app
-  = succeed '.' do
-    = link_to 'here', "/client_applications/new?redirect_uri=#{CGI.escape('/start')}"
+  Create an app <a href="/client_applications/new?redirect_uri=#{CGI.escape('/start')}">here</a>.
 
 - elsif @selected_client_application
 
@@ -76,60 +69,51 @@ Let's make a few API calls to obtain the information for Andy Warhol.
   Using curl:
 
   %pre
-    = "curl -v -X POST \"#{ArtsyAPI.artsy_api_root}/tokens/xapp_token?client_id=#{@selected_client_application.attributes.client_id}&client_secret=#{@selected_client_application.attributes.client_secret}\" -v"
+    curl -v -X POST "#{ArtsyAPI.artsy_api_root}/tokens/xapp_token?client_id=#{@selected_client_application.attributes.client_id}&client_secret=#{@selected_client_application.attributes.client_secret}"
 
   With Ruby:
 
-  %pre
-    :plain
-      require 'net/http'
-      require 'json'
-
-      client_id = "#{@selected_client_application.attributes.client_id}"
-      client_secret = "#{@selected_client_application.attributes.client_secret}"
-      api_url = URI.parse("#{ArtsyAPI.artsy_api_root}/tokens/xapp_token")
-      response = Net::HTTP.post_form(api_url, client_id: client_id, client_secret: client_secret)
-      xapp_token = JSON.parse(response.body)['token']
+  != highlight_syntax "require 'net/http'\n" +                                                        |
+    "require 'json'\n" +                                                                              |
+    "\n" +                                                                                            |
+    "client_id = '#{@selected_client_application.attributes.client_id}'\n" +                          |
+    "client_secret = '#{@selected_client_application.attributes.client_secret}'\n" +                  |
+    "api_url = URI.parse('#{ArtsyAPI.artsy_api_root}/tokens/xapp_token')\n" +                         |
+    "response = Net::HTTP.post_form(api_url, client_id: client_id, client_secret: client_secret)\n" + |
+    "xapp_token = JSON.parse(response.body)['token']\n", :ruby                                        |
 
   Returns the following JSON.
 
-  %pre
-    - xapp_response = JSON.parse(Net::HTTP.post_form(URI.parse("#{ArtsyAPI.artsy_api_root}/tokens/xapp_token"), client_id: @selected_client_application.attributes.client_id, client_secret: @selected_client_application.attributes.client_secret).body)
-    - xapp_token = xapp_response['token']
-    = JSON.pretty_generate(xapp_response)
+  - xapp_response = JSON.parse(Net::HTTP.post_form(URI.parse("#{ArtsyAPI.artsy_api_root}/tokens/xapp_token"), client_id: @selected_client_application.attributes.client_id, client_secret: @selected_client_application.attributes.client_secret).body)
+  - xapp_token = xapp_response['token']
+  != highlight_syntax JSON.pretty_generate(xapp_response), :json
 
   %h4 5. Make Requests
 
   The token can be used to make API requests.
 
   %pre
-    = "curl -v -L \"#{ArtsyAPI.artsy_api_root}/artists/andy-warhol\" -H 'X-Xapp-Token:#{xapp_token}' -v"
+    curl -v -L #{ArtsyAPI.artsy_api_root}/artists/andy-warhol -H 'X-Xapp-Token:#{xapp_token}'
 
   Redirects to "#{ArtsyAPI.artsy_api_root}/artists/4d8b92b34eb68a1b2c0003f4", which returns a JSON document for Andy Warhol.
 
-  %pre
-    - artsy_api = ArtsyAPI.client(xapp_token: xapp_token)
-    = JSON.pretty_generate(artsy_api.links.artist.expand(id: 'andy-warhol').resource.response.body)
+  - artsy_api = ArtsyAPI.client(xapp_token: xapp_token)
+  != highlight_syntax JSON.pretty_generate(artsy_api.links.artist.expand(id: 'andy-warhol').resource.response.body), :json
 
-  Use
-  =link_to 'hyperclient', 'https://github.com/codegram/hyperclient', target: '_blank'
-  with Ruby.
+  Use <a href='https://github.com/codegram/hyperclient', target: '_blank'>Hyperclient</a> with Ruby.
 
-  %pre
-    :plain
-      require 'hyperclient'
-
-      xapp_token = "#{xapp_token}"
-
-      api = Hyperclient.new("#{ArtsyAPI.artsy_api_root}").tap do |api|
-        api.headers.update('Accept' => 'application/vnd.artsy-v2+json')
-        api.headers.update('X-Xapp-Token' => xapp_token)
-      end
-
-      # replace with andy-warhol after fix for https://github.com/codegram/hyperclient/issues/58
-      andy_warhol = api.links.artist.expand(id: '4d8b92b34eb68a1b2c0003f4').resource
-
-      puts "\#{andy_warhol.attributes.name} was born in \#{andy_warhol.attributes.birthday} in \#{andy_warhol.attributes.hometown}"
+  != highlight_syntax "require 'hyperclient'\n" +                                                                                              |
+    "\n" +                                                                                                                                     |
+    "xapp_token = '#{xapp_token}'\n" +                                                                                                         |
+    "\n" +                                                                                                                                     |
+    "api = Hyperclient.new('#{ArtsyAPI.artsy_api_root}').tap do |api|\n" +                                                                     |
+    "  api.headers.update('Accept' => 'application/vnd.artsy-v2+json')\n" +                                                                    |
+    "  api.headers.update('X-Xapp-Token' => xapp_token)\n" +                                                                                   |
+    "end\n" +                                                                                                                                  |
+    "\n" +                                                                                                                                     |
+    "# replace with andy-warhol after fix for https://github.com/codegram/hyperclient/issues/58\n" +                                           |
+    "andy_warhol = api.links.artist.expand(id: '4d8b92b34eb68a1b2c0003f4').resource\n" +                                                       |
+    "puts \"\#{andy_warhol.attributes.name} was born in \#{andy_warhol.attributes.birthday} in \#{andy_warhol.attributes.hometown}\"\n", :ruby |
 
   Displays the following.
 

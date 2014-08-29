@@ -1,9 +1,15 @@
 class PagesController < ApplicationController
+  include MarkdownHelper
+
   def show
     fail 'Invalid Id' unless params[:id] =~ /^\w*$/
     filename = Rails.root.join("public/content/#{params[:id]}.md")
     @content = Rails.cache.fetch "content/#{params[:id]}/#{File.mtime(filename)}" do
-      File.read(filename)
+      text = File.read(filename)
+      text.gsub!(/\#\{(.*)\}/) do
+        eval Regexp.last_match[1]
+      end
+      render_markdown text
     end
   end
 
