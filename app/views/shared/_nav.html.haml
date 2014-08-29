@@ -9,6 +9,7 @@
   = menu_group pull: :right do
     = drop_down "Learn" do
       = menu_item "Getting Started", start_path
+      = menu_item "Auhentication", authentication_path
     = menu_item "Terms", terms_path
     -if authenticated?
       = menu_item "Sign Out", sign_out_path
