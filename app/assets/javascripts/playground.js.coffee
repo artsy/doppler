@@ -12,12 +12,12 @@ $ ->
         .addClass('alert')
         .addClass('alert-danger')
     onComplete: (swaggerApi, swaggerUi) ->
-      $('#message-bar.swagger-ui-wrap').remove()
+      swaggerUi.showMessage('loading API metadata ...')
       $('#swagger-ui-container .info').remove()
       $('#swagger-ui-container .footer').remove()
-      $('pre code').each((i, e) ->
-        hljs.highlightBlock(e)
-      )
+      setTimeout( =>
+          $('#message-bar.swagger-ui-wrap').fadeOut(300, => @remove())
+        3000)
     docExpansion: "list"
 
   window.swaggerUi.load()
