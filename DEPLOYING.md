@@ -63,6 +63,12 @@ Common Name(s): *.artsy.net
                 artsy.net
 ```
 
+#### NewRelic
+
+```
+heroku addons:add newrelic:stark --app=doppler-staging
+```
+
 #### DNS
 
 Add a CNAME record for the SSL endpoint. Production Doppler has developers.artsy.net pointing to kumamoto-4359.herokussl.com.
