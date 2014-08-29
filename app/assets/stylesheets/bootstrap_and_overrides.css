@@ -8,6 +8,12 @@
     vertical-align: middle;
 }
 
+/* sections disabled in getting started */
 .disabled {
   color: #ccc;
+}
+
+/* most tables are name | value, make name fixed size */
+tr td:first-child {
+  width: 200px;
 }
