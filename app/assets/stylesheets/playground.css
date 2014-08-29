@@ -1,8 +1,16 @@
 /*
- *= require swagger-ui
+ *= require swagger-lib
  */
 
 .swagger-ui-wrap {
-  max-width: none;
+  max-width: none !important;
   font-family: arial, sans-serif;
+}
+
+#resources {
+  padding: 10px 0px;
+}
+
+#message-bar {
+  text-align: center;
 }
