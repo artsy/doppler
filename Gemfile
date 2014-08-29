@@ -14,6 +14,7 @@ gem 'bootstrap_form'
 gem 'hyperclient'
 gem 'swagger-ui_rails'
 gem 'redcarpet'
+gem 'coderay'
 gem 'google-analytics-rails'
 
 group :development do

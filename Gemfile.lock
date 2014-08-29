@@ -253,6 +253,7 @@ PLATFORMS
 DEPENDENCIES
   bootstrap_form
   capybara
+  coderay
   coffee-rails (~> 4.0.0)
   google-analytics-rails
   guard

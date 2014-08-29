@@ -40,11 +40,17 @@ describe 'Start' do
         end
         before do
           allow(ArtsyAPI).to receive_message_chain(:client, :links, :applications, :embedded, :applications).and_return([application])
+          visit '/start'
         end
         it 'selects the app' do
-          visit '/start'
           expect(page.body).to include 'Use Your App'
           expect(page.body).to include 'client_id'
+        end
+        it 'syntax highlights code' do
+          expect(page.all('.CodeRay .code pre').count).to be > 0
+        end
+        it 'adds style to tables' do
+          expect(page.all('table.table-bordered.table-striped').count).to be > 0
         end
       end
       context 'with two apps' do
