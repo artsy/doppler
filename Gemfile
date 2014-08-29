@@ -16,6 +16,7 @@ gem 'redcarpet'
 gem 'coderay'
 gem 'google-analytics-rails'
 gem 'newrelic_rpm'
+gem 'nokogiri'
 
 group :development do
   gem 'spring'

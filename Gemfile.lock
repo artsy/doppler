@@ -265,6 +265,7 @@ DEPENDENCIES
   hyperclient
   jquery-rails
   newrelic_rpm
+  nokogiri
   omniauth-artsy
   rails (= 4.1.5)
   redcarpet
