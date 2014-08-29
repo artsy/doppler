@@ -1,4 +1,4 @@
-//= require swagger-ui
+//= require swagger-lib
 
 $ ->
   options = $('.swagger').data('swagger-options')
