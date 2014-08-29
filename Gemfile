@@ -15,6 +15,7 @@ gem 'hyperclient'
 gem 'redcarpet'
 gem 'coderay'
 gem 'google-analytics-rails'
+gem 'newrelic_rpm'
 
 group :development do
   gem 'spring'
