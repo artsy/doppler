@@ -6,7 +6,23 @@ Rails.application.routes.draw do
   resources :client_applications
   get '/playground', to: 'playground#index'
   get '/terms', to: 'pages#show', id: 'terms'
-  get '/authentication', to: 'pages#show', id: 'authentication'
+  get '/docs', to: 'pages#show', id: 'docs'
+  [
+    :authentication,
+    :pagination,
+    :links,
+    :http,
+    :errors,
+    :applications,
+    :artists,
+    :artworks,
+    :docs,
+    :profiles,
+    :status,
+    :users
+  ].each do |page|
+    get "/docs/#{page}", to: 'pages#show', id: "docs/#{page}"
+  end
   get '/start', to: 'start#show'
   get '/help', to: 'help#show'
 end

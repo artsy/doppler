@@ -2,12 +2,18 @@ class PagesController < ApplicationController
   include MarkdownHelper
 
   def show
-    fail 'Invalid Id' unless params[:id] =~ /^\w*$/
-    filename = Rails.root.join("public/content/#{params[:id]}.md")
+    fail 'Invalid Id' unless params[:id] =~ /^[\w\/]*$/
+    filename = Rails.root.join("app/views/content/#{params[:id]}.md")
     @content = Rails.cache.fetch "content/#{params[:id]}/#{File.mtime(filename)}" do
       text = File.read(filename)
       text.gsub!(/\#\{(.*)\}/) do
-        eval Regexp.last_match[1]
+        match = Regexp.last_match[1]
+        case match
+        when 'ArtsyAPI.artsy_api_root'
+          ArtsyAPI.artsy_api_root
+        else
+          "unknown: #{match}"
+        end
       end
       render_markdown text
     end
