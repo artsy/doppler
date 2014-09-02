@@ -68,6 +68,7 @@ Common Name(s): *.artsy.net
 ```
 heroku addons:add newrelic:stark --app=doppler-staging
 heroku config:add NEW_RELIC_APP_NAME=doppler --app=doppler-staging
+heroku addons:add memcachier --app=doppler-staging
 ```
 
 #### DNS

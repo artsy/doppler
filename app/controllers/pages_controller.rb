@@ -6,13 +6,17 @@ class PagesController < ApplicationController
     filename = Rails.root.join("app/views/content/#{params[:id]}.md")
     @content = Rails.cache.fetch "content/#{params[:id]}/#{File.mtime(filename)}" do
       text = File.read(filename)
-      text.gsub!(/\#\{(.*)\}/) do
-        match = Regexp.last_match[1]
-        case match
+      text = text.gsub(/\#\{(?<var> [\w\.,_]*)\}/x) do
+        var = $~[:var]
+        case var
         when 'ArtsyAPI.artsy_api_root'
           ArtsyAPI.artsy_api_root
+        when 'current_user.id'
+          current_user ? current_user.id : '...'
+        when 'access_token'
+          current_user ? current_user.access_token : '...'
         else
-          "unknown: #{match}"
+          "unknown: #{var}"
         end
       end
       render_markdown text
