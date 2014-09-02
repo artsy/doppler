@@ -28,3 +28,7 @@ major         | System is down and is experiencing a major outage. |
   }
 }
 ```
+
+#### Authorization
+
+This API endpoint does not require authentication or authorization.
