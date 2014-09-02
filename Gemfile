@@ -17,6 +17,7 @@ gem 'coderay'
 gem 'google-analytics-rails'
 gem 'newrelic_rpm'
 gem 'nokogiri'
+gem 'dalli'
 
 group :development do
   gem 'spring'
