@@ -42,7 +42,7 @@ EOS
 WARNING!
 ```
 EOS
-      )).to eq "<div class=\"alert alert-warning\">WARNING!\n</div>\n"
+      )).to eq "<div class=\"alert alert-warning\">\n<p>WARNING!</p>\n</div>\n"
     end
     it 'alert markup with markdown' do
       expect(subject.render_markdown(<<-EOS

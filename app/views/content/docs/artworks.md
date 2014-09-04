@@ -1,4 +1,4 @@
-[Documentation](/docs) &gt; Resources &gt;
+[Documentation](/docs) &gt; Resources &gt; Artworks
 
 ## Artworks
 
