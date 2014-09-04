@@ -6,7 +6,11 @@
 
 The base URL of the API is [https://api.artsy.net/api](https://api.artsy.net/api).
 
-A test (staging) environment is also available at [https://stagingapi.artsy.net/api](https://stagingapi.artsy.net/api). Staging can take moderate traffic and does not have 100% uptime. The environment is rebuilt nightly around 5:30AM EST with a large amount of production data. Everything you may have created in staging the day before, including applications, will likely be destroyed within 24 hours. Please also note that staging can't send e-mails.
+A test (staging) environment is also available at [https://stagingapi.artsy.net/api](https://stagingapi.artsy.net/api).
+
+``` alert[info]
+Staging can only take moderate traffic and does not have 100% uptime. The environment is rebuilt nightly around 5:30AM EST with a large amount of production data. Everything you may have created in staging the day before, including applications, will likely be destroyed within 24 hours. Please also note that staging can't send e-mails.
+```
 
 ### Verbs
 

@@ -1,5 +1,9 @@
 [Documentation](/docs) &gt; Resources &gt;
 
+``` alert[info]
+This API endpoint requires a valid [user access token](/docs/authentication).
+```
+
 ## Applications
 
 An application provides a client ID and secret to interact with the Artsy API. See [Authentication](/docs/authentication) for more information.
@@ -56,7 +60,3 @@ user       | User that owns the application. |
   }
 }
 ```
-
-#### Authorization
-
-This API endpoint requires a valid user access token.
