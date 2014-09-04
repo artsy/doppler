@@ -13,4 +13,8 @@ describe 'Docs/authentication' do
   it 'adds style to tables' do
     expect(page.all('table.table-bordered.table-striped').count).to be > 0
   end
+  it 'marks up alert blocks' do
+    expect(page.all('div.alert.alert-warning').count).to be > 0
+    expect(page).to have_css 'div.alert.alert-warning', text: 'This will be implemented in the near future.'
+  end
 end

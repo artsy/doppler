@@ -4,7 +4,7 @@ class PagesController < ApplicationController
   def show
     fail 'Invalid Id' unless params[:id] =~ /^[\w\/]*$/
     filename = Rails.root.join("app/views/content/#{params[:id]}.md")
-    @content = Rails.cache.fetch "content/#{params[:id]}/#{File.mtime(filename)}" do
+    @content = Rails.cache.fetch "content/#{params[:id]}/#{File.mtime(filename)}/#{current_user ? current_user.id : nil}" do
       text = File.read(filename)
       text = text.gsub(/\#\{(?<var> [\w\.,_]*)\}/x) do
         var = $~[:var]
@@ -13,8 +13,20 @@ class PagesController < ApplicationController
           ArtsyAPI.artsy_api_root
         when 'current_user.id'
           current_user ? current_user.id : '...'
+        when 'xapp_token'
+          '...' # TODO
         when 'access_token'
           current_user ? current_user.access_token : '...'
+        when 'application_id'
+          if authenticated?
+            artsy_client.links.applications.embedded
+              .try(:applications)
+              .try(:first)
+              .try(:attributes)
+              .try(:id) || '...'
+          else
+            '...'
+          end
         else
           "unknown: #{var}"
         end

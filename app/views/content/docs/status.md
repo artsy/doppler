@@ -1,6 +1,18 @@
-[Documentation](/docs) &gt; Resources &gt;
+[Documentation](/docs) &gt; Resources &gt; Status
 
-## Status
+``` alert[info]
+This API endpoint does not require authentication or authorization.
+```
+
+## Status API
+
+This API retrieves the system status.
+
+```
+curl -v "#{ArtsyAPI.artsy_api_root}/status"
+```
+
+This endpoint does not accept any parameters and returns a status JSON document with the following fields.
 
 Key           | Description                                 |
 -------------:|:--------------------------------------------|
@@ -28,7 +40,3 @@ major         | System is down and is experiencing a major outage. |
   }
 }
 ```
-
-#### Authorization
-
-This API endpoint does not require authentication or authorization.
