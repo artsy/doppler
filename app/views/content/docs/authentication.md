@@ -36,7 +36,7 @@ The response from Artsy will be the following JSON.
 {
   "type" : "xapp_token",
   "token" : "...",
-  "expires" : "2014-09-05T12:39:09.200Z"
+  "expires_at" : "2014-09-05T12:39:09.200Z"
 }
 ```
 
@@ -44,7 +44,7 @@ Field         | Description                |
 -------------:|:---------------------------|
 type          | Always "xapp_token".       |
 token         | Authentication token.      |
-expires       | Token expiration date/time.|
+expires_at    | Token expiration date/time.|
 
 Make requests by placing the token into an `X-Xapp-Token` header.
 
@@ -55,7 +55,7 @@ This workflow allows users to login via Browser redirects. This is the preferred
 Redirect users who wish to authenticate to the OAuth authorization url.
 
 ```
-#{ArtsyAPI.artsy_api_root}/oauth2/authorize?client_id=...&redirect_uri=...&response_type=code
+curl -v "#{ArtsyAPI.artsy_api_root}/oauth2/authorize?client_id=...&redirect_uri=...&response_type=code"
 ```
 
 A logged in user will be redirected back to the url you have supplied, appending an authorization code `code=...`, eg. `https://[your redirect url]/?code=auth`.
@@ -63,7 +63,7 @@ A logged in user will be redirected back to the url you have supplied, appending
 Your server should make an OAuth2 POST or GET request to the following url.
 
 ```
-#{ArtsyAPI.artsy_api_root}/oauth2/access_token?client_id=...&client_secret=...&code=...&grant_type=authorization_code
+curl -v -X POST "#{ArtsyAPI.artsy_api_root}/oauth2/access_token?client_id=...&client_secret=...&code=...&grant_type=authorization_code"
 ```
 
 Parameter     | Description                                 |
@@ -90,9 +90,9 @@ expires_in    | Token expiration date/time.  |
 state         | Optional state when present. |
 scope         | Scope of access requested.   |
 
-The value of *state* will be returned in the redirect URL for *authorize*, the access token and error JSON.
+The value of "state" will be returned in the redirect URL for "authorize", the access token and error JSON.
 
-Specify scope as *offline_access* to request a token that expires in 25 years instead of the standard 60 days.
+Specify scope as "offline_access" to request a token that expires in 25 years instead of the standard 60 days.
 
 Save the access token for this user in your database or persist it for the duration of the session.
 
@@ -118,16 +118,16 @@ error_description   | Humanly readable description. |
 If you store or prompt for the user's email and password, which is not recommended, you can obtain an OAuth token in exchange for those credentials.
 
 ```
-#{ArtsyAPI.artsy_api_root}/oauth2/access_token?client_id=...&client_secret=...&grant_type=credentials&email=...&password=...
+curl -v -X POST "#{ArtsyAPI.artsy_api_root}/oauth2/access_token?client_id=...&client_secret=...&grant_type=credentials&email=...&password=..."
 ```
 
-Parameter     | Description                                 |
--------------:|:--------------------------------------------|
-client_id     | Your application's client ID.               |
-client_secret | Your application's client secret.           |
-grant_type    | Set to "credentials".                       |
-email         | User's email address.                       |
-password      | User's password.                            |
+Parameter     | Description                                        |
+-------------:|:---------------------------------------------------|
+client_id     | Your application's client ID.                      |
+client_secret | Your application's client secret.                  |
+grant_type    | Set to "credentials".                              |
+email         | User's email address.                              |
+password      | User's password (avoid sending in a query string). |
 
 The response from Artsy will be the following JSON.
 
@@ -147,7 +147,7 @@ access_token  | Authentication token.        |
 expires_in    | Token expiration date/time.  |
 scope         | Scope of access requested.   |
 
-Specify scope as *offline_access* to request a token that expires in 25 years instead of the standard 60 days.
+Specify scope as "offline_access" to request a token that expires in 25 years instead of the standard 60 days.
 
 Make requests by placing the token into an `X-Auth-Token` header.
 
@@ -156,7 +156,7 @@ Make requests by placing the token into an `X-Auth-Token` header.
 If you have access to a user's social provider token (Facebook) or a social provider token and secret (Twitter), you can obtain an OAuth token in exchange for it.
 
 ```
-#{ArtsyAPI.artsy_api_root}/oauth2/access_token?client_id=...&client_secret=...&grant_type=oauth_token&oauth_token=...&oauth_provider=...
+curl -v -X POST "#{ArtsyAPI.artsy_api_root}/oauth2/access_token?client_id=...&client_secret=...&grant_type=oauth_token&oauth_token=...&oauth_provider=..."
 ```
 
 Parameter           | Description                                    |
@@ -169,6 +169,36 @@ oauth\_token_secret | OAuth token secret obtained from Twitter.      |
 oauth_provider      | Either "facebook" or "twitter".                |
 scope               | Scope of access requested.                     |
 
-Specify scope as *offline_access* to request a token that expires in 25 years instead of the standard 60 days.
+Specify scope as "offline_access" to request a token that expires in 25 years instead of the standard 60 days.
 
 The response will be identical to the "credentials" grant type above.
+
+### Expiring Tokens
+
+You should offer users logout functionality and expire OAuth tokens obtained from the "oauth2/access_token" routes above by calling the following API.
+
+```
+curl -v -X DELETE "#{ArtsyAPI.artsy_api_root}/tokens/access_token?access_token=..."
+```
+
+Parameter           | Description                                                 |
+-------------------:|:------------------------------------------------------------|
+access_token        | Accesss token in a query string or the X-Auth-Token header. |
+
+The response from Artsy will be the following JSON.
+
+```json
+{
+  "id" : "..."
+  "type" : "access_token",
+  "token" : "...",
+  "expired_at" : "2014-09-05T12:39:09.200Z"
+}
+```
+
+Field         | Description                                           |
+-------------:|:------------------------------------------------------|
+id            | Expiration ID.                                        |
+type          | Always "access_token".                                |
+token         | Authentication token.                                 |
+expired_at    | Date/time when the token expired, typically just now. |
