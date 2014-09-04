@@ -32,16 +32,16 @@ The response is a [paginated result](/docs/pagination) with embedded application
       "href" : "#{ArtsyAPI.artsy_api_root}/applications?user_id=..."
     },
     "next" : {
-      "href" : "#{ArtsyAPI.artsy_api_root}/applications?cursor=...&user_id=..."}
-    },
-    "_embedded" : {
-      "applications" : [
-        {
-          "id":"540339b97261692388020000",
-          ...
-        }
-      ]
+      "href" : "#{ArtsyAPI.artsy_api_root}/applications?cursor=...&user_id=..."
     }
+  },
+  "_embedded" : {
+    "applications" : [
+      {
+        "id":"...",
+        ...
+      }
+    ]
   }
 }
 ```
@@ -84,7 +84,7 @@ user       | User that owns the application. |
 
 ``` json
 {
-  "id" : "540339b97261692388020000",
+  "id" : "...",
   "created_at" : "2014-08-31T15:05:29.000Z",
   "updated_at" : "2014-08-31T15:05:29.000Z",
   "name" : "Test",
@@ -93,7 +93,7 @@ user       | User that owns the application. |
   "enabled" : true,
   "_links" : {
     "self" : {
-      "href" : "#{ArtsyAPI.artsy_api_root}/applications/540339b97261692388020000"},
+      "href" : "#{ArtsyAPI.artsy_api_root}/applications/..."},
     "user" : {
       "href" : "#{ArtsyAPI.artsy_api_root}/users/4dc805b18101da0001000489"
     }

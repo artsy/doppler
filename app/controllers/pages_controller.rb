@@ -13,14 +13,20 @@ class PagesController < ApplicationController
           ArtsyAPI.artsy_api_root
         when 'current_user.id'
           current_user ? current_user.id : '...'
+        when 'xapp_token'
+          '...' # TODO
         when 'access_token'
           current_user ? current_user.access_token : '...'
         when 'application_id'
-          authenticated? ? artsy_client.links.applications.embedded
-            .try(:applications)
-            .try(:first)
-            .try(:attributes)
-            .try(:id) || '...' : '...'
+          if authenticated?
+            artsy_client.links.applications.embedded
+              .try(:applications)
+              .try(:first)
+              .try(:attributes)
+              .try(:id) || '...'
+          else
+            '...'
+          end
         else
           "unknown: #{var}"
         end
