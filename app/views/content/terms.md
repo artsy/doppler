@@ -24,7 +24,7 @@ The following definitions are used in these Terms:
 
 1.9 “Your User Content” means all Content that you submit, post, publish or otherwise provide on or through the Services.
 
-1.10 "Artwork Images” means all images located on or accessed through the API that depict one or more artworks, architectural works, or other works of creative authorship. 
+1.10 "Artwork Images” means all images located on or accessed through the API that depict one (1) or more artworks, architectural works, or other works of creative authorship. 
 
 1.11 “Documentation” means all documentation and/or instructions that we may make available with the API, including but not limited to any information that we post on the developers section of the Artsy website.
 
@@ -44,13 +44,13 @@ The following definitions are used in these Terms:
 
 2.5 You agree to register for an Artsy account and provide all required information. You agree to provide only true and accurate information in connection with your account, and to update all such information as necessary to keep it accurate and current. 
 
-2.6 We will provide you with an Application ID and a secret access code (“Your Key”) that you will use to access the API. You must not access the API without Your Key. You must not share Your Key with any third party or permit any third party to use Your Key. 
+2.6 We will provide you with an Application ID and a secret access code (each, “Your Key”) that you will use to access the API. You must not access the API without Your Key. You must not share Your Key with any third party or permit any third party to use Your Key. 
 
-2.7 You are responsible for maintaining the confidentiality of Your Key and your account password. You are responsible for all activities that occur under or through Your Key or your account or password. 
+2.7 Your Key may only be used in connection with one (1) Application. If you wish to use the API in connection with more than one (1) Application, you must request an additional Key from us in each case. Additional Keys may be granted or denied at our sole discretion.
 
-2.8 You agree to notify us immediately if you suspect or become aware of any unauthorized access to or use of Your Key or your account or password, or other breach of security relating to the Services. You agree to immediately report to us any security flaws that you may discover in the Services. 
+2.8 You are responsible for maintaining the confidentiality of Your Key and your account password. You are responsible for all activities that occur under or through Your Key or your account or password. 
 
-2.9 Your Key may only be used in connection with one (1) Application. If you wish to use the API in connection with more than one (1) Application, you must request an additional Key from us in each case. Additional Keys may be granted or denied at our sole discretion.
+2.9 You agree to notify us immediately if you suspect or become aware of any unauthorized access to or use of Your Key or your account or password, or other breach of security relating to the Services. You agree to immediately report to us any security flaws that you may discover in the Services. 
 
 2.10 We may choose to provide you with support or modifications for the API (collectively “Support”). However, we have no obligation to do so, and we terminate any and all Support, at any time at our sole discretion, without notice or liability. Additional terms and conditions may apply to some Support, as indicated by us in connection with such Support. 
 
@@ -159,7 +159,7 @@ You agree that you will not (and will not attempt to, or assist or encourage any
 
 8.4 You retain any intellectual property rights that you may have in Your User Content, and you are solely responsible for Your User Content.
 
-8.5 You own all rights, title, and interest in and to Your Application (excluding the Services, the API Content (other than Your User Content), our Brand Features, and any derivative works or enhancements thereof), including but not limited to all intellectual property rights therein.
+8.5 You own all rights, title, and interest in and to Your Application (excluding the Services, API Content (other than Your User Content), our Brand Features, and any derivative works or enhancements thereof), including but not limited to all intellectual property rights therein.
 
 8.6 Neither these Terms nor your use of the API grants you any ownership over the API, any API Content, or any rights therein. Except for the limited license to use the API that we grant you under these Terms, neither these Terms nor your use of the API grants you any license or permission under any copyright, trademark, or other intellectual property rights of Artsy or any third party, whether by estoppel, implication or otherwise. 
 
@@ -187,7 +187,7 @@ To the fullest extent permitted by applicable law, you agree to indemnify, defen
 
 13.1 These Terms, and the rights and obligations of you and us under these Terms, will be governed by and construed and enforced in accordance with the laws of the State of New York and, to the extent applicable, the laws of the United States, excluding any conflicts of laws principles, and without regard to your state or country of residence. 
 
-13.2 You agree that all claims, actions or disputes involving you and us (whether or not involving any third parties) arising out of or related to these Terms or the API (each, hereafter, a “Claim”) must be resolved exclusively in a state or federal court located in New York County, New York, United States. You agree to submit to the personal jurisdiction of, and agree that venue is proper in, the courts located in New York County, New York, United States, for the purpose of litigating all Claims, and you waive any objection as to inconvenient forum. 
+13.2 You agree that all claims, actions or disputes involving you and us (whether or not involving any third parties) arising out of or related to these Terms or the API (each, hereinafter, a “Claim”) must be resolved exclusively in a state or federal court located in New York County, New York, United States. You agree to submit to the personal jurisdiction of, and agree that venue is proper in, the courts located in New York County, New York, United States, for the purpose of litigating all Claims, and you waive any objection as to inconvenient forum. 
 
 13.3 You and we each expressly waive any right to a jury trial in the litigation of any Claims.
 
@@ -229,9 +229,11 @@ To the fullest extent permitted by applicable law, you agree to indemnify, defen
 
 17.3 All changes to these Terms will be effective when posted on the Services or otherwise made available to you, or at such later date as may be specified in the updated Terms. 
 
-17.3 By continuing to use the API after any changes to these Terms become effective, you agree to be bound by such changes and the updated Terms. If you do not agree to such changes, your license to use the API under these Terms will automatically terminate. 
+17.4 By continuing to use the API after any changes to these Terms become effective, you agree to be bound by such changes and the updated Terms. If you do not agree to such changes, your license to use the API under these Terms will automatically terminate. 
 
-17.4 You agree that the Artsy Parties will not be liable to you or any third party for any damages or losses of any kind resulting directly or indirectly from any changes made by us to these Terms, including, but not limited to, any loss of or inability to do business or to provide or use any product (including but not limited to Your Application), service, or API Content. 
+17.5 Changes to these Terms will not apply to any Claim that arose before such changes became effective, all of which will remain subject to the version of these Terms in effect at the time that such Claim arose. 
+
+17.6 You agree that the Artsy Parties will not be liable to you or any third party for any damages or losses of any kind resulting directly or indirectly from any changes made by us to these Terms, including, but not limited to, any loss of or inability to do business or to provide or use any product (including but not limited to Your Application), service, or API Content. 
 
 ##18. Termination
 
