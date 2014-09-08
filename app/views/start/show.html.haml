@@ -6,7 +6,12 @@ Let's make a few API calls to obtain the information for Andy Warhol.
 
 //// authentication
 
-- if authenticated?
+- if @error
+
+  .alert.alert-danger
+    There was an error connecting to the Artsy API: #{@error}.
+
+- elsif authenticated?
   .disabled
     %h4 1. You Already Have an Artsy Account
 
@@ -30,7 +35,7 @@ Let's make a few API calls to obtain the information for Andy Warhol.
 
 //// app selection
 
-- if authenticated? && ! @selected_client_application && @client_applications.count > 1
+- if authenticated? && ! @selected_client_application && @client_applications && @client_applications.count > 1
 
   %h4 3. Select One of Your Apps
 
@@ -42,7 +47,7 @@ Let's make a few API calls to obtain the information for Andy Warhol.
     = bootstrap_form_tag url: '/start', method: 'GET' do |f|
       = f.collection_select :id, @client_applications.map { |a| Hashie::Mash.new(id: a.attributes.id, label: "#{a.attributes.name} (#{a.attributes.client_id})") }, :id, :label, { prompt: true, hide_label: true }, { onchange: "var v = $('.select_app select option:selected').val(); window.location = '/start?id=' + v;" }
 
-- elsif authenticated? && !@selected_client_application
+- elsif !@error && authenticated? && !@selected_client_application
 
   %h4 3. Create an App
 
@@ -86,9 +91,12 @@ Let's make a few API calls to obtain the information for Andy Warhol.
 
   Returns the following JSON.
 
-  - xapp_response = JSON.parse(Net::HTTP.post_form(URI.parse("#{ArtsyAPI.artsy_api_root}/tokens/xapp_token"), client_id: @selected_client_application.attributes.client_id, client_secret: @selected_client_application.attributes.client_secret).body)
-  - xapp_token = xapp_response['token']
-  != highlight_syntax JSON.pretty_generate(xapp_response), :json
+  - begin
+    - xapp_response = JSON.parse(Net::HTTP.post_form(URI.parse("#{ArtsyAPI.artsy_api_root}/tokens/xapp_token"), client_id: @selected_client_application.attributes.client_id, client_secret: @selected_client_application.attributes.client_secret).body)
+    - xapp_token = xapp_response['token']
+    != highlight_syntax JSON.pretty_generate(xapp_response), :json
+  - rescue Exception => e
+    %pre= e.message
 
   %h4 5. Make Requests
 

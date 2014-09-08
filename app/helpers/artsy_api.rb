@@ -19,12 +19,17 @@ module ArtsyAPI
     end
   end
 
-  def self.public_artworks_count(options)
-    url = URI.parse("#{ArtsyAPI.artsy_api_root}/artworks?public=true&size=1&total_count=1")
-    http = Net::HTTP.new url.host, url.port
-    http.use_ssl = true if url.is_a?(URI::HTTPS)
-    resp = http.get("#{url.path}?#{url.query}", options)
-    fail "error: #{resp.code}" if resp.code != '200'
-    JSON.parse(resp.body)['total_count'].to_i
+  def self.public_artworks_count
+    conn = client.connection
+    conn.headers['X-XAPP-Token'] = xapp_token
+    conn.get("#{artsy_api_root}/artworks?public=true&total_count=1").body['total_count']
+  end
+
+  def self.xapp_token
+    Rails.cache.fetch "xapp-token/#{ENV['ARTSY_API_CLIENT_ID']}", expires_in: 1.hour do
+      client.connection.post("#{artsy_api_root}/tokens/xapp_token",
+                             client_id: ENV['ARTSY_API_CLIENT_ID'],
+                             client_secret: ENV['ARTSY_API_CLIENT_SECRET']).body['token']
+    end
   end
 end

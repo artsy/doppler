@@ -16,19 +16,7 @@ class ApplicationController < ActionController::Base
     if authenticated?
       @client ||= ArtsyAPI.client(access_token: current_user.try(:access_token))
     else
-      @client ||= ArtsyAPI.client(xapp_token: xapp_token)
-    end
-  end
-
-  def xapp_token
-    Rails.cache.fetch "xapp-token/#{ENV['ARTSY_API_CLIENT_ID']}", expires_in: 1.hour do
-      response = Net::HTTP.post_form(URI.parse("#{ArtsyAPI.artsy_api_root}/tokens/xapp_token"),
-                                     client_id: ENV['ARTSY_API_CLIENT_ID'],
-                                     client_secret: ENV['ARTSY_API_CLIENT_SECRET']
-      )
-      xapp_response = JSON.parse(response.body)
-      fail xapp_response['message'] || 'Unknown Error' if response.code != '201'
-      xapp_response['token']
+      @client ||= ArtsyAPI.client(xapp_token: ArtsyAPI.xapp_token)
     end
   end
 end
