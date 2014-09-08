@@ -159,7 +159,7 @@ You agree that you will not (and will not attempt to, or assist or encourage any
 
 8.4 You retain any intellectual property rights that you may have in Your User Content, and you are solely responsible for Your User Content.
 
-8.5 You own all rights, title, and interest in and to Your Application (excluding the Services, the API Content (other than Your User Content), our Brand Features, and any derivative works or enhancements thereof), including but not limited to all intellectual property rights therein.
+8.5 You own all rights, title, and interest in and to Your Application (excluding the Services, API Content (other than Your User Content), our Brand Features, and any derivative works or enhancements thereof), including but not limited to all intellectual property rights therein.
 
 8.6 Neither these Terms nor your use of the API grants you any ownership over the API, any API Content, or any rights therein. Except for the limited license to use the API that we grant you under these Terms, neither these Terms nor your use of the API grants you any license or permission under any copyright, trademark, or other intellectual property rights of Artsy or any third party, whether by estoppel, implication or otherwise. 
 
