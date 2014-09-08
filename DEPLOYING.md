@@ -18,7 +18,7 @@ Add the following environment settings. The sample values below are for a stagin
 * ARTSY_API_CLIENT_SECRET=<Artsy API Client Secret>
 
 ```
-heroku config:add ARTSY_API_URL=https://api.artsy.net ARTSY_API_CLIENT_ID=... ARTSY_API_CLIENT_SECRET=... --app=doppler-staging
+heroku config:add ARTSY_API_URL=https://stagingapi.artsy.net ARTSY_API_CLIENT_ID=... ARTSY_API_CLIENT_SECRET=... --app=doppler-staging
 ```
 
 Generate a SECRET_KEY_BASE and set the Rails environment.
