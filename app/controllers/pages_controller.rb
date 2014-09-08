@@ -52,12 +52,11 @@ class PagesController < ApplicationController
   def modelref(var)
     parts = var.split('/')[2..-1]
     model = parts[0]
-    response = Net::HTTP.get_response URI.parse("#{ArtsyAPI.artsy_api_root}/docs/docs")
     rc = <<-EOS
       Key | Description |
       ---:|:------------|
     EOS
-    body = JSON.parse(response.body)
+    body = ArtsyAPI.client.connection.get("#{ArtsyAPI.artsy_api_root}/docs/docs").body
     properties = body['models']
     fail 'missing models' unless properties
     properties = properties[model]

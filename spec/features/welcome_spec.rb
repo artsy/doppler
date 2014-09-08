@@ -1,12 +1,18 @@
 require 'spec_helper'
 
 describe 'Welcome' do
+  before do
+    allow(ArtsyAPI).to receive(:public_artworks_count).and_return(123)
+  end
   context 'page' do
     before do
       visit '/'
     end
     it 'renders a welcome message' do
       expect(page.body).to include 'The Art World in Your App'
+    end
+    it 'displays the count of available artworks' do
+      expect(page.body).to include '123 artworks available'
     end
     {
       'Blog' => 'http://artsy.github.io',

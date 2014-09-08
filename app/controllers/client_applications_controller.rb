@@ -26,6 +26,8 @@ class ClientApplicationsController < ApplicationController
 
   def index
     @client_applications = artsy_client.links.applications.embedded.applications
+  rescue => e
+    @error = e.message
   end
 
   def destroy

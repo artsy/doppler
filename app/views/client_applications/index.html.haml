@@ -1,6 +1,11 @@
 %h1 My Apps
 
-- if @client_applications.any?
+- if !@client_applications
+
+  .alert.alert-danger
+    There was an error retrieving applications: #{@error}.
+
+- elsif @client_applications.any?
   = link_to "Create a New App", new_client_application_path, class: 'btn'
 
   %table.table.table-bordered.table-striped

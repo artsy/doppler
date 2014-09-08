@@ -18,4 +18,18 @@ module ArtsyAPI
       api.headers.update('X-Xapp-Token' => options[:xapp_token]) if options.key?(:xapp_token)
     end
   end
+
+  def self.public_artworks_count
+    conn = client.connection
+    conn.headers['X-XAPP-Token'] = xapp_token
+    conn.get("#{artsy_api_root}/artworks?public=true&total_count=1").body['total_count']
+  end
+
+  def self.xapp_token
+    Rails.cache.fetch "xapp-token/#{ENV['ARTSY_API_CLIENT_ID']}", expires_in: 1.hour do
+      client.connection.post("#{artsy_api_root}/tokens/xapp_token",
+                             client_id: ENV['ARTSY_API_CLIENT_ID'],
+                             client_secret: ENV['ARTSY_API_CLIENT_SECRET']).body['token']
+    end
+  end
 end

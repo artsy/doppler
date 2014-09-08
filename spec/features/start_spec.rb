@@ -21,7 +21,7 @@ describe 'Start' do
     end
     context 'with apps' do
       before do
-        # xapp token request
+        # xapp token request from start/show.html.haml
         allow(Net::HTTP).to receive_message_chain(:post_form, :body).and_return({ xapp_token: 'token' }.to_json)
         # example of retrieving an artist by id
         allow(ArtsyAPI).to receive_message_chain(:client, :links, :artist, :expand, :resource, :response, :body).and_return({ 'id' => 'andy-warhol' })
