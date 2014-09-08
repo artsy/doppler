@@ -3,7 +3,7 @@ require 'spec_helper'
 describe 'Resources/status' do
   before do
     # xapp token for the resource examples
-    allow(Net::HTTP).to receive_message_chain(:post_form, :code).and_return("201")
+    allow(Net::HTTP).to receive_message_chain(:post_form, :code).and_return('201')
     allow(Net::HTTP).to receive_message_chain(:post_form, :body).and_return({
       xapp_token: 'token'
     }.to_json)
