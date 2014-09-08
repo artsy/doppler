@@ -53,7 +53,7 @@ A request without a "user_id" will be redirected accordingly with a 302 HTTP sta
 Users can retrieve a specific application by ID by rendering the "application" link template from [root](#{ArtsyAPI.artsy_api_root}).
 
 ```
-curl -v "#{ArtsyAPI.artsy_api_root}/applications/#{application_id}" -H "X-Access-Token:#{access_token}"
+curl -v "#{ArtsyAPI.artsy_api_root}/applications/#{id}" -H "X-Access-Token:#{access_token}"
 ```
 
 ``` alert[danger]
@@ -62,15 +62,15 @@ Users are only authorized to retrieve their own applications.
 
 ## Application JSON Format
 
-Key           | Description                                 |
--------------:|:--------------------------------------------|
-id            | Application ID.                             |
-updated_at    | Date/time when the status was created.      |
-updated_at    | Date/time when the status was last updated. |
-name          | Application name.                           |
-client_id     | Auto-generated client ID.                   |
-client_secret | Auto-generated client secret.               |
-enabled       | True if the application is enabled.         |
+Key           | Description                                      |
+-------------:|:-------------------------------------------------|
+id            | Application ID.                                  |
+created_at    | Date/time when the application was created.      |
+updated_at    | Date/time when the application was last updated. |
+name          | Application name.                                |
+client_id     | Auto-generated client ID.                        |
+client_secret | Auto-generated client secret.                    |
+enabled       | True if the application is enabled.              |
 
 #### Links
 

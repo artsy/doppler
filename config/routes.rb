@@ -16,10 +16,13 @@ Rails.application.routes.draw do
     :applications,
     :artists,
     :artworks,
+    :edition_sets,
     :docs,
     :profiles,
+    :partners,
     :status,
-    :users
+    :users,
+    :user_details
   ].each do |page|
     get "/docs/#{page}", to: 'pages#show', id: "docs/#{page}"
   end

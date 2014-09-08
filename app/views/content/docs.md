@@ -14,7 +14,10 @@
 
 * [Status](/docs/status)
 * [Artists](/docs/artists)
-* [Profiles](/docs/profiles)
-* [Applications](/docs/applications)
 * [Artworks](/docs/artworks)
+* [Profiles](/docs/profiles)
+* [Partners](/docs/partners)
+* [Applications](/docs/applications)
+* [Edition Sets](/docs/edition_sets)
 * [Users](/docs/users)
+* [User Details](/docs/user_details)
