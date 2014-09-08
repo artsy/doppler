@@ -5,3 +5,8 @@
 .jumbotron a {
   margin-top: 10px;
 }
+
+.jumbotron span {
+  margin-top: 10px;
+  cursor: default;
+}

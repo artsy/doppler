@@ -20,8 +20,6 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  private
-
   def xapp_token
     Rails.cache.fetch "xapp-token/#{ENV['ARTSY_API_CLIENT_ID']}", expires_in: 1.hour do
       response = Net::HTTP.post_form(URI.parse("#{ArtsyAPI.artsy_api_root}/tokens/xapp_token"),

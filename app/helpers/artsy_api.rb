@@ -18,4 +18,13 @@ module ArtsyAPI
       api.headers.update('X-Xapp-Token' => options[:xapp_token]) if options.key?(:xapp_token)
     end
   end
+
+  def self.public_artworks_count(options)
+    url = URI.parse("#{ArtsyAPI.artsy_api_root}/artworks?public=true&size=1&total_count=1")
+    http = Net::HTTP.new url.host, url.port
+    http.use_ssl = true if url.is_a?(URI::HTTPS)
+    resp = http.get("#{url.path}?#{url.query}", options)
+    fail "error: #{resp.code}" if resp.code != '200'
+    JSON.parse(resp.body)['total_count'].to_i
+  end
 end
