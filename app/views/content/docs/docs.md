@@ -1,4 +1,4 @@
-[Documentation](/docs) &gt; General &gt;
+[Documentation](/docs) &gt; General &gt; Machine Description
 
 ## Machine Description
 
