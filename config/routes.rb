@@ -16,7 +16,7 @@ Rails.application.routes.draw do
     :applications,
     :artists,
     :artworks,
-    :edition_sets,
+    :editions,
     :docs,
     :profiles,
     :partners,

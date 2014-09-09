@@ -47,10 +47,10 @@ partner    | [Partner](/docs/partners) that owns the artwork. |
 Key           | Target                                                                          |
 -------------:|:--------------------------------------------------------------------------------|
 artist_links  | A set of links to the [artists](/docs/artists) of this artwork.                 |
-edition_sets  | A set of artwork [edition sets](/docs/edition_set) available for this artwork.  |
+editions      | A set of artwork [editions](/docs/editions) available for this artwork.         |
 
 #### Example
 
 ``` json
-#{resource://artwork/id=4d8b92c34eb68a1b2c000496}
+#{resource://artwork/id=516dfb9ab31e2b2270000c45}
 ```
