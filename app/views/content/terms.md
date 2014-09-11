@@ -38,7 +38,7 @@ The following definitions are used in these Terms:
 
 2.2 If you are accepting these Terms and using the API on behalf of a company, organization, or other legal entity, you represent and warrant that you are authorized to bind that entity to these Terms, in which case the terms “you” and “your” in these Terms will refer to that entity. 
 
-2.3 Your use of the API is also subject to our general [Terms of Use](/terms) and [Privacy Policy](/privacy) as amended by us from time to time. By accessing or using the Services in any manner, you agree to be bound by these terms and conditions. 
+2.3 Your use of the API is also subject to our general [Terms of Use](https://artsy.net/terms) and [Privacy Policy](https://artsy.net/privacy) as amended by us from time to time. By accessing or using the Services in any manner, you agree to be bound by these terms and conditions. 
 
 2.4 Subject to these Terms, we grant you a limited, worldwide (except as limited by these Terms), non-exclusive, non-sublicensable, non-transferable, revocable license to use the API in the manner permitted by these Terms. This license will terminate automatically if you breach any of these Terms. We may also terminate this license at any time for any reason, as provided in section 18 of these Terms. 
 
@@ -155,7 +155,7 @@ You agree that you will not (and will not attempt to, or assist or encourage any
 
 8.2 Artsy and (as applicable) our licensors own all rights, title, and interest in and to the API Content, including but not limited to all intellectual property rights therein. 
 
-8.3 As provided in our [Terms of Use](/terms), each User retains any intellectual property rights that they may have in their User Content, and each User is solely responsible for their User Content. 
+8.3 As provided in our [Terms of Use](https://artsy.net/terms), each User retains any intellectual property rights that they may have in their User Content, and each User is solely responsible for their User Content. 
 
 8.4 You retain any intellectual property rights that you may have in Your User Content, and you are solely responsible for Your User Content.
 
@@ -257,7 +257,7 @@ To the fullest extent permitted by applicable law, you agree to indemnify, defen
 
 19.4 Nothing stated in or implied from these Terms will give any party other than you or us any legal or equitable right, remedy or claim under or with respect to these Terms.
 
-19.5 These Terms, together with our [Terms of Use](/terms), [Privacy Policy](/privacy), and any other written agreements that you may enter into with us regarding the Services, constitutes the entire agreement and understanding between you and us regarding the subject matter of these Terms, and supersedes any other written, oral or implied communications, statements or understandings between you and us regarding the subject matter of these Terms. 
+19.5 These Terms, together with our [Terms of Use](https://artsy.net/terms), [Privacy Policy](https://artsy.net/privacy), and any other written agreements that you may enter into with us regarding the Services, constitutes the entire agreement and understanding between you and us regarding the subject matter of these Terms, and supersedes any other written, oral or implied communications, statements or understandings between you and us regarding the subject matter of these Terms. 
 
 19.6 If any provision of these Terms is found by a court of competent jurisdiction to be invalid or unenforceable for any reason, that provision will be enforced to the maximum extent permissible, and these Terms will otherwise remain in full force and effect. 
 
