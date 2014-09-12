@@ -85,8 +85,8 @@ user       | User that owns the application. |
 ``` json
 {
   "id" : "...",
-  "created_at" : "2014-08-31T15:05:29.000Z",
-  "updated_at" : "2014-08-31T15:05:29.000Z",
+  "created_at" : "2014-08-31T15:05:29+00:00",
+  "updated_at" : "2014-08-31T15:05:29+00:00",
   "name" : "Test",
   "client_id" : "...",
   "client_secret" : "...",

@@ -32,8 +32,8 @@ user       | Link to the [user](/docs/users) information.         |
 ``` json
 {
   "id" : "52fe4b28c94d114d36000001",
-  "created_at" : "2014-02-14T16:58:17.000Z",
-  "updated_at" : "2014-09-08T13:32:34.000Z",
+  "created_at" : "2014-02-14T16:58:17+00:00",
+  "updated_at" : "2014-09-08T13:32:34+00:00",
   "type" : "User",
   "email" : "user@example.com",
   "birthday" : null,
