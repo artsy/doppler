@@ -9,14 +9,14 @@ An artwork is an artistic production created by an [artist](/docs/artists), mult
 Retrieve artworks by following the [artworks](#{ArtsyAPI.artsy_api_root}/artworks) link from [root](#{ArtsyAPI.artsy_api_root}).
 
 ```
-curl -v "#{ArtsyAPI.artsy_api_root}/artworks?public=true" -H "X-XAPP-Token:#{xapp_token}"
+curl -v "#{ArtsyAPI.artsy_api_root}/artworks" -H "X-XAPP-Token:#{xapp_token}"
 ```
 
 This endpoint accepts the following parameters.
 
 Name       | Value                                                             |
 ----------:|:------------------------------------------------------------------|
-public     | Retrieve publicly available artworks. This is currently required. |
+artist_id  | Retrieve available by a given artist.                             |
 
 The response is a [paginated result](/docs/pagination) with embedded artworks.
 

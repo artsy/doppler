@@ -19,10 +19,10 @@ module ArtsyAPI
     end
   end
 
-  def self.public_artworks_count
+  def self.artworks_count
     conn = client.connection
     conn.headers['X-XAPP-Token'] = xapp_token
-    conn.get("#{artsy_api_root}/artworks?public=true&total_count=1").body['total_count']
+    conn.get("#{artsy_api_root}/artworks?total_count=1").body['total_count']
   end
 
   def self.xapp_token
