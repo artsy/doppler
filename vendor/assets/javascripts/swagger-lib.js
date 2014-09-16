@@ -1,5 +1,4 @@
 //= require ../swagger-ui/lib/shred.bundle.js
-//= require ../swagger-ui/lib/jquery-1.8.0.min.js
 //= require ../swagger-ui/lib/jquery.slideto.min.js
 //= require ../swagger-ui/lib/jquery.wiggle.min.js
 //= require ../swagger-ui/lib/jquery.ba-bbq.min.js
