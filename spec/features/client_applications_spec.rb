@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe 'Client Applications' do
   before do
-    allow(ArtsyAPI).to receive(:public_artworks_count).and_return(123)
+    allow(ArtsyAPI).to receive(:artworks_count).and_return(123)
   end
   it 'requires authentication' do
     visit '/client_applications'
