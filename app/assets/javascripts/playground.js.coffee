@@ -16,7 +16,7 @@ $ ->
       $('#swagger-ui-container .info').remove()
       $('#swagger-ui-container .footer').remove()
       setTimeout( =>
-          $('#message-bar.swagger-ui-wrap').fadeOut(300, => @remove())
+          $('#message-bar.swagger-ui-wrap').fadeOut(300)
         3000)
     docExpansion: "list"
 
