@@ -9,6 +9,7 @@
 * [Links Between Resources](/docs/links)
 * [Errors](/docs/errors)
 * [Machine Description](/docs/docs)
+* [Markdown Content](/docs/markdown)
 
 ### Resources
 
@@ -16,6 +17,7 @@
 * [Artists](/docs/artists)
 * [Artworks](/docs/artworks)
 * [Editions](/docs/editions)
+* [Genes](/docs/genes)
 * [Profiles](/docs/profiles)
 * [Partners](/docs/partners)
 * [Applications](/docs/applications)

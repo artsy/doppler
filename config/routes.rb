@@ -17,12 +17,14 @@ Rails.application.routes.draw do
     :artists,
     :artworks,
     :editions,
+    :genes,
     :docs,
     :profiles,
     :partners,
     :status,
     :users,
-    :user_details
+    :user_details,
+    :markdown
   ].each do |page|
     get "/docs/#{page}", to: 'pages#show', id: "docs/#{page}"
   end

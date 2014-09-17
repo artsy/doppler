@@ -16,7 +16,7 @@ This endpoint accepts the following parameters.
 
 Name       | Value                                                             |
 ----------:|:------------------------------------------------------------------|
-artist_id  | Retrieve available by a given artist.                             |
+artist_id  | Retrieve artworks by a given artist.                              |
 
 The response is a [paginated result](/docs/pagination) with embedded artworks.
 

@@ -6,17 +6,11 @@ A partner provides [artworks](/docs/artworks).
 
 #### Retrieving Partners
 
-Retrieve partners by following the [partners](#{ArtsyAPI.artsy_api_root}/partners?active=true) link from [root](#{ArtsyAPI.artsy_api_root}).
+Retrieve partners by following the [partners](#{ArtsyAPI.artsy_api_root}/partners) link from [root](#{ArtsyAPI.artsy_api_root}).
 
 ```
-curl -v "#{ArtsyAPI.artsy_api_root}/partners?active=true" -H "X-XAPP-Token:#{xapp_token}"
+curl -v "#{ArtsyAPI.artsy_api_root}/partners" -H "X-XAPP-Token:#{xapp_token}"
 ```
-
-This endpoint accepts the following parameters.
-
-Name       | Value                                                             |
-----------:|:------------------------------------------------------------------|
-active     | Retrieve active partners. This is currently required.             |
 
 The response is a [paginated result](/docs/pagination) with embedded partners.
 
