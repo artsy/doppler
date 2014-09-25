@@ -6,7 +6,7 @@ class PagesController < ApplicationController
     filename = Rails.root.join("app/views/content/#{params[:id]}.md")
     @content = Rails.cache.fetch "content/#{params[:id]}/#{File.mtime(filename)}/#{current_user ? current_user.id : nil}" do
       text = File.read(filename)
-      text = text.gsub(/\#\{(?<var> [\w\.,_\/:=]*)\}/x) do
+      text = text.gsub(/\#\{(?<var> [\w\.,_\/:=\+\s\d-]*)\}/x) do
         var = $~[:var]
         if var == 'ArtsyAPI.artsy_api_root'
           ArtsyAPI.artsy_api_root
