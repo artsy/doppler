@@ -25,13 +25,11 @@ Let's make a few API calls to obtain the information for Andy Warhol.
 - else
   %h4 1. Create an Artsy Account
 
-  Sign up for Artsy at
-  <a href='https://artsy.net/sign_up?redirect_uri=#{CGI.escape(request.url)}' target='_blank'>artsy.net/sign_up</a>.
+  <a href='https://artsy.net/sign_up?redirect_uri=#{CGI.escape(request.url)}' target='_blank'>Sign up</a> for an account on Artsy.
 
   %h4 2. Sign In
 
-  Sign in to the developer website
-  <a href='/sign_in?redirect_uri=#{CGI.escape(request.path)}'>here</a>.
+  <a href='/sign_in?redirect_uri=#{CGI.escape(request.path)}'>Sign in</a> into the developer website.
 
 //// app selection
 
