@@ -24,7 +24,8 @@ Rails.application.routes.draw do
     :status,
     :users,
     :user_details,
-    :markdown
+    :markdown,
+    :search
   ].each do |page|
     get "/docs/#{page}", to: 'pages#show', id: "docs/#{page}"
   end

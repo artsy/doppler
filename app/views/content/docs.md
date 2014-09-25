@@ -23,3 +23,4 @@
 * [Applications](/docs/applications)
 * [Users](/docs/users)
 * [User Details](/docs/user_details)
+* [Search](/docs/search)
