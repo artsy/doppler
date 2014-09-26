@@ -51,6 +51,28 @@ For example, only search for artists by specifying an "artist" open-graph type w
 curl -v "#{ArtsyAPI.artsy_api_root}/search?q=Andy+Warhol+more:pagemap:metatags-og_type:artist" -H "X-XAPP-Token:#{xapp_token}"
 ```
 
+#### Spell Check
+
+If the API fails to find any results for a term it will attempt to correct its spelling. The response will be a 302 redirect to the suggested search URL. For example, searching for "Tauba Orbach" will redirect to a search for "Tauba Auerbach".
+
+```
+curl -v "#{ArtsyAPI.artsy_api_root}/search?q=Tauba+Orbach" -H "X-XAPP-Token:#{xapp_token}"
+
+< HTTP/1.1 302 Found
+< Content-Type: application/json
+< Location: http://localhost:3000/api/search?q=Tauba+Auerbach
+```
+
+``` json
+{
+  "_links" : {
+    "location" : {
+      "href" : "#{ArtsyAPI.artsy_api_root}/search?q=Tauba+Auerbach"
+    }
+  }
+}
+```
+
 #### Example
 
 ``` json
