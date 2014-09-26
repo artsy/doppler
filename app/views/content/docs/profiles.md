@@ -32,6 +32,7 @@ Key        | Target                                          |
 ----------:|:------------------------------------------------|
 self       | The profile resource.                           |
 permalink  | An external location on the artsy.net website.  |
+image:self | Curied image location.                          |
 website    | Official website.                               |
 
 #### Example
