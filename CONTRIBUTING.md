@@ -39,7 +39,7 @@ You can run Doppler against an Artsy production environment, however we recommen
 To run Doppler you need a client ID and secret, which you can obtain from [developers.artsy.net](https://developers.artsy.net).
 
 ```
-ARTSY_API_URL=https://stagingapi.artsy.net ARTSY_API_CLIENT_ID=... ARTSY_API_CLIENT_SECRET=... rails s
+ARTSY_API_URL=https://stagingapi.artsy.net ARTSY_API_CLIENT_ID=... ARTSY_API_CLIENT_SECRET=... bin/rails s
 ```
 
 Navigate to http://localhost:3000.

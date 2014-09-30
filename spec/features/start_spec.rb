@@ -24,7 +24,7 @@ describe 'Start' do
         # xapp token request from start/show.html.haml
         allow(Net::HTTP).to receive_message_chain(:post_form, :body).and_return({ xapp_token: 'token' }.to_json)
         # example of retrieving an artist by id
-        allow(ArtsyAPI).to receive_message_chain(:client, :links, :artist, :expand, :resource, :response, :body).and_return({ 'id' => 'andy-warhol' })
+        allow(ArtsyAPI).to receive_message_chain(:client, :artist, :_response, :body).and_return({ 'id' => 'andy-warhol' })
       end
       context 'with an application' do
         let(:application) do
@@ -39,7 +39,7 @@ describe 'Start' do
             })
         end
         before do
-          allow(ArtsyAPI).to receive_message_chain(:client, :links, :applications, :embedded, :applications).and_return([application])
+          allow(ArtsyAPI).to receive_message_chain(:client, :applications).and_return([application])
           visit '/start'
         end
         it 'selects the app' do
@@ -56,28 +56,26 @@ describe 'Start' do
       context 'with two apps' do
         let(:application1) do
           Hashie::Mash.new(
-            attributes: {
-              id: '1',
-              name: 'One',
-              client_id: 'client_id1',
-              client_secret: 'client_secret1',
-              created_at: Time.now.utc.to_s,
-              updated_at: Time.now.utc.to_s
-            })
+            id: '1',
+            name: 'One',
+            client_id: 'client_id1',
+            client_secret: 'client_secret1',
+            created_at: Time.now.utc.to_s,
+            updated_at: Time.now.utc.to_s
+          )
         end
         let(:application2) do
           Hashie::Mash.new(
-            attributes: {
-              id: '2',
-              name: 'Two',
-              client_id: 'client_id2',
-              client_secret: 'client_secret2',
-              created_at: Time.now.utc.to_s,
-              updated_at: Time.now.utc.to_s
-            })
+            id: '2',
+            name: 'Two',
+            client_id: 'client_id2',
+            client_secret: 'client_secret2',
+            created_at: Time.now.utc.to_s,
+            updated_at: Time.now.utc.to_s
+          )
         end
         before do
-          allow(ArtsyAPI).to receive_message_chain(:client, :links, :applications, :embedded, :applications).and_return([application1, application2])
+          allow(ArtsyAPI).to receive_message_chain(:client, :applications).and_return([application1, application2])
         end
         it 'lets pick the app' do
           visit '/start'
