@@ -43,7 +43,7 @@ Let's make a few API calls to obtain the information for Andy Warhol.
 
   .select_app
     = bootstrap_form_tag url: '/start', method: 'GET' do |f|
-      = f.collection_select :id, @client_applications.map { |a| Hashie::Mash.new(id: a.attributes.id, label: "#{a.attributes.name} (#{a.attributes.client_id})") }, :id, :label, { prompt: true, hide_label: true }, { onchange: "var v = $('.select_app select option:selected').val(); window.location = '/start?id=' + v;" }
+      = f.collection_select :id, @client_applications.map { |a| Hashie::Mash.new(id: a.id, label: "#{a.name} (#{a.client_id})") }, :id, :label, { prompt: true, hide_label: true }, { onchange: "var v = $('.select_app select option:selected').val(); window.location = '/start?id=' + v;" }
 
 - elsif !@error && authenticated? && !@selected_client_application
 
@@ -59,13 +59,13 @@ Let's make a few API calls to obtain the information for Andy Warhol.
     %tbody
       %tr
         %th.text-right Name
-        %td= @selected_client_application.attributes.name
+        %td= @selected_client_application.name
       %tr
         %th.text-right Client Id
-        %td= @selected_client_application.attributes.client_id
+        %td= @selected_client_application.client_id
       %tr
         %th.text-right Client Secret
-        %td= @selected_client_application.attributes.client_secret
+        %td= @selected_client_application.client_secret
 
   %h4 4. Get a Token
 
@@ -74,15 +74,15 @@ Let's make a few API calls to obtain the information for Andy Warhol.
   Using curl:
 
   %pre
-    curl -v -X POST "#{ArtsyAPI.artsy_api_root}/tokens/xapp_token?client_id=#{@selected_client_application.attributes.client_id}&client_secret=#{@selected_client_application.attributes.client_secret}"
+    curl -v -X POST "#{ArtsyAPI.artsy_api_root}/tokens/xapp_token?client_id=#{@selected_client_application.client_id}&client_secret=#{@selected_client_application.client_secret}"
 
   With Ruby:
 
   != highlight_syntax "require 'net/http'\n" +                                                        |
     "require 'json'\n" +                                                                              |
     "\n" +                                                                                            |
-    "client_id = '#{@selected_client_application.attributes.client_id}'\n" +                          |
-    "client_secret = '#{@selected_client_application.attributes.client_secret}'\n" +                  |
+    "client_id = '#{@selected_client_application.client_id}'\n" +                          |
+    "client_secret = '#{@selected_client_application.client_secret}'\n" +                  |
     "api_url = URI.parse('#{ArtsyAPI.artsy_api_root}/tokens/xapp_token')\n" +                         |
     "response = Net::HTTP.post_form(api_url, client_id: client_id, client_secret: client_secret)\n" + |
     "xapp_token = JSON.parse(response.body)['token']\n", :ruby                                        |
@@ -91,8 +91,8 @@ Let's make a few API calls to obtain the information for Andy Warhol.
 
   != highlight_syntax ["var request = require('superagent');",
     "",
-    "var clientID = '#{@selected_client_application.attributes.client_id}',",
-    "    clientSecret = '#{@selected_client_application.attributes.client_secret}',",
+    "var clientID = '#{@selected_client_application.client_id}',",
+    "    clientSecret = '#{@selected_client_application.client_secret}',",
     "    apiUrl = '#{ArtsyAPI.artsy_api_root}/tokens/xapp_token'",
     "    xappToken;",
     "",
@@ -106,7 +106,7 @@ Let's make a few API calls to obtain the information for Andy Warhol.
   Returns the following JSON.
 
   - begin
-    - xapp_response = JSON.parse(Net::HTTP.post_form(URI.parse("#{ArtsyAPI.artsy_api_root}/tokens/xapp_token"), client_id: @selected_client_application.attributes.client_id, client_secret: @selected_client_application.attributes.client_secret).body)
+    - xapp_response = JSON.parse(Net::HTTP.post_form(URI.parse("#{ArtsyAPI.artsy_api_root}/tokens/xapp_token"), client_id: @selected_client_application.client_id, client_secret: @selected_client_application.client_secret).body)
     - xapp_token = xapp_response['token']
     != highlight_syntax JSON.pretty_generate(xapp_response), :json
   - rescue Exception => e
@@ -122,7 +122,7 @@ Let's make a few API calls to obtain the information for Andy Warhol.
   Redirects to "#{ArtsyAPI.artsy_api_root}/artists/4d8b92b34eb68a1b2c0003f4", which returns a JSON document for Andy Warhol.
 
   - artsy_api = ArtsyAPI.client(xapp_token: xapp_token)
-  != highlight_syntax JSON.pretty_generate(artsy_api.links.artist.expand(id: 'andy-warhol').resource.response.body), :json
+  != highlight_syntax JSON.pretty_generate(artsy_api.artist(id: 'andy-warhol')._response.body), :json
 
   Using <a href='https://github.com/codegram/hyperclient', target='_blank'>Hyperclient</a> with Ruby.
 
@@ -136,8 +136,8 @@ Let's make a few API calls to obtain the information for Andy Warhol.
     "end\n" +                                                                                                                                  |
     "\n" +                                                                                                                                     |
     "# replace with andy-warhol after fix for https://github.com/codegram/hyperclient/issues/58\n" +                                           |
-    "andy_warhol = api.links.artist.expand(id: '4d8b92b34eb68a1b2c0003f4').resource\n" +                                                       |
-    "puts \"\#{andy_warhol.attributes.name} was born in \#{andy_warhol.attributes.birthday} in \#{andy_warhol.attributes.hometown}\"\n", :ruby |
+    "andy_warhol = api.artist(id: '4d8b92b34eb68a1b2c0003f4')\n" +                                                       |
+    "puts \"\#{andy_warhol.name} was born in \#{andy_warhol.birthday} in \#{andy_warhol.hometown}\"\n", :ruby |
 
   Using <a href='https://github.com/basti1302/traverson', target='_blank'>Traverson</a> with Node.js or in the Browser.
 

@@ -4,16 +4,17 @@ describe 'Resources/status' do
   before do
     # status example
     allow(ArtsyAPI).to receive(:xapp_token).and_return('token')
-    allow(ArtsyAPI).to receive_message_chain(:client, :connection, :get, :body).and_return({
-                                                                                             'models' => {
-                                                                                               'System' => {
-                                                                                                 'properties' => {
-                                                                                                   'status' => { 'description' => 'System status description.' }
-                                                                                                 }
-                                                                                               }
-                                                                                             }
-                                                                                           })
-    allow(ArtsyAPI).to receive_message_chain(:client, :links, :status, :expand, :get, :body).and_return(foo: 'bar')
+    models_json = {
+      'models' => {
+        'System' => {
+          'properties' => {
+            'status' => { 'description' => 'System status description.' }
+          }
+        }
+      }
+    }
+    allow(ArtsyAPI).to receive_message_chain(:client, :connection, :get, :body).and_return(models_json)
+    allow(ArtsyAPI).to receive_message_chain(:client, :status, :_get, :body).and_return(foo: 'bar')
   end
   context 'signed out' do
     before do

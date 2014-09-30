@@ -32,8 +32,8 @@ class PagesController < ApplicationController
 
   def start
     if authenticated?
-      @client_applications = artsy_client.links.applications.embedded.applications
-      @selected_client_application = @client_applications.find { |app| app.attributes.id == params[:id] } if params.key?(:id)
+      @client_applications = artsy_client.applications
+      @selected_client_application = @client_applications.find { |app| app.id == params[:id] } if params.key?(:id)
       @selected_client_application ||= @client_applications.first if @client_applications.count == 1
     end
   end
@@ -44,7 +44,7 @@ class PagesController < ApplicationController
     parts = var.split('/')[2..-1]
     method = parts[0]
     args = Hash[parts[1..-1].map { |part| part.split('=', 2) }]
-    JSON.pretty_generate artsy_client.links.send(method).expand(args).get.body
+    JSON.pretty_generate artsy_client.send(method, args)._get.body
   rescue => e
     "error: #{e.message}"
   end
@@ -74,8 +74,7 @@ class PagesController < ApplicationController
 
   def application_id
     if authenticated?
-      artsy_client.links.applications.embedded
-        .try(:applications)
+      artsy_client.applications
         .try(:first)
         .try(:attributes)
         .try(:id) || '...'

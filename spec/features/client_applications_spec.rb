@@ -14,14 +14,14 @@ describe 'Client Applications' do
     end
     context 'without applications' do
       before do
-        allow(ArtsyAPI).to receive_message_chain(:client, :links, :applications, :embedded, :applications).and_return([])
+        allow(ArtsyAPI).to receive_message_chain(:client, :applications).and_return([])
       end
       it 'renders a list of apps' do
         visit '/client_applications'
         expect(page.body).to include 'My Apps'
       end
       it 'creates an app' do
-        expect(ArtsyAPI).to receive_message_chain(:client, :links, :applications, :post).with(name: 'Name')
+        expect(ArtsyAPI).to receive_message_chain(:client, :applications, :_post).with(name: 'Name')
         visit '/client_applications'
         click_link 'Create a New App'
         fill_in 'Name', with: 'Name'
@@ -31,18 +31,20 @@ describe 'Client Applications' do
     context 'with an application' do
       let(:application) do
         Hashie::Mash.new(
-          attributes: {
-            id: '1',
-            name: 'One',
-            client_id: 'client_id',
-            client_secret: 'client_secret',
-            created_at: Time.now.utc.to_s,
-            updated_at: Time.now.utc.to_s
-          })
+          id: '1',
+          name: 'One',
+          client_id: 'client_id',
+          client_secret: 'client_secret',
+          created_at: Time.now.utc.to_s,
+          updated_at: Time.now.utc.to_s,
+          _attributes: {
+            id: '1'
+          }
+        )
       end
       before do
-        allow(ArtsyAPI).to receive_message_chain(:client, :links, :applications, :embedded, :applications).and_return([application])
-        allow(ArtsyAPI).to receive_message_chain(:client, :links, :application, :expand, :resource).and_return(application)
+        allow(ArtsyAPI).to receive_message_chain(:client, :applications).and_return([application])
+        allow(ArtsyAPI).to receive_message_chain(:client, :application).and_return(application)
       end
       it 'displays the app in a table' do
         visit '/client_applications'
@@ -56,14 +58,14 @@ describe 'Client Applications' do
         expect(page.body).to include 'client_secret'
       end
       it 'edits the app' do
-        expect(application).to receive(:put).with(name: 'Updated')
+        expect(application).to receive(:_put).with(name: 'Updated')
         visit '/client_applications'
         click_link 'edit'
         fill_in 'Name', with: 'Updated'
         click_button 'Save'
       end
       it 'destroys the app' do
-        expect(application).to receive(:delete)
+        expect(application).to receive(:_delete)
         visit '/client_applications'
         click_link 'destroy'
         click_link 'OK'
