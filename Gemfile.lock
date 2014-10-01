@@ -5,18 +5,6 @@ GIT
   specs:
     twitter-bootstrap-rails-confirm (1.0.2)
 
-GIT
-  remote: git://github.com/codegram/hyperclient.git
-  revision: 5a5ca160f1022531de971ca813c1697f7a512346
-  specs:
-    hyperclient (0.4.0)
-      faraday (~> 0.8)
-      faraday-digestauth (~> 0.2)
-      faraday_middleware (~> 0.9)
-      futuroscope (>= 0.0.10)
-      net-http-digest_auth (~> 1.2)
-      uri_template (~> 0.5)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -110,6 +98,13 @@ GEM
       railties (>= 4.0.1)
     hashie (3.3.1)
     hike (1.2.3)
+    hyperclient (0.5.0)
+      faraday (~> 0.8)
+      faraday-digestauth (~> 0.2)
+      faraday_middleware (~> 0.9)
+      futuroscope (>= 0.0.10)
+      net-http-digest_auth (~> 1.2)
+      uri_template (~> 0.5)
     i18n (0.6.11)
     jquery-rails (3.1.1)
       railties (>= 3.0, < 5.0)
@@ -273,7 +268,7 @@ DEPENDENCIES
   guard-rspec
   guard-rubocop
   haml-rails
-  hyperclient!
+  hyperclient (~> 0.5.0)
   jquery-rails
   newrelic_rpm
   nokogiri
