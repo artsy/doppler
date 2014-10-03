@@ -5,7 +5,7 @@
 
 /* vertically align all TDs */
 .table tbody > tr > td {
-    vertical-align: middle;
+  vertical-align: middle;
 }
 
 /* sections disabled in getting started */
@@ -16,4 +16,39 @@
 /* most tables are name | value, make name fixed size */
 tr td:first-child {
   width: 200px;
+}
+
+.container .jumbotron {
+  border-radius: 0;
+  background-color: white;
+  border: 2px solid black;
+}
+
+.navbar-default {
+  background-color: white;
+}
+
+.navbar-default .navbar-nav li a {
+  color: black;
+}
+
+.navbar-default .navbar-nav li.active a {
+  background-color: white;
+  text-decoration: underline;
+  font-weight: bold;
+  color: black;
+}
+
+.navbar-default .navbar-nav li a:hover {
+  text-decoration: underline;
+}
+
+.navbar-default .navbar-nav li.active a:hover {
+  background-color: white;
+}
+
+.navbar-default .navbar-brand {
+  color: black;
+  font-style: italic;
+  font-family: 'Times New Roman', Times, serif;
 }
