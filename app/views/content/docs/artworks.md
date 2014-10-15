@@ -2,7 +2,7 @@
 
 ## Artworks API
 
-An artwork is an artistic production created by an [artist](/docs/artists), multiple artists or an artist collective. An artwork may be part of a series and be reproduced in prints. Artworks are available from Artsy [partners](/docs/partners).
+An artwork is an artistic production created by an [artist](/docs/artists), multiple artists or an artist collective. An artwork may be part of a series and be reproduced in prints. Artworks are available from Artsy [partners](/docs/partners) and may be included in [shows](/docs/shows).
 
 #### Retrieving Artworks
 
@@ -14,9 +14,11 @@ curl -v "#{ArtsyAPI.artsy_api_root}/artworks" -H "X-XAPP-Token:#{xapp_token}"
 
 This endpoint accepts the following parameters.
 
-Name       | Value                                                             |
-----------:|:------------------------------------------------------------------|
-artist_id  | Retrieve artworks by a given artist.                              |
+Name       | Value                                                               |
+----------:|:--------------------------------------------------------------------|
+artist_id  | Retrieve artworks by a given [artist](/docs/artists).               |
+partner_id | Retrieve artworks that belong to a given [partner](/docs/partners). |
+show_id    | Retrieve artworks that belong to a given [show](/docs/shows).       |
 
 The response is a [paginated result](/docs/pagination) with embedded artworks.
 

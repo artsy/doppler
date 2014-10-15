@@ -26,6 +26,7 @@ Artist        | An Artsy [artist](/docs/artists).                  |
 Artwork       | An Artsy [artwork](/docs/artworks).                |
 Profile       | An Artsy [profile](/docs/profiles).                |
 Gene          | An Artsy [gene](/docs/genes).                      |
+Show          | An Artsy [show](/docs/shows).                      |
 
 The API will also return search results with a "null" value for "type". Those are not supported by the API (yet) and may include features, posts or shows.
 
