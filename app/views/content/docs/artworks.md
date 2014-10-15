@@ -41,12 +41,13 @@ thumbnail  | Default image thumbnail.                         |
 image:self | Curied image location.                           |
 permalink  | An external location on the artsy.net website.   |
 partner    | [Partner](/docs/partners) that owns the artwork. |
+artists    | Artwork's [Artists](/docs/artists).              |
+genes      | Artwork's [Genes](/docs/genes).                  |
 
 #### Embedded Collections
 
 Key           | Target                                                                          |
 -------------:|:--------------------------------------------------------------------------------|
-artist_links  | A set of links to the [artists](/docs/artists) of this artwork.                 |
 editions      | A set of artwork [editions](/docs/editions) available for this artwork.         |
 
 #### Example
