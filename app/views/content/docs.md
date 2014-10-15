@@ -20,6 +20,7 @@
 * [Genes](/docs/genes)
 * [Profiles](/docs/profiles)
 * [Partners](/docs/partners)
+* [Shows](/docs/shows)
 * [Applications](/docs/applications)
 * [Users](/docs/users)
 * [User Details](/docs/user_details)

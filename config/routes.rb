@@ -21,6 +21,7 @@ Rails.application.routes.draw do
     :docs,
     :profiles,
     :partners,
+    :shows,
     :status,
     :users,
     :user_details,
