@@ -1,6 +1,4 @@
-Warden::Manager.serialize_into_session do |user|
-  user.serializable_hash
-end
+Warden::Manager.serialize_into_session(&:serializable_hash)
 
 Warden::Manager.serialize_from_session do |hash|
   User.new(hash)

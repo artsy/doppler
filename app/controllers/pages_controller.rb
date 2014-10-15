@@ -65,7 +65,7 @@ class PagesController < ApplicationController
     fail 'missing properties' unless properties
     properties.each_pair do |key, desc|
       next unless desc['description']
-      rc += "#{key} | #{desc['description']}\n"
+      rc += "#{key.gsub('_', '\_')} | #{desc['description']}\n"
     end
     rc
   rescue => e

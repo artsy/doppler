@@ -62,15 +62,7 @@ Users are only authorized to retrieve their own applications.
 
 ## Application JSON Format
 
-Key           | Description                                      |
--------------:|:-------------------------------------------------|
-id            | Application ID.                                  |
-created_at    | Date/time when the application was created.      |
-updated_at    | Date/time when the application was last updated. |
-name          | Application name.                                |
-client_id     | Auto-generated client ID.                        |
-client_secret | Auto-generated client secret.                    |
-enabled       | True if the application is enabled.              |
+#{modelref://Application}
 
 #### Links
 

@@ -2,23 +2,30 @@
 
 = link_to "Back to Apps", client_applications_path, class: 'btn'
 
+- if @client_application.enabled && @client_application.published_artworks_access_enabled
+  .alert.alert-success
+    This application has access to all published artworks.
+
 = bootstrap_form_for ClientApplication.new(@client_application._attributes), method: 'PUT' do |f|
   %table.table.table-bordered.table-striped
-    %tbody
+    %tbody#application
       %tr
         %td{ colspan: 2 }= f.text_field :name, required: true, value: @client_application.name, placeholder: 'This can be any name that you would recognize.'
       %tr
         %th.text-right Client Id
-        %td= @client_application.client_id
+        %td#client_id= @client_application.client_id
       %tr
         %th.text-right Client Secret
-        %td= @client_application.client_secret
+        %td#client_secret= @client_application.client_secret
       %tr
         %th.text-right Created
-        %td= DateTime.parse(@client_application.created_at).strftime("%B %d, %Y %H:%M")
+        %td#created_at= DateTime.parse(@client_application.created_at).strftime("%B %d, %Y %H:%M")
       %tr
         %th.text-right Updated
-        %td= DateTime.parse(@client_application.updated_at).strftime("%B %d, %Y %H:%M")
+        %td#updated_at= DateTime.parse(@client_application.updated_at).strftime("%B %d, %Y %H:%M")
+      %tr
+        %th.text-right Enabled
+        %td#enabled= @client_application.enabled ? 'Yes' : 'No'
 
   = f.primary 'Save'
   = link_to "Cancel", "javascript:history.back()", class: 'btn btn-default'
