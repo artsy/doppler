@@ -27,7 +27,7 @@ module ArtsyAPI
 
   def self.xapp_token
     Rails.cache.fetch "xapp-token/#{ENV['ARTSY_API_CLIENT_ID']}", expires_in: 1.hour do
-      api.tokens.xapp_token._post(client_id: ENV['ARTSY_API_CLIENT_ID'], client_secret: ENV['ARTSY_API_CLIENT_SECRET']).token
+      client.tokens.xapp_token._post(client_id: ENV['ARTSY_API_CLIENT_ID'], client_secret: ENV['ARTSY_API_CLIENT_SECRET']).token
     end
   end
 end

@@ -14,7 +14,7 @@ describe 'Resources/status' do
       }
     }
     allow(ArtsyAPI).to receive_message_chain(:client, :connection, :get, :body).and_return(models_json)
-    allow(ArtsyAPI).to receive_message_chain(:client, :status, :_get, :body).and_return(foo: 'bar')
+    allow(ArtsyAPI).to receive_message_chain(:client, :status, :_get, :_response, :body).and_return(foo: 'bar')
   end
   context 'signed out' do
     before do
