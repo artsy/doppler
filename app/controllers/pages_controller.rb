@@ -44,8 +44,10 @@ class PagesController < ApplicationController
     parts = var.split('/')[2..-1]
     method = parts[0]
     args = Hash[parts[1..-1].map { |part| part.split('=', 2) }]
-    JSON.pretty_generate artsy_client.send(method, args)._get.body
+    JSON.pretty_generate artsy_client.send(method, args)._get._response.body
   rescue => e
+    Rails.logger.error e
+    Rails.logger.error e.backtrace.join("\n")
     "error: #{e.message}"
   end
 
@@ -69,6 +71,8 @@ class PagesController < ApplicationController
     end
     rc
   rescue => e
+    Rails.logger.error e
+    Rails.logger.error e.backtrace.join("\n")
     "error: #{e.message}"
   end
 
