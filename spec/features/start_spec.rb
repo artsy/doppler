@@ -9,35 +9,39 @@ describe 'Start' do
   context 'logged in' do
     before do
       login_as User.new
+      # xapp token request from start/show.html.haml
+      allow(Net::HTTP).to receive_message_chain(:post_form, :body).and_return({ xapp_token: 'token' }.to_json)
+      # example of retrieving an artist by id
+      allow(ArtsyAPI).to receive_message_chain(:client, :artist, :_response, :body).and_return({ 'id' => 'andy-warhol' })
     end
-    context 'without applications' do
+    let(:application) do
+      Hashie::Mash.new(
+        id: '1',
+        name: 'One',
+        client_id: 'client_id',
+        client_secret: 'client_secret',
+        created_at: Time.now.utc.to_s,
+        updated_at: Time.now.utc.to_s
+      )
+    end
+    context 'without apps' do
       before do
-        allow(ArtsyAPI).to receive_message_chain(:client, :links, :applications, :embedded, :applications).and_return([])
+        allow(ArtsyAPI).to receive_message_chain(:client, :_links, :applications).and_return([])
       end
-      it 'says to create an app' do
+      it 'creates an app' do
         visit '/start'
         expect(page.body).to include 'Create an App'
+        expect(ArtsyAPI).to receive_message_chain(:client, :applications, :_post).with(name: 'Name').and_return(application)
+        click_link 'here'
+        fill_in 'Name', with: 'Name'
+        allow(ArtsyAPI).to receive_message_chain(:client, :applications).and_return([application])
+        click_button 'Save'
+        expect(page.body).to include 'Use Your App'
+        expect(page.body).to include 'client_id'
       end
     end
     context 'with apps' do
-      before do
-        # xapp token request from start/show.html.haml
-        allow(Net::HTTP).to receive_message_chain(:post_form, :body).and_return({ xapp_token: 'token' }.to_json)
-        # example of retrieving an artist by id
-        allow(ArtsyAPI).to receive_message_chain(:client, :artist, :_response, :body).and_return({ 'id' => 'andy-warhol' })
-      end
       context 'with an application' do
-        let(:application) do
-          Hashie::Mash.new(
-            attributes: {
-              id: '1',
-              name: 'One',
-              client_id: 'client_id',
-              client_secret: 'client_secret',
-              created_at: Time.now.utc.to_s,
-              updated_at: Time.now.utc.to_s
-            })
-        end
         before do
           allow(ArtsyAPI).to receive_message_chain(:client, :applications).and_return([application])
           visit '/start'
