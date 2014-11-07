@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   include WardenHelper
+  include CacheHelper
   protect_from_forgery with: :exception
 
   def authenticate!

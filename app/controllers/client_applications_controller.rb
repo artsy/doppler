@@ -1,6 +1,7 @@
 class ClientApplicationsController < ApplicationController
   before_action :authenticate!
   before_action :fetch_client_application, only: [:show, :edit, :destroy, :update]
+  before_action :no_cache!, except: [:index]
 
   def new
     @client_application = ClientApplication.new
