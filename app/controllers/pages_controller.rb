@@ -1,5 +1,6 @@
 class PagesController < ApplicationController
   include MarkdownHelper
+  include CacheHelper
 
   def show
     fail 'Invalid Id' unless params[:id] =~ /^[\w\/]*$/
@@ -15,7 +16,12 @@ class PagesController < ApplicationController
         elsif var == 'xapp_token'
           '...' # TODO
         elsif var == 'access_token'
-          current_user ? current_user.access_token : '...'
+          if current_user
+            no_cache!
+            current_user.access_token
+          else
+            '...'
+          end
         elsif var == 'application_id'
           application_id
         elsif var.start_with? 'resource://'

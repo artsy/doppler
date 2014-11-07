@@ -1,5 +1,6 @@
 class PlaygroundController < ApplicationController
   before_action :authenticate!
+  before_action :no_cache!
 
   def index
     @options = {
