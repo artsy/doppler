@@ -24,19 +24,29 @@ Users can retrieve a specific artist by ID by rendering the "artist" link templa
 curl -v "#{ArtsyAPI.artsy_api_root}/artists/{id}" -H "X-XAPP-Token:#{xapp_token}"
 ```
 
+#### Retrieving an Artwork's Artists
+
+Follow the "artists" link from an [artwork](/docs/artworks), which calls this endpoint with the `artwork_id` parameter.
+
+#### Retrieving Similar Artists
+
+Artsy continuously computes a K-nearest-neighbor graph for artists using data from the [Art Genome Project](https://artsy.net/about/the-art-genome-project). Retrieve artists similar to another artist by following the "similar_artists" or the "similar_contemporary_artists" links in an artist resource, which calls this endpoint with the `similar_to_artist_id` parameter and an optional `similarity_type` value. The response is a non-paginated set of similar artists or similar contemporary artists, respectively.
+
 ## Artist JSON Format
 
 #{modelref://Artist}
 
 #### Links
 
-Key        | Target                                          |
-----------:|:------------------------------------------------|
-self       | The artist resource.                            |
-thumbnail  | Default image thumbnail.                        |
-image:self | Curied image location.                          |
-permalink  | An external location on the artsy.net website.  |
-artworks   | All artist's [artworks](/docs/artworks).        |
+Key                            | Target                                          |
+------------------------------:|:------------------------------------------------|
+self                           | The artist resource.                            |
+thumbnail                      | Default image thumbnail.                        |
+image:self                     | Curied image location.                          |
+permalink                      | An external location on the artsy.net website.  |
+artworks                       | All artist's [artworks](/docs/artworks).        |
+similar_artists                | Artists similar to this artist.                 |
+similar_contemporary_artists   | Contemporary artists similar to this artist.    |
 
 #### Example
 
