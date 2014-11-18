@@ -65,7 +65,7 @@ A JSON document can have keys and values. Typical resources contain a unique "id
 
 #### Timestamps
 
-Most resources also contain a "created_at" and "updated_at" UTC timestamp in the [ISO 8601](http://en.wikipedia.org/wiki/ISO_8601) format, without millisecond precision.
+Most resources also contain a "created\_at" and "updated\_at" UTC timestamp in the [ISO 8601](http://en.wikipedia.org/wiki/ISO_8601) format, without millisecond precision.
 
 ``` json
 {

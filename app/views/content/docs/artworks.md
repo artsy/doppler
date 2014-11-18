@@ -32,7 +32,7 @@ curl -v "#{ArtsyAPI.artsy_api_root}/artworks/{id}" -H "X-XAPP-Token:#{xapp_token
 
 #### Retrieving Similar Artworks
 
-Artsy continuously computes a K-nearest-neighbor graph for artworks using data from the [Art Genome Project](https://artsy.net/about/the-art-genome-project). Retrieve artworks similar to another artwork by following the "similar_artworks" link in an artwork resource, which calls this endpoint with the `similar_to_artwork_id` parameter. The response is a non-paginated set of similar artworks.
+Artsy continuously computes a K-nearest-neighbor graph for artworks using data from the [Art Genome Project](https://artsy.net/about/the-art-genome-project). Retrieve artworks similar to another artwork by following the "similar\_artworks" link in an artwork resource, which calls this endpoint with the `similar\_to\_artwork_id` parameter. The response is a non-paginated set of similar artworks.
 
 ## Artwork JSON Format
 
@@ -40,16 +40,16 @@ Artsy continuously computes a K-nearest-neighbor graph for artworks using data f
 
 #### Links
 
-Key               | Target                                           |
------------------:|:-------------------------------------------------|
-self              | The artwork resource.                            |
-thumbnail         | Default image thumbnail.                         |
-image:self        | Curied image location.                           |
-permalink         | An external location on the artsy.net website.   |
-partner           | [Partner](/docs/partners) that owns the artwork. |
-artists           | Artwork's [Artists](/docs/artists).              |
-genes             | Artwork's [Genes](/docs/genes).                  |
-similar_artworks  | Artwork similar to the artwork.                  |
+Key                | Target                                           |
+------------------:|:-------------------------------------------------|
+self               | The artwork resource.                            |
+thumbnail          | Default image thumbnail.                         |
+image:self         | Curied image location.                           |
+permalink          | An external location on the artsy.net website.   |
+partner            | [Partner](/docs/partners) that owns the artwork. |
+artists            | Artwork's [Artists](/docs/artists).              |
+genes              | Artwork's [Genes](/docs/genes).                  |
+similar\_artworks  | Artwork similar to the artwork.                  |
 
 #### Embedded Collections
 

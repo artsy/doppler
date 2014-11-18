@@ -5,12 +5,12 @@
 Many content fields in the Artsy API, such as [artist](/docs/artists) bios or [gene](/docs/genes) descriptions, will return data in [markdown format](http://daringfireball.net/projects/markdown/syntax). For example, the description of the "Pop Art" gene includes the following.
 
 ```
-_“The Pop artists did images that anybody walking down Broadway could recognize in a split second—comics, picnic tables, men’s trousers, celebrities, shower curtains, refrigerators, coke bottles—all the great modern things that the Abstract Expressionists tried so hard not to notice at all.” –[Andy Warhol](/artist/andy-warhol)_
+**“The Pop artists did images that anybody walking down Broadway could recognize in a split second—comics, picnic tables, men’s trousers, celebrities, shower curtains, refrigerators, coke bottles—all the great modern things that the Abstract Expressionists tried so hard not to notice at all.” – [Andy Warhol](/artist/andy-warhol)**
 ```
 
-Once rendered, this becomes a quoted italic text.
+Once rendered, this becomes a quoted bold text.
 
-_“The Pop artists did images that anybody walking down Broadway could recognize in a split second—comics, picnic tables, men’s trousers, celebrities, shower curtains, refrigerators, coke bottles—all the great modern things that the Abstract Expressionists tried so hard not to notice at all.” –[Andy Warhol](https://artsy.net/artist/andy-warhol)_
+**“The Pop artists did images that anybody walking down Broadway could recognize in a split second—comics, picnic tables, men’s trousers, celebrities, shower curtains, refrigerators, coke bottles—all the great modern things that the Abstract Expressionists tried so hard not to notice at all.” – [Andy Warhol](https://artsy.net/artist/andy-warhol)**
 
 ``` alert[info]
 Some internal links within the markdown content may be relative to https://artsy.net.
