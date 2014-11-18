@@ -19,6 +19,9 @@ describe 'Docs' do
       it 'displays a breadcrumb back to docs' do
         expect(page).to have_css "a[href='/docs']"
       end
+      it 'does not include any italics' do
+        expect(page).to_not have_css 'em'
+      end
     end
   end
 end
