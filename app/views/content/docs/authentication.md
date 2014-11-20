@@ -50,10 +50,10 @@ Make requests by placing the token into an `X-Xapp-Token` header.
 
 ### Login using OAuth Web Browser Redirects
 
-This workflow allows Artsy users to login to your application via Browser redirects. In this scenario Artsy acts as an OAuth provider.
+This is the preferred method for authenticating users and allows Artsy users to login to your application via Browser redirects. In this scenario Artsy acts as an OAuth provider. Users are prompted to trust your application and are notified about the host to which you are redirecting them.
 
 ``` alert[warning]
-This is the preferred method for authenticating users, however currently it will not ask users to authorize your application and will not redirect users back to a non artsy.net URL. This will be implemented in the near future.
+Currently there's no way to restrict the redirect addresses for your application and users are prompted to trust it every time they login. This will be implemented in the future.
 ```
 
 Redirect users who wish to authenticate to the OAuth authorization url.

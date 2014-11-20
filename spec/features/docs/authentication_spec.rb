@@ -15,6 +15,6 @@ describe 'Docs/authentication' do
   end
   it 'marks up alert blocks' do
     expect(page.all('div.alert.alert-warning').count).to be > 0
-    expect(page).to have_css 'div.alert.alert-warning', text: 'This will be implemented in the near future.'
+    expect(page).to have_css 'div.alert.alert-warning', text: 'This will be implemented in the future.'
   end
 end
