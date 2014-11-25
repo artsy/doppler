@@ -12,7 +12,7 @@ module ArtsyAPI
   end
 
   def self.client(options = {})
-    Hyperclient.new(artsy_api_root).tap do |api|
+    Hyperclient.new(artsy_api_root) do |api|
       api.headers['Accept'] = 'application/vnd.artsy-v2+json'
       api.headers['X-Access-Token'] = options[:access_token] if options.key?(:access_token)
       api.headers['X-Xapp-Token'] = options[:xapp_token] if options.key?(:xapp_token)

@@ -53,7 +53,7 @@ A request without a "user_id" will be redirected accordingly with a 302 HTTP sta
 Users can retrieve a specific application by ID by rendering the "application" link template from [root](#{ArtsyAPI.artsy_api_root}).
 
 ```
-curl -v "#{ArtsyAPI.artsy_api_root}/applications/#{id}" -H "X-Access-Token:#{access_token}"
+curl -v "#{ArtsyAPI.artsy_api_root}/applications/{id}" -H "X-Access-Token:..."
 ```
 
 ``` alert[danger]

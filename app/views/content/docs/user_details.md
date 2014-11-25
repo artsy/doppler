@@ -13,7 +13,7 @@ While a [user](/docs/users) represents publicly available reference about a regi
 Users can retrieve a specific user by following the "user_details" link from a [user](/docs/users).
 
 ```
-curl -v "#{ArtsyAPI.artsy_api_root}/user_details/{id}" -H "X-Access-Token:#{access_token}"
+curl -v "#{ArtsyAPI.artsy_api_root}/user_details/{id}" -H "X-Access-Token:..."
 ```
 
 ## User Details JSON Format

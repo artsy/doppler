@@ -13,7 +13,7 @@ A user represents a registered account on Artsy.
 Users can retrieve a specific user by rendering the "user" link template from [root](#{ArtsyAPI.artsy_api_root}).
 
 ```
-curl -v "#{ArtsyAPI.artsy_api_root}/users/{id}" -H "X-Access-Token:#{access_token}"
+curl -v "#{ArtsyAPI.artsy_api_root}/users/{id}" -H "X-Access-Token:..."
 ```
 
 #### Retrieving Current User

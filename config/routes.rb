@@ -26,6 +26,7 @@ Rails.application.routes.draw do
     :users,
     :user_details,
     :collections,
+    :collection_items,
     :markdown,
     :search
   ].each do |page|

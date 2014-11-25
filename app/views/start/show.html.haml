@@ -94,7 +94,7 @@ Let's make a few API calls to obtain the information for Andy Warhol.
     "client_id = '#{@selected_client_application.client_id}'\n" +                                                 |
     "client_secret = '#{@selected_client_application.client_secret}'\n" +                                         |
     "\n" +                                                                                                        |
-    "api = Hyperclient.new('#{ArtsyAPI.artsy_api_root}').tap do |api|\n" +                                        |
+    "api = Hyperclient.new('#{ArtsyAPI.artsy_api_root}') do |api|\n" +                                        |
     "  api.headers['Accept'] = 'application/vnd.artsy-v2+json'\n" +                                               |
     "end\n" +                                                                                                     |
     "\n" +                                                                                                        |
@@ -143,7 +143,7 @@ Let's make a few API calls to obtain the information for Andy Warhol.
     "\n" +                                                                                                                                     |
     "xapp_token = '#{xapp_token}'\n" +                                                                                                         |
     "\n" +                                                                                                                                     |
-    "api = Hyperclient.new('#{ArtsyAPI.artsy_api_root}').tap do |api|\n" +                                                                     |
+    "api = Hyperclient.new('#{ArtsyAPI.artsy_api_root}') do |api|\n" +                                                                     |
     "  api.headers['Accept'] = 'application/vnd.artsy-v2+json'\n" +                                                                            |
     "  api.headers['X-Xapp-Token'] = xapp_token\n" +                                                                                           |
     "end\n" +                                                                                                                                  |
