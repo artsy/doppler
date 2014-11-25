@@ -1,6 +1,6 @@
-[Documentation](/docs) &gt; General &gt; Pagination and Collections
+[Documentation](/docs) &gt; General &gt; Pagination and Sets
 
-## Pagination And Collections
+## Pagination And Sets
 
 Paginated results, including [artists](/docs/artists) or [artworks](/docs/artworks), consist of a set of pagination-related fields, such as counts, links between pages and embedded results.
 

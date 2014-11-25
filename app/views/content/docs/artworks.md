@@ -14,11 +14,12 @@ curl -v "#{ArtsyAPI.artsy_api_root}/artworks" -H "X-XAPP-Token:#{xapp_token}"
 
 This endpoint accepts the following parameters.
 
-Name       | Value                                                               |
-----------:|:--------------------------------------------------------------------|
-artist_id  | Retrieve artworks by a given [artist](/docs/artists).               |
-partner_id | Retrieve artworks that belong to a given [partner](/docs/partners). |
-show_id    | Retrieve artworks that belong to a given [show](/docs/shows).       |
+Name             | Value                                                                                         |
+----------------:|:----------------------------------------------------------------------------------------------|
+artist_id        | Retrieve artworks by a given [artist](/docs/artists).                                         |
+partner_id       | Retrieve artworks that belong to a given [partner](/docs/partners).                           |
+show_id          | Retrieve artworks that belong to a given [show](/docs/shows).                                 |
+collection_id    | Retrieve artworks that belong to a given [collection](/docs/collections), sorted by position. |
 
 The response is a [paginated result](/docs/pagination) with embedded artworks.
 
