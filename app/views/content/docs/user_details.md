@@ -41,10 +41,10 @@ user       | Link to the [user](/docs/users) information.         |
   "gender" : "female",
   "_links" : {
     "self" : {
-      "href" : "http://localhost:3000/api/user_details/52fe4b28c94d114d36000001"
+      "href" : "#{ArtsyAPI.artsy_api_root}/user_details/52fe4b28c94d114d36000001"
     },
     "user" : {
-      "href" : "http://localhost:3000/api/user/52fe4b28c94d114d36000001"
+      "href" : "#{ArtsyAPI.artsy_api_root}/user/52fe4b28c94d114d36000001"
     }
   }
 }
