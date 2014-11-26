@@ -61,7 +61,7 @@ curl -v "#{ArtsyAPI.artsy_api_root}/search?q=Tauba+Orbach" -H "X-XAPP-Token:#{xa
 
 < HTTP/1.1 302 Found
 < Content-Type: application/json
-< Location: http://localhost:3000/api/search?q=Tauba+Auerbach
+< Location: #{ArtsyAPI.artsy_api_root}/api/search?q=Tauba+Auerbach
 ```
 
 ``` json

@@ -43,7 +43,7 @@ The following Ruby example creates a collection and adds an artwork to it.
 require 'hyperclient'
 
 # access token should be obtained via OAuth
-api = Hyperclient.new('http://localhost:3000/api') do |api|
+api = Hyperclient.new('#{ArtsyAPI.artsy_api_root}') do |api|
   api.headers['Accept'] = 'application/vnd.artsy-v2+json'
   api.headers['X-Access-Token'] = '...'
 end
