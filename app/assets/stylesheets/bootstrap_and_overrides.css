@@ -52,3 +52,11 @@ tr td:first-child {
   font-style: italic;
   font-family: 'Times New Roman', Times, serif;
 }
+
+.tiny {
+  font-size: 33%;
+}
+
+.vertical-align-top {
+  vertical-align: top
+}
