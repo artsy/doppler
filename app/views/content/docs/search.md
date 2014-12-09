@@ -74,6 +74,12 @@ curl -v "#{ArtsyAPI.artsy_api_root}/search?q=Tauba+Orbach" -H "X-XAPP-Token:#{xa
 }
 ```
 
+#### Public Artworks, Stale and New Content
+
+Search indexing is not immediate. Search results may not always contain content that has been very recently added.
+
+Search results may contain metadata about artworks that are not publicly accessible via the Artsy API or that describe content that has been removed since it was last indexed. Following links for such results may result in a 404 Not Found error.
+
 #### Example
 
 ``` json
