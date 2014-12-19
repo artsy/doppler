@@ -33,12 +33,15 @@ next       | Next page. If this value is not set, this is the last page. |
 
 All paginated APIs accept the following parameters.
 
-Key         | Target                                                                                |
------------:|:--------------------------------------------------------------------------------------|
-total_count | Specify "total\_count=1" to retrieve the total count, see above.                      |
-size        | Limit the number of embedded items in the response to this number.                    |
-cursor      | A position within the results set.                                                    |
-offset      | Skip this number of items, mutually exclusive with a cursor.
+Key         | Target                                                                                   |
+-----------:|:-----------------------------------------------------------------------------------------|
+total_count | Specify "total\_count=1" to retrieve the total count, see above.                         |
+size        | Limit the number of embedded items in the response to this number.                       |
+cursor      | A position within the results set.                                                       |
+offset      | Skip this number of items, mutually exclusive with a cursor.                             |
+sample      | Redirect to a random element in the collection.                                          |
+
+Passing in a parameter of "sample" will redirect you to the canonical URL for a random element in the collection. It can be combo'ed with additional filter parameters, so one could query for a random upcoming show with: "#{ArtsyAPI.artsy_api_root}/shows?status=upcoming&sample=1"
 
 ``` alert[warning]
 The cursor and offset pagination parameters are mutually exclusive. Attempting to use both of them in an API call will result in an explicit 400 error from the API. We prefer cursor-based pagination, however there is a need for a more conventional based paging scheme. Passing in an offset parameter will first skip that number of records, and then begin cursor-based paging from there.
