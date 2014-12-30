@@ -5,5 +5,4 @@ Warden::Manager.serialize_from_session do |hash|
 end
 
 Rails.configuration.middleware.insert_after ActionDispatch::Flash, Warden::Manager do |_manager|
-
 end
