@@ -4,7 +4,6 @@ describe MarkdownHelper do
   subject do
     Class.new do
       extend MarkdownHelper
-
     end
   end
   context '#render_markdown' do
