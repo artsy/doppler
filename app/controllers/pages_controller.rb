@@ -11,6 +11,8 @@ class PagesController < ApplicationController
         var = $~[:var]
         if var == 'ArtsyAPI.artsy_api_root'
           ArtsyAPI.artsy_api_root
+        elsif var == 'ArtsyAPI.artsy_api_url'
+          ArtsyAPI.artsy_api_url
         elsif var == 'current_user.id'
           current_user ? current_user.id : '...'
         elsif var == 'xapp_token'
