@@ -17,4 +17,7 @@ describe 'Docs/authentication' do
     expect(page.all('div.alert.alert-warning').count).to be > 0
     expect(page).to have_css 'div.alert.alert-warning', text: 'This will be implemented in the future.'
   end
+  it 'includes correct oauth2 links' do
+    expect(page.body).to include 'curl -v "http://localhost:3000/oauth2/authorize'
+  end
 end

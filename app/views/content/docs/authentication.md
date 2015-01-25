@@ -59,7 +59,7 @@ Currently there's no way to restrict the redirect addresses for your application
 Redirect users who wish to authenticate to the OAuth authorization url.
 
 ```
-curl -v "#{ArtsyAPI.artsy_api_root}/oauth2/authorize?client_id=...&redirect_uri=...&response_type=code"
+curl -v "#{ArtsyAPI.artsy_api_url}/oauth2/authorize?client_id=...&redirect_uri=...&response_type=code"
 ```
 
 A logged in user will be redirected back to the url you have supplied, appending an authorization code `code=...`, eg. `https://[your redirect url]/?code=auth`.
@@ -67,7 +67,7 @@ A logged in user will be redirected back to the url you have supplied, appending
 Your server should make an OAuth2 POST or GET request to the following url.
 
 ```
-curl -v -X POST "#{ArtsyAPI.artsy_api_root}/oauth2/access_token?client_id=...&client_secret=...&code=...&grant_type=authorization_code"
+curl -v -X POST "#{ArtsyAPI.artsy_api_url}/oauth2/access_token?client_id=...&client_secret=...&code=...&grant_type=authorization_code"
 ```
 
 Parameter     | Description                                 |
@@ -122,7 +122,7 @@ error_description   | Humanly readable description. |
 If you store or prompt for the user's email and password, which is not recommended, you can obtain an OAuth token in exchange for those credentials.
 
 ```
-curl -v -X POST "#{ArtsyAPI.artsy_api_root}/oauth2/access_token?client_id=...&client_secret=...&grant_type=credentials&email=...&password=..."
+curl -v -X POST "#{ArtsyAPI.artsy_api_url}/oauth2/access_token?client_id=...&client_secret=...&grant_type=credentials&email=...&password=..."
 ```
 
 Parameter     | Description                                        |
@@ -160,7 +160,7 @@ Make requests by placing the token into an `X-Auth-Token` header.
 If you have access to a user's social provider token (Facebook) or a social provider token and secret (Twitter), you can obtain an OAuth token in exchange for it.
 
 ```
-curl -v -X POST "#{ArtsyAPI.artsy_api_root}/oauth2/access_token?client_id=...&client_secret=...&grant_type=oauth_token&oauth_token=...&oauth_provider=..."
+curl -v -X POST "#{ArtsyAPI.artsy_api_url}/oauth2/access_token?client_id=...&client_secret=...&grant_type=oauth_token&oauth_token=...&oauth_provider=..."
 ```
 
 Parameter           | Description                                    |
