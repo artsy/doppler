@@ -28,6 +28,7 @@ Rails.application.routes.draw do
     :collections,
     :collection_items,
     :markdown,
+    :images,
     :search
   ].each do |page|
     get "/docs/#{page}", to: 'pages#show', id: "docs/#{page}"
