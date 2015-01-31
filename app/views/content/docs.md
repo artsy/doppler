@@ -26,4 +26,5 @@
 * [User Details](/docs/user_details)
 * [Collections](/docs/collections)
 * [Collection Items](/docs/collection_items)
+* [Images](/docs/images)
 * [Search](/docs/search)
