@@ -16,8 +16,9 @@ This endpoint accepts the following parameters.
 
 Name       | Value                                                             |
 ----------:|:------------------------------------------------------------------|
-partner_id | Retrieve shows for a given partner.                               |
+partner_id | Retrieve shows for a given [partner](/docs/partners).             |
 status     | Retrieve shows with a specific status (see below).                |
+fair_id    | Retrieve shows for a given [fair](/docs/fairs).                   |
 
 #### Show Status
 
