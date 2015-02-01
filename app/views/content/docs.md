@@ -21,6 +21,7 @@
 * [Profiles](/docs/profiles)
 * [Partners](/docs/partners)
 * [Shows](/docs/shows)
+* [Fairs](/docs/fairs)
 * [Applications](/docs/applications)
 * [Users](/docs/users)
 * [User Details](/docs/user_details)
