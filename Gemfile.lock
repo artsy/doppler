@@ -68,6 +68,7 @@ GEM
       execjs
     coffee-script-source (1.8.0)
     dalli (2.7.2)
+    data_uri (0.1.0)
     diff-lcs (1.2.5)
     erubis (2.7.0)
     execjs (2.2.2)
@@ -284,6 +285,7 @@ DEPENDENCIES
   coderay
   coffee-rails (~> 4.1.0)
   dalli
+  data_uri
   google-analytics-rails
   guard
   guard-bundler

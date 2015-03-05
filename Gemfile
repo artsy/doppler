@@ -18,6 +18,7 @@ gem 'google-analytics-rails'
 gem 'newrelic_rpm'
 gem 'nokogiri'
 gem 'dalli'
+gem 'data_uri'
 
 group :development do
   gem 'spring'
