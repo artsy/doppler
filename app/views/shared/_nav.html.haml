@@ -1,9 +1,8 @@
 = nav_bar static: :top, brand: "The art world in your app. &#0153;".html_safe, responsive: true do
   = menu_group do
     = menu_item "Home", root_path
-    -if authenticated?
-      = menu_item "My Apps", client_applications_path
-      = menu_item "Playground", playground_path
+    = menu_item "My Apps", client_applications_path
+    = menu_item "Playground", playground_path
     = menu_item "Blog", 'http://artsy.github.io', target: '_blank'
     = menu_item "Docs", docs_path
     = menu_item "Help", help_path
