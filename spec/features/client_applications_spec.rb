@@ -16,10 +16,6 @@ describe 'Client Applications' do
       before do
         allow(ArtsyAPI).to receive_message_chain(:client, :applications).and_return([])
       end
-      it 'renders a list of apps' do
-        visit '/client_applications'
-        expect(page.body).to include 'My Apps'
-      end
       it 'creates an app' do
         expect(ArtsyAPI).to receive_message_chain(:client, :applications, :_post).with(name: 'Name')
         visit '/client_applications'
