@@ -34,7 +34,7 @@ bundle exec rake
 
 #### Run Doppler
 
-You can run Doppler against an Artsy production environment, however we recommend playing with [staging](https://stagingapi.artsy.net). Please note that staging is rebuilt nightly and does not have 100% uptime. Staging has a copy of production data, so if you create a user or an application in production on artsy.net, it will be made available in staging in 24 hours. Please also note that staging doesn't send e-mail, so some features may not work.
+You can run Doppler against an Artsy production environment, however we recommend playing with [staging](https://stagingapi.artsy.net). Please note that staging is rebuilt weekly and does not have 100% uptime. Staging has a copy of production data, so if you create a user or an application in production on artsy.net, it will be made available in staging in 7 days. Please also note that staging doesn't send e-mail, so some features may not work.
 
 To run Doppler you need a client ID and secret, which you can obtain from [developers.artsy.net](https://developers.artsy.net).
 
