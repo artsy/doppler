@@ -94,8 +94,16 @@ Let's make a few API calls to obtain the information for Andy Warhol.
     "client_id = '#{@selected_client_application.client_id}'\n" +                                                 |
     "client_secret = '#{@selected_client_application.client_secret}'\n" +                                         |
     "\n" +                                                                                                        |
-    "api = Hyperclient.new('#{ArtsyAPI.artsy_api_root}') do |api|\n" +                                        |
+    "api = Hyperclient.new('#{ArtsyAPI.artsy_api_root}') do |api|\n" +                                            |
     "  api.headers['Accept'] = 'application/vnd.artsy-v2+json'\n" +                                               |
+    "  api.headers['Content-Type'] = 'application/json'\n" +                                                      |
+    "  api.connection(default: false) do |conn|\n" +                                                              |
+    "    conn.use FaradayMiddleware::FollowRedirects\n" +                                                         |
+    "    conn.use Faraday::Response::RaiseError\n" +                                                              |
+    "    conn.request :json\n" +                                                                                  |
+    "    conn.response :json, content_type: /\\bjson$/\n" +                                                       |
+    "    conn.adapter :net_http\n" +                                                                              |
+    "  end\n" +                                                                                                   |
     "end\n" +                                                                                                     |
     "\n" +                                                                                                        |
     "xapp_token = api.tokens.xapp_token._post(client_id: client_id, client_secret: client_secret).token\n", :ruby |
@@ -143,9 +151,16 @@ Let's make a few API calls to obtain the information for Andy Warhol.
     "\n" +                                                                                                                                     |
     "xapp_token = '#{xapp_token}'\n" +                                                                                                         |
     "\n" +                                                                                                                                     |
-    "api = Hyperclient.new('#{ArtsyAPI.artsy_api_root}') do |api|\n" +                                                                     |
+    "api = Hyperclient.new('#{ArtsyAPI.artsy_api_root}') do |api|\n" +                                                                         |
     "  api.headers['Accept'] = 'application/vnd.artsy-v2+json'\n" +                                                                            |
     "  api.headers['X-Xapp-Token'] = xapp_token\n" +                                                                                           |
+    "  api.connection(default: false) do |conn|\n" +                                                                                           |
+    "    conn.use FaradayMiddleware::FollowRedirects\n" +                                                                                      |
+    "    conn.use Faraday::Response::RaiseError\n" +                                                                                           |
+    "    conn.request :json\n" +                                                                                                               |
+    "    conn.response :json, content_type: /\\bjson$/\n" +                                                                                    |
+    "    conn.adapter :net_http\n" +                                                                                                           |
+    "  end\n" +                                                                                                                                |
     "end\n" +                                                                                                                                  |
     "\n" +                                                                                                                                     |
     "andy_warhol = api.artist(id: 'andy-warhol')\n" +                                                                                          |
