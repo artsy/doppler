@@ -77,6 +77,8 @@ GEM
     faraday-digestauth (0.2.0)
       faraday (~> 0.7)
       net-http-digest_auth (~> 1.4)
+    faraday_hal_middleware (0.0.1)
+      faraday_middleware (>= 0.9, < 0.10)
     faraday_middleware (0.9.1)
       faraday (>= 0.7.4, < 0.10)
     ffi (1.9.6)
@@ -126,9 +128,10 @@ GEM
       haml (~> 4.0.0)
       nokogiri (~> 1.6.0)
       ruby_parser (~> 3.5)
-    hyperclient (0.6.1)
+    hyperclient (0.7.0)
       faraday (~> 0.8)
       faraday-digestauth (~> 0.2)
+      faraday_hal_middleware (~> 0.0.1)
       faraday_middleware (~> 0.9)
       futuroscope (>= 0.0.10)
       net-http-digest_auth (~> 1.2)
@@ -315,7 +318,7 @@ DEPENDENCIES
   guard-rspec
   guard-rubocop
   haml-rails
-  hyperclient (~> 0.6.1)
+  hyperclient (~> 0.7.0)
   jquery-rails
   newrelic_rpm
   nokogiri
