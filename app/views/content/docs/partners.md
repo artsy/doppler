@@ -28,14 +28,15 @@ curl -v "#{ArtsyAPI.artsy_api_root}/partners/{id}" -H "X-XAPP-Token:#{xapp_token
 
 #### Links
 
-Key        | Target                                          |
-----------:|:------------------------------------------------|
-self       | The partner resource.                           |
-profile    | Partner [profile](/docs/profiles).              |
-permalink  | An external location on the artsy.net website.  |
-website    | Official website.                               |
-artworks   | Partner [artworks](/docs/artworks).             |
-shows      | Partner [shows](/docs/shows).                   |
+Key                | Target                                            |
+------------------:|:--------------------------------------------------|
+self               | The partner resource.                             |
+profile            | Partner [profile](/docs/profiles).                |
+permalink          | An external location on the artsy.net website.    |
+website            | Official website.                                 |
+artworks           | Partner [artworks](/docs/artworks).               |
+published_artworks | All published partner [artworks](/docs/artworks). |
+shows              | Partner [shows](/docs/shows).                     |
 
 #### Example
 
