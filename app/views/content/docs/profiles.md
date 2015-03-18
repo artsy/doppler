@@ -28,13 +28,14 @@ curl -v "#{ArtsyAPI.artsy_api_root}/profiles/{id}" -H "X-XAPP-Token:#{xapp_token
 
 #### Links
 
-Key         | Target                                          |
------------:|:------------------------------------------------|
-self        | The profile resource.                           |
-permalink   | An external location on the artsy.net website.  |
-cover_image | A cover [image](/docs/images).                  |
-image:self  | Curied image location.                          |
-website     | Official website.                               |
+Key         | Target                                                          |
+-----------:|:----------------------------------------------------------------|
+self        | The profile resource.                                           |
+permalink   | An external location on the artsy.net website.                  |
+owner       | Profile owner ([user](/docs/users), [fair](/docs/fairs), etc).  |
+cover_image | A cover [image](/docs/images).                                  |
+image:self  | Curied image location.                                          |
+website     | Official website.                                               |
 
 #### Example
 
