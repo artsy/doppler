@@ -12,6 +12,12 @@ Retrieve fairs by following the [fairs](#{ArtsyAPI.artsy_api_root}/fairs) link f
 curl -v "#{ArtsyAPI.artsy_api_root}/fairs" -H "X-XAPP-Token:#{xapp_token}"
 ```
 
+This endpoint accepts the following parameters.
+
+Name       | Value                                                                                     |
+----------:|:------------------------------------------------------------------------------------------|
+status     | One of 'running', 'closed', 'upcoming' or 'current'.                                      |
+
 The response is a [paginated result](/docs/pagination) with embedded fairs.
 
 #### Retrieving a Fair
