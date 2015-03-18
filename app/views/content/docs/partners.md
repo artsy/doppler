@@ -12,6 +12,13 @@ Retrieve partners by following the [partners](#{ArtsyAPI.artsy_api_root}/partner
 curl -v "#{ArtsyAPI.artsy_api_root}/partners" -H "X-XAPP-Token:#{xapp_token}"
 ```
 
+This endpoint accepts the following parameters.
+
+Name       | Value                                                                                     |
+----------:|:------------------------------------------------------------------------------------------|
+user_id    | Retrieve partners that a [user](/docs/users) has access to.                               |
+partner_id | Combine with 'user_id' to check whether a [user](/docs/users) has access to this partner. |
+
 The response is a [paginated result](/docs/pagination) with embedded partners.
 
 #### Retrieving a Partner

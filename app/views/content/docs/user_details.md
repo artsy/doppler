@@ -22,10 +22,11 @@ curl -v "#{ArtsyAPI.artsy_api_root}/user_details/{id}" -H "X-Access-Token:..."
 
 #### Links
 
-Key        | Target                                               |
-----------:|:-----------------------------------------------------|
-self       | The profile resource.                                |
-user       | Link to the [user](/docs/users) information.         |
+Key        | Target                                                                  |
+----------:|:------------------------------------------------------------------------|
+self       | The profile resource.                                                   |
+user       | Link to the [user](/docs/users) information.                            |
+partners   | Link to [partners](/docs/partners) this user has management access to.  |
 
 #### Example
 
