@@ -16,8 +16,8 @@ This endpoint accepts the following parameters.
 
 Name       | Value                                                             |
 ----------:|:------------------------------------------------------------------|
-artist_id  | Retrieve genes for a given artist.                                |
-artwork_id | Retrieve genes for a given artwork.                               |
+artist_id  | Retrieve genes for a given [artist](/docs/artists).               |
+artwork_id | Retrieve genes for a given [artwork](/docs/artworks).             |
 
 ## Gene JSON Format
 
