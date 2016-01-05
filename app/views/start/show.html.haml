@@ -169,8 +169,11 @@ Let's make a few API calls to obtain the information for Andy Warhol.
   Using <a href='https://github.com/basti1302/traverson', target='_blank'>Traverson</a> with Node.js or in the Browser.
 
   != highlight_syntax ["var traverson = require('traverson'),",
-    "    xappToken = '#{xapp_token}',",
-    "    api = traverson.jsonHal.from('#{ArtsyAPI.artsy_api_root}');",
+    "    JsonHalAdapter = require('traverson-hal'),",
+    "    xappToken = '#{xapp_token}';",
+    "",
+    "traverson.registerMediaType(JsonHalAdapter.mediaType, JsonHalAdapter);",
+    "api = traverson.from('#{ArtsyAPI.artsy_api_root}').jsonHal();",
     "",
     "api.newRequest()",
     "  .follow('artist')",
