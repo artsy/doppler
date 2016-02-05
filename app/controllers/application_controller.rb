@@ -14,10 +14,10 @@ class ApplicationController < ActionController::Base
   end
 
   def artsy_client
-    if authenticated?
-      @client ||= ArtsyAPI.client(access_token: current_user.try(:access_token))
-    else
-      @client ||= ArtsyAPI.client(xapp_token: ArtsyAPI.xapp_token)
+    @client ||= if authenticated?
+                  ArtsyAPI.client(access_token: current_user.try(:access_token))
+                else
+                  ArtsyAPI.client(xapp_token: ArtsyAPI.xapp_token)
     end
   end
 end

@@ -3,12 +3,12 @@ class PagesController < ApplicationController
   include CacheHelper
 
   def show
-    fail 'Invalid Id' unless params[:id] =~ /^[\w\/]*$/
+    raise 'Invalid Id' unless params[:id] =~ /^[\w\/]*$/
     filename = Rails.root.join("app/views/content/#{params[:id]}.md")
     @content = Rails.cache.fetch "content/#{params[:id]}/#{File.mtime(filename)}/#{current_user ? current_user.id : nil}" do
       text = File.read(filename)
       text = text.gsub(/\#\{(?<var> [\w\.,_\/:=\+\s\d-]*)\}/x) do
-        var = $~[:var]
+        var = $LAST_MATCH_INFO[:var]
         if var == 'ArtsyAPI.artsy_api_root'
           ArtsyAPI.artsy_api_root
         elsif var == 'ArtsyAPI.artsy_api_url'
@@ -68,11 +68,11 @@ class PagesController < ApplicationController
     EOS
     body = ArtsyAPI.client.connection.get("#{ArtsyAPI.artsy_api_root}/docs/docs").body
     properties = body['models']
-    fail 'missing models' unless properties
+    raise 'missing models' unless properties
     properties = properties[model]
-    fail "missing #{model}" unless properties
+    raise "missing #{model}" unless properties
     properties = properties['properties']
-    fail 'missing properties' unless properties
+    raise 'missing properties' unless properties
     properties.each_pair do |key, desc|
       next unless desc['description']
       rc += "#{key.gsub('_', '\_')} | #{desc['description']}\n"
@@ -87,9 +87,9 @@ class PagesController < ApplicationController
   def application_id
     if authenticated?
       artsy_client.applications
-        .try(:first)
-        .try(:attributes)
-        .try(:id) || '...'
+                  .try(:first)
+                  .try(:attributes)
+                  .try(:id) || '...'
     else
       '...'
     end
