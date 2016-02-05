@@ -5,7 +5,7 @@ module MarkdownHelper
     doc.css('code[@class]').each do |code|
       case code[:class]
       when /(?<class>\w*)\[(?<type>\w*)\]/
-        code['class'] = "#{$~['class']} #{$~['class']}-#{$~['type']}"
+        code['class'] = "#{$LAST_MATCH_INFO['class']} #{$LAST_MATCH_INFO['class']}-#{$LAST_MATCH_INFO['type']}"
         code.name = 'div'
         code.parent.swap(code)
         code.inner_html = render_markdown(code.inner_html)

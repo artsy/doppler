@@ -28,7 +28,7 @@ describe 'Welcome' do
   end
   context 'sign in' do
     before do
-      auth =  {
+      auth = {
         provider: 'artsy',
         uid: '123545',
         info: {

@@ -43,9 +43,8 @@ class ClientApplicationsController < ApplicationController
 
   def fetch_client_application
     @client_application = artsy_client.application(id: params[:id])
-    unless @client_application
-      flash[:error] = 'Invalid application.'
-      redirect_to client_applications_path
-    end
+    return if @client_application
+    flash[:error] = 'Invalid application.'
+    redirect_to client_applications_path
   end
 end

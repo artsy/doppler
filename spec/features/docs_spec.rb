@@ -10,8 +10,8 @@ describe 'Docs' do
     end
   end
   Rails.application.routes.routes
-    .map { |r| r.path.source.match(/\/([\/\w]*)/)[0] }
-    .select { |path| path.starts_with?('/docs/') }.each do |path|
+       .map { |r| r.path.source.match(/\/([\/\w]*)/)[0] }
+       .select { |path| path.starts_with?('/docs/') }.each do |path|
     context path do
       before do
         visit path
