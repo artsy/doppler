@@ -57,29 +57,3 @@ Query string parameters are declared as follows.
   }
 }
 ```
-
-#### Curies
-
-URLs are generally quite long. To get around this, HAL provides "curies", which are basically named tokens that you can define in the document and use to express link relation URIs in a friendlier, more compact fashion.
-
-The [artwork](/docs/artworks) API includes an "image" curie that can be resolved to multiple image versions.
-
-```json
-"image_versions" : ["small", "square", "medium", "tall"],
-"_links" :
-  {
-    "curies": [
-      {
-        "name" : "image",
-        "href" : "http://static.artsy.net/additional_images/515b244538ad2d3bc5000026/3/{?rel}",
-        "templated" : true
-      }
-    ],
-    "image:self" : {
-      "href" : "{?image_version}.jpg"
-    }
-  }
-}
-```
-
-
