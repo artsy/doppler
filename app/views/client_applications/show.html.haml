@@ -18,6 +18,13 @@
       %th.text-right Client Secret
       %td#client_secret= @client_application.client_secret
     %tr
+      %th.text-right Redirect URLs
+      %td#redirect_urls
+        -if @client_application.redirect_urls && @client_application.redirect_urls.any?
+          %pre= @client_application.redirect_urls.join("\n")
+        -else
+          None
+    %tr
       %th.text-right Created
       %td#created_at= DateTime.parse(@client_application.created_at).strftime("%B %d, %Y %H:%M")
     %tr

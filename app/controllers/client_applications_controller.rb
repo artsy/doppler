@@ -4,6 +4,7 @@ class ClientApplicationsController < ApplicationController
   before_action :authenticate!
   before_action :fetch_client_application, only: [:show, :edit, :destroy, :update]
   before_action :no_cache!, except: [:index]
+  before_action :parse_redirect_uris, only: [:update, :create]
 
   def new
     @client_application = ClientApplication.new
@@ -46,5 +47,10 @@ class ClientApplicationsController < ApplicationController
     return if @client_application
     flash[:error] = 'Invalid application.'
     redirect_to client_applications_path
+  end
+
+  def parse_redirect_uris
+    return unless params[:client_application][:redirect_urls]
+    params[:client_application][:redirect_urls] = params[:client_application][:redirect_urls].split.compact.uniq
   end
 end

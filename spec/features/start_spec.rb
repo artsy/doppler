@@ -31,7 +31,7 @@ describe 'Start' do
       it 'creates an app' do
         visit '/start'
         expect(page.body).to include 'Create an App'
-        expect(ArtsyAPI).to receive_message_chain(:client, :applications, :_post).with(name: 'Name').and_return(application)
+        expect(ArtsyAPI).to receive_message_chain(:client, :applications, :_post).with(name: 'Name', redirect_urls: []).and_return(application)
         click_link 'here'
         fill_in 'Name', with: 'Name'
         allow(ArtsyAPI).to receive_message_chain(:client, :applications).and_return([application])

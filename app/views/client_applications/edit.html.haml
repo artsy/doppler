@@ -18,6 +18,8 @@
         %th.text-right Client Secret
         %td#client_secret= @client_application.client_secret
       %tr
+        %td{ colspan: 2 }= f.text_area :redirect_urls, rows: 5, value: (@client_application.redirect_urls || []).join("\n"), placeholder: 'The location(s) of your application for OAuth workflow.'
+      %tr
         %th.text-right Created
         %td#created_at= DateTime.parse(@client_application.created_at).strftime("%B %d, %Y %H:%M")
       %tr
