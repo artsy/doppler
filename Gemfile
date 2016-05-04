@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.2.4'
+ruby '2.3.0'
 
 gem 'rails'
 gem 'sass-rails'
@@ -10,7 +10,7 @@ gem 'jquery-rails'
 gem 'twitter-bootstrap-rails'
 gem 'twitter-bootstrap-rails-confirm'
 gem 'haml-rails'
-gem 'omniauth-artsy'
+gem 'omniauth-artsy', '~> 0.2.0'
 gem 'warden'
 gem 'bootstrap_form'
 gem 'hyperclient'
