@@ -17,7 +17,7 @@ describe 'Client Applications' do
         allow(ArtsyAPI).to receive_message_chain(:client, :applications).and_return([])
       end
       it 'creates an app' do
-        expect(ArtsyAPI).to receive_message_chain(:client, :applications, :_post).with(name: 'Name')
+        expect(ArtsyAPI).to receive_message_chain(:client, :applications, :_post).with(name: 'Name', redirect_urls: [])
         visit '/client_applications'
         click_link 'Create a New App'
         fill_in 'Name', with: 'Name'
@@ -58,6 +58,7 @@ describe 'Client Applications' do
           name: 'One',
           client_id: 'client_id',
           client_secret: 'client_secret',
+          redirect_urls: [],
           created_at: Time.now.utc.to_s,
           updated_at: Time.now.utc.to_s,
           _attributes: {
@@ -81,10 +82,11 @@ describe 'Client Applications' do
         expect(page).to have_css 'td#client_secret', text: 'client_secret'
       end
       it 'edits the app' do
-        expect(application).to receive(:_put).with(name: 'Updated')
+        expect(application).to receive(:_put).with(name: 'Updated', redirect_urls: ['http://example.org'])
         visit '/client_applications'
         click_link 'edit'
         fill_in 'Name', with: 'Updated'
+        fill_in 'Redirect urls', with: 'http://example.org'
         click_button 'Save'
       end
       it 'destroys the app' do
@@ -101,6 +103,7 @@ describe 'Client Applications' do
           name: 'One',
           client_id: 'client_id',
           client_secret: 'client_secret',
+          redirect_urls: [],
           created_at: Time.now.utc.to_s,
           updated_at: Time.now.utc.to_s,
           enabled: false,
@@ -134,6 +137,7 @@ describe 'Client Applications' do
           name: 'One',
           client_id: 'client_id',
           client_secret: 'client_secret',
+          redirect_urls: [],
           created_at: Time.now.utc.to_s,
           updated_at: Time.now.utc.to_s,
           enabled: true,
