@@ -17,10 +17,9 @@ class SessionController < ApplicationController
     )
     warden.set_user user
 
-    redirect_uri = session[:redirect_uri]
-    session[:redirect_uri] = nil if redirect_uri
+    redirect_to redirect_path
 
-    redirect_to redirect_uri || '/'
+    session[:redirect_uri] = nil
   end
 
   def destroy
@@ -33,5 +32,12 @@ class SessionController < ApplicationController
 
   def auth_hash
     @auth_hash ||= Hashie::Mash.new(request.env['omniauth.auth'])
+  end
+
+  def redirect_path
+    url = session[:redirect_uri]
+    URI.parse(url).path
+  rescue URI::InvalidURIError
+    '/'
   end
 end
