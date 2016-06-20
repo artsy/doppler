@@ -29,7 +29,7 @@ Key                | Target                                                     
 ------------------:|:----------------------------------------------------------------|
 self               | The gene resource.                                              |
 thumbnail          | Default image thumbnail.                                        |
-image:self         | Curied image location.                                          |
+image              | Curied image location.                                          |
 permalink          | An external location on the artsy.net website.                  |
 artists            | All [artists](/docs/artists) that have this gene.               |
 artworks           | Public domain [artworks](/docs/artworks) that have this gene.   |

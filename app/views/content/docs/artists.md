@@ -42,7 +42,7 @@ Key                              | Target                                       
 --------------------------------:|:------------------------------------------------|
 self                             | The artist resource.                            |
 thumbnail                        | Default image thumbnail.                        |
-image:self                       | Curied image location.                          |
+image                            | Curied image location.                          |
 permalink                        | An external location on the artsy.net website.  |
 artworks                         | All artist's [artworks](/docs/artworks).        |
 similar\_artists                 | Artists similar to this artist.                 |

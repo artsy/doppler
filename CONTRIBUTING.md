@@ -48,7 +48,7 @@ ARTSY_API_CLIENT_SECRET=...
 
 Run `foreman start`.
 
-Navigate to http://localhost:5000.
+Navigate to [http://localhost:5000](http://localhost:5000).
 
 #### Write Tests
 
