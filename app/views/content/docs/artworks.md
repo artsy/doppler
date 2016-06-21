@@ -46,7 +46,7 @@ Key                | Target                                           |
 ------------------:|:-------------------------------------------------|
 self               | The artwork resource.                            |
 thumbnail          | Default image thumbnail.                         |
-image:self         | Curied image location.                           |
+image              | Curied image location.                           |
 permalink          | An external location on the artsy.net website.   |
 partner            | [Partner](/docs/partners) that owns the artwork. |
 artists            | Artwork's [Artists](/docs/artists).              |

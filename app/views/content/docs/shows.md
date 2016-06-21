@@ -39,7 +39,7 @@ Key        | Target                                          |
 ----------:|:------------------------------------------------|
 self       | The show resource.                              |
 thumbnail  | Default image thumbnail.                        |
-image:self | Curied image location.                          |
+image      | Curied image location.                          |
 permalink  | An external location on the artsy.net website.  |
 partner    | Show [partner](/docs/partners).                 |
 artworks   | Show [artworks](/docs/artworks).                |
