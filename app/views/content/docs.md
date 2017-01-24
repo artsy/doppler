@@ -13,19 +13,34 @@
 
 ### Resources
 
-* [Status](/docs/status)
+* [Applications](/docs/applications)
 * [Artists](/docs/artists)
 * [Artworks](/docs/artworks)
-* [Editions](/docs/editions)
-* [Genes](/docs/genes)
-* [Profiles](/docs/profiles)
-* [Partners](/docs/partners)
-* [Shows](/docs/shows)
-* [Fairs](/docs/fairs)
-* [Applications](/docs/applications)
-* [Users](/docs/users)
-* [User Details](/docs/user_details)
-* [Collections](/docs/collections)
+* [Bidders](/docs/bidders)
+* [Bidder Positions](/docs/bidder_positions)
+* [Bids](/docs/bids)
 * [Collection Items](/docs/collection_items)
+* [Collections](/docs/collections)
+* [Editions](/docs/editions)
+* [Fairs](/docs/fairs)
+* [Genes](/docs/genes)
 * [Images](/docs/images)
+* [Partners](/docs/partners)
+* [Profiles](/docs/profiles)
+* [Sales](/docs/sales)
 * [Search](/docs/search)
+* [Shows](/docs/shows)
+* [Status](/docs/status)
+* [User Details](/docs/user_details)
+* [Users](/docs/users)
+
+<!--
+### Undocumented
+
+* [Collector Profiles](#)
+* [Docs](#)
+* [Partner Contacts](#)
+* [Sale Artworks](#)
+* [Tokens](#)
+* [User Fair Actions](#)
+-->
