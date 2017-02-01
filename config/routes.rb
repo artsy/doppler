@@ -34,7 +34,7 @@ Rails.application.routes.draw do
     :shows,
     :status,
     :user_details,
-    :users,
+    :users
   ].each do |page|
     get "/docs/#{page}", to: 'pages#show', id: "docs/#{page}"
   end
