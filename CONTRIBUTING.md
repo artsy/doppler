@@ -27,9 +27,9 @@ git checkout -b my-feature-branch
 
 Ensure that you can build the project and run tests.
 
-_Note_: Modern Firefox support for selenium-webdriver is [troubled as of January 2017](https://github.com/teamcapybara/capybara/issues/1710), so Selenium tests instead run with chromedriver. Prior to executing tests install chromedriver (available via `brew` on OSX).
+_Note_: Modern Firefox support for selenium-webdriver is [troubled as of January 2017](https://github.com/teamcapybara/capybara/issues/1710).
 
-A compatible older version of Firefox is availble [here](https://ftp.mozilla.org/pub/firefox/releases/45.3.0esr/mac/en-US/).
+A compatible older version of Firefox is available [here](https://ftp.mozilla.org/pub/firefox/releases/45.7.0esr/).
 
 ```
 bundle install
