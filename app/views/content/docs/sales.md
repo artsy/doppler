@@ -21,7 +21,7 @@ is_auction | Boolean- filter auctions only          |
 published  | Boolean- filter published auctions only|
 
 ``` alert[danger]
-Only authorized users/applications may access _unpublished_ sales (where published=false)
+Only authorized users/applications may access **unpublished** sales (where published=false)
 ```
 
 The response is a [paginated result](/docs/pagination) with embedded sales.
