@@ -18,10 +18,10 @@ Name       | Value                                  |
 ----------:|:---------------------------------------|
 live       | Boolean- filter live auctions only     |
 is_auction | Boolean- filter auctions only          |
-published  | Boolean- filter published auctions only|
+published  | Boolean- limit to published sales      |
 
 ``` alert[warning]
-Only authorized users/applications may access **unpublished** sales (where published=false)
+Only authorized users/applications may access **unpublished** sales=
 ```
 
 The response is a [paginated result](/docs/pagination) with embedded sales.
