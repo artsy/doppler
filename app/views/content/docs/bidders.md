@@ -55,12 +55,15 @@ Authorized users and applications can retrieve a specific bidder by ID by render
 ```
 curl -v "#{ArtsyAPI.artsy_api_root}/bidders/{id}" -H "X-XAPP-Token:#{xapp_token}"
 ```
+## Bidder JSON Format
+
+#{modelref://Bidder}
 
 #### Links
 
 Key                              | Target                                                              |
 --------------------------------:|:--------------------------------------------------------------------|
-self                             | The bidder position resource.                                       |
+self                             | The bidder resource.                                       |
 sale                             | The [sale](/docs/sales) of the bidder                               |
 user                             | The [user](/docs/users) of the bidder                               |
 user_detail                      | The [user detail](/docs/user_details) of the bidder                 |

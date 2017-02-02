@@ -5,7 +5,7 @@
 A bidder creates [bidder positions](/docs/bidder_positions).
 
 ``` alert[danger]
-The Bidder Positions API is restricted to trusted applications and admin users.
+The Bidder Positions API is restricted to authorized applications/users.
 ```
 
 #### Retrieving a Bidder Position

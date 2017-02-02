@@ -34,13 +34,11 @@
 * [User Details](/docs/user_details)
 * [Users](/docs/users)
 
-<!--
-### Undocumented
 
-* [Collector Profiles](#)
-* [Docs](#)
-* [Partner Contacts](#)
-* [Sale Artworks](#)
-* [Tokens](#)
-* [User Fair Actions](#)
--->
+[comment]: # ( ### Undocumented )
+[comment]: # ( * [Collector Profiles](#) )
+[comment]: # ( * [Docs](#)               )
+[comment]: # ( * [Partner Contacts](#)   )
+[comment]: # ( * [Sale Artworks](#)      )
+[comment]: # ( * [Tokens](#)             )
+[comment]: # ( * [User Fair Actions](#)  )

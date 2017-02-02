@@ -20,7 +20,7 @@ live       | Boolean- filter live auctions only     |
 is_auction | Boolean- filter auctions only          |
 published  | Boolean- filter published auctions only|
 
-``` alert[danger]
+``` alert[warning]
 Only authorized users/applications may access **unpublished** sales (where published=false)
 ```
 

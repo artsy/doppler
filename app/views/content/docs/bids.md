@@ -2,7 +2,9 @@
 
 ## Bids API
 
-An bid is a theoretical bid created while processing a [bidder position](/docs/bidder_positions) (following that Auction's rules regarding increments, reserve pricing and so on).
+An Bid is created while processing a [bidder position](/docs/bidder_positions) (following that Auction's rules regarding increments, reserve pricing and so on).
+
+For more information about how Artsy's bidding logic and models, see our [blog post on the topic](http://artsy.github.io/blog/2014/04/17/building-an-english-auction-with-mongodb/).
 
 ``` alert[danger]
 The Bids API is restricted to authorized applications/users.
