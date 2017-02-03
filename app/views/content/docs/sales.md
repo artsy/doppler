@@ -6,7 +6,7 @@ Sales and Auctions are available at the sales endpoint.
 
 #### Retrieving Sales
 
-Users can retrieve their own applications by following the [sales](#{ArtsyAPI.artsy_api_root}/sales) link from [root](#{ArtsyAPI.artsy_api_root}).
+Users can retrieve sales by following the [sales](#{ArtsyAPI.artsy_api_root}/sales) link from [root](#{ArtsyAPI.artsy_api_root}).
 
 ```
 curl -v "#{ArtsyAPI.artsy_api_root}/sales" -H "X-Access-Token:#{access_token}"

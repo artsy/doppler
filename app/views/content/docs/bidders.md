@@ -10,7 +10,7 @@ The Bidders API is restricted to authorized applications/users.
 
 #### Retrieving Bidders
 
-Users can retrieve their own applications by following the [bidders](#{ArtsyAPI.artsy_api_root}/bidders) link from [root](#{ArtsyAPI.artsy_api_root}).
+Users can retrieve bidders by following the [bidders](#{ArtsyAPI.artsy_api_root}/bidders) link from [root](#{ArtsyAPI.artsy_api_root}).
 
 ```
 curl -v "#{ArtsyAPI.artsy_api_root}/bidders?user_id=#{current_user.id}" -H "X-Access-Token:#{access_token}"

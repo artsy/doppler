@@ -33,12 +33,3 @@
 * [Status](/docs/status)
 * [User Details](/docs/user_details)
 * [Users](/docs/users)
-
-
-[comment]: # ( ### Undocumented )
-[comment]: # ( * [Collector Profiles](#) )
-[comment]: # ( * [Docs](#)               )
-[comment]: # ( * [Partner Contacts](#)   )
-[comment]: # ( * [Sale Artworks](#)      )
-[comment]: # ( * [Tokens](#)             )
-[comment]: # ( * [User Fair Actions](#)  )
