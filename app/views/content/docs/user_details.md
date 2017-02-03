@@ -1,8 +1,9 @@
 [Documentation](/docs) &gt; Resources &gt; User Details
 
 ``` alert[info]
-This API endpoint requires a valid [user access token](/docs/authentication).
+This User Details API is restricted to authorized applications and users with a valid [user access token](/docs/authentication).
 ```
+
 
 ## User Details API
 

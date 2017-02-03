@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.3.0'
+ruby '2.3.1'
 
 gem 'rails'
 gem 'sass-rails'
@@ -34,6 +34,6 @@ end
 group :development, :test do
   gem 'rspec-rails'
   gem 'capybara'
-  gem 'selenium-webdriver'
+  gem 'selenium-webdriver', '~> 2.53.0'
   gem 'rubocop', require: false
 end
