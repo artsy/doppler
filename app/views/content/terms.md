@@ -1,12 +1,12 @@
 #ARTSY API TERMS OF USE 
 
-These API Terms of Use (“Terms”) are an agreement between you (“you” or “your”) and Art.sy, Inc. d/b/a Artsy (“Artsy” or “we” or “our” or “us”) that governs your access to and use of the Artsy application programming interfaces (together with all modified or updated versions, the “API”). By accessing or using the API in any manner, you agree to be bound by all of these Terms. If you do not agree to all of these Terms, you are not permitted to access or use the API. Please read these Terms carefully, and feel free to [contact us](mailto:engineering@artsy.net) if you have any questions about these Terms or the API. 
+These API Terms of Use (“Terms”) govern your access to and use of the Art.sy, Inc. d/b/a Artsy ("Artsy") application programming interfaces (together with all modified or updated versions, the “API”). By accessing or using the API in any manner, you agree to be bound by all of these Terms. If you do not agree to all of these Terms, you are not permitted to access or use the API. Please read these Terms carefully, and feel free to [contact us](mailto:engineering@artsy.net) if you have any questions about these Terms or the API. 
 
 ##1. Basic Definitions 
 
 The following definitions are used in these Terms:
 
-1.1 "Services" means the Artsy website, products and services, including the API.
+1.1 "Services" means the Artsy website, products and services, including the API, accessible online, through Artsy's iPhone mobile application and Artsy's iPad mobile application, and derivatives of these, whether now existing or in the future.
 
 1.2 "User" means any person or entity that accesses or uses the Services in any manner, including you.
 
