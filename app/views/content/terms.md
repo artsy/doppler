@@ -275,10 +275,8 @@ To the fullest extent permitted by applicable law, you agree to indemnify, defen
 
 20.2 All other inquiries related to the API should be directed to our engineering team at [engineering@artsy.net](mailto:engineering@artsy.net).
 
-20.3 Artsy is located at: 401 Broadway, 25th Floor, New York, NY 10013, U.S.
+20.3 Artsy is located at: 401 Broadway, 26th Floor, New York, NY 10013, U.S.
 
 ##21. Effective Date
 
-These Terms are effective September 9, 2014.
-
-Last Modified: September 9, 2014
+Last Modified: February 20, 2017.
