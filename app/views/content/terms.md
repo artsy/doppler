@@ -34,7 +34,7 @@ The following definitions are used in these Terms:
 
 2.1 You may use the API only if you can form a binding contract with us, and only as permitted by law. You are not permitted to use the API if you are a person under the age of eighteen (18). If you are accepting these Terms and using the API on behalf of a company, organization, or other legal entity, you represent and warrant that you are authorized to bind that entity to these Terms, in which case the terms “you” and “your” in these Terms will refer to that entity. 
 
-2.2 Your use of the API is also subject to our general [Terms of Use](https://artsy.net/terms) and [Privacy Policy](https://artsy.net/privacy) as amended by us from time to time. By accessing or using the Services in any manner, you agree to be bound by these terms and conditions. 
+2.2 Your use of the API is also subject to our general [Terms of Use](https://www.artsy.net/terms) and [Privacy Policy](https://www.artsy.net/privacy) as amended by us from time to time. By accessing or using the Services in any manner, you agree to be bound by these terms and conditions. 
 
 2.3 Subject to these Terms, we grant you a limited, worldwide (except as limited by these Terms), non-exclusive, non-sublicensable, non-transferable, revocable license to use the API in the manner permitted by these Terms. This license will terminate automatically if you breach any of these Terms. We may also terminate this license at any time for any reason, as provided in section 18 of these Terms. 
 
@@ -129,7 +129,7 @@ You agree that you will not (and will not attempt to, or assist or encourage any
 
 8.2 Artsy and (as applicable) our licensors own all rights, title, and interest in and to the API Content, including but not limited to all intellectual property rights therein. 
 
-8.3 As provided in our [Terms of Use](https://artsy.net/terms), each User retains any intellectual property rights that they may have in their User Content, and each User is solely responsible for their User Content. You retain any intellectual property rights that you may have in Your User Content, and you are solely responsible for Your User Content.
+8.3 As provided in our [Terms of Use](https://www.artsy.net/terms), each User retains any intellectual property rights that they may have in their User Content, and each User is solely responsible for their User Content. You retain any intellectual property rights that you may have in Your User Content, and you are solely responsible for Your User Content.
 
 8.4 You own all rights, title, and interest in and to Your Application (excluding the Services, API Content (other than Your User Content), our Brand Features, and any derivative works or enhancements thereof), including but not limited to all intellectual property rights therein.
 
