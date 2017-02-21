@@ -12,7 +12,7 @@ The following definitions are used in these Terms:
 
 1.3 “Application" means an application, website or other interface.
 
-1.4 "Your Application” means each application, website or other interface that you develop, own or operate that in any way accesses, uses or interacts with the API. 
+1.4 "Your Application” means each non-commercial application, website or other interface that you develop, own or operate that in any way accesses, uses or interacts with the API. 
 
 1.5 “Content” means images, text, information, data, software, computer code, audio, video, and other material. 
 
@@ -28,39 +28,31 @@ The following definitions are used in these Terms:
 
 1.11 “Documentation” means all documentation and/or instructions that we may make available with the API, including but not limited to any information that we post on the developers section of the Artsy website.
 
-1.12 "Production" means distributing, licensing, or otherwise making Your Application available to any third party, for free or otherwise. 
-
-1.13 “on the Services” means on the API and/or on the Artsy website.
+1.12 “on the Services” means on the API and/or on the Artsy website.
 
 ##2. Basic Terms
 
-2.1 You may use the API only if you can form a binding contract with us, and only as permitted by law. You are not permitted to use the API if you are a person under the age of eighteen (18).
+2.1 You may use the API only if you can form a binding contract with us, and only as permitted by law. You are not permitted to use the API if you are a person under the age of eighteen (18). If you are accepting these Terms and using the API on behalf of a company, organization, or other legal entity, you represent and warrant that you are authorized to bind that entity to these Terms, in which case the terms “you” and “your” in these Terms will refer to that entity. 
 
-2.2 If you are accepting these Terms and using the API on behalf of a company, organization, or other legal entity, you represent and warrant that you are authorized to bind that entity to these Terms, in which case the terms “you” and “your” in these Terms will refer to that entity. 
+2.2 Your use of the API is also subject to our general [Terms of Use](https://artsy.net/terms) and [Privacy Policy](https://artsy.net/privacy) as amended by us from time to time. By accessing or using the Services in any manner, you agree to be bound by these terms and conditions. 
 
-2.3 Your use of the API is also subject to our general [Terms of Use](https://artsy.net/terms) and [Privacy Policy](https://artsy.net/privacy) as amended by us from time to time. By accessing or using the Services in any manner, you agree to be bound by these terms and conditions. 
+2.3 Subject to these Terms, we grant you a limited, worldwide (except as limited by these Terms), non-exclusive, non-sublicensable, non-transferable, revocable license to use the API in the manner permitted by these Terms. This license will terminate automatically if you breach any of these Terms. We may also terminate this license at any time for any reason, as provided in section 18 of these Terms. 
 
-2.4 Subject to these Terms, we grant you a limited, worldwide (except as limited by these Terms), non-exclusive, non-sublicensable, non-transferable, revocable license to use the API in the manner permitted by these Terms. This license will terminate automatically if you breach any of these Terms. We may also terminate this license at any time for any reason, as provided in section 18 of these Terms. 
+2.4 You agree to register for an Artsy account and to provide true and accurate information in doing so. After you register, we will provide you with an Application ID and a secret access code (each, “Your Key”) that you will use to access the API. You must not access the API without Your Key. You must not share Your Key with any third party or permit any third party to use Your Key. 
 
-2.5 You agree to register for an Artsy account and provide all required information. You agree to provide only true and accurate information in connection with your account, and to update all such information as necessary to keep it accurate and current. 
+2.5 Your Key may only be used in connection with one (1) Application. If you wish to use the API in connection with more than one (1) Application, you must request an additional Key from us in each case, which may be granted or denied at our sole discretion.
 
-2.6 We will provide you with an Application ID and a secret access code (each, “Your Key”) that you will use to access the API. You must not access the API without Your Key. You must not share Your Key with any third party or permit any third party to use Your Key. 
+2.6 You are responsible for maintaining the confidentiality of Your Key and your account password. You are responsible for all activities that occur under or through Your Key or your account or password. You agree to notify us immediately if you suspect or become aware of any unauthorized access to or use of Your Key or your account or password, or other breach of security relating to the Services. You agree to immediately report to us any security flaws that you may discover in the Services. 
 
-2.7 Your Key may only be used in connection with one (1) Application. If you wish to use the API in connection with more than one (1) Application, you must request an additional Key from us in each case. Additional Keys may be granted or denied at our sole discretion.
+2.7 We may choose to provide you with support or modifications for the API (collectively “Support”). However, we have no obligation to do so, and we may terminate any and all Support, at any time at our sole discretion, without notice or liability. 
 
-2.8 You are responsible for maintaining the confidentiality of Your Key and your account password. You are responsible for all activities that occur under or through Your Key or your account or password. 
+2.8 We are currently making the API available to you under these Terms free of charge. However, providing the API has real costs for us, including engineering work. We reserve the right to charge for future use of the API at our sole discretion.
 
-2.9 You agree to notify us immediately if you suspect or become aware of any unauthorized access to or use of Your Key or your account or password, or other breach of security relating to the Services. You agree to immediately report to us any security flaws that you may discover in the Services. 
+2.9 You consent to receive communications from us electronically. You agree that we may communicate with you by email and/or by posting notices on the Services. You agree that all agreements, notices, disclosures and other communications that we provide to you electronically satisfy any legal requirement that such communications be in writing. 
 
-2.10 We may choose to provide you with support or modifications for the API (collectively “Support”). However, we have no obligation to do so, and we terminate any and all Support, at any time at our sole discretion, without notice or liability. Additional terms and conditions may apply to some Support, as indicated by us in connection with such Support. 
+2.10 You are responsible for providing any equipment, Internet, and telecommunication service necessary to use the API and/or to communicate with us at your own cost.
 
-2.11 We are currently making the API available to you under these Terms free of charge. However, providing the API has real costs for us, including engineering work. We reserve the right to charge for future use of the API at our sole discretion.
-
-2.12 You consent to receive communications from us electronically. You agree that we may communicate with you by email and/or by posting notices on the Services. You agree that all agreements, notices, disclosures and other communications that we provide to you electronically satisfy any legal requirement that such communications be in writing. You agree that we will not be responsible for any automatic filtering that you or your network provider may apply to any email that we send to the email address you provided. 
-
-2.13 You are responsible for providing any equipment, Internet, and telecommunication service necessary to use the API and/or to communicate with us at your own cost.
-
-2.14 You represent and warrant that: (i) you have all necessary rights and authority to enter into these Terms and perform your obligations under these Terms; (ii) none of your performance under these Terms and no part of these Terms will violate any agreement or obligation that you have with or to any third party; and (iii) if you are a business, you are duly organized, validly existing, and in good standing in the country where you are registered. 
+2.11 You represent and warrant that: (i) you have all necessary rights and authority to enter into these Terms and perform your obligations under these Terms; (ii) none of your performance under these Terms and no part of these Terms will violate any agreement or obligation that you have with or to any third party; and (iii) if you are a business, you are duly organized, validly existing, and in good standing in the country where you are registered. 
 
 ##3. Use of API Content
 
@@ -76,41 +68,25 @@ The following definitions are used in these Terms:
 
 3.6 You will not (and will not assist or encourage any third party to) rent, sell, lease, commercially license, rent or sell derivative works or products based on, or otherwise derive revenue in any currency from, any API Content (or any copies thereof).
 
-3.7 API Content may contain copyright or trademark notices, or other proprietary notices indicating its source or ownership, and may be subject to third-party rights (for example, and without limitation, copyrights, trademark rights, privacy rights or publicity rights) and third-party conditions (for example, and without limitation, attribution requirements or additional licenses). You will not remove, modify or conceal any such notices on the Services, in Your Application or elsewhere. 
+3.7 API Content may contain copyright or trademark notices, or other proprietary notices indicating its source or ownership, and may be subject to third-party rights (for example, and without limitation, copyrights, trademark rights, privacy rights or publicity rights) and third-party conditions (for example, and without limitation, attribution requirements or additional licenses). You are solely responsible for determining and complying with all such applicable third-party rights and conditions that may apply to your use of any API Content in any manner or for any purpose. You will not remove, modify or conceal any such notices on the Services, in Your Application or elsewhere. 
 
-3.8 You are solely responsible for determining and complying with all applicable third-party rights and conditions that may apply to your use of any API Content in any manner or for any purpose.
+3.8 You will not transfer any data that you obtain through the API (including but not limited to any User data, whether or not it is anonymous or aggregated) to (or use any such data in connection with) any ad network, data broker, or other advertising or monetization related service. 
 
-3.9 You will not transfer any data that you obtain through the API (including but not limited to any User data, whether or not it is anonymous or aggregated) to (or use any such data in connection with) any ad network, data broker, or other advertising or monetization related service. 
+3.9 If you obtain any data about a User through the API, you will delete all such data within twenty-four (24) hours if that User asks you to, unless you are required to keep such data by applicable law or regulation or by a separate agreement with us. You will not use the API to access, aggregate or store any geographic location information associated with any User, or to collect any User’s password or transaction or inquiry records. You will not store, use or disclose any User's non-public information.
 
-3.10 If you obtain any data about a User through the API, you will delete all such data within twenty-four (24) hours if that User asks you to, unless you are required to keep such data by applicable law or regulation or by a separate agreement with us. 
-
-3.11 You will not use the API to access, aggregate or store any geographic location information associated with any User, or to collect any User’s password or transaction or inquiry records. You will not store, use or disclose any User's non-public information.
-
-3.12 Some Artwork Images, software, or other API Content may be offered under a third-party license (such as a Creative Commons license or an open source license) that we will notify and/or make available to you. Such license may be more permissive than some of these Terms, and/or may contain provisions that expressly override some of these Terms, in which case such license will control with respect to the use of such API Content (but not with respect to the use of any other API Content).
-
-3.13 Nothing these Terms is intended to prevent you from exercising any intellectual property rights that you may have in Your User Content in any manner that is completely independent from and unconnected with, and does not in any way access, use, or rely on the API.
+3.10 Some Artwork Images, software, or other API Content may be offered under a third-party license (such as a Creative Commons license or an open source license) that we will notify and/or make available to you. Such license may be more permissive than some of these Terms, and/or may contain provisions that expressly override some of these Terms, in which case such license will control with respect to the use of such API Content (but not with respect to the use of any other API Content).
 
 ##4. Your Application 
 
-4.1 Please be advised that Your Application must be non-commercial. You must not: (i) charge any individual or entity a fee or otherwise ask or require them to pay in any currency to access or use Your Application (or any part of Your Application); or (ii) otherwise derive revenue in any currency through the operation, provision or use of Your Application (including but not limited to advertising or licensing revenue). 
+4.1 In order for you to be able to use the API pursuant to these Terms, Your Application must be non-commercial. For example, you cannot: (i) charge any individual or entity a fee or otherwise ask or require them to pay to access or use Your Application (or any part thereof); or (ii) otherwise derive revenue through the operation, provision or use of Your Application (including but not limited to advertising or licensing revenue). 
 
-4.2 Please be advised that Production of Your Application is strictly prohibited without our express prior written permission ("Production Permission"). Unless you receive Production Permission from us, you may develop and operate Your Application under these Terms for your own **experimental, internal use only,** and you may not distribute, license, or otherwise make Your Application available to any third party, for free or otherwise. You must request separate Production Permission from us for each of Your Applications that you may wish to make available to third parties, and Production Permission may be granted or denied at our complete discretion in each case.
+4.2 You agree to obtain and maintain all necessary rights and licenses related to Your Application, and to ensure that Your Application does not violate or infringe the rights of any third party.
 
-4.3 You agree to obtain and maintain all necessary rights and licenses related to Your Application, and to ensure that Your Application does not violate or infringe the rights of any third party.
+4.3 Your Application, and the look and feel of Your Application, must not be confusingly similar to any of the Services (as determined at our sole discretion).
 
-4.4 Your Application, and the look and feel of Your Application, must not be confusingly similar to any of the Services (as determined at our sole discretion).
+4.4 We reserve the right, but have no obligation, to monitor Your Application (which may include using Your Application) for compliance with these Terms, and to analyze Your Application for any purposes, without notice, at any time at our sole discretion. 
 
-4.5 We reserve the right, but have no obligation, to monitor Your Application (which may include using Your Application) for compliance with these Terms, and to analyze Your Application for any commercial and non-commercial purposes, without notice, at any time at our sole discretion. 
-
-4.6 The following provisions in this section 4.6 apply to each of Your Applications (if any) for which Production Permission is granted.
-
-4.6.1 You will have a terms of use and a privacy policy for Your Application that accurately describes to users of Your Application (“Your Users”) how you may collect and use their data. You will post a visible link to your terms of use and privacy policy in Your Application where Your Users may easily access them. 
-
-4.6.2 You will comply with your privacy policy at all times. You will also comply with all applicable local, state, national, and international laws, rules, and regulations with respect to collection of data from Your Users and use, disclosure, and protection of such data, including but not limited to applicable guidelines of the U.S. Federal Trade Commission. If you collect personally identifiable information from children under the age of thirteen (13) through or in connection with Your Application, you will not knowingly share such information with us.
-
-4.6.3 You will require Your Users to comply with all applicable laws and third-party rights when accessing or using Your Application. You will include these requirements in your terms of use. You will not knowingly enable Your Users to violate any applicable law or third-party right. 
-
-4.6.4 You are solely responsible for providing all necessary support and technical assistance to Your Users. You agree that we will have no obligation to provide any such support or assistance to any of Your Users, and you will not represent to any of Your Users that we are available to do so. 
+4.5 You agree to comply with all applicable local, state, national, and international laws, rules, and regulations in connection with Your Application, and you will require your users to also comply with the foregoing.
 
 ##5. Brand Features
 
@@ -118,32 +94,30 @@ The following definitions are used in these Terms:
 
 5.2 Except as expressly provided in these Terms, these Terms do not grant you or us any right, title, or interest in or to each other’s Brand Features. All use of our Brand Features by you or anyone else, and all goodwill associated with such use, will inure to our benefit. 
 
-5.3 You agree that you will not: (i) include any of our Brand Features in the name of Your Application or in your domain name; (ii) modify any of our Brand Features; (iii) make any oral or written statement or use any of our Brand Features (in connection with Your Application or otherwise) in any way that incorrectly suggests our affiliation with, endorsement of, or responsibility for, any person, entity, event, product, or service; (iv) challenge any of our Brand Features or our ownership or registration of any of our Brand Features; or (v) register (or attempt to register) or use any Brand Features (including domain names) that are in any way confusingly similar to any of our Brand Features or that include any of our Brand Features. If you acquire any rights in any of our Brand Features, or in any other confusingly similar trademarks, service marks or logos, whether by operation of law or otherwise, you will, at no expense to us, immediately assign such rights to us. Your obligations provided in this section 5.3 will survive these Terms and your use of the API.
+5.3 You agree that you will not: (i) include any of our Brand Features in the name of Your Application or in your domain name; (ii) modify any of our Brand Features; (iii) make any oral or written statement or use any of our Brand Features (in connection with Your Application or otherwise) in any way that incorrectly suggests our affiliation with, endorsement of, or responsibility for, you or Your Application; and (iv) register (or attempt to register) or use any Brand Features (including domain names) that are in any way confusingly similar to any of our Brand Features or that include any of our Brand Features. If you acquire any rights in any of our Brand Features, or in any other confusingly similar trademarks, service marks or logos, whether by operation of law or otherwise, you will, at no expense to us, immediately assign such rights to us. Your obligations provided in this section 5.3 will survive these Terms and your use of the API.
 
 ##6. Attribution and Publicity
 
-6.1 We may include attribution requirements applicable to the use of API Content in Documentation or otherwise make such requirements available to you. We may also post policies or guidelines applicable to the use of our Brand Features on the Services or otherwise make such policies or guidelines available to you. You agree to comply with all such requirements, policies, and guidelines, as amended by us from time to time.
+6.1 In Your Application, you agree to post the following notice: “This application uses the Artsy API but is not endorsed or certified by Artsy.” The words "Artsy API" in this notice must hyperlink to the developers section of the Artsy website at: www.developers.artsy.net. We may include additional attribution requirements applicable to the use of API Content in Documentation or otherwise make such requirements available to you. You agree to comply with all such requirements, as amended by us from time to time.
 
-6.2 Somewhere in Your Application, you will post the following notice: “This application uses the Artsy API but is not endorsed or certified by Artsy.” The words "Artsy API" in this notice must hyperlink to the developers section of the Artsy website at: www.developers.artsy.net. 
+6.2 If you use an Artwork Image in Your Application, in addition to the notice required in section 6.1 above, you will post the following notice prominently in Your Application: "This application features images from the Artsy API." The words "Artsy API" in this notice must hyperlink to the developers section of the Artsy website at: www.developers.artsy.net. We may request that you change the size, location and/or language of this notice in Your Application at any time at our sole discretion, and you agree to comply with any such requests as soon as reasonably practicable. 
 
-6.3 If you use one (1) or more Artwork Images in Your Application, in addition to the notice required in section 6.2 above, you will post the following notice prominently in Your Application: "This application features images from the Artsy API." The words "Artsy API" in this notice must hyperlink to the developers section of the Artsy website at: www.developers.artsy.net. We may request that you change the size, location and/or language of this notice in Your Application at any time at our sole discretion, and you agree to comply with any such requests as soon as reasonably practicable. 
+6.3 You will not use our logo in Your Application without our express prior written permission. If we grant you such permission, any use of our logo must be less prominent than the logo or mark that primarily describes Your Application, and must not imply any endorsement by us. 
 
-6.4 You will not use our logo in Your Application without our express prior written permission. If we grant you such permission, any use of our logo must be less prominent than the logo or mark that primarily describes Your Application, and must not imply any endorsement by us. 
+6.4 You will not include any Content in Your Application, or make any oral or written statement to any third party, in any way suggesting (as determined at our sole discretion) that we endorse Your Application. 
 
-6.5 You will not include any Content in Your Application, or make any oral or written statement to any third party, in any way suggesting (as determined at our sole discretion) that we endorse Your Application, unless you have received our express prior written permission to do so. 
-
-6.6 When discussing or promoting the API, we may use your name and logos, Your User Content, and screenshots or video captures of Your Application, to demonstrate your use of the API. You grant us all necessary rights for these purposes on a non-exclusive, worldwide, and royalty-free basis.
+6.5 When discussing or promoting the API, we may use your name and logos, and screenshots or video captures of Your Application, to demonstrate your use of the API. You grant us all necessary rights for these purposes on a non-exclusive, worldwide, and royalty-free basis.
 
 ##7. General Restrictions
 
-You agree that you will not (and will not attempt to, or assist or encourage any other person or entity to):
+You agree that you will not (and will not attempt to, or assist or encourage any other person or entity to), except as otherwise permitted by these Terms:
 
 + Breach, disable or circumvent any security measure or technical limitation or restriction of the API;
-+ Decipher, decompile, disassemble, reverse engineer, or otherwise derive or extract any source code from, or create derivative from, the API ;
++ Decipher, decompile, disassemble, reverse engineer, or otherwise derive or extract any source code from, or create derivative works from, the API;
 + Use the API or any API Content in any manner or for any purpose, or take any other action in connection with the API, that violates or infringes: (i) any applicable local, state, national or international law, rule or regulation, including but not limited to those governing consumer or personal privacy, or the export and/or import of data or software; or (ii) any rights of any third party, including but not limited to any copyright, moral right, trademark right, trade secret, patent right, privacy right, publicity right or contractual right;
 + Use the API or any API Content in any manner or for any purpose, or take any other action in connection with the API, that exposes us or our Users to harm or liability (as determined at our sole discretion);
 + Use the API or any API Content in any manner that interferes with the normal operation of the Services or the access of any User, including but not limited to transmitting any viruses or harmful code, flooding the API with excessive requests or traffic, or taking any other action that creates (at our sole discretion) an unreasonable or disproportionately large load on our systems or servers;
-+ Rent, sell, sublicense, or otherwise transfer any access to or use of the API to any third party, or otherwise derive revenue in any currency from the use or provision of the API;
++ Rent, sell, sublicense, or otherwise transfer any access to or use of the API to any third party, or otherwise derive revenue from the use or provision of the API;
 + Use the API to post or transmit any spam, junk mail, or other unauthorized promotional communications through the Services, in Your Application, or elsewhere;
 + Use the API in connection with any Application that constitutes, promotes, or is used in connection with spyware, adware, or any other malicious programs or code;
 + Use the API to develop or operate (or otherwise in connection with) any product (including any Application) or service that: (i) is competitive with any of the Services (as determined at our sole discretion); (ii) replicates or attempts to provide essentially the same user experience as any of the Services (including the API); or (iii) enables any automated third-party access to or use of the Services, or otherwise modifies or bypasses any part of the user experience within the Services;
@@ -155,17 +129,15 @@ You agree that you will not (and will not attempt to, or assist or encourage any
 
 8.2 Artsy and (as applicable) our licensors own all rights, title, and interest in and to the API Content, including but not limited to all intellectual property rights therein. 
 
-8.3 As provided in our [Terms of Use](https://artsy.net/terms), each User retains any intellectual property rights that they may have in their User Content, and each User is solely responsible for their User Content. 
+8.3 As provided in our [Terms of Use](https://artsy.net/terms), each User retains any intellectual property rights that they may have in their User Content, and each User is solely responsible for their User Content. You retain any intellectual property rights that you may have in Your User Content, and you are solely responsible for Your User Content.
 
-8.4 You retain any intellectual property rights that you may have in Your User Content, and you are solely responsible for Your User Content.
+8.4 You own all rights, title, and interest in and to Your Application (excluding the Services, API Content (other than Your User Content), our Brand Features, and any derivative works or enhancements thereof), including but not limited to all intellectual property rights therein.
 
-8.5 You own all rights, title, and interest in and to Your Application (excluding the Services, API Content (other than Your User Content), our Brand Features, and any derivative works or enhancements thereof), including but not limited to all intellectual property rights therein.
+8.5 Neither these Terms nor your use of the API grants you any ownership over the API, any API Content, or any rights therein. Except for the limited license to use the API that we grant you under these Terms, neither these Terms nor your use of the API grants you any license or permission under any copyright, trademark, or other intellectual property rights of Artsy or any third party, whether by estoppel, implication or otherwise. 
 
-8.6 Neither these Terms nor your use of the API grants you any ownership over the API, any API Content, or any rights therein. Except for the limited license to use the API that we grant you under these Terms, neither these Terms nor your use of the API grants you any license or permission under any copyright, trademark, or other intellectual property rights of Artsy or any third party, whether by estoppel, implication or otherwise. 
+8.6 You may provide us with feedback, comments or suggestions (collectively, “Feedback”) related to the API, API Content and/or the use thereof. You agree that we will be free to copy, distribute, disclose, modify, create derivative works from, license, sublicense, publicly display, incorporate, and otherwise use any and all Feedback (and any derivative works thereof) for any commercial and non-commercial purposes, with no obligation of any kind to you. 
 
-8.7 You may provide us with feedback, comments or suggestions (collectively, “Feedback”) related to the API, API Content and/or the use thereof. You agree that we will be free to copy, distribute, disclose, modify, create derivative works from, license, sublicense, publicly display, incorporate, and otherwise use any and all Feedback (and any derivative works thereof) for any commercial and non-commercial purposes, with no obligation of any kind to you. 
-
-8.8 All rights not expressly granted under these Terms are withheld. 
+8.7 All rights not expressly granted under these Terms are withheld. 
 
 ##9. Disclaimer of Warranties
 
@@ -181,23 +153,11 @@ TO THE FULLEST EXTENT PERMITTED BY APPLICABLE LAW, YOU RELEASE THE ARTSY PARTIES
 
 ##12. Indemnification
 
-To the fullest extent permitted by applicable law, you agree to indemnify, defend, and hold harmless Artsy and our officers, directors, agents, and employees from and against any and all third-party claims, demands, suits, and proceedings, and all related damages, losses, judgments, liabilities, and expenses (including reasonable attorneys’ fees) arising out of or related to: (i) your use or misuse of the API; (ii) your breach or alleged breach of any of these Terms; or (iii) Your Application. At our option, you will assume control of the defense and settlement of any matter subject to indemnification by you (provided that, in such event, we may at any time thereafter elect to take over control of the defense and settlement of any such matter, and in any event, you will not settle any such matter without our prior written consent). Your indemnification and defense obligations provided in these Terms will survive these Terms and your use of the API. 
+To the fullest extent permitted by applicable law, you agree to indemnify, defend, and hold harmless Artsy and the Artsy Parties from and against any and all third-party claims, demands, suits, and proceedings, and all related damages, losses, judgments, liabilities, and expenses (including reasonable attorneys’ fees) arising out of or related to: (i) your use or misuse of the API; (ii) your breach or alleged breach of any of these Terms; or (iii) Your Application. Your indemnification and defense obligations provided in these Terms will survive these Terms and your use of the API. 
 
-##13. Choice of Law and Dispute Resolution
+##13. Choice of Law 
 
-13.1 These Terms, and the rights and obligations of you and us under these Terms, will be governed by and construed and enforced in accordance with the laws of the State of New York and, to the extent applicable, the laws of the United States, excluding any conflicts of laws principles, and without regard to your state or country of residence. 
-
-13.2 You agree that all claims, actions or disputes involving you and us (whether or not involving any third parties) arising out of or related to these Terms or the API (each, hereinafter, a “Claim”) must be resolved exclusively in a state or federal court located in New York County, New York, United States. You agree to submit to the personal jurisdiction of, and agree that venue is proper in, the courts located in New York County, New York, United States, for the purpose of litigating all Claims, and you waive any objection as to inconvenient forum. 
-
-13.3 You and we each expressly waive any right to a jury trial in the litigation of any Claims.
-
-13.4 To ensure that disputes are dealt with soon after they arise, you agree that regardless of any law to the contrary, each claim or cause of action you may have against us arising out of or related to these Terms or the API must be filed within the applicable statute of limitations, or, if earlier, one (1) year after such claim or cause of action arose, or else such claim or cause of action will be permanently barred. 
-
-13.5 To the fullest extent permitted by applicable law, if we prevail in any Claim, we will be entitled to recover from you our reasonable attorneys’ fees incurred in connection with such Claim.
-
-13.6 The United Nations Convention on Contracts for the International Sale of Goods will not in any way apply to these Terms or your use of the API. 
-
-13.7 Nothing in these Terms will prevent us from seeking injunctive or other equitable relief in any jurisdiction. 
+These Terms, and the rights and obligations of you and us under these Terms, will be governed by and construed and enforced in accordance with the laws of the State of New York and, to the extent applicable, the laws of the United States, excluding any conflicts of laws principles, and without regard to your state or country of residence. You agree that all claims, actions or disputes involving you and us (whether or not involving any third parties) arising out of or related to these Terms or the API (each, hereinafter, a “Claim”) must be resolved exclusively in a state or federal court located in New York County, New York, United States. You agree to submit to the personal jurisdiction of, and agree that venue is proper in, the courts located in New York County, New York, United States, for the purpose of litigating all Claims, and you waive any objection as to inconvenient forum. You and we each expressly waive any right to a jury trial in the litigation of any Claims. To the fullest extent permitted by applicable law, if we prevail in any Claim, we will be entitled to recover from you our reasonable attorneys’ fees incurred in connection with such Claim. Nothing in these Terms will prevent us from seeking injunctive or other equitable relief in any jurisdiction. 
 
 ##14. International Use
 
@@ -211,29 +171,17 @@ To the fullest extent permitted by applicable law, you agree to indemnify, defen
 
 15.1 You may be given access to certain nonpublic or confidential information, software, and/or specifications in connection with your use of the API, including but not limited to Your Key and any other developer credentials that we may make available to you (collectively, “Confidential Information”). 
 
-15.2 You may use Confidential Information only to the extent necessary to exercise your rights under these Terms. You agree to protect Confidential Information from unauthorized access, use or disclosure in the same manner as you would protect your own confidential information, and in any event, exercising no less than a reasonable degree of care. 
-
-15.3 You agree not to disclose any Confidential Information to any third party without our express prior written consent, except (if applicable) on a need to know basis to your agents that may use the API on your behalf under these Terms, provided such agents use the API strictly according to these Terms, and subject to a written duty of confidentiality. You are fully responsible for all use of the API, and all use or disclosure of Confidential Information by your agents. 
+15.2 You may use Confidential Information only to the extent necessary to exercise your rights under these Terms. You agree not to disclose any Confidential Information to any third party without our express prior written consent, except (if applicable) on a need to know basis to your agents that may use the API on your behalf under these Terms, provided such agents use the API strictly according to these Terms, and subject to a written duty of confidentiality. You are fully responsible for all use of the API, and all use or disclosure of Confidential Information by your agents. 
 
 ##16. Changes to the API
 
-16.1 The API is updated frequently, and its form and functionality may change without notice. We reserve the right to change, modify, add, remove, or discontinue the appearance, design, functionality, and all other aspects of any and all of the API, temporarily or permanently, with or without notice, for any or no reason, at any time at our sole discretion. 
-
-16.2 You agree that the Artsy Parties will not be liable to you or any third party for any damages or losses of any kind resulting directly or indirectly from any changes made by us to the API, including, but not limited to, any loss of or inability to do business or to provide or use any product (including but not limited to Your Application), service, or API Content. 
+The API is updated frequently, and its form and functionality may change without notice. We reserve the right to change, modify, add, remove, or discontinue the appearance, design, functionality, and all other aspects of any and all of the API, temporarily or permanently, with or without notice, for any or no reason, at any time at our sole discretion. 
 
 ##17. Changes to these Terms
 
 17.1 We reserve the right to change these Terms from time to time at our sole discretion, including the right to change, modify, add or remove any part of these Terms. 
 
-17.2 You agree that we may notify you of any changes to these Terms by posting the updated Terms on the Services or otherwise making them available to you, and you agree to review these Terms regularly and inform yourself of all applicable changes. 
-
-17.3 All changes to these Terms will be effective when posted on the Services or otherwise made available to you, or at such later date as may be specified in the updated Terms. 
-
-17.4 By continuing to use the API after any changes to these Terms become effective, you agree to be bound by such changes and the updated Terms. If you do not agree to such changes, your license to use the API under these Terms will automatically terminate. 
-
-17.5 Changes to these Terms will not apply to any Claim that arose before such changes became effective, all of which will remain subject to the version of these Terms in effect at the time that such Claim arose. 
-
-17.6 You agree that the Artsy Parties will not be liable to you or any third party for any damages or losses of any kind resulting directly or indirectly from any changes made by us to these Terms, including, but not limited to, any loss of or inability to do business or to provide or use any product (including but not limited to Your Application), service, or API Content. 
+17.2 You agree that we may notify you of any changes to these Terms by posting the updated Terms on the Services or otherwise making them available to you, and you agree to review these Terms regularly and inform yourself of all applicable changes. All changes to these Terms will be effective when posted on the Services or otherwise made available to you, or at such later date as may be specified in the updated Terms. By continuing to use the API after any changes to these Terms become effective, you agree to be bound by such changes and the updated Terms. If you do not agree to such changes, your license to use the API under these Terms will automatically terminate. 
 
 ##18. Termination
 
@@ -253,21 +201,11 @@ To the fullest extent permitted by applicable law, you agree to indemnify, defen
 
 19.2 We reserve the right, without notice, at any time at our sole discretion, to develop, distribute, market, acquire, license and/or provide (alone or with third parties) Applications or other products or services that are competitive with and/or similar to Your Application.
 
-19.3 Any other statement in these Terms notwithstanding, you and we are independent contractors under these Terms, no agency, partnership, joint venture, employment, or franchise relationship is created or implied by these Terms or any activity contemplated by these Terms, and you have no authority to make or accept any offer or representation on our behalf. 
+19.3 Nothing stated in or implied from these Terms will give any party other than you or us any legal or equitable right, remedy or claim under or with respect to these Terms.
 
-19.4 Nothing stated in or implied from these Terms will give any party other than you or us any legal or equitable right, remedy or claim under or with respect to these Terms.
+19.4 If any provision of these Terms is found by a court of competent jurisdiction to be invalid or unenforceable for any reason, that provision will be enforced to the maximum extent permissible, and these Terms will otherwise remain in full force and effect. 
 
-19.5 These Terms, together with our [Terms of Use](https://artsy.net/terms), [Privacy Policy](https://artsy.net/privacy), and any other written agreements that you may enter into with us regarding the Services, constitutes the entire agreement and understanding between you and us regarding the subject matter of these Terms, and supersedes any other written, oral or implied communications, statements or understandings between you and us regarding the subject matter of these Terms. 
-
-19.6 If any provision of these Terms is found by a court of competent jurisdiction to be invalid or unenforceable for any reason, that provision will be enforced to the maximum extent permissible, and these Terms will otherwise remain in full force and effect. 
-
-19.7 No delay or failure by us to exercise or enforce any right or provision of these Terms will be deemed a waiver of that or any other right or provision of these Terms. We will not be deemed to have waived any right or remedy under these Terms unless the waiver is in writing and signed by an Artsy representative who intends and is duly authorized to agree to such waiver on our behalf. No single or partial exercise by us of any right or remedy under these Terms will prevent any further exercise by us of any other right or remedy. In no event will any of these Terms be construed against us on the grounds that we drafted these Terms.
-
-19.8 These Terms will be binding on and inure to the benefit of you, us, and your and our respective successors and assigns, provided you may not assign or transfer these Terms or any right or obligation under these Terms without our express prior written consent, and any attempt by you to do otherwise will be void and of no effect. 
-
-19.9 These Terms were written in English (U.S.). To the extent any translated version conflicts with the English version, the English version controls. 
-
-19.10 The section titles in these Terms are for convenience only and have no legal or contractual effect.
+19.5 No delay or failure by us to exercise or enforce any right or provision of these Terms will be deemed a waiver of that or any other right or provision of these Terms. We will not be deemed to have waived any right or remedy under these Terms unless the waiver is in writing and signed by an Artsy representative who intends and is duly authorized to agree to such waiver on our behalf. No single or partial exercise by us of any right or remedy under these Terms will prevent any further exercise by us of any other right or remedy. In no event will any of these Terms be construed against us on the grounds that we drafted these Terms.
 
 ##20. Contacting Artsy
 
@@ -279,4 +217,4 @@ To the fullest extent permitted by applicable law, you agree to indemnify, defen
 
 ##21. Effective Date
 
-Last Modified: February 20, 2017.
+Last Modified: February 21, 2017.
