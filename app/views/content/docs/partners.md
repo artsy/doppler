@@ -42,6 +42,7 @@ profile            | Partner [profile](/docs/profiles).                |
 permalink          | An external location on the artsy.net website.    |
 website            | Official website.                                 |
 artworks           | Partner [artworks](/docs/artworks).               |
+artists            | Partner [artists](/docs/artists).               |
 published_artworks | All published partner [artworks](/docs/artworks). |
 shows              | Partner [shows](/docs/shows).                     |
 

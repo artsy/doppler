@@ -14,6 +14,18 @@ Retrieve artists by following the [artists](#{ArtsyAPI.artsy_api_root}/artists) 
 curl -v "#{ArtsyAPI.artsy_api_root}/artists" -H "X-XAPP-Token:#{xapp_token}"
 ```
 
+This endpoint accepts the following parameters.
+
+Name                    | Value                                                                                       |
+-----------------------:|:--------------------------------------------------------------------------------------------|
+artwork\_id             | Retrieve artists for a given [artwork](/docs/artworks).                                     |
+similar\_to\_artist\_id | Return artists similar to a given artist.                                                   |
+similarity\_type        | Similarity type, either `default` or `contemporary`. See below.                             |
+gene\_id                | Return a set of artists that represent a given [gene](/docs/genes).                         |
+artworks                | Only return artists with artworks.                                                          |
+published\_artworks     | Only return artists with published artworks.                                                |
+partner\_id             | Return artists with artworks that belong to the [partner](/docs/partners).                  |
+
 The response is a [paginated result](/docs/pagination) with embedded artists.
 
 #### Retrieving an Artist
