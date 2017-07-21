@@ -48,7 +48,7 @@ The following definitions are used in these Terms:
 
 2.8 We are currently making the API available to you under these Terms free of charge. However, providing the API has real costs for us, including engineering work. We reserve the right to charge for future use of the API at our sole discretion.
 
-2.9 You consent to receive communications from us electronically. You agree that we may communicate with you by email and/or by posting notices on the Services. You agree that all agreements, notices, disclosures and other communications that we provide to you electronically satisfy any legal requirement that such communications be in writing. 
+2.9 As a condition of making the API available to you under these Terms, you consent to receive communications from us electronically. You agree that we may communicate with you by email and/or by posting notices on the Services. You agree that all agreements, notices, disclosures and other communications that we provide to you electronically satisfy any legal requirement that such communications be in writing. 
 
 2.10 You are responsible for providing any equipment, Internet, and telecommunication service necessary to use the API and/or to communicate with us at your own cost.
 
@@ -56,7 +56,7 @@ The following definitions are used in these Terms:
 
 ##3. Use of API Content
 
-3.1 You may access and use API Content only as needed to develop and operate Your Application. You may not access or use any API Content (or any copies thereof) for any other purpose.
+3.1 You may access and use API Content only as needed to develop and operate Your Application. You may not access or use any API Content (or any copies thereof) for any other purpose. You will not allow the API Content or Your Application to be used to encourage or promote illegal activity.
 
 3.2 You may access and use API Content only as permitted by the normal functionality and restrictions of the API, and only as permitted by any applicable Documentation. 
 
@@ -120,7 +120,7 @@ You agree that you will not (and will not attempt to, or assist or encourage any
 + Rent, sell, sublicense, or otherwise transfer any access to or use of the API to any third party, or otherwise derive revenue from the use or provision of the API;
 + Use the API to post or transmit any spam, junk mail, or other unauthorized promotional communications through the Services, in Your Application, or elsewhere;
 + Use the API in connection with any Application that constitutes, promotes, or is used in connection with spyware, adware, or any other malicious programs or code;
-+ Use the API to develop or operate (or otherwise in connection with) any product (including any Application) or service that: (i) is competitive with any of the Services (as determined at our sole discretion); (ii) replicates or attempts to provide essentially the same user experience as any of the Services (including the API); or (iii) enables any automated third-party access to or use of the Services, or otherwise modifies or bypasses any part of the user experience within the Services;
++ Use the API to develop or operate (or otherwise in connection with) any product (including any Application) or service that: (i) is competitive with any of the Services (as determined at our sole discretion); (ii) replicates or attempts to provide essentially the same user experience as any of the Services (including the API); or (iii) enables any automated third-party access to or use of the Services, or otherwise modifies or bypasses any part of the user experience within the Services; or
 + Use the API to monitor the availability, performance or functionality of the Services, or for any other benchmarking or competitive purposes.
 
 ##8. Ownership 
@@ -133,7 +133,7 @@ You agree that you will not (and will not attempt to, or assist or encourage any
 
 8.4 You own all rights, title, and interest in and to Your Application (excluding the Services, API Content (other than Your User Content), our Brand Features, and any derivative works or enhancements thereof), including but not limited to all intellectual property rights therein.
 
-8.5 Neither these Terms nor your use of the API grants you any ownership over the API, any API Content, or any rights therein. Except for the limited license to use the API that we grant you under these Terms, neither these Terms nor your use of the API grants you any license or permission under any copyright, trademark, or other intellectual property rights of Artsy or any third party, whether by estoppel, implication or otherwise. 
+8.5 Neither these Terms nor your use of the API grants you any ownership over the API, any API Content, our Brand Features, or any rights therein. Except for the limited license to use the API that we grant you under these Terms, neither these Terms nor your use of the API grants you any license or permission under any copyright, trademark, or other intellectual property rights of Artsy or any third party, whether by estoppel, implication or otherwise. 
 
 8.6 You may provide us with feedback, comments or suggestions (collectively, “Feedback”) related to the API, API Content and/or the use thereof. You agree that we will be free to copy, distribute, disclose, modify, create derivative works from, license, sublicense, publicly display, incorporate, and otherwise use any and all Feedback (and any derivative works thereof) for any commercial and non-commercial purposes, with no obligation of any kind to you. 
 
@@ -163,7 +163,7 @@ These Terms, and the rights and obligations of you and us under these Terms, wil
 
 14.1 The API is based in the United States. We make no representations or warranties that the API is appropriate or available for use outside of the United States. 
 
-14.2 If you are located outside of the United States, you represent and warrant that your access to and use of the API complies with all applicable local, state, national, and international laws, rules, and regulations. 
+14.2 If you are located outside of the United States, you represent and warrant that your access to and use of the API complies with all applicable local, national, and international laws, rules, and regulations. 
 
 14.3 You must not access or use the API if you are: (i) located in a country embargoed by the United States; (ii) on any United States government list of prohibited or restricted parties; or (iii) prohibited from receiving products, services, or software originating from the United States.
 
@@ -171,7 +171,7 @@ These Terms, and the rights and obligations of you and us under these Terms, wil
 
 15.1 You may be given access to certain nonpublic or confidential information, software, and/or specifications in connection with your use of the API, including but not limited to Your Key and any other developer credentials that we may make available to you (collectively, “Confidential Information”). 
 
-15.2 You may use Confidential Information only to the extent necessary to exercise your rights under these Terms. You agree not to disclose any Confidential Information to any third party without our express prior written consent, except (if applicable) on a need to know basis to your agents that may use the API on your behalf under these Terms, provided such agents use the API strictly according to these Terms, and subject to a written duty of confidentiality. You are fully responsible for all use of the API, and all use or disclosure of Confidential Information by your agents. 
+15.2 You may use Confidential Information only to the extent necessary to exercise your rights under these Terms. You agree to not disclose any Confidential Information to any third party without our express prior written consent. You are fully responsible for all use of the API and Confidential Information. 
 
 ##16. Changes to the API
 
@@ -217,4 +217,4 @@ The API is updated frequently, and its form and functionality may change without
 
 ##21. Effective Date
 
-Last Modified: February 21, 2017.
+Last Modified: July 21, 2017.
