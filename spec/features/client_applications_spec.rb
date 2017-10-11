@@ -130,7 +130,7 @@ describe 'Client Applications' do
       it 'edits the app' do
         visit '/client_applications'
         click_link 'edit'
-        expect(page).to have_css('td#enabled'), text: 'No'
+        expect(page).to have_css 'td#enabled', text: 'No'
       end
     end
     context 'with an application with published_artworks_access_enabled' do
