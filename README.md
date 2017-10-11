@@ -1,6 +1,6 @@
 ## Doppler
 
-[![Build Status](http://img.shields.io/travis/artsy/doppler.svg)](https://travis-ci.org/artsy/doppler)
+[![Build Status](https://travis-ci.org/artsy/doppler.svg?branch=master)](https://travis-ci.org/artsy/doppler)
 [![Dependency Status](https://gemnasium.com/artsy/doppler.svg)](https://gemnasium.com/artsy/doppler)
 [![Code Climate](https://codeclimate.com/github/artsy/doppler.svg)](https://codeclimate.com/github/artsy/doppler)
 
