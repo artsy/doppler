@@ -2,16 +2,15 @@ class ClientApplicationsController < ApplicationController
   include OpenRedirectHelper
 
   before_action :authenticate!
-  before_action :fetch_client_application, only: [:show, :edit, :destroy, :update]
+  before_action :fetch_client_application, only: %i[show edit destroy update]
   before_action :no_cache!, except: [:index]
-  before_action :parse_redirect_uris, only: [:update, :create]
+  before_action :parse_redirect_uris, only: %i[update create]
 
   def new
     @client_application = ClientApplication.new
   end
 
-  def show
-  end
+  def show; end
 
   def create
     redirect_uri = safe_redirect_uri(params[:client_application].delete(:redirect_uri))
