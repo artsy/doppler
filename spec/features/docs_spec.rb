@@ -15,6 +15,7 @@ describe 'Docs' do
     context path do
       before do
         visit path
+        sleep 1
       end
       it 'displays a breadcrumb back to docs' do
         expect(page).to have_css "a[href='/docs']"

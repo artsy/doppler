@@ -14,7 +14,7 @@ This endpoint accepts the following parameters.
 
 Name       | Value                                                                               |
 ----------:|:------------------------------------------------------------------------------------|
-show_id    | Retrieve images for a given [show](/docs/shows), often called _installation shots_.  |
+show_id    | Retrieve images for a given [show](/docs/shows), often called "installation shots". |
 
 #### Retrieving an Image
 
