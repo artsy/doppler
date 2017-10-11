@@ -7,34 +7,34 @@ Rails.application.routes.draw do
   get '/playground', to: 'playground#index'
   get '/terms', to: 'pages#show', id: 'terms'
   get '/docs', to: 'pages#show', id: 'docs'
-  [
-    :applications,
-    :artists,
-    :artworks,
-    :authentication,
-    :bidder_positions,
-    :bidders,
-    :bids,
-    :collection_items,
-    :collections,
-    :docs,
-    :editions,
-    :errors,
-    :fairs,
-    :genes,
-    :http,
-    :images,
-    :links,
-    :markdown,
-    :pagination,
-    :partners,
-    :profiles,
-    :sales,
-    :search,
-    :shows,
-    :status,
-    :user_details,
-    :users
+  %i[
+    applications
+    artists
+    artworks
+    authentication
+    bidder_positions
+    bidders
+    bids
+    collection_items
+    collections
+    docs
+    editions
+    errors
+    fairs
+    genes
+    http
+    images
+    links
+    markdown
+    pagination
+    partners
+    profiles
+    sales
+    search
+    shows
+    status
+    user_details
+    users
   ].each do |page|
     get "/docs/#{page}", to: 'pages#show', id: "docs/#{page}"
   end
