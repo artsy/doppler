@@ -36,6 +36,7 @@ describe 'Start' do
         fill_in 'Name', with: 'Name'
         allow(ArtsyAPI).to receive_message_chain(:client, :applications).and_return([application])
         click_button 'Save'
+        sleep 1
         expect(page.body).to include 'Use Your App'
         expect(page.body).to include 'client_id'
       end

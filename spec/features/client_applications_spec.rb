@@ -32,6 +32,7 @@ describe 'Client Applications' do
             visit "/client_applications/new?redirect_uri=#{url}"
             fill_in 'Name', with: 'Name'
             click_button 'Save'
+            sleep 1
             expect(current_url).to end_with '/client_applications'
           end
         end
@@ -39,6 +40,7 @@ describe 'Client Applications' do
           visit '/client_applications/new?redirect_uri=/docs'
           fill_in 'Name', with: 'Name'
           click_button 'Save'
+          sleep 1
           expect(current_url).to end_with '/docs'
         end
         it 'redirects to a full uri' do
@@ -47,6 +49,7 @@ describe 'Client Applications' do
           visit "/client_applications/new?redirect_uri=#{redirect_uri}"
           fill_in 'Name', with: 'Name'
           click_button 'Save'
+          sleep 1
           expect(current_url).to eq redirect_uri
         end
       end
