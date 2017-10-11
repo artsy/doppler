@@ -1,8 +1,8 @@
 source 'https://rubygems.org'
 
-ruby '2.3.1'
+ruby '2.4.1'
 
-gem 'rails'
+gem 'rails', '~> 4.2'
 gem 'sass-rails'
 gem 'uglifier'
 gem 'coffee-rails'
