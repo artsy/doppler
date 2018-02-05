@@ -166,7 +166,7 @@ GEM
     multipart-post (2.0.0)
     nenv (0.3.0)
     net-http-digest_auth (1.4.1)
-    newrelic_rpm (4.5.0.337)
+    newrelic_rpm (4.8.0.341)
     nokogiri (1.8.1)
       mini_portile2 (~> 2.3.0)
     notiffany (0.1.1)
@@ -275,6 +275,8 @@ GEM
     selenium-webdriver (3.6.0)
       childprocess (~> 0.5)
       rubyzip (~> 1.0)
+    sentry-raven (2.7.1)
+      faraday (>= 0.7.6, < 1.0)
     sexp_processor (4.10.0)
     shellany (0.0.1)
     spring (2.0.2)
@@ -335,6 +337,7 @@ DEPENDENCIES
   rubocop
   sass-rails
   selenium-webdriver
+  sentry-raven
   spring
   twitter-bootstrap-rails
   twitter-bootstrap-rails-confirm

@@ -12,17 +12,28 @@ RSpec.describe SessionController, type: :controller do
       end
     end
     context 'authenticated' do
+      let(:user) { double(User, id: 1, name: 'Name', email: 'email@example.com') }
       before do
         allow(subject).to receive(:authenticated?).and_return true
+        allow(subject).to receive(:current_user).and_return user
       end
       it 'redirects to root' do
         get :new, redirect_uri: '/applications'
         expect(response).to redirect_to('/')
       end
+      it 'sets sentry context' do
+        expect(Raven).to receive(:user_context).with(
+          id: user.id,
+          username: user.name,
+          email: user.email
+        )
+        get :new, redirect_uri: '/applications'
+      end
     end
   end
   describe 'GET #destroy' do
     it 'redirect to gravity API logout page' do
+      allow(subject).to receive(:set_raven_context)
       get :destroy
       expect(response).to redirect_to('http://localhost:3000/users/sign_out?redirect_uri=http%3A%2F%2Ftest.host%2F')
     end
@@ -30,6 +41,7 @@ RSpec.describe SessionController, type: :controller do
   describe 'POST #create' do
     let(:warden) { double(Warden::Manager) }
     before do
+      expect(subject).to receive(:set_raven_context)
       expect(subject).to receive(:warden).and_return(warden)
       expect(warden).to receive(:set_user)
     end

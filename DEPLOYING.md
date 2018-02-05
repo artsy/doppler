@@ -71,6 +71,15 @@ heroku config:add NEW_RELIC_APP_NAME=doppler --app=doppler-staging
 heroku addons:add memcachier --app=doppler-staging
 ```
 
+#### Sentry
+
+Create a project in [Sentry](https://sentry.io/artsynet).
+
+```
+heroku config:add SENTRY_DSN=... --app=doppler-staging
+heroku labs:enable runtime-dyno-metadat --app=doppler-staging
+```
+
 #### DNS
 
 Add a CNAME record for the SSL endpoint. Production Doppler has developers.artsy.net pointing to kumamoto-4359.herokussl.com.
