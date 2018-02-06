@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
   include WardenHelper
   include CacheHelper
   protect_from_forgery with: :exception
+  before_action :set_raven_context
 
   def authenticate!
     return if authenticated?
@@ -19,5 +20,15 @@ class ApplicationController < ActionController::Base
                 else
                   ArtsyAPI.client(xapp_token: ArtsyAPI.xapp_token)
     end
+  end
+
+  def set_raven_context
+    return unless authenticated?
+
+    Raven.user_context(
+      id: current_user.id,
+      username: current_user.name,
+      email: current_user.email
+    )
   end
 end
