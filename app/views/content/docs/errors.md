@@ -47,6 +47,10 @@ A parameter validation error.
 }
 ```
 
+### 429 Errors
+
+The API will return an HTTP 429 `Too many requests` error when your client is over the rate limit (currently 5 requests per second). You will not be blacklisted by default, only throttled.
+
 ### 500 Errors
 
 Internal server errors in the 50x range are not expected. Please [report](/help) any 50x errors.
