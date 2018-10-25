@@ -14,4 +14,4 @@ We welcome contributions. See [CONTRIBUTING](CONTRIBUTING.md) and [DEV](DEV.md).
 
 MIT License, see [LICENSE](LICENSE) for details.
 
-(c) 2015 Artsy Inc. and Contributors
+(c) 2014-2018 Artsy Inc. and Contributors
