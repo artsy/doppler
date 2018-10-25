@@ -8,7 +8,7 @@ I am Doppler, the Artsy developer website. You can see me at [developers.artsy.n
 
 ### Contributing
 
-We welcome contributions. See [CONTRIBUTING](CONTRIBUTING.md).
+We welcome contributions. See [CONTRIBUTING](CONTRIBUTING.md) and [DEV](DEV.md).
 
 ### Copyright & License
 
