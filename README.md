@@ -8,10 +8,10 @@ I am Doppler, the Artsy developer website. You can see me at [developers.artsy.n
 
 ### Contributing
 
-We welcome contributions. See [CONTRIBUTING](CONTRIBUTING.md).
+We welcome contributions. See [CONTRIBUTING](CONTRIBUTING.md) and [DEV](DEV.md).
 
 ### Copyright & License
 
 MIT License, see [LICENSE](LICENSE) for details.
 
-(c) 2015 Artsy Inc. and Contributors
+(c) 2014-2018 Artsy Inc. and Contributors
