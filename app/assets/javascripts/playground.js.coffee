@@ -16,11 +16,9 @@ $ ->
       SwaggerUIBundle.plugins.DownloadUrl
     ],
     layout: "StandaloneLayout",
-    configs: {
-      preFetch: (req) ->
-        req.headers["X-Access-Token"] = options.access_token
-        return req
-    }
+    requestInterceptor: (req) =>
+      req.headers["X-Access-Token"] = options.access_token
+      return req
   })
 
   window.ui = ui
