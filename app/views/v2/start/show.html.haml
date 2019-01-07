@@ -1,0 +1,197 @@
+<a href='/v1/'>Public API Documentation</a> &gt; General &gt; Getting Started
+
+%h1 Getting Started
+
+Let's make a few API calls to obtain the information for Andy Warhol.
+
+//// authentication
+
+- if @error
+
+  .alert.alert-danger
+    There was an error connecting to the Artsy API: #{@error}.
+
+- elsif authenticated?
+  .disabled
+    %h4 1. You Already Have an Artsy Account
+
+    You have already signed up to Artsy. If you wish, you may create a separate developer account at
+    <a href='https://artsy.net/sign_up?redirect_uri=#{CGI.escape(request.url)}' target='_blank'>artsy.net/sign_up</a>.
+
+    %h4 2. Signed In
+
+    You're already signed into this developer website.
+
+- else
+  %h4 1. Create an Artsy Account
+
+  <a href='https://artsy.net/sign_up?redirect_uri=#{CGI.escape(request.url)}' target='_blank'>Sign up</a> for an account on Artsy.
+
+  %h4 2. Sign In
+
+  <a href='/sign_in?redirect_uri=#{CGI.escape(request.path)}'>Sign in</a> into the developer website.
+
+//// app selection
+
+- if authenticated? && ! @selected_client_application && @client_applications && @client_applications.count > 1
+
+  %h4 3. Select One of Your Apps
+
+  You have #{pluralize(@client_applications.count, 'app')}.
+
+  Choose one from the list:
+
+  .select_app
+    = bootstrap_form_tag url: '/v2/start', method: 'GET' do |f|
+      = f.collection_select :id, @client_applications.map { |a| Hashie::Mash.new(id: a.id, label: "#{a.name} (#{a.client_id})") }, :id, :label, { prompt: true, hide_label: true }, { onchange: "var v = $('.select_app select option:selected').val(); window.location = '/v2/start?id=' + v;" }
+
+- elsif !@error && authenticated? && !@selected_client_application
+
+  %h4 3. Create an App
+
+  Create an app <a href="/client_applications/new?redirect_uri=#{CGI.escape('/v2/start')}">here</a>.
+
+- elsif @selected_client_application
+
+  %h4 3. Use Your App
+
+  %table.table.table-bordered.table-striped
+    %tbody
+      %tr
+        %th.text-right Name
+        %td= @selected_client_application.name
+      %tr
+        %th.text-right Client Id
+        %td= @selected_client_application.client_id
+      %tr
+        %th.text-right Client Secret
+        %td= @selected_client_application.client_secret
+
+  %h4 4. Get a Token
+
+  Obtain an authentication token that can be used to make API requests by POSTing to /api/tokens/xapp_token.
+
+  Using curl:
+
+  %pre
+    curl -v -X POST "#{ArtsyAPI::V2.root}/tokens/xapp_token?client_id=#{@selected_client_application.client_id}&client_secret=#{@selected_client_application.client_secret}"
+
+  With plain Ruby:
+
+  != highlight_syntax "require 'net/http'\n" +                                                        |
+    "require 'json'\n" +                                                                              |
+    "\n" +                                                                                            |
+    "client_id = '#{@selected_client_application.client_id}'\n" +                                     |
+    "client_secret = '#{@selected_client_application.client_secret}'\n" +                             |
+    "api_url = URI.parse('#{ArtsyAPI::V2.root}/tokens/xapp_token')\n" +                         |
+    "response = Net::HTTP.post_form(api_url, client_id: client_id, client_secret: client_secret)\n" + |
+    "xapp_token = JSON.parse(response.body)['token']\n", :ruby                                        |
+
+  Using <a href='https://github.com/codegram/hyperclient', target='_blank'>Hyperclient</a> with Ruby:
+
+  != highlight_syntax "require 'hyperclient'\n" +                                                                 |
+    "\n" +                                                                                                        |
+    "client_id = '#{@selected_client_application.client_id}'\n" +                                                 |
+    "client_secret = '#{@selected_client_application.client_secret}'\n" +                                         |
+    "\n" +                                                                                                        |
+    "api = Hyperclient.new('#{ArtsyAPI::V2.root}') do |api|\n" +                                            |
+    "  api.headers['Accept'] = 'application/vnd.artsy-v2+json'\n" +                                               |
+    "  api.headers['Content-Type'] = 'application/json'\n" +                                                      |
+    "  api.connection(default: false) do |conn|\n" +                                                              |
+    "    conn.use FaradayMiddleware::FollowRedirects\n" +                                                         |
+    "    conn.use Faraday::Response::RaiseError\n" +                                                              |
+    "    conn.request :json\n" +                                                                                  |
+    "    conn.response :json, content_type: /\\bjson$/\n" +                                                       |
+    "    conn.adapter :net_http\n" +                                                                              |
+    "  end\n" +                                                                                                   |
+    "end\n" +                                                                                                     |
+    "\n" +                                                                                                        |
+    "xapp_token = api.tokens.xapp_token._post(client_id: client_id, client_secret: client_secret).token\n", :ruby |
+
+  With Node.js or in the Browser using <a href='http://visionmedia.github.io/superagent/'>Superagent</a>:
+
+  != highlight_syntax ["var request = require('superagent');",
+    "",
+    "var clientID = '#{@selected_client_application.client_id}',",
+    "    clientSecret = '#{@selected_client_application.client_secret}',",
+    "    apiUrl = '#{ArtsyAPI::V2.root}/tokens/xapp_token',",
+    "    xappToken;",
+    "",
+    "request",
+    "  .post(apiUrl)",
+    "  .send({ client_id: clientID, client_secret: clientSecret })",
+    "  .end(function(res) {",
+    "    xappToken = res.body.token; ",
+    "  });"].join("\n"), :javascript
+
+  Returns the following JSON.
+
+  - begin
+    - xapp_response = JSON.parse(Net::HTTP.post_form(URI.parse("#{ArtsyAPI::V2.root}/tokens/xapp_token"), client_id: @selected_client_application.client_id, client_secret: @selected_client_application.client_secret).body)
+    - xapp_token = xapp_response['token']
+    != highlight_syntax JSON.pretty_generate(xapp_response), :json
+  - rescue Exception => e
+    %pre= e.message
+
+  %h4 5. Make Requests
+
+  The token can be used to make API requests.
+
+  %pre
+    curl -v -L #{ArtsyAPI::V2.root}/artists/andy-warhol -H 'X-Xapp-Token:#{xapp_token}'
+
+  Redirects to "#{ArtsyAPI::V2.root}/artists/4d8b92b34eb68a1b2c0003f4", which returns a JSON document for Andy Warhol.
+
+  - artsy_api = ArtsyAPI::V2.client(xapp_token: xapp_token)
+  - begin
+    != highlight_syntax JSON.pretty_generate(artsy_api.artist(id: 'andy-warhol')._response.body), :json
+  - rescue Exception => e
+    %pre= e.message
+
+  Using <a href='https://github.com/codegram/hyperclient', target='_blank'>Hyperclient</a> with Ruby.
+
+  != highlight_syntax "require 'hyperclient'\n" +                                                                                              |
+    "\n" +                                                                                                                                     |
+    "xapp_token = '#{xapp_token}'\n" +                                                                                                         |
+    "\n" +                                                                                                                                     |
+    "api = Hyperclient.new('#{ArtsyAPI::V2.root}') do |api|\n" +                                                                         |
+    "  api.headers['Accept'] = 'application/vnd.artsy-v2+json'\n" +                                                                            |
+    "  api.headers['X-Xapp-Token'] = xapp_token\n" +                                                                                           |
+    "  api.connection(default: false) do |conn|\n" +                                                                                           |
+    "    conn.use FaradayMiddleware::FollowRedirects\n" +                                                                                      |
+    "    conn.use Faraday::Response::RaiseError\n" +                                                                                           |
+    "    conn.request :json\n" +                                                                                                               |
+    "    conn.response :json, content_type: /\\bjson$/\n" +                                                                                    |
+    "    conn.adapter :net_http\n" +                                                                                                           |
+    "  end\n" +                                                                                                                                |
+    "end\n" +                                                                                                                                  |
+    "\n" +                                                                                                                                     |
+    "andy_warhol = api.artist(id: 'andy-warhol')\n" +                                                                                          |
+    "puts \"\#{andy_warhol.name} was born in \#{andy_warhol.birthday} in \#{andy_warhol.hometown}\"\n", :ruby |
+
+  Using <a href='https://github.com/basti1302/traverson', target='_blank'>Traverson</a> with Node.js or in the Browser.
+
+  != highlight_syntax ["var traverson = require('traverson'),",
+    "    JsonHalAdapter = require('traverson-hal'),",
+    "    xappToken = '#{xapp_token}';",
+    "",
+    "traverson.registerMediaType(JsonHalAdapter.mediaType, JsonHalAdapter);",
+    "api = traverson.from('#{ArtsyAPI::V2.root}').jsonHal();",
+    "",
+    "api.newRequest()",
+    "  .follow('artist')",
+    "  .withRequestOptions({",
+    "    headers: {",
+    "      'X-Xapp-Token': xappToken,",
+    "      'Accept': 'application/vnd.artsy-v2+json'",
+    "    }",
+    "  })",
+    "  .withTemplateParameters({ id: 'andy-warhol' })",
+    "  .getResource(function(error, andyWarhol) {",
+    "    console.log(andyWarhol.name + 'was born in ' + andyWarhol.birthday + ' in ' + andyWarhol.hometown);",
+    "  });"].join("\n"), :javascript
+
+  Displays the following.
+
+  %pre
+    Andy Warhol was born in 1928 in Pittsburgh, Pennsylvania

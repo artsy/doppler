@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe 'Welcome' do
   before do
-    allow(ArtsyAPI).to receive(:artworks_count).and_return(123)
+    allow(ArtsyAPI::V2).to receive(:artworks_count).and_return(123)
   end
   context 'page' do
     before do
@@ -19,7 +19,7 @@ describe 'Welcome' do
       'Docs' => '/docs',
       'Help' => '/help',
       'Sign In' => '/sign_in',
-      'Terms' => '/terms'
+      'Public API Terms' => '/v2/terms'
     }.each_pair do |text, link|
       it "links to #{text} from the nav bar" do
         expect(page).to have_css ".navbar a[href='#{link}']", text: text

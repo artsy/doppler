@@ -12,6 +12,7 @@
     %thead
       %tr
         %th Name
+        %th API Version
         %th Client ID
         %th Created
         %th Enabled
@@ -21,6 +22,7 @@
       - @client_applications.each do |client_application|
         %tr
           %td.name= link_to client_application.name, client_application_path(client_application.id)
+          %td.api_version= client_application.api_version
           %td.client_id= client_application.client_id
           %td.created_at= DateTime.parse(client_application.created_at).strftime("%B %d, %Y")
           %td.enabled

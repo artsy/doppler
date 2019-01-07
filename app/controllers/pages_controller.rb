@@ -9,10 +9,18 @@ class PagesController < ApplicationController
       text = File.read(filename)
       text = text.gsub(/\#\{(?<var> [\w\.,_\/:=\+\s\d-]*)\}/x) do
         var = $LAST_MATCH_INFO[:var]
-        if var == 'ArtsyAPI.artsy_api_root'
-          ArtsyAPI.artsy_api_root
-        elsif var == 'ArtsyAPI.artsy_api_url'
-          ArtsyAPI.artsy_api_url
+        if var == 'ArtsyAPI::V2.root'
+          ArtsyAPI::V2.root
+        elsif var == 'ArtsyAPI::V2.url'
+          ArtsyAPI::V2.url
+        elsif var == 'ArtsyAPI::V2.docs_url'
+          ArtsyAPI::V2.docs_url
+        elsif var == 'ArtsyAPI::V1.root'
+          ArtsyAPI::V1.root
+        elsif var == 'ArtsyAPI::V1.url'
+          ArtsyAPI::V1.url
+        elsif var == 'ArtsyAPI::V1.docs_url'
+          ArtsyAPI::V1.docs_url
         elsif var == 'current_user.id'
           current_user ? current_user.id : '...'
         elsif var == 'xapp_token'
@@ -66,7 +74,7 @@ class PagesController < ApplicationController
       Key | Description |
       ---:|:------------|
     EOS
-    body = ArtsyAPI.client.connection.get("#{ArtsyAPI.artsy_api_root}/docs/docs").body
+    body = ArtsyAPI::V2.client.connection.get("#{ArtsyAPI::V2.root}/v2/docs/docs").body
     properties = body['models']
     raise 'missing models' unless properties
     properties = properties[model]
