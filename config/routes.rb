@@ -29,6 +29,7 @@ Rails.application.routes.draw do
     pagination
     partners
     profiles
+    rate_limiting
     sales
     search
     shows

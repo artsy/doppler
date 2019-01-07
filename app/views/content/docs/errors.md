@@ -49,7 +49,7 @@ A parameter validation error.
 
 ### 429 Errors
 
-The API will return an HTTP 429 `Too many requests` error when your client is over the rate limit (currently 5 requests per second). You will not be blacklisted by default, only throttled.
+The API will return an HTTP 429 `Too many requests` error when your client is over the rate limit. See [Rate Limiting](/docs/rate_limiting) for more information.
 
 ### 500 Errors
 

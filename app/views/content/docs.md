@@ -8,6 +8,7 @@
 * [Pagination And Sets](/docs/pagination)
 * [Links Between Resources](/docs/links)
 * [Errors](/docs/errors)
+* [Rate Limiting](/docs/rate_limiting)
 * [Machine Description](/docs/docs)
 * [Markdown Content](/docs/markdown)
 
