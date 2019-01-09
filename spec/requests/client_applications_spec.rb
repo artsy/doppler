@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe 'Client Applications' do
   before do
-    allow(ArtsyAPI).to receive(:artworks_count).and_return(123)
+    allow(ArtsyAPI::V2).to receive(:artworks_count).and_return(123)
   end
   context 'logged in' do
     before do
@@ -23,8 +23,8 @@ describe 'Client Applications' do
         )
       end
       before do
-        allow(ArtsyAPI).to receive_message_chain(:client, :applications).and_return([application])
-        allow(ArtsyAPI).to receive_message_chain(:client, :application).and_return(application)
+        allow(ArtsyAPI::V2).to receive_message_chain(:client, :applications).and_return([application])
+        allow(ArtsyAPI::V2).to receive_message_chain(:client, :application).and_return(application)
       end
       it 'sets nocache headers' do
         get '/client_applications/123'

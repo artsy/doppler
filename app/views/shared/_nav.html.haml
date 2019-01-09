@@ -2,12 +2,11 @@
   = menu_group do
     = menu_item "Home", root_path
     = menu_item "My Apps", client_applications_path
-    = menu_item "Playground", playground_path
     = menu_item "Blog", 'http://artsy.github.io', target: '_blank'
-    = menu_item "Docs", docs_path
+    = menu_item "API Docs", docs_path
     = menu_item "Help", help_path
   = menu_group pull: :right do
-    = menu_item "Terms", terms_path
+    = menu_item "Public API Terms", v2_terms_path
     -if authenticated?
       = menu_item "Sign Out", sign_out_path
     -else

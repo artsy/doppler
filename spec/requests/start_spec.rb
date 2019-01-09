@@ -7,7 +7,7 @@ describe 'Start' do
       # xapp token request from start/show.html.haml
       allow(Net::HTTP).to receive_message_chain(:post_form, :body).and_return({ xapp_token: 'token' }.to_json)
       # example of retrieving an artist by id
-      allow(ArtsyAPI).to receive_message_chain(:client, :artist, :_response, :body).and_return({ 'id' => 'andy-warhol' })
+      allow(ArtsyAPI::V2).to receive_message_chain(:client, :artist, :_response, :body).and_return({ 'id' => 'andy-warhol' })
     end
     let(:application) do
       Hashie::Mash.new(
@@ -21,8 +21,8 @@ describe 'Start' do
     end
     context 'without apps' do
       before do
-        allow(ArtsyAPI).to receive_message_chain(:client, :_links, :applications).and_return([])
-        get '/start'
+        allow(ArtsyAPI::V2).to receive_message_chain(:client, :_links, :applications).and_return([])
+        get '/v2/start'
       end
       it 'does not set nocache headers' do
         expect(response.status).to eq 200
@@ -32,8 +32,8 @@ describe 'Start' do
     context 'with apps' do
       context 'with an application' do
         before do
-          allow(ArtsyAPI).to receive_message_chain(:client, :applications).and_return([application])
-          get '/start'
+          allow(ArtsyAPI::V2).to receive_message_chain(:client, :applications).and_return([application])
+          get '/v2/start'
         end
         it 'sets nocache headers' do
           expect(response.status).to eq 200
