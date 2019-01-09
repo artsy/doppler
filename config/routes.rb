@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   get '/v1', to: 'pages#show', id: 'v1/index'
   get '/v1/playground', to: 'playground#index'
   get '/v1/terms', to: 'pages#show', id: 'v1/terms'
+  get '/v1/start', to: 'v1/start#show'
 
   # Public API
 

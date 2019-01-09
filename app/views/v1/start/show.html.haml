@@ -1,0 +1,110 @@
+<a href='/v1/'>Partner API Documentation</a> &gt; General &gt; Getting Started
+
+%h1 Getting Started
+
+Let's make a few API calls to obtain the information for Andy Warhol on behalf of an Artsy user with OAuth.
+
+//// authentication
+
+- if @error
+
+  .alert.alert-danger
+    There was an error connecting to the Artsy API: #{@error}.
+
+- elsif authenticated?
+  .disabled
+    %h4 1. You Already Have an Artsy Account
+
+    You have already signed up to Artsy. If you wish, you may create a separate developer account at
+    <a href='https://artsy.net/sign_up?redirect_uri=#{CGI.escape(request.url)}' target='_blank'>artsy.net/sign_up</a>.
+
+    %h4 2. Signed In
+
+    You're already signed into this developer website.
+
+- else
+  %h4 1. Create an Artsy Account
+
+  <a href='https://artsy.net/sign_up?redirect_uri=#{CGI.escape(request.url)}' target='_blank'>Sign up</a> for an account on Artsy.
+
+  %h4 2. Sign In
+
+  <a href='/sign_in?redirect_uri=#{CGI.escape(request.path)}'>Sign in</a> into the developer website.
+
+- if authenticated? && ! @selected_client_application && @client_applications && @client_applications.count > 1
+
+  %h4 3. Select One of Your Apps
+
+  You have #{pluralize(@client_applications.count, 'app')}.
+
+  Choose one from the list:
+
+  .select_app
+    = bootstrap_form_tag url: '/v1/start', method: 'GET' do |f|
+      = f.collection_select :id, @client_applications.map { |a| Hashie::Mash.new(id: a.id, label: "#{a.name} (#{a.client_id})") }, :id, :label, { prompt: true, hide_label: true }, { onchange: "var v = $('.select_app select option:selected').val(); window.location = '/v1/start?id=' + v;" }
+
+- elsif !@error && authenticated? && !@selected_client_application
+
+  %h4 3. Create an App
+
+  Create an app <a href="/client_applications/new?redirect_uri=#{CGI.escape('/v1/start')}">here</a>.
+
+- elsif @selected_client_application && @selected_client_application.api_version != 1
+
+  %h4 3. Request Partner Access
+
+  Please note that the partner API is exclusively reserved for Artsy partners. Your <b>#{@selected_client_application.name}</b> app does not allow partner access.
+
+  Contact <a href='mailto:support@artsy.net'>support@artsy.net</a> to request it.
+
+- elsif @selected_client_application && @selected_client_application.api_version == 1
+
+  %h4 3. Use Your App
+
+  %table.table.table-bordered.table-striped
+    %tbody
+      %tr
+        %th.text-right Name
+        %td= @selected_client_application.name
+      %tr
+        %th.text-right Client Id
+        %td= @selected_client_application.client_id
+      %tr
+        %th.text-right Client Secret
+        %td= @selected_client_application.client_secret
+      %tr
+        %th.text-right API Version
+        %td= @selected_client_application.api_version
+      %tr
+        %th.text-right Redirect URLs
+        %td= (@selected_client_application.redirect_urls || []).join("<br>")
+
+
+  %h4 4. Implement OAuth Workflow
+
+  The OAuth workflow enables your application to authenticate a user associated with a partner (eg. a gallery) with Artsy and to perform operations on the user's behalf (eg. upload an artwork).
+
+  - redirect_url = @selected_client_application.redirect_urls.try(:first)
+  - redirect_url = 'http://localhost' if redirect_url.blank?
+  - authorize_url = "#{ArtsyAPI::V1.url}/oauth2/authorize?client_id=#{@selected_client_application.client_id}&redirect_uri=#{CGI.escape(redirect_url)}&response_type=code"
+
+  %h5 4.1 Redirect your users to <a href="#{authorize_url}" target="_blank">#{authorize_url}</a>
+
+  %h5 4.2 Extract the <b>code</b> from the query string at <b>#{redirect_url}</b>.
+
+  - access_token_url = "#{ArtsyAPI::V1.url}/oauth2/access_token"
+  %h5 4.3 Perform an HTTP POST to <a href="#{access_token_url}">#{access_token_url}</a> with <b>code=...</b>, <b>client_id=#{@selected_client_application.client_id}</b>, <b>client_secret=#{@selected_client_application.client_secret}</b> and <b>grant_type=authorization_code</b>.
+
+  %h5 4.4 Extract <b>access_token</b> and <b>expires_in</b> from the JSON response.
+
+  %h4 5. Obtain Logged-In User Information
+
+  The authenticated user can retrieve their own identity from <a href="#{ArtsyAPI::V1.root}/me">#{ArtsyAPI::V1.root}/me</a> and the list of partners under management (granted by an Artsy representative) from <a href="#{ArtsyAPI::V1.root}/me/partners">#{ArtsyAPI::V1.root}/me/partners</a>.
+
+  %h4 6. Upload an Artwork
+
+  Perform an HTTP POST to <a href="#{ArtsyAPI::V1.root}/artwork">#{ArtsyAPI::V1.root}/artwork</a> with a <b>title</b>, <b>artists</b> (eg. <code>['andy-warhol']</code>), <b>remote_image_url</b> and <b>partner_id</b>.
+
+  %h4 7. Samples
+
+  A set of working samples is available at <a href="https://github.com/artsy/artsy-api-v1-samples/">https://github.com/artsy/artsy-api-v1-samples</a>.

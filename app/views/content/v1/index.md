@@ -2,7 +2,9 @@
 
 ### General
 
+* [Getting Started](/v1/start)
 * [Terms of Use](/v1/terms)
+* [Code Samples](https://github.com/artsy/artsy-api-v1-samples)
 
 ### Tools
 

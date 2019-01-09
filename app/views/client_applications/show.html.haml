@@ -42,4 +42,5 @@
         %td#roles= @client_application.roles.join(', ')
 
 = link_to 'Edit', edit_client_application_path(@client_application.id), class: 'btn btn-default'
-= link_to 'Destroy', client_application_path(@client_application.id), method: :delete, confirm: "Are you sure?", class: 'btn btn-danger'
+// version 1 applications are typically production and are protected in Gravity
+= link_to 'Destroy', client_application_path(@client_application.id), disabled: @client_application.api_version == 1, method: :delete, confirm: "Are you sure?", class: 'btn btn-danger'
