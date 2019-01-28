@@ -1,12 +1,13 @@
 source 'https://rubygems.org'
 
-ruby '2.4.1'
+ruby '2.4.5'
 
 gem 'bootstrap_form'
 gem 'coderay'
 gem 'coffee-rails'
 gem 'dalli'
 gem 'data_uri'
+gem 'foreman'
 gem 'google-analytics-rails'
 gem 'haml-rails'
 gem 'hyperclient'
@@ -21,6 +22,7 @@ gem 'sentry-raven'
 gem 'twitter-bootstrap-rails'
 gem 'twitter-bootstrap-rails-confirm'
 gem 'uglifier'
+gem 'unicorn-rails'
 gem 'warden'
 
 group :development do

@@ -14,17 +14,6 @@ describe 'Welcome' do
     it 'displays the count of available artworks' do
       expect(page.body).to include '123 artworks available'
     end
-    {
-      'Blog' => 'http://artsy.github.io',
-      'Docs' => '/docs',
-      'Help' => '/help',
-      'Sign In' => '/sign_in',
-      'Public API Terms' => '/v2/terms'
-    }.each_pair do |text, link|
-      it "links to #{text} from the nav bar" do
-        expect(page).to have_css ".navbar a[href='#{link}']", text: text
-      end
-    end
   end
   context 'sign in' do
     before do
