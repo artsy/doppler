@@ -22,7 +22,7 @@ jobs:
       - run:
           name: Push
           command: hokusai registry push --tag $CIRCLE_SHA1 --force --overwrite
-  deploy:
+  staging_deploy:
     docker:
       - image: artsy/hokusai
     steps:
@@ -34,20 +34,42 @@ jobs:
       - run:
           name: Deploy
           command: hokusai staging deploy $CIRCLE_SHA1
+  production_deploy:
+    docker:
+      - image: artsy/hokusai
+    steps:
+      - add_ssh_keys
+      - checkout
+      - setup_remote_docker
+      - run:
+          name: Configure
+          command: hokusai configure --kubectl-version 1.6.3 --s3-bucket artsy-citadel --s3-key k8s/config --platform linux
+      - run:
+          name: Promote
+          command: hokusai pipeline promote
+          no_output_timeout: 30m
 workflows:
   version: 2
   default:
     jobs:
-      - test
+      - test:
+          filters:
+            branches:
+              ignore: release
       - push:
           filters:
             branches:
               only: master
           requires:
             - test
-      - deploy:
+      - staging_deploy:
           filters:
             branches:
               only: master
           requires:
             - push
+      - production_deploy:
+          filters:
+            branches:
+              only:
+                - release
