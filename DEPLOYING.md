@@ -14,3 +14,11 @@ Add the following environment settings. The sample values below are for a stagin
 * ARTSY_API_CLIENT_SECRET=<Artsy API Client Secret>
 
 You can use a key from a demo app created on [developers-staging.artsy.net](https://developers-staging.artsy.net). Note that staging is rebuilt nightly with production data, and your application will be deleted. If you need a persistent application, create it on [developers.artsy.net](http://developers.artsy.net) - it will be available on staging within 24 hours.
+
+### Production
+
+Assuming `upstream` is `git@github.com:artsy/doppler.git`, run the following.
+
+```
+hokusai production pipeline promote --git-remote upstream
+```
