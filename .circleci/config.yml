@@ -4,7 +4,6 @@ jobs:
     docker:
       - image: artsy/hokusai
     working_directory: ~/doppler
-    parallelism: 3
     steps:
       - add_ssh_keys
       - checkout
