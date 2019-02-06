@@ -5,7 +5,7 @@ metadata:
   name: doppler-web
   namespace: default
 spec:
-  replicas: 3
+  replicas: 2
   strategy:
     rollingUpdate:
       maxSurge: 0
@@ -45,15 +45,6 @@ spec:
               memory: 800Mi
             limits:
               memory: 1Gi
-          readinessProbe:
-            httpGet:
-              port: 8080
-              path: /health/ping
-              httpHeaders:
-                - name: X-Forwarded-Proto
-                  value: https
-            initialDelaySeconds: 10
-            periodSeconds: 10
       dnsPolicy: ClusterFirst
       dnsConfig:
         options:
