@@ -24,4 +24,6 @@ COPY . ./
 # RUN adduser --disabled-password --gecos '' deploy
 # USER deploy
 
+RUN bundle exec rake assets:precompile
+
 CMD foreman start
