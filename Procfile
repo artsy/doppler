@@ -1,1 +1,1 @@
-web: bundle exec unicorn_rails
+web: bundle exec puma

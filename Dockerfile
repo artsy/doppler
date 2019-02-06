@@ -11,19 +11,33 @@ WORKDIR /app
 
 RUN curl -sL https://deb.nodesource.com/setup_8.x | bash - \
   && apt-get update -qq \
-  && apt-get install -y build-essential nodejs tzdata \
+  && apt-get install -y build-essential nodejs tzdata nginx \
   && rm -rf /var/lib/apt/lists/*
 
 COPY .ruby-version Gemfile* ./
 
-RUN gem install bundler && \
+RUN gem install bundler -v "~> 1.3.6" && \
     bundle install --frozen
 
 COPY . ./
 
-# RUN adduser --disabled-password --gecos '' deploy
-# USER deploy
+# Setup Rails shared folders for Puma / Nginx
+RUN mkdir /shared
+RUN mkdir /shared/config
+RUN mkdir /shared/pids
+RUN mkdir /shared/sockets
+
+# Configure Nginx
+RUN rm -v /etc/nginx/nginx.conf
+RUN rm -v /etc/nginx/sites-enabled/default
+ADD config/nginx.conf /etc/nginx/
+ADD config/puma.conf /etc/nginx/conf.d/
+
+# Symlink nginx logs to stderr / stdout
+RUN ln -sf /dev/stdout /var/log/nginx/access.log \
+  && ln -sf /dev/stderr /var/log/nginx/error.log
+
 
 RUN bundle exec rake assets:precompile
 
-CMD foreman start
+CMD ["./script/run-puma.sh", "config/puma.config"]
