@@ -67,10 +67,6 @@ metadata:
   namespace: default
 spec:
   ports:
-    - port: 443
-      protocol: TCP
-      name: https
-      targetPort: 8080
     - port: 80
       protocol: TCP
       name: http
@@ -85,7 +81,7 @@ spec:
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-  name: doppler-virtual-host-ingress
+  name: doppler
 spec:
   rules:
   - host: developers-staging.artsy.net
@@ -94,4 +90,4 @@ spec:
       - path: /
         backend:
           serviceName: doppler-web
-          servicePort: 80
+          servicePort: http
