@@ -1,75 +1,44 @@
-version: 2
-jobs:
-  test:
-    docker:
-      - image: artsy/hokusai
-    working_directory: ~/doppler
-    steps:
-      - add_ssh_keys
-      - checkout
-      - setup_remote_docker
-      - run:
-          name: Test
-          command: hokusai test
-          no_output_timeout: 1h
-  push:
-    docker:
-      - image: artsy/hokusai
-    steps:
-      - add_ssh_keys
-      - checkout
-      - setup_remote_docker
-      - run:
-          name: Push
-          command: hokusai registry push --tag $CIRCLE_SHA1 --force --overwrite
-  staging_deploy:
-    docker:
-      - image: artsy/hokusai
-    steps:
-      - add_ssh_keys
-      - checkout
-      - run:
-          name: Configure
-          command: hokusai configure --kubectl-version 1.10.7 --s3-bucket artsy-citadel --s3-key k8s/config --platform linux
-      - run:
-          name: Deploy
-          command: hokusai staging deploy $CIRCLE_SHA1
-  production_deploy:
-    docker:
-      - image: artsy/hokusai
-    steps:
-      - add_ssh_keys
-      - checkout
-      - setup_remote_docker
-      - run:
-          name: Configure
-          command: hokusai configure --kubectl-version 1.6.3 --s3-bucket artsy-citadel --s3-key k8s/config --platform linux
-      - run:
-          name: Promote
-          command: hokusai pipeline promote
-          no_output_timeout: 30m
+version: 2.1
+
+orbs:
+  hokusai: artsy/hokusai@0.7.4
+
+not_staging_or_release: &not_staging_or_release
+  filters:
+    branches:
+      ignore:
+        - staging
+        - release
+
+only_master: &only_master
+  context: hokusai
+  filters:
+    branches:
+      only: master
+
+only_release: &only_release
+  context: hokusai
+  filters:
+    branches:
+      only: release
+
 workflows:
-  version: 2
-  default:
+  build-deploy:
     jobs:
-      - test:
-          filters:
-            branches:
-              ignore: release
-      - push:
-          filters:
-            branches:
-              only: master
+      - hokusai/test:
+          <<: *not_staging_or_release
+
+      - hokusai/push:
+          name: push-staging-image
+          <<: *only_master
           requires:
-            - test
-      - staging_deploy:
-          filters:
-            branches:
-              only: master
+            - hokusai/test
+
+      - hokusai/deploy-staging:
+          <<: *only_master
+          project-name: 'doppler'
           requires:
-            - push
-      - production_deploy:
-          filters:
-            branches:
-              only:
-                - release
+            - push-staging-image
+
+      - hokusai/deploy-production:
+          <<: *only_release
