@@ -93,10 +93,10 @@ metadata:
   name: doppler
 spec:
   rules:
-  - host: developers.artsy.net
-    http:
-      paths:
-      - path: /
-        backend:
-          serviceName: doppler-web
-          servicePort: http
+    - host: developers.artsy.net
+      http:
+        paths:
+          - path: /
+            backend:
+              serviceName: doppler-web
+              servicePort: http
