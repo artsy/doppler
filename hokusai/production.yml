@@ -85,3 +85,18 @@ spec:
     component: web
   sessionAffinity: None
   type: LoadBalancer
+
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: doppler
+spec:
+  rules:
+    - host: developers.artsy.net
+      http:
+        paths:
+          - path: /
+            backend:
+              serviceName: doppler-web
+              servicePort: http
