@@ -70,6 +70,7 @@ spec:
       protocol: TCP
       name: http
       targetPort: 8080
+      nodePort: null
   selector:
     app: doppler
     layer: application
