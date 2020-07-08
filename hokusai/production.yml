@@ -81,6 +81,8 @@ apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
   name: doppler
+  annotations:
+    nginx.ingress.kubernetes.io/whitelist-source-range: "{{ cloudflareIpSourceRanges|join(',') }}"
 spec:
   rules:
     - host: developers.artsy.net
