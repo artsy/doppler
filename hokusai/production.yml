@@ -53,6 +53,7 @@ spec:
                   operator: In
                   values:
                     - foreground
+
 ---
 apiVersion: v1
 kind: Service
@@ -61,21 +62,11 @@ metadata:
     app: doppler
     component: web
     layer: application
-  name: doppler-web
+  name: doppler-web-internal
   namespace: default
-  annotations:
-    service.beta.kubernetes.io/aws-load-balancer-ssl-cert: {{ artsyNetWildcardSSLCert }}
-    service.beta.kubernetes.io/aws-load-balancer-backend-protocol: "http"
-    service.beta.kubernetes.io/aws-load-balancer-ssl-ports: "443"
-    service.beta.kubernetes.io/aws-load-balancer-cross-zone-load-balancing-enabled: "true"
-    service.beta.kubernetes.io/aws-load-balancer-connection-draining-enabled: "true"
 spec:
   ports:
-    - port: 443
-      protocol: TCP
-      name: https
-      targetPort: 8080
-    - port: 80
+    - port: 8080
       protocol: TCP
       name: http
       targetPort: 8080
@@ -83,5 +74,21 @@ spec:
     app: doppler
     layer: application
     component: web
-  sessionAffinity: None
-  type: LoadBalancer
+  type: ClusterIP
+
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: doppler
+  annotations:
+    nginx.ingress.kubernetes.io/whitelist-source-range: "{{ cloudflareIpSourceRanges|join(',') }}"
+spec:
+  rules:
+    - host: developers.artsy.net
+      http:
+        paths:
+          - path: /
+            backend:
+              serviceName: doppler-web-internal
+              servicePort: http
