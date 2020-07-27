@@ -1,5 +1,5 @@
 {
-  "extends": [
-    "config:base"
-  ]
+  "extends": ["@artsy:app", "schedule:nonOfficeHours"],
+  "assignees": ["joeyAghion"],
+  "reviewers": ["mzikherman"]
 }
