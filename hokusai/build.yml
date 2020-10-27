@@ -2,5 +2,4 @@
 version: '2'
 services:
   doppler:
-    build:
-      context: ../
+{% include 'templates/docker-compose-service.yml.j2' %}

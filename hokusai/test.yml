@@ -3,6 +3,4 @@ version: '2'
 services:
   doppler:
     command: ./script/ci.sh
-    extends:
-      file: build.yml
-      service: doppler
+{% include 'templates/docker-compose-service.yml.j2' %}
