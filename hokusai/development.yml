@@ -3,9 +3,7 @@ version: '2'
 services:
   doppler:
     env_file: ../.env
-    extends:
-      file: build.yml
-      service: doppler
+{% include 'templates/docker-compose-service.yml.j2' %}
     ports:
       - 8080:8080
     volumes:
