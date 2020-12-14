@@ -1,9 +1,13 @@
 ---
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: doppler-web
   namespace: default
+  labels:
+    app: doppler
+    component: web
+    layer: application
 spec:
   replicas: 2
   strategy:
@@ -11,6 +15,11 @@ spec:
       maxSurge: 0
       maxUnavailable: 1
     type: RollingUpdate
+  selector:
+    matchLabels:
+      app: doppler
+      component: web
+      layer: application
   template:
     metadata:
       labels:
@@ -77,18 +86,20 @@ spec:
   type: ClusterIP
 
 ---
-apiVersion: extensions/v1beta1
+apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:
   name: doppler
   annotations:
     nginx.ingress.kubernetes.io/whitelist-source-range: "{{ cloudflareIpSourceRanges|join(',') }}"
 spec:
+  ingressClassName: nginx
   rules:
     - host: developers.artsy.net
       http:
         paths:
           - path: /
+            pathType: Prefix
             backend:
               serviceName: doppler-web-internal
               servicePort: http
