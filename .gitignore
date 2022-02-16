@@ -3,4 +3,5 @@
 /tmp
 .env
 public/assets
+/node_modules
 
