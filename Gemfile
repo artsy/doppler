@@ -26,6 +26,7 @@ gem 'twitter-bootstrap-rails'
 gem 'twitter-bootstrap-rails-confirm'
 gem 'uglifier'
 gem 'warden'
+gem 'webpacker'
 
 group :development do
   gem 'guard'
