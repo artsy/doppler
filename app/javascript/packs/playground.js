@@ -1,6 +1,6 @@
 import React from "react"
 import ReactDOM from "react-dom"
-import { RedocStandalone } from 'redoc';
+import { RedocStandalone } from 'redoc'
 
 
 $(() => {
