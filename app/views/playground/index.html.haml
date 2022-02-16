@@ -1,11 +1,4 @@
-.swagger{ "data-swagger-options" => @options && @options.to_json }
+#playground-root{ data: { props: @options.to_json }}
 
-.container
-  .jumbotron
-    %h1 Playground
-    Try out some APIs.
+= javascript_pack_tag 'playground'
 
-  .swagger-section
-    #swagger-ui
-
-= javascript_include_tag 'playground'
