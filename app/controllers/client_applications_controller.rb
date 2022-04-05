@@ -13,8 +13,8 @@ class ClientApplicationsController < ApplicationController
   def show; end
 
   def create
-    redirect_uri = safe_redirect_uri(params[:client_application].delete(:redirect_uri))
-    @client_application = artsy_client.applications._post(params[:client_application])
+    redirect_uri = safe_redirect_uri(client_application_params.delete(:redirect_uri))
+    @client_application = artsy_client.applications._post(client_application_params.to_h)
     flash.now[:error] = nil
     flash.now[:notice] = 'Application created!'
     redirect_uri += "?id=#{@client_application.id}" if @client_application && !redirect_uri.blank?
@@ -23,7 +23,7 @@ class ClientApplicationsController < ApplicationController
   end
 
   def update
-    @client_application._put(params[:client_application])
+    @client_application._put(client_application_params.to_h)
     fetch_client_application
     render :show
   end
@@ -49,7 +49,11 @@ class ClientApplicationsController < ApplicationController
   end
 
   def parse_redirect_uris
-    return unless params[:client_application][:redirect_urls]
-    params[:client_application][:redirect_urls] = params[:client_application][:redirect_urls].split.compact.uniq
+    return unless client_application_params[:redirect_urls]
+    client_application_params[:redirect_urls] = client_application_params[:redirect_urls].split.compact.uniq
+  end
+
+  def client_application_params
+    @client_application_params ||= params.require(:client_application).permit(:name, :redirect_urls, :redirect_uri)
   end
 end

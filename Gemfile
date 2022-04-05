@@ -17,7 +17,7 @@ gem 'jquery-rails'
 gem 'nokogiri'
 gem 'omniauth-artsy', '~> 0.2.0'
 gem 'puma'
-gem 'rails', '~> 4.2'
+gem 'rails', '~> 5.0'
 gem 'redcarpet'
 gem 'redis-rails'
 gem 'sass-rails'
@@ -37,6 +37,7 @@ group :development do
 end
 
 group :development, :test do
+  gem 'byebug'
   gem 'capybara'
   gem 'rspec-rails'
   gem 'rubocop', require: false
