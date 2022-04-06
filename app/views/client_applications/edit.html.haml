@@ -6,7 +6,7 @@
   .alert.alert-success
     This application has access to all published artworks.
 
-= bootstrap_form_for ClientApplication.new(@client_application._attributes), method: 'PUT' do |f|
+= bootstrap_form_for ClientApplication.new(@client_application._attributes.to_h), method: 'PUT' do |f|
   %table.table.table-bordered.table-striped
     %tbody#application
       %tr
