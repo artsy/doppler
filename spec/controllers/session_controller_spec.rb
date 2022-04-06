@@ -7,7 +7,7 @@ RSpec.describe SessionController, type: :controller do
         allow(subject).to receive(:authenticated?).and_return false
       end
       it 'stores redirect_uri' do
-        get :new, redirect_uri: '/applications'
+        get :new, params: { redirect_uri: '/applications' }
         expect(session[:redirect_uri]).to eq '/applications'
       end
     end
@@ -18,7 +18,7 @@ RSpec.describe SessionController, type: :controller do
         allow(subject).to receive(:current_user).and_return user
       end
       it 'redirects to root' do
-        get :new, redirect_uri: '/applications'
+        get :new, params: { redirect_uri: '/applications' }
         expect(response).to redirect_to('/')
       end
       it 'sets sentry context' do
@@ -27,7 +27,7 @@ RSpec.describe SessionController, type: :controller do
           username: user.name,
           email: user.email
         )
-        get :new, redirect_uri: '/applications'
+        get :new, params: { redirect_uri: '/applications' }
       end
     end
   end
@@ -47,17 +47,17 @@ RSpec.describe SessionController, type: :controller do
     end
     it 'redirects' do
       session[:redirect_uri] = '/applications'
-      post :create, provider: 'artsy'
+      post :create, params: { provider: 'artsy' }
       expect(response).to redirect_to('http://test.host/applications')
     end
     it 'does not make an open redirect' do
       session[:redirect_uri] = 'http://bad.stuff/applications'
-      post :create, provider: 'artsy'
+      post :create, params: { provider: 'artsy' }
       expect(response).to redirect_to('http://test.host/applications')
     end
     it 'defaults to / with no redirect' do
       session[:redirect_uri] = nil
-      post :create, provider: 'artsy'
+      post :create, params: { provider: 'artsy' }
       expect(response).to redirect_to('http://test.host/')
     end
   end
