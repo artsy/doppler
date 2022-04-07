@@ -6,6 +6,7 @@ class ApplicationController < ActionController::Base
 
   def authenticate!
     return if authenticated?
+
     redirect_uri = params[:redirect_uri]
     if redirect_uri
       redirect_to "/auth/artsy?redirect_uri=#{CGI.escape(redirect_uri)}"

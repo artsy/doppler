@@ -2,14 +2,35 @@ AllCops:
   Exclude:
     - vendor/**/*
     - bin/**/*
+    - app/controllers/**/*
+    - app/helpers/**/*
 
 Style/Documentation:
   Enabled: false
 
 Style/FrozenStringLiteralComment:
   Enabled: false
-
+Metrics/BlockLength:
+  Exclude:
+    - spec/**/*
+    - config/routes.rb
 Metrics/LineLength:
   Enabled: false
-
-inherit_from: .rubocop_todo.yml
+Layout/EmptyLinesAroundAttributeAccessor:
+  Enabled: true
+Layout/SpaceAroundMethodCallOperator:
+  Enabled: true
+Lint/RaiseException:
+  Enabled: true
+Lint/StructNewOverride:
+  Enabled: true
+Style/ExponentialNotation:
+  Enabled: true
+Style/HashEachMethods:
+  Enabled: true
+Style/HashTransformKeys:
+  Enabled: true
+Style/HashTransformValues:
+  Enabled: true
+Style/SlicingWithRange:
+  Enabled: true

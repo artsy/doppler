@@ -1,5 +1,4 @@
 require 'spec_helper'
-
 describe 'Resources/applications' do
   before do
     allow(ArtsyAPI::V2).to receive_message_chain(:client, :links, :applications, :embedded, :applications).and_return([])

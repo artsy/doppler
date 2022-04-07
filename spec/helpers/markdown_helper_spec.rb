@@ -12,43 +12,43 @@ describe MarkdownHelper do
       expect(subject.render_markdown('hello world')).to eq "<p>hello world</p>\n"
     end
     it 'table markup' do
-      expect(subject.render_markdown(<<~EOS
+      expect(subject.render_markdown(<<~TEXT
          x | y |
         --:|:--|
          a | b |
-EOS
+      TEXT
                                     )).to start_with '<table class="table table-bordered table-striped">'
     end
     it 'code markup' do
-      expect(subject.render_markdown(<<~EOS
+      expect(subject.render_markdown(<<~TEXT
         ```
         code
         ```
-EOS
+      TEXT
                                     )).to eq "<pre><code>code\n</code></pre>\n"
     end
     it 'ruby markup' do
-      expect(subject.render_markdown(<<~EOS
+      expect(subject.render_markdown(<<~TEXT
         ``` ruby
         x = y
         ```
-EOS
+      TEXT
                                     )).to eq "<div class=\"CodeRay\">\n  <div class=\"code\"><pre>x = y</pre></div>\n</div>\n"
     end
     it 'alert markup' do
-      expect(subject.render_markdown(<<~EOS
+      expect(subject.render_markdown(<<~TEXT
         ``` alert[warning]
         WARNING!
         ```
-EOS
+      TEXT
                                     )).to eq "<div class=\"alert alert-warning\">\n<p>WARNING!</p>\n</div>\n"
     end
     it 'alert markup with markdown' do
-      expect(subject.render_markdown(<<~EOS
+      expect(subject.render_markdown(<<~TEXT
         ``` alert[warning]
         [docs](/docs)
         ```
-EOS
+      TEXT
                                     )).to eq "<div class=\"alert alert-warning\">\n<p><a href=\"/docs\">docs</a></p>\n</div>\n"
     end
   end
