@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.4.5'
+ruby '2.7.5'
 
 gem 'bootstrap_form'
 gem 'coderay'
