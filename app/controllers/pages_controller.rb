@@ -3,11 +3,12 @@ class PagesController < ApplicationController
   include CacheHelper
 
   def show
-    raise 'Invalid Id' unless params[:id] =~ /^[\w\/]*$/
+    raise 'Invalid Id' unless params[:id] =~ %r{^[\w/]*$}
+
     filename = Rails.root.join("app/views/content/#{params[:id]}.md")
     @content = Rails.cache.fetch "content/#{params[:id]}/#{File.mtime(filename)}/#{current_user ? current_user.id : nil}" do
       text = File.read(filename)
-      text = text.gsub(/\#\{(?<var> [\w\.,_\/:=\+\s\d-]*)\}/x) do
+      text = text.gsub(%r{\#\{(?<var> [\w\.,_/:=\+\s\d-]*)\}}x) do
         var = $LAST_MATCH_INFO[:var]
         if var == 'ArtsyAPI::V2.root'
           ArtsyAPI::V2.root
@@ -57,36 +58,40 @@ class PagesController < ApplicationController
   private
 
   def resource(var)
-    parts = var.split('/')[2..-1]
+    parts = var.split('/')[2..]
     method = parts[0]
-    args = Hash[parts[1..-1].map { |part| part.split('=', 2) }]
+    args = Hash[parts[1..].map { |part| part.split('=', 2) }]
     JSON.pretty_generate artsy_client.send(method, args)._get._response.body
-  rescue => e
+  rescue StandardError => e
     Rails.logger.error e
     Rails.logger.error e.backtrace.join("\n")
     "error: #{e.message}"
   end
 
   def modelref(var)
-    parts = var.split('/')[2..-1]
+    parts = var.split('/')[2..]
     model = parts[0]
-    rc = <<-EOS
+    rc = <<-TEXT
       Key | Description |
       ---:|:------------|
-    EOS
+    TEXT
     body = ArtsyAPI::V2.client.connection.get("#{ArtsyAPI::V2.root}/v2/docs/docs").body
     properties = body['models']
     raise 'missing models' unless properties
+
     properties = properties[model]
     raise "missing #{model}" unless properties
+
     properties = properties['properties']
     raise 'missing properties' unless properties
+
     properties.each_pair do |key, desc|
       next unless desc['description']
+
       rc += "#{key.gsub('_', '\_')} | #{desc['description']}\n"
     end
     rc
-  rescue => e
+  rescue StandardError => e
     Rails.logger.error e
     Rails.logger.error e.backtrace.join("\n")
     "error: #{e.message}"

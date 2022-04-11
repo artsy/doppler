@@ -30,7 +30,7 @@ class ClientApplicationsController < ApplicationController
 
   def index
     @client_applications = artsy_client.applications
-  rescue => e
+  rescue StandardError => e
     @error = e.message
   end
 
@@ -44,12 +44,14 @@ class ClientApplicationsController < ApplicationController
   def fetch_client_application
     @client_application = artsy_client.application(id: params[:id])
     return if @client_application
+
     flash[:error] = 'Invalid application.'
     redirect_to client_applications_path
   end
 
   def parse_redirect_uris
     return unless client_application_params[:redirect_urls]
+
     client_application_params[:redirect_urls] = client_application_params[:redirect_urls].split.compact.uniq
   end
 

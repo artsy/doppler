@@ -1,5 +1,4 @@
 require 'spec_helper'
-
 describe 'Start' do
   context 'logged in' do
     before do
