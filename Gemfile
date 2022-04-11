@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.4.5'
+ruby '2.7.5'
 
 gem 'bootstrap_form'
 gem 'coderay'
@@ -40,6 +40,6 @@ group :development, :test do
   gem 'byebug'
   gem 'capybara'
   gem 'rspec-rails'
-  gem 'rubocop', require: false
+  gem 'rubocop', '~>0.83.0'
   gem 'selenium-webdriver'
 end
