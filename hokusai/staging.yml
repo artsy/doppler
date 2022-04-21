@@ -1,4 +1,3 @@
----
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -8,6 +7,7 @@ metadata:
     app: doppler
     component: web
     layer: application
+    app.kubernetes.io/version: staging
 spec:
   replicas: 1
   strategy:
@@ -26,44 +26,47 @@ spec:
         app: doppler
         component: web
         layer: application
+        app.kubernetes.io/version: staging
       name: doppler-web
     spec:
       containers:
-        - name: doppler-web
-          env:
-            - name: TRACE_AGENT_HOSTNAME
-              valueFrom:
-                fieldRef:
-                  fieldPath: spec.nodeName
-          envFrom:
-            - configMapRef:
-                name: doppler-environment
-          image: 585031190124.dkr.ecr.us-east-1.amazonaws.com/doppler:staging
-          imagePullPolicy: Always
-          name: doppler-web
-          ports:
-            - containerPort: 8080
-          resources:
-            requests:
-              cpu: 100m
-              memory: 256Mi
-            limits:
-              memory: 500Mi
+      - name: doppler-web
+        env:
+        - name: TRACE_AGENT_HOSTNAME
+          valueFrom:
+            fieldRef:
+              fieldPath: spec.nodeName
+        - name: DD_VERSION
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.labels['app.kubernetes.io/version']
+        envFrom:
+        - configMapRef:
+            name: doppler-environment
+        image: 585031190124.dkr.ecr.us-east-1.amazonaws.com/doppler:staging
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8080
+        resources:
+          requests:
+            cpu: 100m
+            memory: 256Mi
+          limits:
+            memory: 500Mi
       dnsPolicy: ClusterFirst
       dnsConfig:
         options:
-          - name: ndots
-            value: "1"
+        - name: ndots
+          value: '1'
       affinity:
         nodeAffinity:
           requiredDuringSchedulingIgnoredDuringExecution:
             nodeSelectorTerms:
-              - matchExpressions:
-                - key: tier
-                  operator: In
-                  values:
-                    - foreground
-
+            - matchExpressions:
+              - key: tier
+                operator: In
+                values:
+                - foreground
 ---
 apiVersion: v1
 kind: Service
@@ -76,31 +79,30 @@ metadata:
   namespace: default
 spec:
   ports:
-    - port: 8080
-      protocol: TCP
-      name: http
-      targetPort: 8080
+  - port: 8080
+    protocol: TCP
+    name: http
+    targetPort: 8080
   selector:
     app: doppler
     layer: application
     component: web
   type: ClusterIP
-
 ---
 apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:
   name: doppler
   annotations:
-    nginx.ingress.kubernetes.io/whitelist-source-range: "{{ cloudflareIpSourceRanges|join(',') }}"
+    nginx.ingress.kubernetes.io/whitelist-source-range: {{ cloudflareIpSourceRanges|join(',') }}
 spec:
   ingressClassName: nginx
   rules:
-    - host: developers-staging.artsy.net
-      http:
-        paths:
-          - path: /
-            pathType: Prefix
-            backend:
-              serviceName: doppler-web-internal
-              servicePort: http
+  - host: developers-staging.artsy.net
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          serviceName: doppler-web-internal
+          servicePort: http
