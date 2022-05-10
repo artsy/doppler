@@ -13,7 +13,7 @@ A user represents a registered account on Artsy.
 Users can retrieve a specific user by rendering the "user" link template from [root](#{ArtsyAPI::V2.root}).
 
 ```
-curl -v "#{ArtsyAPI::V2.root}/users/{id}" -H "X-Access-Token:..."
+curl -v "#{ArtsyAPI::V2.root}/users/{id}" -H "X-Access-Token: ACCESS_TOKEN"
 ```
 
 #### Retrieving Current User
@@ -21,7 +21,7 @@ curl -v "#{ArtsyAPI::V2.root}/users/{id}" -H "X-Access-Token:..."
 Retrieve the currently authenticated user by following the [current_user](#{ArtsyAPI::V2.root}/current_user) link from [root](#{ArtsyAPI::V2.root}).
 
 ```
-curl -v "#{ArtsyAPI::V2.root}/current_user" -H "X-Access-Token:#{access_token}"
+curl -v "#{ArtsyAPI::V2.root}/current_user" -H "X-Access-Token: ACCESS_TOKEN"
 ```
 
 The response will be a 302 redirect to a "users" link with the current user ID.

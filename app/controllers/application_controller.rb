@@ -1,23 +1,14 @@
 class ApplicationController < ActionController::Base
-  include WardenHelper
   include CacheHelper
+  include ArtsyAuth::Authenticated
+
   protect_from_forgery with: :exception
   before_action :set_raven_context
-
-  def authenticate!
-    return if authenticated?
-
-    redirect_uri = params[:redirect_uri]
-    if redirect_uri
-      redirect_to "/auth/artsy?redirect_uri=#{CGI.escape(redirect_uri)}"
-    else
-      redirect_to '/auth/artsy'
-    end
-  end
+  helper_method :authenticated?
 
   def artsy_client
     @client ||= if authenticated?
-                  ArtsyAPI::V2.client(access_token: current_user.try(:access_token))
+                  ArtsyAPI::V2.client(access_token: session[:access_token])
                 else
                   ArtsyAPI::V2.client(xapp_token: ArtsyAPI::V2.xapp_token)
     end
@@ -27,9 +18,16 @@ class ApplicationController < ActionController::Base
     return unless authenticated?
 
     Raven.user_context(
-      id: current_user.id,
-      username: current_user.name,
-      email: current_user.email
+      id: session[:user_id],
+      email: session[:email]
     )
+  end
+
+  def authenticated?
+    session[:user_id].present?
+  end
+
+  def authorized_artsy_token?(token)
+    JWT.decode(token, ENV['JWT_SECRET'])
   end
 end

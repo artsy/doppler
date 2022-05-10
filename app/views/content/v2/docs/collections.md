@@ -9,7 +9,7 @@ A collection belongs to a [user](/v2/docs/users) and contains [artworks](/v2/doc
 You can retrieve a user's public collections by following the "public\_collections" link from a [user](/v2/docs/users). Users can retrieve their own public and private collections by following the [collections](#{ArtsyAPI::V2.root}/collections) link from [user details](/v2/docs/user_details).
 
 ```
-curl -v "#{ArtsyAPI::V2.root}/collections?user_id=#{current_user.id}&private=true" -H "X-Access-Token:..."
+curl -v "#{ArtsyAPI::V2.root}/collections?user_id=USER_ID&private=true" -H "X-Access-Token: ACCESS_TOKEN"
 ```
 
 This endpoint accepts the following parameters.
@@ -26,7 +26,7 @@ The response is a [paginated result](/v2/docs/pagination) with embedded collecti
 Users can retrieve a specific collection by ID by rendering the "collection" link template from [root](#{ArtsyAPI::V2.root}).
 
 ```
-curl -v "#{ArtsyAPI::V2.root}/collections/{id}?user_id=#{current_user.id}" -H "X-Access-Token:..."
+curl -v "#{ArtsyAPI::V2.root}/collections/{id}?user_id=USER_ID" -H "X-Access-Token: ACCESS_TOKEN"
 ```
 
 ``` alert[danger]

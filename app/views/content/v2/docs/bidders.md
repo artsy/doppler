@@ -13,7 +13,7 @@ The Bidders API is restricted to authorized applications/users.
 Users can retrieve bidders by following the [bidders](#{ArtsyAPI::V2.root}/bidders) link from [root](#{ArtsyAPI::V2.root}).
 
 ```
-curl -v "#{ArtsyAPI::V2.root}/bidders?user_id=#{current_user.id}" -H "X-Access-Token:#{access_token}"
+curl -v "#{ArtsyAPI::V2.root}/bidders?user_id=USER_ID" -H "X-Access-Token: ACCESS_TOKEN"
 ```
 
 This endpoint accepts the following parameters.
@@ -53,7 +53,7 @@ A request without a `sale_id` will receive a paginated list of all bidders.
 Authorized users and applications can retrieve a specific bidder by ID by rendering the "bidder" link template from [root](#{ArtsyAPI::V2.root}).
 
 ```
-curl -v "#{ArtsyAPI::V2.root}/bidders/{id}" -H "X-XAPP-Token:#{xapp_token}"
+curl -v "#{ArtsyAPI::V2.root}/bidders/{id}" -H "X-XAPP-Token: XAPP_TOKEN"
 ```
 ## Bidder JSON Format
 

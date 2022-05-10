@@ -7,7 +7,7 @@
 Retrieve collections of images following the "images" link from [shows](/v2/docs/shows).
 
 ```
-curl -v "#{ArtsyAPI::V2.root}/images?show_id={show_id}" -H "X-XAPP-Token:#{xapp_token}"
+curl -v "#{ArtsyAPI::V2.root}/images?show_id={show_id}" -H "X-XAPP-Token: XAPP_TOKEN"
 ```
 
 This endpoint accepts the following parameters.
@@ -21,7 +21,7 @@ show_id    | Retrieve images for a given [show](/v2/docs/shows), often called "i
 Images are usually related to other objects, such as [profiles](/v2/docs/profiles).
 
 ```
-curl -v "#{ArtsyAPI::V2.root}/images/{id}" -H "X-XAPP-Token:#{xapp_token}"
+curl -v "#{ArtsyAPI::V2.root}/images/{id}" -H "X-XAPP-Token: XAPP_TOKEN"
 ```
 
 ## Image JSON Format

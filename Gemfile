@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 ruby '2.7.5'
 
+gem 'artsy-auth'
 gem 'bootstrap_form'
 gem 'coderay'
 gem 'coffee-rails'
@@ -15,7 +16,6 @@ gem 'hiredis'
 gem 'hyperclient'
 gem 'jquery-rails'
 gem 'nokogiri'
-gem 'omniauth-artsy', '~> 0.2.0'
 gem 'puma'
 gem 'rails', '~> 5.0'
 gem 'redcarpet'
@@ -25,7 +25,6 @@ gem 'sentry-raven'
 gem 'twitter-bootstrap-rails'
 gem 'twitter-bootstrap-rails-confirm'
 gem 'uglifier'
-gem 'warden'
 
 group :development do
   gem 'guard'

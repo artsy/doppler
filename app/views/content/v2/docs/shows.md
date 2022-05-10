@@ -9,7 +9,7 @@ A show is a display of [artworks](/v2/docs/artworks) by one or several [artists]
 Retrieve shows by following the [shows](#{ArtsyAPI::V2.root}/shows) link from [root](#{ArtsyAPI::V2.root}), or the "shows" links within a [partner](/v2/docs/partners).
 
 ```
-curl -v "#{ArtsyAPI::V2.root}/shows/{id}" -H "X-XAPP-Token:#{xapp_token}"
+curl -v "#{ArtsyAPI::V2.root}/shows/{id}" -H "X-XAPP-Token: XAPP_TOKEN"
 ```
 
 This endpoint accepts the following parameters.

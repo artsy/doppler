@@ -13,7 +13,7 @@ The Bidder Positions API is restricted to authorized applications/users.
 Users can retrieve a specific bidder position by ID by rendering the "bidder_position" link template from [root](#{ArtsyAPI::V2.root}).
 
 ```
-curl -v "#{ArtsyAPI::V2.root}/bidder_positions/{id}" -H "X-XAPP-Token:#{xapp_token}"
+curl -v "#{ArtsyAPI::V2.root}/bidder_positions/{id}" -H "X-XAPP-Token: XAPP_TOKEN"
 ```
 ## Bidder Position JSON Format
 

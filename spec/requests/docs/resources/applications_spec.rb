@@ -13,23 +13,14 @@ describe 'Resources/applications' do
     }
     allow(ArtsyAPI::V2).to receive_message_chain(:client, :connection, :get, :body).and_return(models_json)
   end
-  context 'signed out' do
-    before do
-      get '/v2/docs/applications'
-    end
-    it 'does not set nocache headers' do
-      expect(response.status).to eq 200
-      expect(response.headers['Pragma']).to be nil
-    end
-  end
   context 'signed in' do
     before do
-      login_as User.new(id: '123', access_token: '456')
+      allow_any_instance_of(ApplicationController).to receive(:authenticated?).and_return(true)
       get '/v2/docs/applications'
     end
     it 'sets nocache headers' do
       expect(response.status).to eq 200
-      expect(response.headers['Pragma']).to eq 'no-cache'
+      expect(response.headers['Cache-Control']).to include('private')
     end
   end
 end
