@@ -13,7 +13,7 @@ An application provides a client ID and secret to interact with the Artsy API. S
 Users can retrieve their own applications by following the [applications](#{ArtsyAPI::V2.root}/applications) link from [root](#{ArtsyAPI::V2.root}).
 
 ```
-curl -v "#{ArtsyAPI::V2.root}/applications?user_id=#{current_user.id}" -H "X-Access-Token:#{access_token}"
+curl -v "#{ArtsyAPI::V2.root}/applications?user_id=USER_ID" -H "X-Access-Token: ACCESS_TOKEN"
 ```
 
 This endpoint accepts the following parameters.
@@ -53,7 +53,7 @@ A request without a "user_id" will be redirected accordingly with a 302 HTTP sta
 Users can retrieve a specific application by ID by rendering the "application" link template from [root](#{ArtsyAPI::V2.root}).
 
 ```
-curl -v "#{ArtsyAPI::V2.root}/applications/{id}" -H "X-Access-Token:..."
+curl -v "#{ArtsyAPI::V2.root}/applications/{id}" -H "X-Access-Token: ACCESS_TOKEN"
 ```
 
 ``` alert[danger]

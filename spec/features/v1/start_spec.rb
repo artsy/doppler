@@ -8,8 +8,11 @@ describe 'V1 Start' do
   end
   context 'logged in' do
     before do
-      login_as User.new
       # xapp token request from start/show.html.haml
+      allow_any_instance_of(ApplicationController).to receive_messages(
+        authenticated?: true,
+        require_artsy_authentication: nil
+      )
       allow(Net::HTTP).to receive_message_chain(:post_form, :body).and_return({ xapp_token: 'token' }.to_json)
     end
     let(:application) do

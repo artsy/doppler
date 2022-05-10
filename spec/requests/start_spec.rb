@@ -2,8 +2,8 @@ require 'spec_helper'
 describe 'Start' do
   context 'logged in' do
     before do
-      login_as User.new
       # xapp token request from start/show.html.haml
+      allow_any_instance_of(ApplicationController).to receive(:authenticated?).and_return(true)
       allow(Net::HTTP).to receive_message_chain(:post_form, :body).and_return({ xapp_token: 'token' }.to_json)
       # example of retrieving an artist by id
       allow(ArtsyAPI::V2).to receive_message_chain(:client, :artist, :_response, :body).and_return({ 'id' => 'andy-warhol' })

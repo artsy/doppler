@@ -1,7 +1,6 @@
 class ClientApplicationsController < ApplicationController
   include OpenRedirectHelper
 
-  before_action :authenticate!
   before_action :fetch_client_application, only: %i[show edit destroy update]
   before_action :no_cache!, except: [:index]
   before_action :parse_redirect_uris, only: %i[update create]

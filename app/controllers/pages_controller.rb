@@ -2,11 +2,13 @@ class PagesController < ApplicationController
   include MarkdownHelper
   include CacheHelper
 
+  skip_before_action :require_artsy_authentication
+
   def show
     raise 'Invalid Id' unless params[:id] =~ %r{^[\w/]*$}
 
     filename = Rails.root.join("app/views/content/#{params[:id]}.md")
-    @content = Rails.cache.fetch "content/#{params[:id]}/#{File.mtime(filename)}/#{current_user ? current_user.id : nil}" do
+    @content = Rails.cache.fetch "content/#{params[:id]}/#{File.mtime(filename)}/#{session[:user_id]}" do
       text = File.read(filename)
       text = text.gsub(%r{\#\{(?<var> [\w\.,_/:=\+\s\d-]*)\}}x) do
         var = $LAST_MATCH_INFO[:var]
@@ -22,17 +24,6 @@ class PagesController < ApplicationController
           ArtsyAPI::V1.url
         elsif var == 'ArtsyAPI::V1.docs_url'
           ArtsyAPI::V1.docs_url
-        elsif var == 'current_user.id'
-          current_user ? current_user.id : '...'
-        elsif var == 'xapp_token'
-          '...' # TODO
-        elsif var == 'access_token'
-          if current_user
-            no_cache!
-            current_user.access_token
-          else
-            '...'
-          end
         elsif var == 'application_id'
           application_id
         elsif var.start_with? 'resource://'

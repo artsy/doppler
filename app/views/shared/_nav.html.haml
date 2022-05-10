@@ -8,7 +8,7 @@
   = menu_group pull: :right do
     = menu_item "Public API Terms", v2_terms_path
     -if authenticated?
-      = menu_item "Sign Out", sign_out_path
+      = menu_item "Sign Out", '/sign_out'
     -else
-      = menu_item "Sign In", sign_in_path
+      = menu_item "Sign In", '/auth/artsy/new'
 = bootstrap_flash

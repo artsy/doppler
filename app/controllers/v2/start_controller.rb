@@ -1,5 +1,7 @@
 module V2
   class StartController < ApplicationController
+    skip_before_action :require_artsy_authentication
+
     def show
       return unless authenticated?
 

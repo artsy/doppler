@@ -8,7 +8,10 @@ describe 'V2 Start' do
   end
   context 'logged in' do
     before do
-      login_as User.new
+      allow_any_instance_of(ApplicationController).to receive_messages(
+        authenticated?: true,
+        require_artsy_authentication: nil
+      )
       # xapp token request from start/show.html.haml
       allow(Net::HTTP).to receive_message_chain(:post_form, :body).and_return({ xapp_token: 'token' }.to_json)
       # example of retrieving an artist by id

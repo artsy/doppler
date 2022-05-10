@@ -15,7 +15,7 @@ The Bids API is restricted to authorized applications/users.
 Users can retrieve a specific bid by ID by rendering the "bid" link template from [root](#{ArtsyAPI::V2.root}).
 
 ```
-curl -v "#{ArtsyAPI::V2.root}/bids/{id}" -H "X-XAPP-Token:#{xapp_token}"
+curl -v "#{ArtsyAPI::V2.root}/bids/{id}" -H "X-XAPP-Token: XAPP_TOKEN"
 ```
 
 ## Bid JSON Format

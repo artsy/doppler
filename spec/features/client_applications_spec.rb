@@ -2,15 +2,18 @@ require 'spec_helper'
 
 describe 'Client Applications' do
   before do
-    allow(ArtsyAPI::V2).to receive(:artworks_count).and_return(123)
+    allow(ArtsyAPI::V2).to receive_messages(
+      artworks_count: 123,
+      xapp_token: 'foo'
+    )
   end
   it 'requires authentication' do
+    expect_any_instance_of(ApplicationController).to receive(:require_artsy_authentication)
     visit '/client_applications'
-    expect(current_path).to eq '/'
   end
   context 'logged in' do
     before do
-      login_as User.new
+      allow_any_instance_of(ApplicationController).to receive(:require_artsy_authentication)
     end
     context 'without applications' do
       before do
