@@ -15,7 +15,7 @@ total_count | Total count of items.                           |
 Counting objects is not free. The value of "total\_count" is never set by default. Specify "total\_count=1" in the query string to retrieve it.
 
 ```
-curl -v "#{ArtsyAPI::V2.root}/artworks?total_count=1" -H "X-XAPP-Token:#{xapp_token}"
+curl -v "#{ArtsyAPI::V2.root}/artworks?total_count=1" -H "X-XAPP-Token: XAPP_TOKEN"
 ```
 
 ``` alert[warning]

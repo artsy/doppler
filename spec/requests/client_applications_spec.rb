@@ -1,12 +1,14 @@
 require 'spec_helper'
 
 describe 'Client Applications' do
-  before do
-    allow(ArtsyAPI::V2).to receive(:artworks_count).and_return(123)
-  end
+  let(:client) { double('Hyperclient') }
   context 'logged in' do
     before do
-      login_as User.new
+      allow_any_instance_of(ApplicationController).to receive_messages(
+        require_artsy_authentication: nil,
+        artsy_client: client
+      )
+      allow(client).to receive_message_chain(:tokens, :xapp_token, :_post).and_return('foo')
     end
     context 'with an application' do
       let(:application) do
@@ -23,8 +25,7 @@ describe 'Client Applications' do
         )
       end
       before do
-        allow(ArtsyAPI::V2).to receive_message_chain(:client, :applications).and_return([application])
-        allow(ArtsyAPI::V2).to receive_message_chain(:client, :application).and_return(application)
+        allow(client).to receive_messages(applications: [application], application: application)
       end
       it 'sets nocache headers' do
         get '/client_applications/123'

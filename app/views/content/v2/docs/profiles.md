@@ -9,7 +9,7 @@ A public profile provides information about a [partner](/v2/docs/partners) or a 
 Retrieve profiles by following the [profiles](#{ArtsyAPI::V2.root}/profiles) link from [root](#{ArtsyAPI::V2.root}).
 
 ```
-curl -v "#{ArtsyAPI::V2.root}/profiles" -H "X-XAPP-Token:#{xapp_token}"
+curl -v "#{ArtsyAPI::V2.root}/profiles" -H "X-XAPP-Token: XAPP_TOKEN"
 ```
 
 The response is a [paginated result](/v2/docs/pagination) with embedded profiles.
@@ -19,7 +19,7 @@ The response is a [paginated result](/v2/docs/pagination) with embedded profiles
 Users can retrieve a specific profile by ID by rendering the "profile" link template from [root](#{ArtsyAPI::V2.root}).
 
 ```
-curl -v "#{ArtsyAPI::V2.root}/profiles/{id}" -H "X-XAPP-Token:#{xapp_token}"
+curl -v "#{ArtsyAPI::V2.root}/profiles/{id}" -H "X-XAPP-Token: XAPP_TOKEN"
 ```
 
 ## Profile JSON Format

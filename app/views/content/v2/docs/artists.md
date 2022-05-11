@@ -11,7 +11,7 @@ An artist is generally one person, but can also be two people collaborating, a c
 Retrieve artists by following the [artists](#{ArtsyAPI::V2.root}/artists) link from [root](#{ArtsyAPI::V2.root}).
 
 ```
-curl -v "#{ArtsyAPI::V2.root}/artists" -H "X-XAPP-Token:#{xapp_token}"
+curl -v "#{ArtsyAPI::V2.root}/artists" -H "X-XAPP-Token: XAPP_TOKEN"
 ```
 
 This endpoint accepts the following parameters.
@@ -33,7 +33,7 @@ The response is a [paginated result](/v2/docs/pagination) with embedded artists.
 Users can retrieve a specific artist by ID by rendering the "artist" link template from [root](#{ArtsyAPI::V2.root}).
 
 ```
-curl -v "#{ArtsyAPI::V2.root}/artists/{id}" -H "X-XAPP-Token:#{xapp_token}"
+curl -v "#{ArtsyAPI::V2.root}/artists/{id}" -H "X-XAPP-Token: XAPP_TOKEN"
 ```
 
 #### Retrieving an Artwork's Artists

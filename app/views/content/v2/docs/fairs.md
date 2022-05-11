@@ -9,7 +9,7 @@ An art fair is an event to which [partners](/v2/docs/partners) bring [shows](/v2
 Retrieve fairs by following the [fairs](#{ArtsyAPI::V2.root}/fairs) link from [root](#{ArtsyAPI::V2.root}).
 
 ```
-curl -v "#{ArtsyAPI::V2.root}/fairs" -H "X-XAPP-Token:#{xapp_token}"
+curl -v "#{ArtsyAPI::V2.root}/fairs" -H "X-XAPP-Token: XAPP_TOKEN"
 ```
 
 This endpoint accepts the following parameters.
@@ -25,7 +25,7 @@ The response is a [paginated result](/v2/docs/pagination) with embedded fairs.
 Users can retrieve a specific fair by ID by rendering the "fair" link template from [root](#{ArtsyAPI::V2.root}).
 
 ```
-curl -v "#{ArtsyAPI::V2.root}/fairs/{id}" -H "X-XAPP-Token:#{xapp_token}"
+curl -v "#{ArtsyAPI::V2.root}/fairs/{id}" -H "X-XAPP-Token: XAPP_TOKEN"
 ```
 
 ## Fair JSON Format

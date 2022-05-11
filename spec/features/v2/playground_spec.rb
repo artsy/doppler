@@ -5,13 +5,10 @@ describe 'Playground' do
     allow(ArtsyAPI::V2).to receive(:artworks_count).and_return(123)
   end
   it 'requires authentication' do
+    expect_any_instance_of(ApplicationController).to receive(:require_artsy_authentication)
     visit '/v2/playground'
-    expect(current_path).to eq '/'
   end
   context 'logged in' do
-    before do
-      login_as User.new
-    end
     pending 'displays swagger ui'
   end
 end

@@ -14,7 +14,7 @@ While a [user](/v2/docs/users) represents publicly available reference about a r
 Users can retrieve a specific user by following the "user_details" link from a [user](/v2/docs/users).
 
 ```
-curl -v "#{ArtsyAPI::V2.root}/user_details/{id}" -H "X-Access-Token:..."
+curl -v "#{ArtsyAPI::V2.root}/user_details/{id}" -H "X-Access-Token: ACCESS_TOKEN"
 ```
 
 ## User Details JSON Format

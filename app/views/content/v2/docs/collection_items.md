@@ -13,7 +13,7 @@ If you're just trying to retrieve artworks that belong to a collection, use the 
 You can retrieve collection items by following the "collection\_items" link from a [collection](/v2/docs/collections).
 
 ```
-curl -v "#{ArtsyAPI::V2.root}/collection_items?collection_id=...&user_id=#{current_user.id}" -H "X-Access-Token:..."
+curl -v "#{ArtsyAPI::V2.root}/collection_items?collection_id=...&user_id=USER_ID" -H "X-Access-Token: ACCESS_TOKEN"
 ```
 
 This endpoint accepts the following parameters.
@@ -30,7 +30,7 @@ The response is a [paginated result](/v2/docs/pagination) with embedded collecti
 Users can retrieve a specific collection item by ID by rendering the "collection\_item" link template from [root](#{ArtsyAPI::V2.root}).
 
 ```
-curl -v "#{ArtsyAPI::V2.root}/collection_items/{id}?collection_id=...&user_id=#{current_user.id}" -H "X-Access-Token:..."
+curl -v "#{ArtsyAPI::V2.root}/collection_items/{id}?collection_id=...&user_id=USER_ID" -H "X-Access-Token: ACCESS_TOKEN"
 ```
 
 #### Creating and Updating Collection Items
