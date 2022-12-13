@@ -187,7 +187,7 @@ GEM
     nenv (0.3.0)
     net-http-digest_auth (1.4.1)
     nio4r (2.5.8)
-    nokogiri (1.13.9)
+    nokogiri (1.13.10)
       mini_portile2 (~> 2.8.0)
       racc (~> 1.4)
     notiffany (0.1.1)
