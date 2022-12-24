@@ -1,6 +1,7 @@
 /.bundle
 /log/*.log
 /tmp
-.env
+.env*
+!.env.example
 public/assets
 
