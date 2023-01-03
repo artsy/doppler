@@ -10,7 +10,7 @@ I am Doppler, the Artsy developer website. You can see me at [developers.artsy.n
 Clone the project:
 
 ```
-$ git clone git@github.com:artsy/pulse.git
+$ git clone git@github.com:artsy/doppler.git
 ```
 
 Review the setup script and run it _or the equivalent steps for your environment_:
