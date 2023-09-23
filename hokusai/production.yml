@@ -89,7 +89,7 @@ spec:
     component: web
   type: ClusterIP
 ---
-apiVersion: networking.k8s.io/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: doppler
@@ -104,5 +104,7 @@ spec:
       - path: /
         pathType: Prefix
         backend:
-          serviceName: doppler-web-internal
-          servicePort: http
+          service:
+            name: doppler-web-internal
+            port:
+              name: http
