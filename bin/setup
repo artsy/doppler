@@ -18,7 +18,7 @@ if command -v rbenv >/dev/null; then # skip rbenv steps if not available (RVM us
 fi
 
 echo "Downloading .env.shared (for common local dev config)..."
-aws s3 cp s3://artsy-citadel/dev/.env.doppler .env.shared
+aws s3 cp s3://artsy-citadel/doppler/.env.shared ./
 
 echo "Installing prerequisite gems..."
 gem update --system
