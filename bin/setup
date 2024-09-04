@@ -6,24 +6,21 @@
 # Exit if any subcommand fails
 set -e
 
-ruby_version=`cat .ruby-version`
-if command -v rbenv >/dev/null; then # skip rbenv steps if not available (RVM user?)
-  if ! rbenv versions | grep -Fq "$ruby_version"; then
-    brew upgrade ruby-build
-    rbenv install -s "$ruby_version"
-  fi
-
-  eval "$(rbenv init - --no-rehash)"
-  rbenv shell "$ruby_version"
+if command -v asdf >/dev/null; then
+  echo "Installing language dependencies with asdf"
+  asdf install
+else
+  echo "Skipping language dependencies installation (asdf not found)"
 fi
 
 echo "Downloading .env.shared (for common local dev config)..."
 aws s3 cp s3://artsy-citadel/doppler/.env.shared ./
 
 echo "Installing prerequisite gems..."
-gem update --system
-gem install foreman bundler
-if command -v rbenv >/dev/null; then rbenv rehash; fi
+
+# Install a compatible version of rubygems-update
+gem install rubygems-update -v 3.3.26 && update_rubygems
+
 
 if [ ! -e ".env" ]; then
   echo "Initializing .env from .env.example (for any custom configuration)..."
