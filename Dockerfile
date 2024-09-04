@@ -16,7 +16,7 @@ RUN curl -sL https://deb.nodesource.com/setup_12.x | bash - \
 
 COPY .ruby-version Gemfile* ./
 
-RUN gem install bundler && bundle update --bundler \
+RUN gem install bundler -v 1.17.3 \
   && bundle
 
 COPY . ./
@@ -26,7 +26,6 @@ RUN mkdir /shared
 RUN mkdir /shared/config
 RUN mkdir /shared/pids
 RUN mkdir /shared/sockets
-RUN bundle update --bundler
 RUN bundle exec rake assets:precompile
 
 CMD ["bundle", "exec", "puma", "-C", "config/puma.config"]
