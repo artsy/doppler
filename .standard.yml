@@ -3,3 +3,8 @@ format: progress
 rules:
   Standard/SemanticBlocks: disable
 
+# TODO: These can be removed when upgrading to Ruby 3
+ignore:
+  - "app/controllers/pages_controller.rb"
+  - "app/controllers/welcome_controller.rb"
+
