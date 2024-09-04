@@ -51,7 +51,7 @@ class PagesController < ApplicationController
   def resource(var)
     parts = var.split("/")[2..]
     method = parts[0]
-    args = Hash[parts[1..].map { |part| part.split("=", 2) }]
+    args = parts[1..].map { |part| part.split("=", 2) }.to_h
     JSON.pretty_generate artsy_client.send(method, args)._get._response.body
   rescue => e
     Rails.logger.error e
