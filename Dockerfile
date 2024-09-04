@@ -19,7 +19,7 @@ COPY Gemfile* ./
 # Install a compatible version of rubygems-update
 RUN gem install rubygems-update -v 3.3.26 && update_rubygems
 
-RUN gem install bundler -v 2.4.22 && bundle update --bundler \
+RUN gem install bundler -v 2.4.22 \
   && bundle
 
 COPY . ./
@@ -29,7 +29,6 @@ RUN mkdir /shared
 RUN mkdir /shared/config
 RUN mkdir /shared/pids
 RUN mkdir /shared/sockets
-RUN bundle update --bundler
 RUN bundle exec rake assets:precompile
 
 CMD ["bundle", "exec", "puma", "-C", "config/puma.config"]
