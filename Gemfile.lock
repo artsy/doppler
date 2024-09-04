@@ -302,6 +302,8 @@ GEM
       rexml
       ruby-progressbar (~> 1.7)
       unicode-display_width (>= 1.4.0, < 2.0)
+    rubocop-performance (1.5.2)
+      rubocop (>= 0.71.0)
     ruby-progressbar (1.11.0)
     ruby_parser (3.12.0)
       sexp_processor (~> 4.9)
@@ -334,6 +336,9 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
+    standard (0.4.6)
+      rubocop (~> 0.83.0)
+      rubocop-performance (~> 1.5.2)
     temple (0.8.0)
     thor (1.2.2)
     thread_safe (0.3.6)
@@ -386,11 +391,11 @@ DEPENDENCIES
   redcarpet
   redis-rails
   rspec-rails
-  rubocop (~> 0.83.0)
   sass-rails
   selenium-webdriver
   sentry-raven
   spring
+  standard
   twitter-bootstrap-rails
   twitter-bootstrap-rails-confirm
   uglifier

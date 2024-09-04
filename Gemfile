@@ -39,6 +39,6 @@ group :development, :test do
   gem "byebug"
   gem "capybara"
   gem "rspec-rails"
-  gem "rubocop", "~>0.83.0"
+  gem "standard"
   gem "selenium-webdriver"
 end
