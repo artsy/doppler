@@ -1,4 +1,4 @@
-require 'hyperclient/entry_point'
+require "hyperclient/entry_point"
 
 module Hyperclient
   class EntryPoint < Link

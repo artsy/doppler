@@ -1,1 +1,1 @@
-GA.tracker = ENV['GOOGLE_ANALYTICS_UA']
+GA.tracker = ENV["GOOGLE_ANALYTICS_UA"]

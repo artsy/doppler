@@ -2,9 +2,9 @@ class PlaygroundController < ApplicationController
   before_action :no_cache!
 
   def index
-    @options = case request.env['PATH_INFO']
-               when '/v1/playground' then options_v1
-               when '/v2/playground' then options_v2
+    @options = case request.env["PATH_INFO"]
+    when "/v1/playground" then options_v1
+    when "/v2/playground" then options_v2
     end
   end
 

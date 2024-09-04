@@ -1,4 +1,4 @@
-require 'spec_helper'
+require "spec_helper"
 
 describe MarkdownHelper do
   subject do
@@ -6,12 +6,12 @@ describe MarkdownHelper do
       extend MarkdownHelper
     end
   end
-  context '#render_markdown' do
-    it 'minimal document' do
-      expect(subject.render_markdown('')).to eq ''
-      expect(subject.render_markdown('hello world')).to eq "<p>hello world</p>\n"
+  context "#render_markdown" do
+    it "minimal document" do
+      expect(subject.render_markdown("")).to eq ""
+      expect(subject.render_markdown("hello world")).to eq "<p>hello world</p>\n"
     end
-    it 'table markup' do
+    it "table markup" do
       expect(subject.render_markdown(<<~TEXT
          x | y |
         --:|:--|
@@ -19,7 +19,7 @@ describe MarkdownHelper do
       TEXT
                                     )).to start_with '<table class="table table-bordered table-striped">'
     end
-    it 'code markup' do
+    it "code markup" do
       expect(subject.render_markdown(<<~TEXT
         ```
         code
@@ -27,7 +27,7 @@ describe MarkdownHelper do
       TEXT
                                     )).to eq "<pre><code>code\n</code></pre>\n"
     end
-    it 'ruby markup' do
+    it "ruby markup" do
       expect(subject.render_markdown(<<~TEXT
         ``` ruby
         x = y
@@ -35,7 +35,7 @@ describe MarkdownHelper do
       TEXT
                                     )).to eq "<div class=\"CodeRay\">\n  <div class=\"code\"><pre>x = y</pre></div>\n</div>\n"
     end
-    it 'alert markup' do
+    it "alert markup" do
       expect(subject.render_markdown(<<~TEXT
         ``` alert[warning]
         WARNING!
@@ -43,7 +43,7 @@ describe MarkdownHelper do
       TEXT
                                     )).to eq "<div class=\"alert alert-warning\">\n<p>WARNING!</p>\n</div>\n"
     end
-    it 'alert markup with markdown' do
+    it "alert markup with markdown" do
       expect(subject.render_markdown(<<~TEXT
         ``` alert[warning]
         [docs](/docs)
