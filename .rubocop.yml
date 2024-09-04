@@ -1,36 +1,13 @@
-AllCops:
-  Exclude:
-    - vendor/**/*
-    - bin/**/*
-    - app/controllers/**/*
-    - app/helpers/**/*
+Layout/SpaceInsideHashLiteralBraces:
+  Enabled: true
+  EnforcedStyle: no_space
+  EnforcedStyleForEmptyBraces: no_space
 
-Style/Documentation:
-  Enabled: false
+Style/StringLiterals:
+  Enabled: true
+  EnforcedStyle: double_quotes
+  ConsistentQuotesInMultiline: false
 
-Style/FrozenStringLiteralComment:
-  Enabled: false
-Metrics/BlockLength:
-  Exclude:
-    - spec/**/*
-    - config/routes.rb
-Metrics/LineLength:
-  Enabled: false
-Layout/EmptyLinesAroundAttributeAccessor:
+Style/StringLiteralsInInterpolation:
   Enabled: true
-Layout/SpaceAroundMethodCallOperator:
-  Enabled: true
-Lint/RaiseException:
-  Enabled: true
-Lint/StructNewOverride:
-  Enabled: true
-Style/ExponentialNotation:
-  Enabled: true
-Style/HashEachMethods:
-  Enabled: true
-Style/HashTransformKeys:
-  Enabled: true
-Style/HashTransformValues:
-  Enabled: true
-Style/SlicingWithRange:
-  Enabled: true
+  EnforcedStyle: double_quotes

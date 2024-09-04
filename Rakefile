@@ -1,9 +1,9 @@
-require File.expand_path('config/application', __dir__)
+require File.expand_path("config/application", __dir__)
 
 Rails.application.load_tasks
 
 if Rails.env.test? || Rails.env.development?
-  require 'rubocop/rake_task'
+  require "rubocop/rake_task"
   RuboCop::RakeTask.new
 
   task default: %i[spec rubocop]

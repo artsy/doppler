@@ -1,4 +1,4 @@
-require 'rspec/rails'
+require "rspec/rails"
 
 RSpec.configure do |config|
   config.before do

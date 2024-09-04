@@ -15,7 +15,7 @@ class ClientApplicationsController < ApplicationController
     redirect_uri = safe_redirect_uri(client_application_params.delete(:redirect_uri))
     @client_application = artsy_client.applications._post(client_application_params.to_h)
     flash.now[:error] = nil
-    flash.now[:notice] = 'Application created!'
+    flash.now[:notice] = "Application created!"
     redirect_uri += "?id=#{@client_application.id}" if @client_application && !redirect_uri.blank?
     redirect_uri = client_applications_path if redirect_uri.blank?
     redirect_to redirect_uri
@@ -44,7 +44,7 @@ class ClientApplicationsController < ApplicationController
     @client_application = artsy_client.application(id: params[:id])
     return if @client_application
 
-    flash[:error] = 'Invalid application.'
+    flash[:error] = "Invalid application."
     redirect_to client_applications_path
   end
 

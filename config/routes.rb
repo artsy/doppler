@@ -1,22 +1,22 @@
 Rails.application.routes.draw do
-  root 'welcome#index'
+  root "welcome#index"
 
   resources :client_applications
 
-  mount ArtsyAuth::Engine => '/'
+  mount ArtsyAuth::Engine => "/"
 
-  get '/docs', to: 'pages#show', id: 'docs'
+  get "/docs", to: "pages#show", id: "docs"
 
   # Partner API
 
-  get '/v1', to: 'pages#show', id: 'v1/index'
-  get '/v1/playground', to: 'playground#index'
-  get '/v1/terms', to: 'pages#show', id: 'v1/terms'
-  get '/v1/start', to: 'v1/start#show'
+  get "/v1", to: "pages#show", id: "v1/index"
+  get "/v1/playground", to: "playground#index"
+  get "/v1/terms", to: "pages#show", id: "v1/terms"
+  get "/v1/start", to: "v1/start#show"
 
   # Public API
 
-  get '/v2', to: 'pages#show', id: 'v2/index'
+  get "/v2", to: "pages#show", id: "v2/index"
   %i[
     applications
     artists
@@ -47,11 +47,11 @@ Rails.application.routes.draw do
     user_details
     users
   ].each do |page|
-    get "/v2/docs/#{page}", to: 'pages#show', id: "v2/docs/#{page}"
+    get "/v2/docs/#{page}", to: "pages#show", id: "v2/docs/#{page}"
   end
-  get '/v2/start', to: 'v2/start#show'
-  get '/v2/playground', to: 'playground#index'
-  get '/v2/terms', to: 'pages#show', id: 'v2/terms'
+  get "/v2/start", to: "v2/start#show"
+  get "/v2/playground", to: "playground#index"
+  get "/v2/terms", to: "pages#show", id: "v2/terms"
 
-  get '/help', to: 'help#show'
+  get "/help", to: "help#show"
 end

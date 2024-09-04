@@ -28,6 +28,6 @@ class ApplicationController < ActionController::Base
   end
 
   def authorized_artsy_token?(token)
-    JWT.decode(token, ENV['JWT_SECRET'])
+    JWT.decode(token, ENV["JWT_SECRET"])
   end
 end
