@@ -14,8 +14,7 @@ RUN curl -sL https://deb.nodesource.com/setup_12.x | bash - \
   && apt-get install -y build-essential nodejs tzdata \
   && rm -rf /var/lib/apt/lists/*
 
-  # FIX
-COPY .ruby-version Gemfile* ./
+COPY Gemfile* ./
 
 # Install a compatible version of rubygems-update
 RUN gem install rubygems-update -v 3.3.26 && update_rubygems
