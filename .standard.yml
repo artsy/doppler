@@ -1,1 +1,5 @@
 format: progress
+
+rules:
+  Standard/SemanticBlocks: disable
+

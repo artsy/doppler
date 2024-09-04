@@ -1,0 +1,7 @@
+require:
+  - standard
+  - standard-custom
+
+inherit_gem:
+  standard: config/base.yml
+  standard-custom: config/base.yml

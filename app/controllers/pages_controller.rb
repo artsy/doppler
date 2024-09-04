@@ -10,7 +10,7 @@ class PagesController < ApplicationController
     filename = Rails.root.join("app/views/content/#{params[:id]}.md")
     @content = Rails.cache.fetch "content/#{params[:id]}/#{File.mtime(filename)}/#{session[:user_id]}" do
       text = File.read(filename)
-      text = text.gsub(%r{\#\{(?<var> [\w\.,_/:=\+\s\d-]*)\}}x) do
+      text = text.gsub(%r{\#\{(?<var> [\w.,_/:=+\s\d-]*)\}}x) {
         var = $LAST_MATCH_INFO[:var]
         if var == "ArtsyAPI::V2.root"
           ArtsyAPI::V2.root
@@ -33,7 +33,7 @@ class PagesController < ApplicationController
         else
           "unknown: #{var}"
         end
-      end
+      }
       render_markdown text
     end
   end
