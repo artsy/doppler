@@ -9,7 +9,8 @@ class ClientApplicationsController < ApplicationController
     @client_application = ClientApplication.new
   end
 
-  def show; end
+  def show
+  end
 
   def create
     redirect_uri = safe_redirect_uri(client_application_params.delete(:redirect_uri))
@@ -29,7 +30,7 @@ class ClientApplicationsController < ApplicationController
 
   def index
     @client_applications = artsy_client.applications
-  rescue StandardError => e
+  rescue => e
     @error = e.message
   end
 

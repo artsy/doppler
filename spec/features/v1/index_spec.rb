@@ -10,8 +10,8 @@ describe "Partner API" do
     end
   end
   Rails.application.routes.routes
-       .map { |r| r.path.source.match(%r{/([/\w]*)})[0] }
-       .select { |path| path.starts_with?("/v1/docs/") }.each do |path|
+    .map { |r| r.path.source.match(%r{/([/\w]*)})[0] }
+    .select { |path| path.starts_with?("/v1/docs/") }.each do |path|
     context path do
       before do
         visit path

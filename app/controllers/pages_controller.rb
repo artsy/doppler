@@ -53,7 +53,7 @@ class PagesController < ApplicationController
     method = parts[0]
     args = Hash[parts[1..].map { |part| part.split("=", 2) }]
     JSON.pretty_generate artsy_client.send(method, args)._get._response.body
-  rescue StandardError => e
+  rescue => e
     Rails.logger.error e
     Rails.logger.error e.backtrace.join("\n")
     "error: #{e.message}"
@@ -82,7 +82,7 @@ class PagesController < ApplicationController
       rc += "#{key.gsub("_", '\_')} | #{desc["description"]}\n"
     end
     rc
-  rescue StandardError => e
+  rescue => e
     Rails.logger.error e
     Rails.logger.error e.backtrace.join("\n")
     "error: #{e.message}"
@@ -91,9 +91,9 @@ class PagesController < ApplicationController
   def application_id
     if authenticated?
       artsy_client.applications
-                  .try(:first)
-                  .try(:attributes)
-                  .try(:id) || "..."
+        .try(:first)
+        .try(:attributes)
+        .try(:id) || "..."
     else
       "..."
     end
