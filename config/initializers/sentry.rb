@@ -1,3 +1,3 @@
-Raven.configure do |config|
-  config.processors -= [Raven::Processor::PostData]
+Sentry.init do |config|
+  config.dsn = ENV["SENTRY_DSN"]
 end
