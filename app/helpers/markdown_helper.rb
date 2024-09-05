@@ -2,11 +2,11 @@ module MarkdownHelper
   def render_markdown(text)
     renderer = Redcarpet::Markdown.new(Redcarpet::Render::HTML, fenced_code_blocks: true, tables: true)
     doc = Nokogiri::HTML::DocumentFragment.parse(renderer.render(text))
-    doc.css('code[@class]').each do |code|
+    doc.css("code[@class]").each do |code|
       case code[:class]
       when /(?<class>\w*)\[(?<type>\w*)\]/
-        code['class'] = "#{$LAST_MATCH_INFO['class']} #{$LAST_MATCH_INFO['class']}-#{$LAST_MATCH_INFO['type']}"
-        code.name = 'div'
+        code["class"] = "#{$LAST_MATCH_INFO["class"]} #{$LAST_MATCH_INFO["class"]}-#{$LAST_MATCH_INFO["type"]}"
+        code.name = "div"
         code.parent.swap(code)
         code.inner_html = render_markdown(code.inner_html)
       else
@@ -15,8 +15,8 @@ module MarkdownHelper
         code.first.parent.swap(code.first)
       end
     end
-    doc.search('table').each do |table|
-      table['class'] = 'table table-bordered table-striped'
+    doc.search("table").each do |table|
+      table["class"] = "table table-bordered table-striped"
     end
     doc.to_s
   end

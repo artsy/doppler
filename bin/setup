@@ -6,24 +6,26 @@
 # Exit if any subcommand fails
 set -e
 
-ruby_version=`cat .ruby-version`
-if command -v rbenv >/dev/null; then # skip rbenv steps if not available (RVM user?)
-  if ! rbenv versions | grep -Fq "$ruby_version"; then
-    brew upgrade ruby-build
-    rbenv install -s "$ruby_version"
-  fi
-
-  eval "$(rbenv init - --no-rehash)"
-  rbenv shell "$ruby_version"
+if command -v asdf >/dev/null; then
+  echo "Installing language dependencies with asdf"
+  asdf install
+  # Initialize asdf and ensure it switches to the right Ruby version
+  . ~/.asdf/asdf.sh
+  asdf reshim
+  asdf shell ruby 2.7.5
+else
+  echo "Skipping language dependencies installation (asdf not found)"
 fi
 
 echo "Downloading .env.shared (for common local dev config)..."
 aws s3 cp s3://artsy-citadel/doppler/.env.shared ./
 
 echo "Installing prerequisite gems..."
-gem update --system
-gem install foreman bundler
+# Install a compatible version of rubygems-update
+gem install rubygems-update -v 3.3.26 && update_rubygems
+gem install foreman
 if command -v rbenv >/dev/null; then rbenv rehash; fi
+
 
 if [ ! -e ".env" ]; then
   echo "Initializing .env from .env.example (for any custom configuration)..."
@@ -31,6 +33,11 @@ if [ ! -e ".env" ]; then
 fi
 
 echo "Installing gems..."
+if [[ "$(uname -m)" == "arm64" ]]; then
+  echo "Detected ARM architecture. Ensuring native gems are installed for ARM64..."
+  gem install nio4r -- --with-cflags="-arch arm64"
+fi
+
 bundle install
 
 echo "

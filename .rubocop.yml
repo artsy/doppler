@@ -1,36 +1,7 @@
-AllCops:
-  Exclude:
-    - vendor/**/*
-    - bin/**/*
-    - app/controllers/**/*
-    - app/helpers/**/*
+require:
+  - standard
+  - standard-custom
 
-Style/Documentation:
-  Enabled: false
-
-Style/FrozenStringLiteralComment:
-  Enabled: false
-Metrics/BlockLength:
-  Exclude:
-    - spec/**/*
-    - config/routes.rb
-Metrics/LineLength:
-  Enabled: false
-Layout/EmptyLinesAroundAttributeAccessor:
-  Enabled: true
-Layout/SpaceAroundMethodCallOperator:
-  Enabled: true
-Lint/RaiseException:
-  Enabled: true
-Lint/StructNewOverride:
-  Enabled: true
-Style/ExponentialNotation:
-  Enabled: true
-Style/HashEachMethods:
-  Enabled: true
-Style/HashTransformKeys:
-  Enabled: true
-Style/HashTransformValues:
-  Enabled: true
-Style/SlicingWithRange:
-  Enabled: true
+inherit_gem:
+  standard: config/base.yml
+  standard-custom: config/base.yml

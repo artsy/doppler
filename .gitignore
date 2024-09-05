@@ -4,4 +4,4 @@
 .env*
 !.env.example
 public/assets
-
+.ruby-version
