@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   include ArtsyAuth::Authenticated
 
   protect_from_forgery with: :exception
-  before_action :set_raven_context
+  before_action :set_sentry_context
   helper_method :authenticated?
 
   def artsy_client
@@ -14,13 +14,10 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def set_raven_context
+  def set_sentry_context
     return unless authenticated?
 
-    Raven.user_context(
-      id: session[:user_id],
-      email: session[:email]
-    )
+    Sentry.set_user(user_id: session[:user_id], email: session[:email])
   end
 
   def authenticated?
