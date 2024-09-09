@@ -21,8 +21,11 @@ gem "rails", "~> 6.1"
 gem "redcarpet"
 gem "redis-rails"
 gem "sass-rails"
+gem "sprockets", "< 4.0"
+gem "sprockets-rails"
 gem "sentry-raven"
 gem "twitter-bootstrap-rails"
+gem 'font-awesome-rails'
 gem "twitter-bootstrap-rails-confirm"
 gem "uglifier"
 

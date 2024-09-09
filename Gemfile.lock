@@ -111,6 +111,8 @@ GEM
     faraday_hal_middleware (0.2.0)
       faraday (~> 2.0)
     ffi (1.17.0)
+    font-awesome-rails (4.7.0.8)
+      railties (>= 3.2, < 8.0)
     foreman (0.88.1)
     formatador (1.1.0)
     globalid (1.2.1)
@@ -365,9 +367,10 @@ GEM
       hashie
       version_gem (~> 1.1, >= 1.1.1)
     spring (4.2.1)
-    sprockets (4.2.1)
+    sprockets (3.7.4)
+      base64
       concurrent-ruby (~> 1.0)
-      rack (>= 2.2.4, < 4)
+      rack (> 1, < 3)
     sprockets-rails (3.5.2)
       actionpack (>= 6.1)
       activesupport (>= 6.1)
@@ -420,6 +423,7 @@ DEPENDENCIES
   coffee-rails
   dalli
   data_uri
+  font-awesome-rails
   foreman
   google-analytics-rails
   guard
@@ -441,6 +445,8 @@ DEPENDENCIES
   selenium-webdriver
   sentry-raven
   spring
+  sprockets (< 4.0)
+  sprockets-rails
   standard
   twitter-bootstrap-rails
   twitter-bootstrap-rails-confirm
