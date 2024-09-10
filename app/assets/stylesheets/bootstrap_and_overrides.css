@@ -1,7 +1,6 @@
 /*
-  =require twitter-bootstrap-static/bootstrap
-  =require twitter-bootstrap-static/fontawesome
-  */
+  *=require twitter-bootstrap-static/bootstrap
+*/
 
 /* vertically align all TDs */
 .table tbody > tr > td {
