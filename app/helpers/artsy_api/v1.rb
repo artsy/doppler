@@ -1,3 +1,6 @@
+# TODO: Future cleanup, this class only fetches the docs url and data for the API playground
+# Slightly different from a library client
+
 module ArtsyAPI
   module V1
     def self.url
