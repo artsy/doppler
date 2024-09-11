@@ -1,25 +1,32 @@
-%h1 My Configured Partners 
+%h1 My Configured Partners
 
-%table.table.table-bordered.table-striped
-  %thead
-    %tr
-      %th ID
-      %th Client Application ID
-      %th Partner ID
-      %th Created
-      %th Last Updated At
-      %th &nbsp;
+- if !@client_application_partners
 
-  %tbody.applications
-    - @client_application_partners.each do |client_application_partner|
+  .alert.alert-danger
+    There was an error retrieving applications: #{@error}.
+
+- elsif @client_application_partners.any?
+  -# = link_to "Create a New Client Application Partner", new_client_application_path, class: 'btn'
+
+  %table.table.table-bordered.table-striped
+    %thead
       %tr
-        %td.id= client_application_partner.id
-        -# %td.id= link_to client_application_partner.id, client_application_partner_path(client_application_partner.id)
-        %td.client_application_id= client_application_partner.client_application_id
-        %td.partner_id= client_application_partner.partner_id
-        %td.created_at= DateTime.parse(client_application_partner.created_at).strftime("%B %d, %Y")
-        %td.updated_at= DateTime.parse(client_application_partner.updated_at).strftime("%B %d, %Y")
+        %th ID
+        %th Client Application ID
+        %th Partner ID
+        %th Created
+        %th Last Updated At
+        %th &nbsp;
 
-        %td.actions
-          = link_to 'edit', edit_client_application_partner_path(client_application_partner.id), class: 'btn btn-primary'
-          = link_to 'destroy', client_application_partner_path(client_application_partner.id), method: :delete, data: { confirm: "Are you sure?" }, class: 'btn btn-danger'
+    %tbody.applications
+      - @client_application_partners.each do |client_application_partner|
+        %tr
+          %td.id= client_application_partner.id
+          %td.client_application_id= client_application_partner.client_application_id
+          %td.partner_id= client_application_partner.partner_id
+          %td.created_at= DateTime.parse(client_application_partner.created_at).strftime("%B %d, %Y")
+          %td.updated_at= DateTime.parse(client_application_partner.updated_at).strftime("%B %d, %Y")
+
+          %td.actions
+            = link_to 'edit', edit_client_application_partner_path(client_application_partner.id), class: 'btn btn-primary'
+            = link_to 'destroy', client_application_partner_path(client_application_partner.id), method: :delete, data: { confirm: "Are you sure?" }, class: 'btn btn-danger'
