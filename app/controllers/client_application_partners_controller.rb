@@ -1,6 +1,10 @@
 class ClientApplicationPartnersController < ApplicationController
   def new
-    @client_application_partner = ClientApplicationPartner.new
+    @client_application = ClientApplication.new(id: params[:client_application_id])
+    @client_application_partner = ClientApplicationPartner.new(client_application_id: params[:client_application_id])
+  end
+
+  def create
   end
 
   def index
@@ -21,5 +25,13 @@ class ClientApplicationPartnersController < ApplicationController
     @error = e.message
   end
 
+  private
 
+  # def set_client_application
+  #   @client_application = ClientApplication.find(params[:client_application_id])
+  # end
+
+  def client_application_partner_params
+    params.require(:client_application_partner).permit(:client_application_id, :partner_id)
+  end
 end
