@@ -37,4 +37,10 @@ class Gravity
 
     results
   end
+
+  private
+
+  def self.headers
+    {}
+  end
 end

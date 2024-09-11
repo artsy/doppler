@@ -1,4 +1,8 @@
 class ClientApplicationPartnersController < ApplicationController
+  def new
+    @client_application_partner = ClientApplicationPartner.new
+  end
+
   def index
     url = "#{Gravity::GRAVITY_V1_API_URL}/client_application/c11d3426-b114-422e-8228-05be9bfb6f21/client_application_partners"
     response = Gravity.get(url: url, additional_headers: {"X-Access-Token" => session[:access_token]})

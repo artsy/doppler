@@ -1,0 +1,7 @@
+%h1 Configure a New Client Application Partner
+= bootstrap_form_for @client_application_partner do |f|
+  -# TODO: pull this from parent client application
+  = f.text_field :client_application_id, required: true, placeholder: 'Add in an ID of your client application'
+  = f.text_field :partner_id, required: true, placeholder: 'Grab a partner ID from your CMS'
+  = f.primary 'Save'
+  = link_to 'Cancel', 'javascript:history.back()', class: 'btn btn-default'
