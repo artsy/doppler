@@ -7,6 +7,8 @@ class ApplicationController < ActionController::Base
   helper_method :authenticated?
 
   def artsy_client
+    # hm leave as V2 for now?
+    p "hello?"
     @client ||= if authenticated?
       ArtsyAPI::V2.client(access_token: session[:access_token])
     else
