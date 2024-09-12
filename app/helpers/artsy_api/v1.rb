@@ -2,7 +2,6 @@
 # Slightly different from a library client
 
 module ArtsyApi
-
   module V1
     def self.url
       ENV["ARTSY_API_URL"] || "http://localhost:3000"

@@ -1,11 +1,9 @@
 Rails.application.routes.draw do
   root "welcome#index"
 
-  # resources :client_applications
   resources :client_applications do
-    resources :client_application_partners, only: [:new, :create, :index, :destroy]
+    resources :client_application_partners, only: [:index]
   end
-  # resources :client_application_partners
 
   mount ArtsyAuth::Engine => "/"
 
