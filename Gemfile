@@ -30,7 +30,7 @@ gem "sentry-rails"
 gem "twitter-bootstrap-rails"
 gem "twitter-bootstrap-rails-confirm"
 gem "uglifier"
-gem 'webrick'
+gem "webrick"
 
 group :development do
   gem "guard"
