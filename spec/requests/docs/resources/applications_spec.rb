@@ -1,7 +1,7 @@
 require "spec_helper"
 describe "Resources/applications" do
   before do
-    allow(ArtsyAPI::V2).to receive_message_chain(:client, :links, :applications, :embedded, :applications).and_return([])
+    allow(ArtsyApi::V2).to receive_message_chain(:client, :links, :applications, :embedded, :applications).and_return([])
     models_json = {
       "models" => {
         "Application" => {
@@ -11,7 +11,7 @@ describe "Resources/applications" do
         }
       }
     }
-    allow(ArtsyAPI::V2).to receive_message_chain(:client, :connection, :get, :body).and_return(models_json)
+    allow(ArtsyApi::V2).to receive_message_chain(:client, :connection, :get, :body).and_return(models_json)
   end
   context "signed in" do
     before do

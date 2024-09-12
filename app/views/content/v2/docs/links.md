@@ -8,7 +8,7 @@ Links in HAL responses are contained directly within a resource. Thet are repres
 {
     "_links" : {
         "next" : {
-          "href": "#{ArtsyAPI::V2.root}/..."
+          "href": "#{ArtsyApi::V2.root}/..."
         }
     }
 }
@@ -16,7 +16,7 @@ Links in HAL responses are contained directly within a resource. Thet are repres
 
 #### API Discoverability
 
-A HAL API should be navigated from its [root](#{ArtsyAPI::V2.root}). The root itself is a collection of links.
+A HAL API should be navigated from its [root](#{ArtsyApi::V2.root}). The root itself is a collection of links.
 
 #### Link Relations
 
@@ -26,7 +26,7 @@ Links have a relation, aka. "rel". This indicates the semantic, the meaning, of 
 {
     "_links" : {
         "artworks" : {
-          "href": "#{ArtsyAPI::V2.root}/..."
+          "href": "#{ArtsyApi::V2.root}/..."
         }
     }
 }
@@ -41,7 +41,7 @@ Templated links have a "templated" attribute set to "true".
 ```json
 "_links" :
   "artist" : {
-    "href" : "#{ArtsyAPI::V2.root}/artists/{id}",
+    "href" : "#{ArtsyApi::V2.root}/artists/{id}",
     "templated" : true
   }
 }
@@ -52,7 +52,7 @@ Query string parameters are declared as follows.
 ```json
 "_links" :
   "artist" : {
-    "href" : "#{ArtsyAPI::V2.root}/artworks{?public,artist_id}",
+    "href" : "#{ArtsyApi::V2.root}/artworks{?public,artist_id}",
     "templated" : true
   }
 }

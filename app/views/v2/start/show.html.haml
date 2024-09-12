@@ -74,7 +74,7 @@ Let's make a few API calls to obtain the information for Andy Warhol.
   Using curl:
 
   %pre
-    curl -v -X POST "#{ArtsyAPI::V2.root}/tokens/xapp_token?client_id=#{@selected_client_application.client_id}&client_secret=#{@selected_client_application.client_secret}"
+    curl -v -X POST "#{ArtsyApi::V2.root}/tokens/xapp_token?client_id=#{@selected_client_application.client_id}&client_secret=#{@selected_client_application.client_secret}"
 
   With plain Ruby:
 
@@ -83,7 +83,7 @@ Let's make a few API calls to obtain the information for Andy Warhol.
     "\n" +                                                                                            |
     "client_id = '#{@selected_client_application.client_id}'\n" +                                     |
     "client_secret = '#{@selected_client_application.client_secret}'\n" +                             |
-    "api_url = URI.parse('#{ArtsyAPI::V2.root}/tokens/xapp_token')\n" +                         |
+    "api_url = URI.parse('#{ArtsyApi::V2.root}/tokens/xapp_token')\n" +                         |
     "response = Net::HTTP.post_form(api_url, client_id: client_id, client_secret: client_secret)\n" + |
     "xapp_token = JSON.parse(response.body)['token']\n", :ruby                                        |
 
@@ -94,7 +94,7 @@ Let's make a few API calls to obtain the information for Andy Warhol.
     "client_id = '#{@selected_client_application.client_id}'\n" +                                                 |
     "client_secret = '#{@selected_client_application.client_secret}'\n" +                                         |
     "\n" +                                                                                                        |
-    "api = Hyperclient.new('#{ArtsyAPI::V2.root}') do |api|\n" +                                            |
+    "api = Hyperclient.new('#{ArtsyApi::V2.root}') do |api|\n" +                                            |
     "  api.headers['Accept'] = 'application/vnd.artsy-v2+json'\n" +                                               |
     "  api.headers['Content-Type'] = 'application/json'\n" +                                                      |
     "  api.connection(default: false) do |conn|\n" +                                                              |
@@ -114,7 +114,7 @@ Let's make a few API calls to obtain the information for Andy Warhol.
     "",
     "var clientID = '#{@selected_client_application.client_id}',",
     "    clientSecret = '#{@selected_client_application.client_secret}',",
-    "    apiUrl = '#{ArtsyAPI::V2.root}/tokens/xapp_token',",
+    "    apiUrl = '#{ArtsyApi::V2.root}/tokens/xapp_token',",
     "    xappToken;",
     "",
     "request",
@@ -127,7 +127,7 @@ Let's make a few API calls to obtain the information for Andy Warhol.
   Returns the following JSON.
 
   - begin
-    - xapp_response = JSON.parse(Net::HTTP.post_form(URI.parse("#{ArtsyAPI::V2.root}/tokens/xapp_token"), client_id: @selected_client_application.client_id, client_secret: @selected_client_application.client_secret).body)
+    - xapp_response = JSON.parse(Net::HTTP.post_form(URI.parse("#{ArtsyApi::V2.root}/tokens/xapp_token"), client_id: @selected_client_application.client_id, client_secret: @selected_client_application.client_secret).body)
     - xapp_token = xapp_response['token']
     != highlight_syntax JSON.pretty_generate(xapp_response), :json
   - rescue Exception => e
@@ -138,11 +138,11 @@ Let's make a few API calls to obtain the information for Andy Warhol.
   The token can be used to make API requests.
 
   %pre
-    curl -v -L #{ArtsyAPI::V2.root}/artists/andy-warhol -H 'X-Xapp-Token:#{xapp_token}'
+    curl -v -L #{ArtsyApi::V2.root}/artists/andy-warhol -H 'X-Xapp-Token:#{xapp_token}'
 
-  Redirects to "#{ArtsyAPI::V2.root}/artists/4d8b92b34eb68a1b2c0003f4", which returns a JSON document for Andy Warhol.
+  Redirects to "#{ArtsyApi::V2.root}/artists/4d8b92b34eb68a1b2c0003f4", which returns a JSON document for Andy Warhol.
 
-  - artsy_api = ArtsyAPI::V2.client(xapp_token: xapp_token)
+  - artsy_api = ArtsyApi::V2.client(xapp_token: xapp_token)
   - begin
     != highlight_syntax JSON.pretty_generate(artsy_api.artist(id: 'andy-warhol')._response.body), :json
   - rescue Exception => e
@@ -154,7 +154,7 @@ Let's make a few API calls to obtain the information for Andy Warhol.
     "\n" +                                                                                                                                     |
     "xapp_token = '#{xapp_token}'\n" +                                                                                                         |
     "\n" +                                                                                                                                     |
-    "api = Hyperclient.new('#{ArtsyAPI::V2.root}') do |api|\n" +                                                                         |
+    "api = Hyperclient.new('#{ArtsyApi::V2.root}') do |api|\n" +                                                                         |
     "  api.headers['Accept'] = 'application/vnd.artsy-v2+json'\n" +                                                                            |
     "  api.headers['X-Xapp-Token'] = xapp_token\n" +                                                                                           |
     "  api.connection(default: false) do |conn|\n" +                                                                                           |
@@ -176,7 +176,7 @@ Let's make a few API calls to obtain the information for Andy Warhol.
     "    xappToken = '#{xapp_token}';",
     "",
     "traverson.registerMediaType(JsonHalAdapter.mediaType, JsonHalAdapter);",
-    "api = traverson.from('#{ArtsyAPI::V2.root}').jsonHal();",
+    "api = traverson.from('#{ArtsyApi::V2.root}').jsonHal();",
     "",
     "api.newRequest()",
     "  .follow('artist')",

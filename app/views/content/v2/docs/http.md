@@ -82,7 +82,7 @@ Links are always contained directly within a resource under the "_links" key. Li
 {
     "_links" : {
         "artworks" : {
-          "href" : "#{ArtsyAPI::V2.root}/artworks?artist_id=4d8b92b34eb68a1b2c0003f4"
+          "href" : "#{ArtsyApi::V2.root}/artworks?artist_id=4d8b92b34eb68a1b2c0003f4"
         }
     }
 }
@@ -94,7 +94,7 @@ All top-level resources have a link to "self".
 {
     "_links" : {
         "self" : {
-          "href" : "#{ArtsyAPI::V2.root}/artists/4d8b92b34eb68a1b2c0003f4"
+          "href" : "#{ArtsyApi::V2.root}/artists/4d8b92b34eb68a1b2c0003f4"
         }
     }
 }
@@ -111,7 +111,7 @@ Collections of resources are returned the "_embedded" key under a type sub-key. 
   "total_count" : 0,
   "_links" : {
     "self" : {
-      "href" : "#{ArtsyAPI::V2.root}/..."
+      "href" : "#{ArtsyApi::V2.root}/..."
     }
   },
   "_embedded" : {
@@ -141,5 +141,3 @@ Error codes in the 400 range contain a JSON response that describes the error.
 For more information about various error types see [errors](/v2/docs/errors).
 
 Error codes in the 500 range are not expected and should be [reported](/help).
-
-
