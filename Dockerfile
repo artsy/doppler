@@ -16,10 +16,7 @@ RUN curl -sL https://deb.nodesource.com/setup_12.x | bash - \
 
 COPY Gemfile* ./
 
-# Install a compatible version of rubygems-update
-RUN gem install rubygems-update -v 3.3.26 && update_rubygems
-
-RUN gem install bundler -v 2.4.22 \
+RUN gem install bundler && bundle update --bundler \
   && bundle
 
 COPY . ./
