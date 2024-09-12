@@ -24,7 +24,7 @@ curl -v "#{ArtsyApi::V2.root}/profiles/{id}" -H "X-XAPP-Token: XAPP_TOKEN"
 
 ## Profile JSON Format
 
-# {modelref://Profile}
+#{modelref://Profile}
 
 #### Links
 

@@ -31,7 +31,7 @@ curl -v "#{ArtsyApi::V2.root}/partners/{id}" -H "X-XAPP-Token: XAPP_TOKEN"
 
 ## Partner JSON Format
 
-# {modelref://Partner}
+#{modelref://Partner}
 
 #### Links
 

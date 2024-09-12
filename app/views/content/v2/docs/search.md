@@ -16,7 +16,7 @@ The response is a [paginated result](/v2/docs/pagination) with embedded search r
 
 ## Search Result JSON Format
 
-# {modelref://SearchResult}
+#{modelref://SearchResult}
 
 #### Possible Types
 

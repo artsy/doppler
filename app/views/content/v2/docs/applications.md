@@ -62,7 +62,7 @@ Users are only authorized to retrieve their own applications.
 
 ## Application JSON Format
 
-# {modelref://Application}
+#{modelref://Application}
 
 #### Links
 

@@ -21,7 +21,7 @@ artwork_id | Retrieve genes for a given [artwork](/v2/docs/artworks).           
 
 ## Gene JSON Format
 
-# {modelref://Gene}
+#{modelref://Gene}
 
 #### Links
 

@@ -20,7 +20,7 @@ curl -v "#{ArtsyApi::V2.root}/bids/{id}" -H "X-XAPP-Token: XAPP_TOKEN"
 
 ## Bid JSON Format
 
-# {modelref://Bid}
+#{modelref://Bid}
 
 #### Links
 

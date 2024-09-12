@@ -28,7 +28,7 @@ The response will be a 302 redirect to a "users" link with the current user ID.
 
 ## User JSON Format
 
-# {modelref://User}
+#{modelref://User}
 
 #### Links
 

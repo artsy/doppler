@@ -58,7 +58,7 @@ curl -v "#{ArtsyApi::V2.root}/bidders/{id}" -H "X-XAPP-Token: XAPP_TOKEN"
 
 ## Bidder JSON Format
 
-# {modelref://Bidder}
+#{modelref://Bidder}
 
 #### Links
 

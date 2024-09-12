@@ -26,7 +26,7 @@ curl -v "#{ArtsyApi::V2.root}/images/{id}" -H "X-XAPP-Token: XAPP_TOKEN"
 
 ## Image JSON Format
 
-# {modelref://Image}
+#{modelref://Image}
 
 #### Links
 

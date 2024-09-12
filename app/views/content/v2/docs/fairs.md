@@ -30,7 +30,7 @@ curl -v "#{ArtsyApi::V2.root}/fairs/{id}" -H "X-XAPP-Token: XAPP_TOKEN"
 
 ## Fair JSON Format
 
-# {modelref://Fair}
+#{modelref://Fair}
 
 #### Links
 

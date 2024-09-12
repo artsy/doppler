@@ -38,7 +38,7 @@ Artsy continuously computes a K-nearest-neighbor graph for artworks using data f
 
 ## Artwork JSON Format
 
-# {modelref://Artwork}
+#{modelref://Artwork}
 
 #### Links
 

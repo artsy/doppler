@@ -41,7 +41,7 @@ See [this topic](/v2/docs/collection_items) for documentation on how to add artw
 
 ## Collection Item JSON Format
 
-# {modelref://Collection}
+#{modelref://Collection}
 
 #### Links
 

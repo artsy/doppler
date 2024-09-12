@@ -58,7 +58,7 @@ curl -v "#{ArtsyApi::V2.root}/sales/{id}" -H "X-XAPP-Token: XAPP_TOKEN"
 
 ## Sale JSON Format
 
-# {modelref://Sale}
+#{modelref://Sale}
 
 #### Example
 

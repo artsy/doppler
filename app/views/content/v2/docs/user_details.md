@@ -18,7 +18,7 @@ curl -v "#{ArtsyApi::V2.root}/user_details/{id}" -H "X-Access-Token: ACCESS_TOKE
 
 ## User Details JSON Format
 
-# {modelref://UserDetail}
+#{modelref://UserDetail}
 
 #### Links
 

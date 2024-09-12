@@ -61,7 +61,7 @@ collection.collection_items._post(artwork_id: artwork.id)
 
 ## Collection Item JSON Format
 
-# {modelref://CollectionItem}
+#{modelref://CollectionItem}
 
 #### Links
 

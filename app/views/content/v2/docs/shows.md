@@ -31,7 +31,7 @@ current       | Running or upcoming.                               |
 
 ## Show JSON Format
 
-# {modelref://Show}
+#{modelref://Show}
 
 #### Links
 

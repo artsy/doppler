@@ -14,7 +14,7 @@ curl -v "#{ArtsyApi::V2.root}/edition/{id}?artwork_id={artwork_id}" -H "X-XAPP-T
 
 ## Edition JSON Format
 
-# {modelref://Edition}
+#{modelref://Edition}
 
 #### Links
 
