@@ -12,7 +12,9 @@ if command -v asdf >/dev/null; then
   # Initialize asdf and ensure it switches to the right Ruby version
   . ~/.asdf/asdf.sh
   asdf reshim
-  asdf shell ruby 2.7.5
+  # Pull the Ruby version from .tool-versions file
+  RUBY_VERSION=$(awk '/ruby/ {print $2}' .tool-versions)
+  asdf shell ruby $RUBY_VERSION
 else
   echo "Skipping language dependencies installation (asdf not found)"
 fi
