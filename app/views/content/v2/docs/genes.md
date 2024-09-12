@@ -6,10 +6,10 @@ Think about an art object, say a painting by Andy Warhol. You might say it is a 
 
 #### Retrieving Genes
 
-Retrieve genes by following the [genes](#{ArtsyAPI::V2.root}/genes) link from [root](#{ArtsyAPI::V2.root}), or the "genes" links within an [artwork](/v2/docs/artworks) or [artist](/v2/docs/artists).
+Retrieve genes by following the [genes](#{ArtsyApi::V2.root}/genes) link from [root](#{ArtsyApi::V2.root}), or the "genes" links within an [artwork](/v2/docs/artworks) or [artist](/v2/docs/artists).
 
 ```
-curl -v "#{ArtsyAPI::V2.root}/genes/{id}" -H "X-XAPP-Token: XAPP_TOKEN"
+curl -v "#{ArtsyApi::V2.root}/genes/{id}" -H "X-XAPP-Token: XAPP_TOKEN"
 ```
 
 This endpoint accepts the following parameters.

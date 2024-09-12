@@ -15,7 +15,7 @@ describe "V2 Start" do
       # xapp token request from start/show.html.haml
       allow(Net::HTTP).to receive_message_chain(:post_form, :body).and_return({xapp_token: "token"}.to_json)
       # example of retrieving an artist by id
-      allow(ArtsyAPI::V2).to receive_message_chain(:client, :artist, :_response, :body).and_return("id" => "andy-warhol")
+      allow(ArtsyApi::V2).to receive_message_chain(:client, :artist, :_response, :body).and_return("id" => "andy-warhol")
     end
     let(:application) do
       Hashie::Mash.new(
@@ -29,15 +29,15 @@ describe "V2 Start" do
     end
     context "without apps" do
       before do
-        allow(ArtsyAPI::V2).to receive_message_chain(:client, :_links, :applications).and_return([])
+        allow(ArtsyApi::V2).to receive_message_chain(:client, :_links, :applications).and_return([])
       end
       it "creates an app" do
         visit "/v2/start"
         expect(page.body).to include "Create an App"
-        expect(ArtsyAPI::V2).to receive_message_chain(:client, :applications, :_post).with(name: "Name", redirect_urls: []).and_return(application)
+        expect(ArtsyApi::V2).to receive_message_chain(:client, :applications, :_post).with(name: "Name", redirect_urls: []).and_return(application)
         click_link "here"
         fill_in "Name", with: "Name"
-        allow(ArtsyAPI::V2).to receive_message_chain(:client, :applications).and_return([application])
+        allow(ArtsyApi::V2).to receive_message_chain(:client, :applications).and_return([application])
         click_button "Save"
         sleep 1
         expect(page.body).to include "Use Your App"
@@ -47,7 +47,7 @@ describe "V2 Start" do
     context "with apps" do
       context "with an application" do
         before do
-          allow(ArtsyAPI::V2).to receive_message_chain(:client, :applications).and_return([application])
+          allow(ArtsyApi::V2).to receive_message_chain(:client, :applications).and_return([application])
           visit "/v2/start"
         end
         it "selects the app" do
@@ -83,7 +83,7 @@ describe "V2 Start" do
           )
         end
         before do
-          allow(ArtsyAPI::V2).to receive_message_chain(:client, :applications).and_return([application1, application2])
+          allow(ArtsyApi::V2).to receive_message_chain(:client, :applications).and_return([application1, application2])
         end
         it "lets pick the app" do
           visit "/v2/start"

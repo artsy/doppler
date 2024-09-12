@@ -21,7 +21,7 @@ This workflow is suitable for desktop or mobile clients. It allows anonymous log
 
 ```
 curl -v -X POST \
-  #{ArtsyAPI::V2.root}/tokens/xapp_token \
+  #{ArtsyApi::V2.root}/tokens/xapp_token \
   -d client_id=[your client id] \
   -d client_secret=[your client secret]
 ```
@@ -62,7 +62,7 @@ Currently there's no way to restrict the redirect addresses for your application
 Redirect users who wish to authenticate to the OAuth authorization url.
 
 ```
-curl -v "#{ArtsyAPI::V2.url}/oauth2/authorize?client_id=...&redirect_uri=...&response_type=code"
+curl -v "#{ArtsyApi::V2.url}/oauth2/authorize?client_id=...&redirect_uri=...&response_type=code"
 ```
 
 A logged in user will be redirected back to the url you have supplied, appending an authorization code `code=...`, eg. `https://[your redirect url]/?code=auth`.
@@ -71,7 +71,7 @@ Your server should make an OAuth2 POST request to the following url.
 
 ```
 curl -v -X POST \
-  #{ArtsyAPI::V2.url}/oauth2/access_token \
+  #{ArtsyApi::V2.url}/oauth2/access_token \
   -d client_id=[your client id] \
   -d client_secret=[your client secret] \
   -d code=[code] \
@@ -131,7 +131,7 @@ If you store or prompt for the user's email and password, which is not recommend
 
 ```
 curl -v -X POST \
-  #{ArtsyAPI::V2.url}/oauth2/access_token \
+  #{ArtsyApi::V2.url}/oauth2/access_token \
   -d client_id=[your client id] \
   -d client_secret=[your client secret] \
   -d grant_type=credentials \
@@ -173,7 +173,7 @@ If you have access to a user's social provider token (Facebook) or a social prov
 
 ```
 curl -v -X POST \
-  #{ArtsyAPI::V2.url}/oauth2/access_token \
+  #{ArtsyApi::V2.url}/oauth2/access_token \
   -d client_id=[your client id] \
   -d client_secret=[your client secret] \
   -d grant_type=oauth_token \
@@ -201,7 +201,7 @@ You should offer users logout functionality and expire OAuth tokens obtained fro
 
 ```
 curl -v -X DELETE \
-  #{ArtsyAPI::V2.root}/tokens/access_token \
+  #{ArtsyApi::V2.root}/tokens/access_token \
   -d access_token=[access token]
 ```
 

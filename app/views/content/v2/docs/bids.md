@@ -12,10 +12,10 @@ The Bids API is restricted to authorized applications/users.
 
 #### Retrieving a Bid
 
-Users can retrieve a specific bid by ID by rendering the "bid" link template from [root](#{ArtsyAPI::V2.root}).
+Users can retrieve a specific bid by ID by rendering the "bid" link template from [root](#{ArtsyApi::V2.root}).
 
 ```
-curl -v "#{ArtsyAPI::V2.root}/bids/{id}" -H "X-XAPP-Token: XAPP_TOKEN"
+curl -v "#{ArtsyApi::V2.root}/bids/{id}" -H "X-XAPP-Token: XAPP_TOKEN"
 ```
 
 ## Bid JSON Format
@@ -30,4 +30,3 @@ self               | The bid resource.                                     |
 position           | The source [bidder position](docs/bidder_positions)   |
 artwork            | The associated [artwork](docs/artworks)               |
 sale               | The [sale](docs/sales) where the bid was placed       |
-

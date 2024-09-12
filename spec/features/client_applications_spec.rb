@@ -2,7 +2,7 @@ require "spec_helper"
 
 describe "Client Applications" do
   before do
-    allow(ArtsyAPI::V2).to receive_messages(
+    allow(ArtsyApi::V2).to receive_messages(
       artworks_count: 123,
       xapp_token: "foo"
     )
@@ -17,10 +17,10 @@ describe "Client Applications" do
     end
     context "without applications" do
       before do
-        allow(ArtsyAPI::V2).to receive_message_chain(:client, :applications).and_return([])
+        allow(ArtsyApi::V2).to receive_message_chain(:client, :applications).and_return([])
       end
       it "creates an app" do
-        expect(ArtsyAPI::V2).to receive_message_chain(:client, :applications, :_post).with(name: "Name", redirect_urls: [])
+        expect(ArtsyApi::V2).to receive_message_chain(:client, :applications, :_post).with(name: "Name", redirect_urls: [])
         visit "/client_applications"
         click_link "Create a New App"
         fill_in "Name", with: "Name"
@@ -28,7 +28,7 @@ describe "Client Applications" do
       end
       context "open-redirect" do
         before do
-          allow(ArtsyAPI::V2).to receive_message_chain(:client, :applications, :_post)
+          allow(ArtsyApi::V2).to receive_message_chain(:client, :applications, :_post)
         end
         ["http://google.com", "http:/google.com"].each do |url|
           it "is not vulnerable to an open redirect to #{url}" do
@@ -73,8 +73,8 @@ describe "Client Applications" do
         )
       end
       before do
-        allow(ArtsyAPI::V2).to receive_message_chain(:client, :applications).and_return([application])
-        allow(ArtsyAPI::V2).to receive_message_chain(:client, :application).and_return(application)
+        allow(ArtsyApi::V2).to receive_message_chain(:client, :applications).and_return([application])
+        allow(ArtsyApi::V2).to receive_message_chain(:client, :application).and_return(application)
       end
       it "displays the app in a table" do
         visit "/client_applications"
@@ -119,8 +119,8 @@ describe "Client Applications" do
         )
       end
       before do
-        allow(ArtsyAPI::V2).to receive_message_chain(:client, :applications).and_return([application])
-        allow(ArtsyAPI::V2).to receive_message_chain(:client, :application).and_return(application)
+        allow(ArtsyApi::V2).to receive_message_chain(:client, :applications).and_return([application])
+        allow(ArtsyApi::V2).to receive_message_chain(:client, :application).and_return(application)
       end
       it "displays the app access in a table" do
         visit "/client_applications"
@@ -154,8 +154,8 @@ describe "Client Applications" do
         )
       end
       before do
-        allow(ArtsyAPI::V2).to receive_message_chain(:client, :applications).and_return([application])
-        allow(ArtsyAPI::V2).to receive_message_chain(:client, :application).and_return(application)
+        allow(ArtsyApi::V2).to receive_message_chain(:client, :applications).and_return([application])
+        allow(ArtsyApi::V2).to receive_message_chain(:client, :application).and_return(application)
       end
       it "displays the app access in a table" do
         visit "/client_applications"

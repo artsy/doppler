@@ -1,4 +1,4 @@
-module ArtsyAPI
+module ArtsyApi
   module V2
     def self.url
       ENV["ARTSY_API_URL"] || "http://localhost:3000"

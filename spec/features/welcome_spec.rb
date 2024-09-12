@@ -2,7 +2,7 @@ require "spec_helper"
 
 describe "Welcome" do
   before do
-    allow(ArtsyAPI::V2).to receive(:artworks_count).and_return(123)
+    allow(ArtsyApi::V2).to receive(:artworks_count).and_return(123)
   end
   context "page" do
     before do
