@@ -418,7 +418,6 @@ GEM
     uglifier (4.2.0)
       execjs (>= 0.3.0, < 3)
     unicode-display_width (2.5.0)
-    webrick (1.8.1)
     websocket (1.2.11)
     websocket-driver (0.7.6)
       websocket-extensions (>= 0.1.0)
@@ -470,7 +469,6 @@ DEPENDENCIES
   twitter-bootstrap-rails
   twitter-bootstrap-rails-confirm
   uglifier
-  webrick
 
 RUBY VERSION
    ruby 3.0.2p107
