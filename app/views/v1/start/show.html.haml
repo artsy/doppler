@@ -86,24 +86,24 @@ Let's make a few API calls to obtain the information for Andy Warhol on behalf o
 
   - redirect_url = @selected_client_application.redirect_urls.try(:first)
   - redirect_url = 'http://localhost' if redirect_url.blank?
-  - authorize_url = "#{ArtsyAPI::V1.url}/oauth2/authorize?client_id=#{@selected_client_application.client_id}&redirect_uri=#{CGI.escape(redirect_url)}&response_type=code"
+  - authorize_url = "#{ArtsyApi::V1.url}/oauth2/authorize?client_id=#{@selected_client_application.client_id}&redirect_uri=#{CGI.escape(redirect_url)}&response_type=code"
 
   %h5 4.1 Redirect your users to <a href="#{authorize_url}" target="_blank">#{authorize_url}</a>
 
   %h5 4.2 Extract the <b>code</b> from the query string at <b>#{redirect_url}</b>.
 
-  - access_token_url = "#{ArtsyAPI::V1.url}/oauth2/access_token"
+  - access_token_url = "#{ArtsyApi::V1.url}/oauth2/access_token"
   %h5 4.3 Perform an HTTP POST to <a href="#{access_token_url}">#{access_token_url}</a> with <b>code=...</b>, <b>client_id=#{@selected_client_application.client_id}</b>, <b>client_secret=#{@selected_client_application.client_secret}</b> and <b>grant_type=authorization_code</b>.
 
   %h5 4.4 Extract <b>access_token</b> and <b>expires_in</b> from the JSON response.
 
   %h4 5. Obtain Logged-In User Information
 
-  The authenticated user can retrieve their own identity from <a href="#{ArtsyAPI::V1.root}/me">#{ArtsyAPI::V1.root}/me</a> and the list of partners under management (granted by an Artsy representative) from <a href="#{ArtsyAPI::V1.root}/me/partners">#{ArtsyAPI::V1.root}/me/partners</a>.
+  The authenticated user can retrieve their own identity from <a href="#{ArtsyApi::V1.root}/me">#{ArtsyApi::V1.root}/me</a> and the list of partners under management (granted by an Artsy representative) from <a href="#{ArtsyApi::V1.root}/me/partners">#{ArtsyApi::V1.root}/me/partners</a>.
 
   %h4 6. Upload an Artwork
 
-  Perform an HTTP POST to <a href="#{ArtsyAPI::V1.root}/artwork">#{ArtsyAPI::V1.root}/artwork</a> with a <b>title</b>, <b>artists</b> (eg. <code>['andy-warhol']</code>), <b>remote_image_url</b> and <b>partner_id</b>.
+  Perform an HTTP POST to <a href="#{ArtsyApi::V1.root}/artwork">#{ArtsyApi::V1.root}/artwork</a> with a <b>title</b>, <b>artists</b> (eg. <code>['andy-warhol']</code>), <b>remote_image_url</b> and <b>partner_id</b>.
 
   %h4 7. Samples
 

@@ -6,10 +6,10 @@ An artwork is an artistic production created by an [artist](/v2/docs/artists), m
 
 #### Retrieving Artworks
 
-Retrieve artworks by following the [artworks](#{ArtsyAPI::V2.root}/artworks) link from [root](#{ArtsyAPI::V2.root}).
+Retrieve artworks by following the [artworks](#{ArtsyApi::V2.root}/artworks) link from [root](#{ArtsyApi::V2.root}).
 
 ```
-curl -v "#{ArtsyAPI::V2.root}/artworks" -H "X-XAPP-Token: XAPP_TOKEN"
+curl -v "#{ArtsyApi::V2.root}/artworks" -H "X-XAPP-Token: XAPP_TOKEN"
 ```
 
 This endpoint accepts the following parameters.
@@ -26,10 +26,10 @@ The response is a [paginated result](/v2/docs/pagination) with embedded artworks
 
 #### Retrieving an Artwork
 
-Users can retrieve a specific artwork by ID by rendering the "artwork" link template from [root](#{ArtsyAPI::V2.root}).
+Users can retrieve a specific artwork by ID by rendering the "artwork" link template from [root](#{ArtsyApi::V2.root}).
 
 ```
-curl -v "#{ArtsyAPI::V2.root}/artworks/{id}" -H "X-XAPP-Token: XAPP_TOKEN"
+curl -v "#{ArtsyApi::V2.root}/artworks/{id}" -H "X-XAPP-Token: XAPP_TOKEN"
 ```
 
 #### Retrieving Similar Artworks

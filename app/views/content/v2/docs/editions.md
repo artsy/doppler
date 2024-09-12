@@ -6,10 +6,10 @@ An edition set is usually a collection of prints created from the same matrix.
 
 #### Retrieving an Edition
 
-Editions are embedded within an artwork, but can also be retrieved individually by ID by rendering the "edition" link template from [root](#{ArtsyAPI::V2.root}).
+Editions are embedded within an artwork, but can also be retrieved individually by ID by rendering the "edition" link template from [root](#{ArtsyApi::V2.root}).
 
 ```
-curl -v "#{ArtsyAPI::V2.root}/edition/{id}?artwork_id={artwork_id}" -H "X-XAPP-Token: XAPP_TOKEN"
+curl -v "#{ArtsyApi::V2.root}/edition/{id}?artwork_id={artwork_id}" -H "X-XAPP-Token: XAPP_TOKEN"
 ```
 
 ## Edition JSON Format

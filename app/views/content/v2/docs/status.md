@@ -9,7 +9,7 @@ This API endpoint does not require authentication or authorization.
 This API retrieves the system status.
 
 ```
-curl -v "#{ArtsyAPI::V2.root}/status"
+curl -v "#{ArtsyApi::V2.root}/status"
 ```
 
 This endpoint does not accept any parameters and returns a status JSON document with the following fields.

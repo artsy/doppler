@@ -3,7 +3,7 @@ require "spec_helper"
 describe "Resources/status" do
   before do
     # status example
-    allow(ArtsyAPI::V2).to receive(:xapp_token).and_return("token")
+    allow(ArtsyApi::V2).to receive(:xapp_token).and_return("token")
     models_json = {
       "models" => {
         "System" => {
@@ -13,8 +13,8 @@ describe "Resources/status" do
         }
       }
     }
-    allow(ArtsyAPI::V2).to receive_message_chain(:client, :connection, :get, :body).and_return(models_json)
-    allow(ArtsyAPI::V2).to receive_message_chain(:client, :status, :_get, :_response, :body).and_return(foo: "bar")
+    allow(ArtsyApi::V2).to receive_message_chain(:client, :connection, :get, :body).and_return(models_json)
+    allow(ArtsyApi::V2).to receive_message_chain(:client, :status, :_get, :_response, :body).and_return(foo: "bar")
   end
   context "signed out" do
     before do

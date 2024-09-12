@@ -9,4 +9,4 @@
 ### Tools
 
 * [API Playground](/v1/playground)
-* [Swagger JSON](#{ArtsyAPI::V1.docs_url})
+* [Swagger JSON](#{ArtsyApi::V1.docs_url})
