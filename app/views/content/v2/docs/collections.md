@@ -6,10 +6,10 @@ A collection belongs to a [user](/v2/docs/users) and contains [artworks](/v2/doc
 
 #### Retrieving Collections
 
-You can retrieve a user's public collections by following the "public\_collections" link from a [user](/v2/docs/users). Users can retrieve their own public and private collections by following the [collections](#{ArtsyAPI::V2.root}/collections) link from [user details](/v2/docs/user_details).
+You can retrieve a user's public collections by following the "public\_collections" link from a [user](/v2/docs/users). Users can retrieve their own public and private collections by following the [collections](#{ArtsyApi::V2.root}/collections) link from [user details](/v2/docs/user_details).
 
 ```
-curl -v "#{ArtsyAPI::V2.root}/collections?user_id=USER_ID&private=true" -H "X-Access-Token: ACCESS_TOKEN"
+curl -v "#{ArtsyApi::V2.root}/collections?user_id=USER_ID&private=true" -H "X-Access-Token: ACCESS_TOKEN"
 ```
 
 This endpoint accepts the following parameters.
@@ -23,10 +23,10 @@ The response is a [paginated result](/v2/docs/pagination) with embedded collecti
 
 #### Retrieving a Collection
 
-Users can retrieve a specific collection by ID by rendering the "collection" link template from [root](#{ArtsyAPI::V2.root}).
+Users can retrieve a specific collection by ID by rendering the "collection" link template from [root](#{ArtsyApi::V2.root}).
 
 ```
-curl -v "#{ArtsyAPI::V2.root}/collections/{id}?user_id=USER_ID" -H "X-Access-Token: ACCESS_TOKEN"
+curl -v "#{ArtsyApi::V2.root}/collections/{id}?user_id=USER_ID" -H "X-Access-Token: ACCESS_TOKEN"
 ```
 
 ``` alert[danger]
@@ -41,7 +41,7 @@ See [this topic](/v2/docs/collection_items) for documentation on how to add artw
 
 ## Collection Item JSON Format
 
-#{modelref://Collection}
+# {modelref://Collection}
 
 #### Links
 
@@ -65,15 +65,15 @@ collection\_items | [Collection Items](/v2/docs/collection_items) in this collec
   "private" : true,
   "_links" : {
     "self" : {
-      "href" : "#{ArtsyAPI::V2.root}/collections/..."},
+      "href" : "#{ArtsyApi::V2.root}/collections/..."},
     "user" : {
-      "href" : "#{ArtsyAPI::V2.root}/users/4dc805b18101da0001000489"
+      "href" : "#{ArtsyApi::V2.root}/users/4dc805b18101da0001000489"
     },
     "artworks" : {
-      "href" : "#{ArtsyAPI::V2.root}/artworks?collection_id=...&user_id=..."
+      "href" : "#{ArtsyApi::V2.root}/artworks?collection_id=...&user_id=..."
     },
     "collection_items" : {
-      "href" : "#{ArtsyAPI::V2.root}/collection_items?collection_id=...&user_id=..."
+      "href" : "#{ArtsyApi::V2.root}/collection_items?collection_id=...&user_id=..."
     }
   }
 }

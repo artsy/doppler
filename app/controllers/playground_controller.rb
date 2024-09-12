@@ -13,14 +13,14 @@ class PlaygroundController < ApplicationController
   def options_v2
     {
       access_token: session[:access_token],
-      api_docs_url: ArtsyAPI::V2.docs_url
+      api_docs_url: ArtsyApi::V2.docs_url
     }
   end
 
   def options_v1
     {
       access_token: session[:access_token],
-      api_docs_url: ArtsyAPI::V1.docs_url
+      api_docs_url: ArtsyApi::V1.docs_url
     }
   end
 end

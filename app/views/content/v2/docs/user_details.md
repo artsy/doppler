@@ -4,7 +4,6 @@
 This User Details API is restricted to authorized applications and users with a valid [user access token](/v2/docs/authentication).
 ```
 
-
 ## User Details API
 
 While a [user](/v2/docs/users) represents publicly available reference about a registered user account on Artsy, user details are the private portion of such information, including the user's e-mail address or phone number.
@@ -14,12 +13,12 @@ While a [user](/v2/docs/users) represents publicly available reference about a r
 Users can retrieve a specific user by following the "user_details" link from a [user](/v2/docs/users).
 
 ```
-curl -v "#{ArtsyAPI::V2.root}/user_details/{id}" -H "X-Access-Token: ACCESS_TOKEN"
+curl -v "#{ArtsyApi::V2.root}/user_details/{id}" -H "X-Access-Token: ACCESS_TOKEN"
 ```
 
 ## User Details JSON Format
 
-#{modelref://UserDetail}
+# {modelref://UserDetail}
 
 #### Links
 
@@ -43,10 +42,10 @@ partners   | Link to [partners](/v2/docs/partners) this user has management acce
   "gender" : "female",
   "_links" : {
     "self" : {
-      "href" : "#{ArtsyAPI::V2.root}/user_details/52fe4b28c94d114d36000001"
+      "href" : "#{ArtsyApi::V2.root}/user_details/52fe4b28c94d114d36000001"
     },
     "user" : {
-      "href" : "#{ArtsyAPI::V2.root}/user/52fe4b28c94d114d36000001"
+      "href" : "#{ArtsyApi::V2.root}/user/52fe4b28c94d114d36000001"
     }
   }
 }

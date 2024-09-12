@@ -10,25 +10,25 @@ A user represents a registered account on Artsy.
 
 #### Retrieving a User
 
-Users can retrieve a specific user by rendering the "user" link template from [root](#{ArtsyAPI::V2.root}).
+Users can retrieve a specific user by rendering the "user" link template from [root](#{ArtsyApi::V2.root}).
 
 ```
-curl -v "#{ArtsyAPI::V2.root}/users/{id}" -H "X-Access-Token: ACCESS_TOKEN"
+curl -v "#{ArtsyApi::V2.root}/users/{id}" -H "X-Access-Token: ACCESS_TOKEN"
 ```
 
 #### Retrieving Current User
 
-Retrieve the currently authenticated user by following the [current_user](#{ArtsyAPI::V2.root}/current_user) link from [root](#{ArtsyAPI::V2.root}).
+Retrieve the currently authenticated user by following the [current_user](#{ArtsyApi::V2.root}/current_user) link from [root](#{ArtsyApi::V2.root}).
 
 ```
-curl -v "#{ArtsyAPI::V2.root}/current_user" -H "X-Access-Token: ACCESS_TOKEN"
+curl -v "#{ArtsyApi::V2.root}/current_user" -H "X-Access-Token: ACCESS_TOKEN"
 ```
 
 The response will be a 302 redirect to a "users" link with the current user ID.
 
 ## User JSON Format
 
-#{modelref://User}
+# {modelref://User}
 
 #### Links
 
@@ -47,7 +47,7 @@ user_details  | Link to user's [details](/v2/docs/user_details).     |
   "name" : "Joe Person",
   "_links" : {
     "self" : {
-      "href" : "#{ArtsyAPI::V2.root}/users/52fe4b28c94d114d36000001"
+      "href" : "#{ArtsyApi::V2.root}/users/52fe4b28c94d114d36000001"
     },
     "profile" : {
       "href" : "http://localhost:3000/api/profiles/52fe4b2ac94d114d36000005"
@@ -58,4 +58,3 @@ user_details  | Link to user's [details](/v2/docs/user_details).     |
   }
 }
 ```
-

@@ -8,9 +8,9 @@ class ApplicationController < ActionController::Base
 
   def artsy_client
     @client ||= if authenticated?
-      ArtsyAPI::V2.client(access_token: session[:access_token])
+      ArtsyApi::V2.client(access_token: session[:access_token])
     else
-      ArtsyAPI::V2.client(xapp_token: ArtsyAPI::V2.xapp_token)
+      ArtsyApi::V2.client(xapp_token: ArtsyApi::V2.xapp_token)
     end
   end
 

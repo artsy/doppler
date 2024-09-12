@@ -6,10 +6,10 @@ A partner provides [artworks](/v2/docs/artworks).
 
 #### Retrieving Partners
 
-Retrieve partners by following the [partners](#{ArtsyAPI::V2.root}/partners) link from [root](#{ArtsyAPI::V2.root}).
+Retrieve partners by following the [partners](#{ArtsyApi::V2.root}/partners) link from [root](#{ArtsyApi::V2.root}).
 
 ```
-curl -v "#{ArtsyAPI::V2.root}/partners" -H "X-XAPP-Token: XAPP_TOKEN"
+curl -v "#{ArtsyApi::V2.root}/partners" -H "X-XAPP-Token: XAPP_TOKEN"
 ```
 
 This endpoint accepts the following parameters.
@@ -23,15 +23,15 @@ The response is a [paginated result](/v2/docs/pagination) with embedded partners
 
 #### Retrieving a Partner
 
-Users can retrieve a specific partner by ID by rendering the "partner" link template from [root](#{ArtsyAPI::V2.root}).
+Users can retrieve a specific partner by ID by rendering the "partner" link template from [root](#{ArtsyApi::V2.root}).
 
 ```
-curl -v "#{ArtsyAPI::V2.root}/partners/{id}" -H "X-XAPP-Token: XAPP_TOKEN"
+curl -v "#{ArtsyApi::V2.root}/partners/{id}" -H "X-XAPP-Token: XAPP_TOKEN"
 ```
 
 ## Partner JSON Format
 
-#{modelref://Partner}
+# {modelref://Partner}
 
 #### Links
 

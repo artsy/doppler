@@ -12,18 +12,18 @@ class PagesController < ApplicationController
       text = File.read(filename)
       text = text.gsub(%r{\#\{(?<var> [\w.,_/:=+\s\d-]*)\}}x) {
         var = $LAST_MATCH_INFO[:var]
-        if var == "ArtsyAPI::V2.root"
-          ArtsyAPI::V2.root
-        elsif var == "ArtsyAPI::V2.url"
-          ArtsyAPI::V2.url
-        elsif var == "ArtsyAPI::V2.docs_url"
-          ArtsyAPI::V2.docs_url
-        elsif var == "ArtsyAPI::V1.root"
-          ArtsyAPI::V1.root
-        elsif var == "ArtsyAPI::V1.url"
-          ArtsyAPI::V1.url
-        elsif var == "ArtsyAPI::V1.docs_url"
-          ArtsyAPI::V1.docs_url
+        if var == "ArtsyApi::V2.root"
+          ArtsyApi::V2.root
+        elsif var == "ArtsyApi::V2.url"
+          ArtsyApi::V2.url
+        elsif var == "ArtsyApi::V2.docs_url"
+          ArtsyApi::V2.docs_url
+        elsif var == "ArtsyApi::V1.root"
+          ArtsyApi::V1.root
+        elsif var == "ArtsyApi::V1.url"
+          ArtsyApi::V1.url
+        elsif var == "ArtsyApi::V1.docs_url"
+          ArtsyApi::V1.docs_url
         elsif var == "application_id"
           application_id
         elsif var.start_with? "resource://"
@@ -66,7 +66,7 @@ class PagesController < ApplicationController
       Key | Description |
       ---:|:------------|
     TEXT
-    body = ArtsyAPI::V2.client.connection.get("#{ArtsyAPI::V2.root}/v2/docs/docs").body
+    body = ArtsyApi::V2.client.connection.get("#{ArtsyApi::V2.root}/v2/docs/docs").body
     properties = body["models"]
     raise "missing models" unless properties
 

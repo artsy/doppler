@@ -6,10 +6,10 @@ Sales and Auctions are available at the sales endpoint.
 
 #### Retrieving Sales
 
-Users can retrieve sales by following the [sales](#{ArtsyAPI::V2.root}/sales) link from [root](#{ArtsyAPI::V2.root}).
+Users can retrieve sales by following the [sales](#{ArtsyApi::V2.root}/sales) link from [root](#{ArtsyApi::V2.root}).
 
 ```
-curl -v "#{ArtsyAPI::V2.root}/sales" -H "X-Access-Token: ACCESS_TOKEN"
+curl -v "#{ArtsyApi::V2.root}/sales" -H "X-Access-Token: ACCESS_TOKEN"
 ```
 
 This endpoint accepts the following parameters.
@@ -31,10 +31,10 @@ The response is a [paginated result](/v2/docs/pagination) with embedded sales.
   "total_count" : 1,
   "_links" : {
     "self" : {
-      "href" : "#{ArtsyAPI::V2.root}/sales?live=..."
+      "href" : "#{ArtsyApi::V2.root}/sales?live=..."
     },
     "next" : {
-      "href" : "#{ArtsyAPI::V2.root}/sales?cursor=...&live=..."
+      "href" : "#{ArtsyApi::V2.root}/sales?cursor=...&live=..."
     }
   },
   "_embedded" : {
@@ -50,18 +50,18 @@ The response is a [paginated result](/v2/docs/pagination) with embedded sales.
 
 #### Retrieving a Sale
 
-Users can retrieve a specific sale by ID by rendering the "sale" link template from [root](#{ArtsyAPI::V2.root}).
+Users can retrieve a specific sale by ID by rendering the "sale" link template from [root](#{ArtsyApi::V2.root}).
 
 ```
-curl -v "#{ArtsyAPI::V2.root}/sales/{id}" -H "X-XAPP-Token: XAPP_TOKEN"
+curl -v "#{ArtsyApi::V2.root}/sales/{id}" -H "X-XAPP-Token: XAPP_TOKEN"
 ```
+
 ## Sale JSON Format
 
-#{modelref://Sale}
+# {modelref://Sale}
 
 #### Example
 
 ``` json
 #{resource://sale/id=58126d67cd530e21c40002ec}
 ```
-

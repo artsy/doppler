@@ -6,17 +6,17 @@ Search for anything on Artsy.
 
 #### Retrieving Search Results
 
-Search for anything by following the [search](#{ArtsyAPI::V2.root}/search) link from [root](#{ArtsyAPI::V2.root}) with a query parameter.
+Search for anything by following the [search](#{ArtsyApi::V2.root}/search) link from [root](#{ArtsyApi::V2.root}) with a query parameter.
 
 ```
-curl -v "#{ArtsyAPI::V2.root}/search?q=Andy+Warhol" -H "X-XAPP-Token: XAPP_TOKEN"
+curl -v "#{ArtsyApi::V2.root}/search?q=Andy+Warhol" -H "X-XAPP-Token: XAPP_TOKEN"
 ```
 
 The response is a [paginated result](/v2/docs/pagination) with embedded search results.
 
 ## Search Result JSON Format
 
-#{modelref://SearchResult}
+# {modelref://SearchResult}
 
 #### Possible Types
 
@@ -49,7 +49,7 @@ You can leverage the filtering capabilities of [Google Custom Search](https://de
 For example, only search for artists by specifying an "artist" open-graph type with `more:pagemap:metatags-og_type:artist`.
 
 ```
-curl -v "#{ArtsyAPI::V2.root}/search?q=Andy+Warhol+more:pagemap:metatags-og_type:artist" -H "X-XAPP-Token: XAPP_TOKEN"
+curl -v "#{ArtsyApi::V2.root}/search?q=Andy+Warhol+more:pagemap:metatags-og_type:artist" -H "X-XAPP-Token: XAPP_TOKEN"
 ```
 
 #### Spell Check
@@ -57,18 +57,18 @@ curl -v "#{ArtsyAPI::V2.root}/search?q=Andy+Warhol+more:pagemap:metatags-og_type
 If the API fails to find any results for a term it will attempt to correct its spelling. The response will be a 302 redirect to the suggested search URL. For example, searching for "Tauba Orbach" will redirect to a search for "Tauba Auerbach".
 
 ```
-curl -v "#{ArtsyAPI::V2.root}/search?q=Tauba+Orbach" -H "X-XAPP-Token: XAPP_TOKEN"
+curl -v "#{ArtsyApi::V2.root}/search?q=Tauba+Orbach" -H "X-XAPP-Token: XAPP_TOKEN"
 
 < HTTP/1.1 302 Found
 < Content-Type: application/json
-< Location: #{ArtsyAPI::V2.root}/api/search?q=Tauba+Auerbach
+< Location: #{ArtsyApi::V2.root}/api/search?q=Tauba+Auerbach
 ```
 
 ``` json
 {
   "_links" : {
     "location" : {
-      "href" : "#{ArtsyAPI::V2.root}/search?q=Tauba+Auerbach"
+      "href" : "#{ArtsyApi::V2.root}/search?q=Tauba+Auerbach"
     }
   }
 }
