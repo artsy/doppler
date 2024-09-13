@@ -1,9 +1,0 @@
-development: &default
-  api_root: <%= "#{ENV['ARTSY_API_URL'] || 'https://stagingapi.artsy.net'}" %>
-  api_v1_root: <%= "#{ENV['ARTSY_API_URL'] || 'https://stagingapi.artsy.net'}/api/v1" %>
-test:
-  <<: *default
-  api_root: "http://doppler-test.test.net"
-  api_v1_root: "http://doppler-test.test.net/api/v1"
-production:
-  <<: *default
