@@ -1,0 +1,26 @@
+%h1 My Configured Partners
+
+- if !@client_application_partners
+
+  .alert.alert-danger
+    There was an error retrieving applications: #{@error}.
+
+- elsif @client_application_partners.any?
+
+  %table.table.table-bordered.table-striped
+    %thead
+      %tr
+        %th ID
+        %th Client Application ID
+        %th Partner ID
+        %th Created
+        %th Last Updated At
+
+    %tbody.applications
+      - @client_application_partners.each do |client_application_partner|
+        %tr
+          %td.id= client_application_partner.id
+          %td.client_application_id= client_application_partner.client_application_id
+          %td.partner_id= client_application_partner.partner_id
+          %td.created_at= DateTime.parse(client_application_partner.created_at).strftime("%B %d, %Y")
+          %td.updated_at= DateTime.parse(client_application_partner.updated_at).strftime("%B %d, %Y")
