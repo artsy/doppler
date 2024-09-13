@@ -1,4 +1,4 @@
-FROM ruby:3.0.2
+FROM ruby:2.7.5
 
 ENV PORT 8080
 EXPOSE 8080
@@ -16,7 +16,10 @@ RUN curl -sL https://deb.nodesource.com/setup_12.x | bash - \
 
 COPY Gemfile* ./
 
-RUN gem install bundler && bundle update --bundler \
+# Install a compatible version of rubygems-update
+RUN gem install rubygems-update -v 3.3.26 && update_rubygems
+
+RUN gem install bundler -v 2.4.22 \
   && bundle
 
 COPY . ./
