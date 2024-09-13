@@ -23,7 +23,7 @@ class ClientApplicationsController < ApplicationController
   end
 
   def update
-    @client_application._put(**client_application_params.to_h)
+    @client_application._put(client_application_params.to_h)
     fetch_client_application
     render :show
   end
