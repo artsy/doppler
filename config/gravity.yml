@@ -5,5 +5,7 @@ test:
   <<: *default
   api_root: "http://doppler-test.test.net"
   api_v1_root: "http://doppler-test.test.net/api/v1"
+staging:
+  <<: *default
 production:
   <<: *default
