@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :client_applications
 
   mount ArtsyAuth::Engine => "/"
-  
+
   get "/health/ping", to: "health#ping"
   get "/docs", to: "pages#show", id: "docs"
 
