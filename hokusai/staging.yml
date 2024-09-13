@@ -46,7 +46,8 @@ spec:
         image: 585031190124.dkr.ecr.us-east-1.amazonaws.com/doppler:staging
         imagePullPolicy: Always
         ports:
-        - containerPort: 8080
+        - name: doppler-http
+          containerPort: 8080
         resources:
           requests:
             cpu: 100m
