@@ -5,7 +5,7 @@ describe HealthController, type: :controller do
     it "returns a successful response with status ok" do
       get :ping
       expect(response.status).to eq(200)
-      expect(JSON.parse(response.body)).to eq({"status" => "ok"})
+      expect(response.parsed_body).to eq({"status" => "ok"})
     end
   end
 end
