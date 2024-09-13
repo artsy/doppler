@@ -53,6 +53,16 @@ spec:
             memory: 256Mi
           limits:
             memory: 500Mi
+          readinessProbe:
+            httpGet:
+              port: doppler-http
+              path: /health/ping
+              httpHeaders:
+                - name: X-Forwarded-Proto
+                  value: https
+            initialDelaySeconds: 10
+            periodSeconds: 10
+            timeoutSeconds: 5
       dnsPolicy: ClusterFirst
       dnsConfig:
         options:
