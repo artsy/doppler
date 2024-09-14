@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   mount ArtsyAuth::Engine => "/"
 
+  get "/health/ping", to: "health#ping"
   get "/docs", to: "pages#show", id: "docs"
 
   # Partner API

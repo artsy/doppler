@@ -46,13 +46,24 @@ spec:
         image: 585031190124.dkr.ecr.us-east-1.amazonaws.com/doppler:staging
         imagePullPolicy: Always
         ports:
-        - containerPort: 8080
+        - name: doppler-http
+          containerPort: 8080
         resources:
           requests:
             cpu: 100m
             memory: 256Mi
           limits:
             memory: 500Mi
+        readinessProbe:
+          httpGet:
+            port: doppler-http
+            path: /health/ping
+            httpHeaders:
+              - name: X-Forwarded-Proto
+                value: https
+          initialDelaySeconds: 10
+          periodSeconds: 10
+          timeoutSeconds: 5
       dnsPolicy: ClusterFirst
       dnsConfig:
         options:
