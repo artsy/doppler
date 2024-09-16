@@ -1,8 +1,8 @@
 # API Client for Gravity V1
 class Gravity
-  class << self
-    GRAVITY_V1_API_URL = Rails.application.config_for(:gravity)["api_v1_root"]
+  GRAVITY_V1_API_URL = Rails.application.config_for(:gravity)["api_v1_root"]
 
+  class << self
     class GravityError < StandardError; end
 
     class GravityNotFoundError < GravityError; end
