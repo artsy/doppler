@@ -1,11 +1,9 @@
 %h1 My Configured Partners
 
-= link_to "Back to App", client_application_path(@client_application_partners.first.client_application_id), class: 'btn'
-
-- if !@client_application_partners
-
-  .alert.alert-danger
-    There was an error retrieving applications: #{@error}.
+= link_to "Back to App", client_application_path(params[:client_application_id]), class: 'btn'
+- if !@client_application_partners.any?
+  .alert.alert-warning
+    There are no configured partners for this application. Please reach out to your Artsy representative to configure partners.
 
 - elsif @client_application_partners.any?
   %table.table.table-bordered.table-striped

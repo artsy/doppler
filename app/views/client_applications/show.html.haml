@@ -42,7 +42,7 @@
         %td#roles= @client_application.roles.join(', ')
     -if @client_application.api_version == 1
       %tr
-        %th.text-right Configured Client Application Partners
+        %th.text-right Configured Application Partners
         %td#client_application_partners
           = link_to "Link", client_application_client_application_partners_path(@client_application.id)
 
