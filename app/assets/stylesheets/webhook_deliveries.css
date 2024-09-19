@@ -1,0 +1,12 @@
+.response-status-success {
+  background-color: #d4edda;
+}
+.response-status-warning {
+  background-color: #fff3cd; 
+}
+.response-status-danger {
+  background-color: #f8d7da;
+}
+.response-status-default {
+  background-color: #f8f9fa;
+}
