@@ -1,26 +1,30 @@
 %h1 My Configured Partners
 
-- if !@client_application_partners
-
-  .alert.alert-danger
-    There was an error retrieving applications: #{@error}.
+= link_to "Back to App", client_application_path(params[:client_application_id]), class: 'btn'
+- if !@client_application_partners.any?
+  .alert.alert-warning
+    There are no configured partners for this application. Please reach out to your Artsy representative to configure partners.
 
 - elsif @client_application_partners.any?
-
   %table.table.table-bordered.table-striped
     %thead
       %tr
         %th ID
-        %th Client Application ID
+        %th Client App Name
+        %th Client App ID
+        %th Partner Name
         %th Partner ID
         %th Created
-        %th Last Updated At
+        %th Last Updated
 
     %tbody.applications
       - @client_application_partners.each do |client_application_partner|
         %tr
           %td.id= client_application_partner.id
+          %td.client_application_name
+            = link_to client_application_partner.client_application_name, client_application_path(client_application_partner.client_application_id)
           %td.client_application_id= client_application_partner.client_application_id
+          %td.partner_name= client_application_partner.partner_name
           %td.partner_id= client_application_partner.partner_id
           %td.created_at= DateTime.parse(client_application_partner.created_at).strftime("%B %d, %Y")
           %td.updated_at= DateTime.parse(client_application_partner.updated_at).strftime("%B %d, %Y")

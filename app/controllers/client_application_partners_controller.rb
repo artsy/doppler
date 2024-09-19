@@ -17,7 +17,9 @@ class ClientApplicationPartnersController < ApplicationController
     ClientApplicationPartner.new(
       id: data[:id],
       partner_id: data[:partner_id],
+      partner_name: data[:partner_name],
       client_application_id: data[:client_application_id],
+      client_application_name: data[:client_application_name],
       created_at: data[:created_at],
       updated_at: data[:updated_at]
     )
