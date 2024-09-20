@@ -3,7 +3,6 @@ class ClientApplicationPartnersController < ApplicationController
     client_application_id = params[:client_application_id]
     response = ClientApplicationPartnerService.fetch_partners(client_application_id, session[:access_token])
 
-    # Convert each response hash into a ClientApplicationPartner object
     @client_application_partners = response.map do |partner_data|
       build_client_application_partner(partner_data)
     end

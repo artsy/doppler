@@ -1,18 +1,22 @@
 class WebhookDeliveriesController < ApplicationController
   def index
     page = params[:page] || 1
-    per_page = params[:per_page] || 10
-
+    size = params[:size] || 10
     client_application_id = params[:client_application_id]
-    url = "#{Gravity::GRAVITY_V1_API_URL}/webhook_deliveries"
-    response = Gravity.get(url: url, additional_headers: {"X-Access-Token": session[:access_token]}, params: {client_application_id: "4f27b387-0879-4dab-a032-5718e8054188", page: page, size: per_page})
+
+    response = ClientApplicationService.fetch_webhook_deliveries(
+      session[:access_token],
+      client_application_id: client_application_id, page: page, size: size
+    )
 
     @webhook_deliveries = response.map do |webhook_delivery_data|
       build_webhook_delivery(webhook_delivery_data)
     end
 
-    @total_pages = 10 # FIX ME: response.headers["X-Total-Count"]
+    @total_pages = 1 # FIX ME: response.headers["X-Total-Count"]
     @current_page = page.to_i
+  rescue => e
+    @error = e.message
   end
 
   private
