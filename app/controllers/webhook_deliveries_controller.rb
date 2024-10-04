@@ -13,7 +13,7 @@ class WebhookDeliveriesController < ApplicationController
       build_webhook_delivery(webhook_delivery_data)
     end
 
-    @total_pages = 1 # FIX ME: response.headers["X-Total-Count"]
+    @total_pages = response.headers["X-Total-Count"]
     @current_page = page.to_i
   rescue => e
     @error = e.message
