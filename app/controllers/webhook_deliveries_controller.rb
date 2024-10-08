@@ -19,6 +19,32 @@ class WebhookDeliveriesController < ApplicationController
     @error = e.message
   end
 
+  def show
+    # TODO: unstub
+    @webhook_delivery = {"id" => "210e2eb8-af39-495f-baba-ca589860ea07",
+                         "created_at" => "2024-10-03T15:57:47.767Z",
+                         "completed_at" => "2024-10-08T10:57:46.741Z",
+                         "error_class" => nil,
+                         "response_status" => 200,
+                         "webhook_event" =>
+     {"created_at" => 1728403067,
+      "data" =>
+       {"sales_tax" => 10.0,
+        "artwork_id" => "1234",
+        "list_price" => 855.35,
+        "sale_price" => 755.35,
+        "external_id" => "4321",
+        "availability" => "sold",
+        "import_source" => "somewhere",
+        "price_display" => "exact",
+        "shipping_costs" => 90.0},
+      "id" => "a4ca6be7-2a86-4e5c-80de-988af1ae651a",
+      "name" => "artwork.order.approved",
+      "partner_id" => "1234"},
+                         "webhook_id" => "e01cd7e5-1a03-43a5-8463-a8dad1549e2a",
+                         "webhook_url" => "https://www.cool.com/endpoint"}.as_json
+  end
+
   private
 
   def build_webhook_delivery(data)

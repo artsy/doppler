@@ -18,7 +18,7 @@
 
     %tbody.applications
       - @webhook_deliveries.each do |webhook_delivery|
-        %tr
+        %tr{ data: { url: client_application_webhook_delivery_path(params[:client_application_id], webhook_delivery.id) }, class: 'clickable-row' }
           %td.event_type= webhook_delivery.webhook_event.name
           %td.id= webhook_delivery.id
           %td.response_status{ class: status_class(webhook_delivery.response_status) }= webhook_delivery.response_status
