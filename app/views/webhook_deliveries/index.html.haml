@@ -9,7 +9,7 @@
   %table.table.table-bordered.table-striped
     %thead
       %tr
-        %th Event Type
+        %th Event Name
         %th ID
         %th Response Status
         %th Error Class
@@ -19,7 +19,7 @@
     %tbody.applications
       - @webhook_deliveries.each do |webhook_delivery|
         %tr{ data: { url: client_application_webhook_delivery_path(params[:client_application_id], webhook_delivery.id) }, class: 'clickable-row' }
-          %td.event_type= webhook_delivery.webhook_event.name
+          %td.event_name= webhook_delivery.webhook_event.name
           %td.id= webhook_delivery.id
           %td.response_status{ class: status_class(webhook_delivery.response_status) }= webhook_delivery.response_status
           %td.error_class= webhook_delivery.error_class
