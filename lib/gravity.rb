@@ -19,7 +19,8 @@ class Gravity
       results = JSON.parse(response.body, symbolize_names: true)
       raise GravityError, "Couldn't perform request! status: #{response.status}. Message: #{results[:message]}" unless response.success?
 
-      results
+      # Return both the body and only the `X-Total-Count` header part of the response
+      {body: results, headers: {"X-Total-Count" => response.headers["X-Total-Count"]}}
     end
 
     private
