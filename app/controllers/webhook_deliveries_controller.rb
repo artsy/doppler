@@ -4,13 +4,18 @@ class WebhookDeliveriesController < ApplicationController
     size = params[:size] || 10
     client_application_id = params[:client_application_id]
 
-    response = ClientApplicationService.fetch_webhook_deliveries(
-      session[:access_token],
-      client_application_id: client_application_id, page: page, size: size
-    )
+    cache_key = "webhook_deliveries/#{client_application_id}/page/#{page}/size/#{size}"
 
-    @webhook_deliveries = response.map do |webhook_delivery_data|
-      build_webhook_delivery(webhook_delivery_data)
+    # Use Rails.cache to cache the API response across requests
+    @webhook_deliveries = Rails.cache.fetch(cache_key, expires_in: 10.minutes) do
+      response = ClientApplicationService.fetch_webhook_deliveries(
+        session[:access_token],
+        client_application_id: client_application_id, page: page, size: size
+      )
+
+      response.map do |webhook_delivery_data|
+        build_webhook_delivery(webhook_delivery_data)
+      end
     end
 
     @total_pages = 1 # FIX ME: response.headers["X-Total-Count"]
