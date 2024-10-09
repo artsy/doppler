@@ -1,11 +1,15 @@
 class ClientApplicationPartnersController < ApplicationController
+  include Paginatable
   def index
     client_application_id = params[:client_application_id]
     response = ClientApplicationPartnerService.fetch_partners(client_application_id, session[:access_token])
 
-    @client_application_partners = response.map do |partner_data|
+    @client_application_partners = response[:body].map do |partner_data|
       build_client_application_partner(partner_data)
     end
+
+    @total_pages = calculate_total_pages(response[:headers]["X-Total-Count"].to_i, @size)
+    @current_page = @page.to_i
   rescue => e
     @error = e.message
   end

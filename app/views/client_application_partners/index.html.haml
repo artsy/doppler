@@ -28,3 +28,7 @@
           %td.partner_id= client_application_partner.partner_id
           %td.created_at= DateTime.parse(client_application_partner.created_at).strftime("%B %d, %Y")
           %td.updated_at= DateTime.parse(client_application_partner.updated_at).strftime("%B %d, %Y")
+
+
+  = link_to 'Previous', client_application_webhook_deliveries_path(page: @current_page - 1) if @current_page > 1
+  = link_to 'Next', client_application_webhook_deliveries_path(page: @current_page + 1) if @current_page < @total_pages

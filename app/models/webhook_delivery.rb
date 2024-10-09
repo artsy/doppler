@@ -1,7 +1,7 @@
 class WebhookDelivery
   include ActiveModel::Model
 
-  attr_accessor :id, :response_status, :error_class, :created_at, :completed_at, :webhook_event
+  attr_accessor :id, :response_status, :error_class, :created_at, :completed_at, :webhook_event, :webhook_id, :webhook_url
 
   def initialize(attributes = {})
     super
