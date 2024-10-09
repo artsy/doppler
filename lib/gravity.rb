@@ -19,7 +19,8 @@ class Gravity
       results = JSON.parse(response.body, symbolize_names: true)
       raise GravityError, "Couldn't perform request! status: #{response.status}. Message: #{results[:message]}" unless response.success?
 
-      results
+      # Return both headers and body as part of the response
+      {body: results, headers: response.headers}
     end
 
     private
