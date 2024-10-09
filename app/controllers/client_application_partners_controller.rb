@@ -1,11 +1,17 @@
 class ClientApplicationPartnersController < ApplicationController
   def index
+    page = params[:page] || 1
+    size = params[:size] || 10
+
     client_application_id = params[:client_application_id]
     response = ClientApplicationPartnerService.fetch_partners(client_application_id, session[:access_token])
 
-    @client_application_partners = response.map do |partner_data|
+    @client_application_partners = response[:body].map do |partner_data|
       build_client_application_partner(partner_data)
     end
+
+    @total_pages = calculate_total_pages(response[:headers]["X-Total-Count"].to_i, size)
+    @current_page = page.to_i
   rescue => e
     @error = e.message
   end
@@ -22,6 +28,10 @@ class ClientApplicationPartnersController < ApplicationController
       created_at: data[:created_at],
       updated_at: data[:updated_at]
     )
+  end
+
+  def calculate_total_pages(total_records, size)
+    (total_records / size.to_f).ceil
   end
 
   def client_application_partner_params
