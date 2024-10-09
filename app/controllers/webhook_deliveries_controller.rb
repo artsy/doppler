@@ -1,23 +1,21 @@
 class WebhookDeliveriesController < ApplicationController
+  include Paginatable
   before_action :set_client_application_id, :set_access_token
 
   def index
-    page = params[:page] || 1
-    size = params[:size] || 10
-
-    cache_key = "webhook_deliveries/#{@client_application_id}/page/#{page}/size/#{size}"
+    cache_key = "webhook_deliveries/#{@client_application_id}/page/#{@page}/size/#{@size}"
 
     # Use Rails.cache to cache the API response across requests
     response = Rails.cache.fetch(cache_key, expires_in: 10.minutes) do
-      fetch_webhook_deliveries(page, size)
+      fetch_webhook_deliveries
     end
 
     @webhook_deliveries = response[:body].map do |webhook_delivery_data|
       build_webhook_delivery(webhook_delivery_data)
     end
 
-    @total_pages = calculate_total_pages(response[:headers]["X-Total-Count"].to_i, size)
-    @current_page = page.to_i
+    @total_pages = calculate_total_pages(response[:headers]["X-Total-Count"].to_i, @size)
+    @current_page = @page.to_i
   rescue => e
     @error = e.message
   end
@@ -48,16 +46,12 @@ class WebhookDeliveriesController < ApplicationController
     )
   end
 
-  def calculate_total_pages(total_records, size)
-    (total_records / size.to_f).ceil
-  end
-
-  def fetch_webhook_deliveries(page, size)
+  def fetch_webhook_deliveries
     response = ClientApplicationService.fetch_webhook_deliveries(
       @access_token,
       client_application_id: @client_application_id,
-      page: page,
-      size: size,
+      page: @page,
+      size: @size,
       total_count: true
     )
 
