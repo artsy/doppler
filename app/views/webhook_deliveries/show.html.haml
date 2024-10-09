@@ -1,0 +1,43 @@
+%h1 Webhook Delivery Details
+
+= link_to "Back to Webhook List", client_application_webhook_deliveries_path(params[:client_application_id]), class: 'btn'
+- if @error.present?
+  .alert.alert-warning
+    Something went wrong!
+- else
+  %table.table.table-bordered
+    %tr
+      %th Event Name
+      %td= @webhook_delivery.webhook_event.name
+
+    %tr
+      %th Response Status
+      %td{ class: status_class(@webhook_delivery.response_status) }= @webhook_delivery.response_status
+
+    %tr
+      %th Error Class
+      %td= @webhook_delivery.error_class || "None"
+
+    %tr
+      %th Created At
+      %td= @webhook_delivery.created_at && DateTime.parse(@webhook_delivery.created_at).strftime("%B %d, %Y")
+
+    %tr
+      %th Completed At
+      %td= @webhook_delivery.completed_at && DateTime.parse(@webhook_delivery.completed_at).strftime("%B %d, %Y")
+
+
+    %tr
+      %th Webhook ID
+      %td= @webhook_delivery.webhook_id
+
+    %tr
+      %th Configured Webhook Endpoint URL
+      %td= @webhook_delivery.webhook_url
+
+  %h2 Webhook Event Payload
+
+  %pre
+    %code
+      = JSON.pretty_generate(@webhook_delivery.webhook_event.as_json)
+
