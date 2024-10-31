@@ -35,6 +35,13 @@
       %th Configured Webhook Endpoint URL
       %td= @webhook_delivery.webhook_url
 
+    %tr
+      %th Redeliver
+      %td.actions
+        = link_to 'Redeliver', redeliver_client_application_webhook_delivery_path(params[:client_application_id], @webhook_delivery.id), method: :post, data: { confirm: "Are you sure?" }, class: 'btn btn-primary'
+
+
+
   %h2 Webhook Event Payload
 
   %pre

@@ -31,6 +31,21 @@ class WebhookDeliveriesController < ApplicationController
     @error = e.message
   end
 
+  def redeliver
+    response = ClientApplicationService.redeliver_webhook_delivery(
+      @access_token,
+      id: params[:id]
+    )
+
+    if response[:body][:status] == "success"
+      flash[:notice] = "Webhook redelivery initiated successfully."
+    else
+      flash[:alert] = "Failed to redeliver the webhook event: #{response[:error]}"
+    end
+
+    redirect_back(fallback_location: client_application_webhook_delivery_path(params[:client_application_id], params[:id]))
+  end
+
   private
 
   def build_webhook_delivery(data)
