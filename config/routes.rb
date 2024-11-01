@@ -3,7 +3,11 @@ Rails.application.routes.draw do
 
   resources :client_applications do
     resources :client_application_partners, only: [:index]
-    resources :webhook_deliveries, only: [:index, :show]
+    resources :webhook_deliveries, only: [:index, :show] do
+      member do
+        post :redeliver
+      end
+    end
   end
 
   mount ArtsyAuth::Engine => "/"

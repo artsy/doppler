@@ -15,6 +15,7 @@
         %th Error Class
         %th Created At
         %th Completed At
+        %th &nbsp;
 
     %tbody.applications
       - @webhook_deliveries.each do |webhook_delivery|
@@ -25,6 +26,9 @@
           %td.error_class= webhook_delivery.error_class
           %td.created_at= webhook_delivery.created_at && DateTime.parse(webhook_delivery.created_at).strftime("%B %d, %Y")
           %td.completed_at= webhook_delivery.completed_at && DateTime.parse(webhook_delivery.completed_at).strftime("%B %d, %Y")
+          %td.actions
+            = link_to 'Redeliver', redeliver_client_application_webhook_delivery_path(params[:client_application_id], webhook_delivery.id), method: :post, data: { confirm: "Are you sure?" }, class: 'btn btn-primary'
+
 
 
   = link_to 'Previous', client_application_webhook_deliveries_path(page: @current_page - 1) if @current_page > 1

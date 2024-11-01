@@ -13,6 +13,12 @@ class Gravity
       process(response)
     end
 
+    def post(url:, additional_headers: {}, params: {})
+      response = Faraday.post(url, params, headers.merge(additional_headers))
+
+      process(response)
+    end
+
     def process(response)
       raise GravityNotFoundError if response.status == 404
 
