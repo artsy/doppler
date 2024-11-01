@@ -1,4 +1,4 @@
-FROM ruby:3.0.2
+FROM ruby:3.3.0
 
 ENV PORT 8080
 EXPOSE 8080

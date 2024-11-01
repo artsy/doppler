@@ -112,7 +112,6 @@ GEM
     connection_pool (2.4.1)
     crass (1.0.6)
     dalli (3.2.8)
-    data_uri (0.1.0)
     datadog-ci (0.8.3)
       msgpack
     date (3.3.4)
@@ -470,7 +469,6 @@ DEPENDENCIES
   coderay
   coffee-rails
   dalli
-  data_uri
   ddtrace
   faraday (~> 0.9)
   foreman
@@ -504,7 +502,7 @@ DEPENDENCIES
   uglifier
 
 RUBY VERSION
-   ruby 3.0.2p107
+   ruby 3.3.0p0
 
 BUNDLED WITH
    2.5.18

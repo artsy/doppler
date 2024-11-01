@@ -1,13 +1,12 @@
 source "https://rubygems.org"
 
-ruby "3.0.2"
+ruby "3.3.0"
 
 gem "artsy-auth"
 gem "bootstrap_form"
 gem "coderay"
 gem "coffee-rails"
 gem "dalli"
-gem "data_uri"
 gem "ddtrace"
 gem "faraday", "~> 0.9"
 gem "foreman"
