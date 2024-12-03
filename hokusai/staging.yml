@@ -38,7 +38,7 @@ spec:
         - src/load/load.py
         - kubernetes
         - staging
-        - doppler`
+        - doppler
         envFrom:
         - configMapRef:
             name: secrets-config
