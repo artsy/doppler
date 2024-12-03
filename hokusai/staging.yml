@@ -29,6 +29,22 @@ spec:
         app.kubernetes.io/version: staging
       name: doppler-web
     spec:
+      initContainers:
+      - name: setenv
+        image: 585031190124.dkr.ecr.us-east-1.amazonaws.com/fortress:staging
+        imagePullPolicy: Always
+        args:
+        - python
+        - src/load/load.py
+        - kubernetes
+        - staging
+        - doppler
+        envFrom:
+        - configMapRef:
+            name: secrets-config
+        volumeMounts:
+        - name: secrets
+          mountPath: /secrets
       containers:
       - name: doppler-web
         env:
@@ -42,7 +58,12 @@ spec:
               fieldPath: metadata.labels['app.kubernetes.io/version']
         envFrom:
         - configMapRef:
+            name: secrets-config
+        - configMapRef:
             name: doppler-environment
+        volumeMounts:
+        - name: secrets
+          mountPath: /secrets
         image: 585031190124.dkr.ecr.us-east-1.amazonaws.com/doppler:staging
         imagePullPolicy: Always
         ports:
@@ -69,6 +90,7 @@ spec:
         options:
         - name: ndots
           value: '1'
+      serviceAccountName: doppler
       affinity:
         nodeAffinity:
           requiredDuringSchedulingIgnoredDuringExecution:
@@ -78,6 +100,9 @@ spec:
                 operator: In
                 values:
                 - foreground
+      volumes:
+      - name: secrets
+        emptyDir: {}
 ---
 apiVersion: v1
 kind: Service
