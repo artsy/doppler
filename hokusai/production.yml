@@ -33,7 +33,7 @@ spec:
       - name: setenv
         image: 585031190124.dkr.ecr.us-east-1.amazonaws.com/fortress:staging
         imagePullPolicy: Always
-        command:
+        args:
         - python
         - src/load/load.py
         - kubernetes
