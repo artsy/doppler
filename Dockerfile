@@ -11,7 +11,7 @@ WORKDIR /app
 
 RUN curl -sL https://deb.nodesource.com/setup_12.x | bash - \
   && apt-get update -qq \
-  && apt-get install -y build-essential nodejs tzdata \
+  && apt-get install -y build-essential nodejs tzdata dumb-init \
   && rm -rf /var/lib/apt/lists/*
 
 COPY Gemfile* ./
