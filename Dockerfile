@@ -28,4 +28,6 @@ RUN mkdir /shared/pids
 RUN mkdir /shared/sockets
 RUN bundle exec rake assets:precompile
 
+ENTRYPOINT ["/usr/bin/dumb-init", "./scripts/load_secrets_and_run.sh"]
+
 CMD ["bundle", "exec", "puma", "-C", "config/puma.config"]
