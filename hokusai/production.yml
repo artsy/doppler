@@ -31,13 +31,13 @@ spec:
     spec:
       initContainers:
       - name: setenv
-        image: 585031190124.dkr.ecr.us-east-1.amazonaws.com/fortress:staging
+        image: 585031190124.dkr.ecr.us-east-1.amazonaws.com/fortress:production
         imagePullPolicy: Always
         args:
         - python
         - src/load/load.py
         - kubernetes
-        - staging
+        - production
         - doppler
         envFrom:
         - configMapRef:
