@@ -2,6 +2,8 @@ source "https://rubygems.org"
 
 ruby "3.3.0"
 
+gem "rails", "7.1.4.1"
+
 gem "artsy-auth"
 gem "bootstrap_form"
 gem "coderay"
@@ -18,7 +20,6 @@ gem "jquery-rails"
 gem "nokogiri"
 gem "oauth2", "1.4.9"
 gem "puma"
-gem "rails", "~> 7.0"
 gem "redcarpet"
 gem "redis-rails"
 gem "sass-rails"
