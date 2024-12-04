@@ -485,7 +485,7 @@ DEPENDENCIES
   nokogiri
   oauth2 (= 1.4.9)
   puma
-  rails (~> 7.0)
+  rails (= 7.1.4.1)
   redcarpet
   redis-rails
   rspec-rails
