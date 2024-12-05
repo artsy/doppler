@@ -41,7 +41,7 @@ spec:
         - doppler
         envFrom:
         - configMapRef:
-            name: secrets-config
+          name: secrets-config
         volumeMounts:
         - name: secrets
           mountPath: /secrets
