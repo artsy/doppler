@@ -62,6 +62,7 @@ spec:
         - configMapRef:
           name: doppler-environment
         volumeMounts:
+        - name: secrets
           mountPath: /secrets
         image: 585031190124.dkr.ecr.us-east-1.amazonaws.com/doppler:production
         imagePullPolicy: Always
