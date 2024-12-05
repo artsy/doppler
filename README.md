@@ -3,7 +3,10 @@
 [![CircleCI](https://circleci.com/gh/artsy/doppler.svg?style=svg)](https://circleci.com/gh/artsy/doppler)
 [![Code Climate](https://codeclimate.com/github/artsy/doppler.svg)](https://codeclimate.com/github/artsy/doppler)
 
-I am Doppler, the Artsy developer website. You can see me at [developers.artsy.net](https://developers.artsy.net).
+I am Doppler, the Artsy developer website. 
+
+- **Production:** [developers.artsy.net](https://developers.artsy.net)
+- **Staging:** [developers-staging.artsy.net/](https://developers-staging.artsy.net/)
 
 ### Setup
 
