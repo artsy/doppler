@@ -41,7 +41,7 @@ spec:
         - doppler
         envFrom:
         - configMapRef:
-          name: secrets-config
+            name: secrets-config
         volumeMounts:
         - name: secrets
           mountPath: /secrets
@@ -58,12 +58,13 @@ spec:
               fieldPath: metadata.labels['app.kubernetes.io/version']
         envFrom:
         - configMapRef: 
-          name: secrets-config
+            name: secrets-config
         - configMapRef:
-          name: doppler-environment
+            name: doppler-environment
         volumeMounts:
         - name: secrets
           mountPath: /secrets
+          readOnly: true
         image: 585031190124.dkr.ecr.us-east-1.amazonaws.com/doppler:production
         imagePullPolicy: Always
         ports:
