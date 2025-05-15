@@ -35,7 +35,5 @@
             = link_to 'destroy', client_application_path(client_application.id), disabled: client_application.api_version == 1, method: :delete, data: { confirm: "Are you sure?" }, class: 'btn btn-danger'
 - else
 
-  .alert.alert-success
-    In order to get started with the Artsy API, you must create a new app. Each app has a unique client ID and secret.
-
-  = link_to "Create a New App", new_client_application_path, class: 'btn btn-primary btn-lg'
+  .alert.alert-danger
+    No apps found
