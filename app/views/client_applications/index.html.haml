@@ -35,5 +35,5 @@
             = link_to 'destroy', client_application_path(client_application.id), disabled: client_application.api_version == 1, method: :delete, data: { confirm: "Are you sure?" }, class: 'btn btn-danger'
 - else
 
-  .alert.alert-danger
+  .alert.alert-info
     No apps found
