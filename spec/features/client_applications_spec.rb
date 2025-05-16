@@ -21,8 +21,7 @@ describe "Client Applications" do
       end
       it "creates an app" do
         expect(ArtsyApi::V2).to receive_message_chain(:client, :applications, :_post).with(name: "Name", redirect_urls: [])
-        visit "/client_applications"
-        click_link "Create a New App"
+        visit "/client_applications/new"
         fill_in "Name", with: "Name"
         click_button "Save"
       end
