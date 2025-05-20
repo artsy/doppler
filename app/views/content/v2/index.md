@@ -2,7 +2,6 @@
 
 ### General
 
-* [Getting Started](/v2/start)
 * [Authentication](/v2/docs/authentication)
 * [Requests & Responses](/v2/docs/http)
 * [Pagination And Sets](/v2/docs/pagination)

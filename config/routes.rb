@@ -57,7 +57,6 @@ Rails.application.routes.draw do
   ].each do |page|
     get "/v2/docs/#{page}", to: "pages#show", id: "v2/docs/#{page}"
   end
-  get "/v2/start", to: "v2/start#show"
   get "/v2/playground", to: "playground#index"
   get "/v2/terms", to: "pages#show", id: "v2/terms"
 

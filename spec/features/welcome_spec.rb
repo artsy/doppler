@@ -11,9 +11,6 @@ describe "Welcome" do
     it "renders a welcome message" do
       expect(page.body).to include "The Art World in Your App"
     end
-    it "displays the count of available artworks" do
-      expect(page.body).to include "123 artworks available"
-    end
   end
   pending "signs in"
   pending "signs out"
