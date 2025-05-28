@@ -3,23 +3,9 @@ class ClientApplicationsController < ApplicationController
 
   before_action :fetch_client_application, only: %i[show edit destroy update]
   before_action :no_cache!, except: [:index]
-  before_action :parse_redirect_uris, only: %i[update create]
-
-  def new
-    @client_application = ClientApplication.new
-  end
+  before_action :parse_redirect_uris, only: %i[update]
 
   def show
-  end
-
-  def create
-    redirect_uri = safe_redirect_uri(client_application_params.delete(:redirect_uri))
-    @client_application = artsy_client.applications._post(client_application_params.to_h)
-    flash.now[:error] = nil
-    flash.now[:notice] = "Application created!"
-    redirect_uri += "?id=#{@client_application.id}" if @client_application && !redirect_uri.blank?
-    redirect_uri = client_applications_path if redirect_uri.blank?
-    redirect_to redirect_uri
   end
 
   def update

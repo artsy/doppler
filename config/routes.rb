@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root "welcome#index"
 
-  resources :client_applications do
+  resources :client_applications, except: [:new] do
     resources :client_application_partners, only: [:index]
     resources :webhook_deliveries, only: [:index, :show] do
       member do
