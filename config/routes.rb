@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root "welcome#index"
 
-  resources :client_applications do
+  resources :client_applications, except: [:new] do
     resources :client_application_partners, only: [:index]
     resources :webhook_deliveries, only: [:index, :show] do
       member do
@@ -57,7 +57,6 @@ Rails.application.routes.draw do
   ].each do |page|
     get "/v2/docs/#{page}", to: "pages#show", id: "v2/docs/#{page}"
   end
-  get "/v2/start", to: "v2/start#show"
   get "/v2/playground", to: "playground#index"
   get "/v2/terms", to: "pages#show", id: "v2/terms"
 
