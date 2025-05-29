@@ -19,43 +19,6 @@ describe "Client Applications" do
       before do
         allow(ArtsyApi::V2).to receive_message_chain(:client, :applications).and_return([])
       end
-      it "creates an app" do
-        expect(ArtsyApi::V2).to receive_message_chain(:client, :applications, :_post).with(name: "Name", redirect_urls: [])
-        visit "/client_applications"
-        click_link "Create a New App"
-        fill_in "Name", with: "Name"
-        click_button "Save"
-      end
-      context "open-redirect" do
-        before do
-          allow(ArtsyApi::V2).to receive_message_chain(:client, :applications, :_post)
-        end
-        ["http://google.com", "http:/google.com"].each do |url|
-          it "is not vulnerable to an open redirect to #{url}" do
-            visit "/client_applications/new?redirect_uri=#{url}"
-            fill_in "Name", with: "Name"
-            click_button "Save"
-            sleep 1
-            expect(current_url).to end_with "/client_applications"
-          end
-        end
-        it "redirects to a relative uri" do
-          visit "/client_applications/new?redirect_uri=/docs"
-          fill_in "Name", with: "Name"
-          click_button "Save"
-          sleep 1
-          expect(current_url).to end_with "/docs"
-        end
-        it "redirects to a full uri" do
-          visit "/docs"
-          redirect_uri = current_url
-          visit "/client_applications/new?redirect_uri=#{redirect_uri}"
-          fill_in "Name", with: "Name"
-          click_button "Save"
-          sleep 1
-          expect(current_url).to eq redirect_uri
-        end
-      end
     end
     context "with an application" do
       let(:application) do

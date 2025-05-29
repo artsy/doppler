@@ -1,12 +1,25 @@
 ## Doppler
-
 [![CircleCI](https://circleci.com/gh/artsy/doppler.svg?style=svg)](https://circleci.com/gh/artsy/doppler)
 [![Code Climate](https://codeclimate.com/github/artsy/doppler.svg)](https://codeclimate.com/github/artsy/doppler)
 
-I am Doppler, the Artsy developer website. 
+I am Doppler, the Artsy developer website.
 
 - **Production:** [developers.artsy.net](https://developers.artsy.net)
 - **Staging:** [developers-staging.artsy.net/](https://developers-staging.artsy.net/)
+
+---
+
+### Public API Retirement Notice
+
+Please note, we are in the process of retiring the [public api.](developers.artsy.net/v2).
+
+The public api, as well as its documentation and playground, will remain available until **July 28th, 2025.**
+
+This change will not affect partners currently using our [partner api.](developers.artsy.net/v1).
+
+If you're interested in integrating your service with Artsy's partner api, please reach out to ....
+
+---
 
 ### Setup
 
