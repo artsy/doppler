@@ -10,9 +10,10 @@ I am Doppler, the Artsy developer website.
 ---
 
 ### Public API Retirement Notice
+
 Please note, we are in the process of retiring the [public api.](developers.artsy.net/v2).
 
-The public api, as well as its documentation and playground, will remain available until **June 30th, 2025.**
+The public api, as well as its documentation and playground, will remain available until **July 28th, 2025.**
 
 This change will not affect partners currently using our [partner api.](developers.artsy.net/v1).
 
