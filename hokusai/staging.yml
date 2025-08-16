@@ -129,11 +129,11 @@ spec:
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: doppler
+  name: doppler-2025
   annotations:
     nginx.ingress.kubernetes.io/whitelist-source-range: {{ cloudflareIpSourceRanges|join(',') }}
 spec:
-  ingressClassName: nginx
+  ingressClassName: external-nginx
   rules:
   - host: developers-staging.artsy.net
     http:
