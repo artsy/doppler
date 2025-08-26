@@ -6,17 +6,11 @@
 # Exit if any subcommand fails
 set -e
 
-if command -v asdf >/dev/null; then
-  echo "Installing language dependencies with asdf"
-  asdf install
-  # Initialize asdf and ensure it switches to the right Ruby version
-  . ~/.asdf/asdf.sh
-  asdf reshim
-  # Pull the Ruby version from .tool-versions file
-  RUBY_VERSION=$(awk '/ruby/ {print $2}' .tool-versions)
-  asdf shell ruby $RUBY_VERSION
+if command -v mise >/dev/null; then
+  echo "Installing language dependencies with mise"
+  mise install
 else
-  echo "Skipping language dependencies installation (asdf not found)"
+  echo "Skipping language dependencies installation (mise not found)"
 fi
 
 echo "Downloading .env.shared (for common local dev config)..."
