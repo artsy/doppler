@@ -13,7 +13,7 @@ I am Doppler, the Artsy developer website.
 
 Please note, we are in the process of retiring the [public api.](developers.artsy.net/v2).
 
-The public api, as well as its documentation and playground, will remain available until **July 28th, 2025.**
+The public api, as well as its documentation and playground, may be taken down at any time without additional notice.
 
 This change will not affect partners currently using our [partner api.](developers.artsy.net/v1).
 
