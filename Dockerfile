@@ -9,7 +9,7 @@ WORKDIR /app
 # linux-headers: for raindrops that is required by Unicorn
 # bash: for debugging in production
 
-RUN curl -sL https://deb.nodesource.com/setup_12.x | bash - \
+RUN curl -sL https://deb.nodesource.com/setup_18.x | bash - \
   && apt-get update -qq \
   && apt-get install -y build-essential nodejs tzdata dumb-init \
   && rm -rf /var/lib/apt/lists/*
