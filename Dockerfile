@@ -17,7 +17,7 @@ RUN curl -sL https://deb.nodesource.com/setup_12.x | bash - \
 COPY Gemfile* ./
 
 RUN gem install bundler && bundle update --bundler \
-  && bundle
+  && bundle install
 
 COPY . ./
 
