@@ -16,7 +16,9 @@ RUN curl -sL https://deb.nodesource.com/setup_18.x | bash - \
 
 COPY Gemfile* ./
 
-RUN gem install bundler && bundle update --bundler \
+# Pin bundler to Gemfile.lock's version; an unpinned bundler rewrites the lock and drops gems.
+RUN v="$(awk '/^BUNDLED WITH/{getline; print $1; exit}' Gemfile.lock)" \
+  && gem install bundler -v "${v:?BUNDLED WITH missing from Gemfile.lock}" \
   && bundle install
 
 COPY . ./
