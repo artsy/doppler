@@ -1,6 +1,6 @@
 source "https://rubygems.org", cooldown: 10
 
-ruby "3.3.0"
+ruby "3.3.14"
 
 gem "rails", "7.1.4.1"
 
